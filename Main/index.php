@@ -24,7 +24,7 @@
                     
                     $counter++;
 
-                    if($counter > 10){
+                    if($counter > 50){
                         break;
                     }
                 }

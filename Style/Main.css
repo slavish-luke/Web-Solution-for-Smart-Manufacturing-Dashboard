@@ -1,2 +1,29 @@
 @charset "UTF-8";
 
+svg{
+    height: 50px;
+}
+
+#login{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+#login *{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+input{
+    display: block;
+}
+
+#loginButton{
+    margin-top: 30px;
+}
