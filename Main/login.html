@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="no-cache">
     <title>Login Page</title>
-    <link rel="stylesheet" href="../Style/Main.css">
+    <link rel="stylesheet" type="text/css" href="../Style/Main.css">
 </head>
 <body>
     <div id="login">
         <h1>Sign In</h1>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>
+        <div class="iconContainer">
+            <img src="../Style/Images/user-solid.svg" alt="" class="icons">
+        </div>
 
-        <input type="text" placeholder="Username">
-        <input type="text" placeholder="Password">
+        <input type="text" id="username" placeholder="Username" required>
+        <br><br>
+        <input type="text" id="password" placeholder="Password" required>
         <input type="submit" id="loginButton">
 
     </div>
