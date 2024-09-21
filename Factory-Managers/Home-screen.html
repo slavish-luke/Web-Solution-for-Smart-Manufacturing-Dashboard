@@ -3,41 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--SVG style icon library-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../Style/Main.css">
+    <link rel="stylesheet" href="../Style/Skeleton.css">
     <title>Dashboard</title>
 </head>
 
 <header>
     <!--Settings cog-->
     <div class="settings-button">
-        <i class="fas fa-cog"></i>
+        <a href="../Main/settings.html">
+            <img src="../Style/Images/settings-cog.png" alt="Settings cog" id="settingsbutton">
+        </a>
+
+         <!--Home Button-->
+        <div class="home-button">
+            <a href="/Factory-Managers/home-screen.html">
+                <img src="../Style/Images/home-button.png" alt="home button image" id="homebutton">
+            </a>
+        </div>
+
     </div>
 
-    <!--Settings options-->
-    <div class="settings-menu">
-        <ul>
-            <li><a href="a">Machines</a></li>
-            <li><a href="a">Users</a></li>
-            <li><a href="a">Statistics</a></li>
-            <li><a href="../Main/settings.html">Options</a></li>
-            <li><a href="../Main/login.html">Log Out</a></li>
-        </ul>
-    </div>
+
 </header>
 
 <body>
     <aside>
-        <!--Home Button-->
-        <!--Home button used to get back to the home screen-->
-        <div class="home-button">
-            <a href="Home-screen.html">
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-
         <!--Search Bar-->
-        <!--Search bar will be used to search for machines by name-->
         <div class="search-bar">
             <p id="search-bar-name">Machines</p>
             <i class="fas fa-search"></i>
