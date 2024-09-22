@@ -19,12 +19,14 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 100px;
 }
 
 #homeicon {
     width: auto;
     height: 70px;
     margin-left: 100px;
+
 }
 
 /*Settings button*/
