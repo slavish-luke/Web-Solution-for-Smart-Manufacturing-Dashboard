@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>factorylogs test</title>
+    <title>Home</title>
     <meta charset="UTF-8" />
     <meta name="author" content="Luke Kradolfer" />
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
 </head>
 <body>
-    <h1>Machine names</h1>
+    
+    <div id="header">
+        <a href="home.php" class="selected">Home</a>
+        <a href="machines.php">Machines</a>
+        <a href="jobs.php">Jobs</a>
+        <a href="notes.php" class="last" >Notes</a>
+        
+    </div>
 
-    <div id="machine_names">
+
+
+
+
+
 
     </div>
     <?php
@@ -34,6 +47,6 @@
         
     ?>
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="../scripts/script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
