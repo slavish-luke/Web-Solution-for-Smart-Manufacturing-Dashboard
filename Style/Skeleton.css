@@ -26,6 +26,7 @@ header {
     height: 70px;
     margin-top: 20px;
     margin-left: 100px;
+
 }
 
 /*Settings button*/
@@ -33,6 +34,7 @@ header {
     margin-bottom: 20px;
     padding-left: 100px;
     display: block;
+    margin-right: 15px;
 }
 
 #settingsicon {
@@ -101,6 +103,7 @@ aside {
     align-items: flex-start;
     position: relative;
     height: 100vh;
+    overflow-y: auto;
 }
 
 .search-bar {
@@ -118,10 +121,11 @@ aside {
 }
 
 #search-bar {
-    padding: 10px;
+    padding-left: 50px;
+    padding-bottom: 10px;
     border-radius: 25px;
     border: none;
-    width: 90%;
+    width: 80%;
     box-shadow: 0px 4px 10px #333;
     background-image: url(../Style/Images/magnifying-glass.svg);
     background-repeat: no-repeat;
@@ -134,4 +138,8 @@ aside {
     top: 35px;
     right: 35px;
     color: #999;
+}
+
+#search-bar::placeholder {
+    font-size: 20px;
 }
