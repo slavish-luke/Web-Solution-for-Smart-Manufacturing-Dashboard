@@ -47,7 +47,7 @@ input{
     margin-bottom: 90px;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
     font-size: 30px;
     border-radius: 15px;
     background-color: #c9e7f5;
@@ -76,4 +76,24 @@ input[type="text"]{
     margin-top: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #c9e7f5;
+
+
+    /* animation from: https://codepen.io/twhite96/embed/NVJzQW */
+	text-decoration: none;
+	transition: all 0.2s;
+    animation: moveInBottom 5s ease-out;
+	animation-fill-mode: backwards;
+}
+
+
+#loginButton:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+#loginButton:active{
+    transform: translateY(-1px);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
 }
