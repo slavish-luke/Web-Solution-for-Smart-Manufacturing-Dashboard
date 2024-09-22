@@ -45,17 +45,11 @@
         </div>
 
         <!--List of machines-->
-        <div class="machine-list">
-            <ul>
-                <li></li>
-            </ul>
-        </div>
+        <div id="machine-list">
+
     </aside>
 
-
-
-
-
+<!--PHP code for machines-->
     <?php
         require_once "../inc/dbconn.inc.php";
 
@@ -74,12 +68,12 @@
                 mysqli_free_result($result);
             }
         }
-        mysqli_close($conn);
-
-        
+        mysqli_close($conn); 
     ?>
+
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="../scripts/script.js" defer></script>
+    <script src="script.js" defer></script>
+
 </body>
 
 </html> 
