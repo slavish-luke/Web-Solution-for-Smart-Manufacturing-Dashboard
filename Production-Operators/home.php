@@ -14,11 +14,40 @@
         <a href="machines.php">Machines</a>
         <a href="jobs.php">Jobs</a>
         <a href="notes.php" class="last" >Notes</a>
-        
+    </div>
+
+    <div id="stats">
+        <h1>Statistics</h1>
+
+        <div id="stats-container">
+            <div class="machine-statistics">
+
+
+                <h2>Power consumption</h2>
+            </div>
+            <div class="machine-statistics">
+
+
+                <h2>Production count</h2>
+            </div>
+            <div class="machine-statistics">
+
+
+                <h2>Average temperature</h2>
+            </div>
+            <div class="machine-statistics">
+
+
+                <h2>Average speed</h2>
+            </div>
+        </div>
     </div>
 
 
-
+    <div id=info>
+        <div id="user"></div>
+        <div id="overview"></div>
+    </div>
 
 
 
