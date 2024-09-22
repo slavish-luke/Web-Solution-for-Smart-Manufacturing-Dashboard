@@ -24,7 +24,6 @@ header {
 #homeicon {
     width: auto;
     height: 70px;
-    margin-top: 20px;
     margin-left: 100px;
 
 }
@@ -32,7 +31,7 @@ header {
 /*Settings button*/
 .settings-button {
     margin-bottom: 20px;
-    padding-left: 100px;
+    margin-left: 100px;
     display: block;
     margin-right: 15px;
 }
@@ -41,14 +40,13 @@ header {
     width: auto;
     height: 80px;
     float: right;
-    padding-top: 10px;
-    padding-right: 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 /*Settings button animation*/
 #settingsicon {
     cursor: pointer;
-    transition: transform 0.7s ease;
+    transition: transform 1s ease;
 }
 
 #settingsicon:hover {
@@ -104,6 +102,7 @@ aside {
     position: relative;
     height: 100vh;
     overflow-y: auto;
+    overflow-x: auto;
 }
 
 .search-bar {
