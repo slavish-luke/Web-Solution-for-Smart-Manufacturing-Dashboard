@@ -17,9 +17,10 @@ for(let i=0; i<machineNames.length; i++){
     displayMachines += "<li>" + machineNames[i] + "</li>";
 }
 displayMachines += "</ul>";
+console.log(displayMachines)
 
 document.getElementById("machine_names").innerHTML = displayMachines;
-
+document.getElementsByClassName("machine-list").innerHTML = displayMachines;
 
 
 console.log(rawFactoryData.length);
