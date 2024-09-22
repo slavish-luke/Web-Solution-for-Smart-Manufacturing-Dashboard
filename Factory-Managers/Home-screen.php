@@ -40,7 +40,6 @@
         <!--Search Bar-->
         <div class="search-bar">
             <p id="search-bar-name">Machines</p>
-            <i class="fas fa-search"></i>
             <input type="text" id="search-box" placeholder="Search Machines">
         </div>
 
@@ -49,7 +48,23 @@
 
     </aside>
 
-<!--PHP code for machines-->
+    <!--Statistics side-->
+    <div class="stats"></div>
+
+    <!--Users-->
+    <button type="button" class="user-admins"></button>
+    <div class="collapse-table"></div>
+
+    <button type="button" class="user-admins"></button>
+    <div class="collapse-table"></div>
+
+    <button type="button" class="user-admins"></button>
+    <div class="collapse-table"></div>
+
+    <button type="button" class="user-production-operator"></button>
+    <div class="collapse-table"></div>
+
+    <!--PHP code for machines-->
     <?php
         require_once "../inc/dbconn.inc.php";
 
