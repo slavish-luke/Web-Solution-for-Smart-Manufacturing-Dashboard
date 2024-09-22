@@ -19,8 +19,7 @@ for(let i=0; i<machineNames.length; i++){
 displayMachines += "</ul>";
 console.log(displayMachines)
 
-document.getElementById("machine_names").innerHTML = displayMachines;
-document.getElementsByClassName("machine-list").innerHTML = displayMachines;
+//document.getElementById("machine_names").innerHTML = displayMachines;
 
 
 console.log(rawFactoryData.length);
