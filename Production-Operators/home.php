@@ -21,25 +21,30 @@
 
         <div id="stats-container">
             <div class="machine-statistics">
-
+                <h3 id="power-consumption"></h3>
 
                 <h2>Power consumption</h2>
             </div>
+
             <div class="machine-statistics">
+                <h3 id="production-count"></h3>
 
 
                 <h2>Production count</h2>
             </div>
-            <div class="machine-statistics">
 
+            <div class="machine-statistics">
+                <h3 id="average_temperature"></h3>
 
                 <h2>Average temperature</h2>
             </div>
-            <div class="machine-statistics">
 
+            <div class="machine-statistics">
+                <h3 id="average-speed"></h3>
 
                 <h2>Average speed</h2>
             </div>
+
         </div>
     </div>
 
