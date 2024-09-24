@@ -40,7 +40,7 @@
 </header>
 
 <body>
-    <section id="main-content">
+    <div id="main-content">
         <aside>
             <!--Search Bar-->
             <div class="search-bar">
@@ -60,24 +60,31 @@
             </div>
         </aside>
 
-        <section id="edit-machines">
-            <div id="top-left">
-                <p>1</p>
+        <div id="edit-machines">
+            <div id="Machine-notes">
+                <p>Machine Notes</p>
+                <textarea id="notes-textarea"></textarea>
             </div>
 
-            <div id="top-right">
-                <p>2</p>
+            <div id="Machine-status">
+                <p>Machine Status</p>
+                <button type="button" class="status-button">On</button>
+                <button type="button" class="status-button">Off</button>
             </div>
 
-            <div id="botton-left">
-                <p>3</p>
+            <div id="Machine-image">
+                <p>Machine Image</p>
+                <input type="file" id="image-input"><input>
             </div>
 
-            <div id="bottom-right">
-                <p>4</p>
+            <div id="Machine-confirm">
+                <p>Confirm</p>
+                <button type="button" class="confirm-button">Save</button>
+                <button type="button" class="confirm-button">Exit</button>
+                <button type="button" class="confirm-button">Clear</button>
             </div>
-        </section>
-    </section>
+        </div>
+    </div>
 
     <!--PHP code for machine list-->
     <?php
@@ -103,7 +110,7 @@
 
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
     <script src="Machine-List.js" defer></script>
-
+     
 </body>
 
 </html> 
