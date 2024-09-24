@@ -13,7 +13,7 @@
 <header>
     <!--Home Button-->
     <div class="home-button">
-        <a href="../Factory-Managers/home-screen.html">
+        <a href="../Factory-Managers/home-Screen.html">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="homeicon">
         </a>
     </div>
@@ -36,34 +36,33 @@
 </header>
 
 <body>
-    <aside>
-        <!--Search Bar-->
-        <div class="search-bar">
-            <p id="search-bar-name">Machines</p>
-            <input type="text" id="search-box" placeholder="Search Machines">
-        </div>
+    <section id="content">
+        <aside>
+            <!--Search Bar-->
+            <div class="search-bar">
+                <p id="search-bar-name">Machines</p>
+                <input type="text" id="search-box" placeholder="Search Machines">
+            </div>
 
-        <!--List of machines-->
-        <div id="machine-list"></div>
+            <!--List of machines-->
+            <div id="machine-list"></div>
+        </aside>
+        <!--Statistics side-->
+        <div class="stats"></div>
 
-    </aside>
+        <!--Users-->
+        <button type="button" class="collapse"></button>
+        <div class="user-list" id="user-auditors">
 
-    <!--Statistics side-->
-    <div class="stats"></div>
+        <button type="button" class="collapse"></button>
+        <div class="user-list" id="user-Auditors">
 
-    <!--Users-->
-    <button type="button" class="collapse"></button>
-    <div class="user-list" id="user-auditors">
-    </div>
+        <button type="button" class="collapse"></button>
+        <div class="user-list" id="user-Auditors">
 
-    <button type="button" class="collapse"></button>
-    <div class="user-list" id="user-Auditors">
-
-    <button type="button" class="collapse"></button>
-    <div class="user-list" id="user-Auditors">
-
-    <button type="button" class="collapse"></button>
-    <div class="user-list" id="user-Auditors">
+        <button type="button" class="collapse"></button>
+        <div class="user-list" id="user-Auditors">
+    </section>
 
     <!--PHP code for machine list-->
     <?php

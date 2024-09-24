@@ -53,6 +53,7 @@ header {
 #settingsicon {
     cursor: pointer;
     transition: transform 0.7s ease-in-out;
+    float: right;
 }
 
 #settingsicon:hover {
@@ -152,4 +153,12 @@ aside {
 
 #search-box::placeholder {
     font-size: 20px;
+}
+
+#main-content {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
 }

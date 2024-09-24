@@ -13,9 +13,13 @@
 <header>
     <!--Home Button-->
     <div class="home-button">
-        <a href="../Factory-Managers/home-screen.html">
+        <a href="../Factory-Managers/home-Screen.html">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="homeicon">
         </a>
+    </div>
+
+    <div id="machine-name">
+        <p>Machine Name</p>
     </div>
 
     <!--Settings cog-->
@@ -36,22 +40,44 @@
 </header>
 
 <body>
-    <aside>
-        <!--Search Bar-->
-        <div class="search-bar">
-            <p id="search-bar-name">Edit Machines</p>
-            <input type="text" id="search-box" placeholder="Search Machines">
-        </div>
+    <section id="main-content">
+        <aside>
+            <!--Search Bar-->
+            <div class="search-bar">
+                <p id="search-bar-name">Edit Machines</p>
+                <input type="text" id="search-box" placeholder="Search Machines">
+            </div>
 
-        <!--List of machines-->
-        <div id="machine-list"></div>
+            <!--List of machines-->
+            <div id="machine-list"></div>
 
-        <!--Buttons to add-->
-        <button type="button" class="add-remove-button">Add</button>
+            <div id="add-remove-button">
+                <!--Buttons to add-->
+                <button type="button" id="add-button">Add</button>
 
-        <!--Buttons to remove-->
-        <button type="button" class="add-remove-button">Remove</button>
-    </aside>
+                <!--Buttons to remove-->
+                <button type="button" id="remove-button">Remove</button>
+            </div>
+        </aside>
+
+        <section id="edit-machines">
+            <div id="top-left">
+                <p>1</p>
+            </div>
+
+            <div id="top-right">
+                <p>2</p>
+            </div>
+
+            <div id="botton-left">
+                <p>3</p>
+            </div>
+
+            <div id="bottom-right">
+                <p>4</p>
+            </div>
+        </section>
+    </section>
 
     <!--PHP code for machine list-->
     <?php

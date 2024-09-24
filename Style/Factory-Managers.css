@@ -18,7 +18,57 @@ li:hover {
     background-color: whitesmoke;
 }
 
-.add-remove-button{
+#add-remove-button *{
+    font-size: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 105px;
+    height: 50px;
+    font-weight: bold;
+}
+
+#add-remove-button:hover *{
+    cursor: pointer;
+}
+
+#add-button {
+    float: left;
+    margin-right: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#remove-button {
+    float: right;
+    margin-left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#machine-name {
+    text-align: center;
     font-size: 30px;
-    color: black;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#edit-machines *{
+    text-align: center;
+    height: 100vh;
+}
+#top-left {
+
+}
+
+#top-right {
+
+}
+
+#bottom-left {
+
+}
+
+#bottom-right {
+
 }
