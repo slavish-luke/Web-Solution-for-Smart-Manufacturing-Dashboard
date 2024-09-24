@@ -50,14 +50,14 @@ for(let i=0; i<randomisedData.length; i++){
     if(randomisedData[i]['speed'] == ""){
         averageSpeed += 0;
     }else{
-        averageSpeed += (parseFloat(randomisedData[i]['speed'])*(parseFloat(randomisedData[i]['production_count'])));
+        averageSpeed += (parseFloat(randomisedData[i]['speed']));
     }
     console.log(parseFloat(randomisedData[i]['speed']));
 }
 powerConsumption = Math.ceil(powerConsumption);
 productionCount = Math.ceil(productionCount);
-averageTemperature = (averageTemperature/10).toFixed(1);
-averageSpeed = (averageSpeed/10).toFixed(2);
+averageTemperature = (averageTemperature/machineNames.length).toFixed(1);
+averageSpeed = (averageSpeed/machineNames.length).toFixed(2);
 
 // averageTemperature = Math.ceil(averageTemperature);
 // averageSpeed = Math.ceil(averageSpeed);
@@ -66,5 +66,16 @@ averageSpeed = (averageSpeed/10).toFixed(2);
 console.log(averageSpeed);
 document.getElementById("power-consumption").innerHTML = powerConsumption;
 document.getElementById("production-count").innerHTML = productionCount;
-document.getElementById("average_temperature").innerHTML = averageTemperature;
+document.getElementById("average-temperature").innerHTML = averageTemperature;
 document.getElementById("average-speed").innerHTML = averageSpeed;
+
+
+let chartPowerConsumption = Math.round(powerConsumption / (500 * machineNames.length) * 100)
+let chartProductionCount = Math.round(productionCount / (100 * machineNames.length) * 100)
+let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100)
+let chartAverageSpeed = Math.round(averageSpeed / (0.25 * machineNames.length) * 100)
+
+document.getElementById("power-consumption-chart").setAttribute("stroke-dasharray", `${chartPowerConsumption} ${(100)}`)
+document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`)
+document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`)
+document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`)
