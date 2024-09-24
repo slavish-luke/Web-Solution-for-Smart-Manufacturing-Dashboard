@@ -53,9 +53,24 @@ li:hover {
     font-family: 'Courier New', Courier, monospace;
 }
 
+#main-content{
+    float: left;
+}
+
+#edit-machines{
+    float: left;
+    width: 500px;
+    display: block;
+}
+
+section{
+    float: left;
+}
+
 #edit-machines *{
     text-align: center;
-    height: 100vh;
+    float: left;
+    display: block;
 }
 #top-left {
 
