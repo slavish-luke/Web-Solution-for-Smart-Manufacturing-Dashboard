@@ -44,7 +44,7 @@
         </div>
 
         <!--List of machines-->
-        <div id="machine-list">
+        <div id="machine-list"></div>
 
     </aside>
 
@@ -52,19 +52,20 @@
     <div class="stats"></div>
 
     <!--Users-->
-    <button type="button" class="user-admins"></button>
-    <div class="collapse-table"></div>
+    <button type="button" class="collapse"></button>
+    <div class="user-list" id="user-auditors">
+    </div>
 
-    <button type="button" class="user-admins"></button>
-    <div class="collapse-table"></div>
+    <button type="button" class="collapse"></button>
+    <div class="user-list" id="user-Auditors">
 
-    <button type="button" class="user-admins"></button>
-    <div class="collapse-table"></div>
+    <button type="button" class="collapse"></button>
+    <div class="user-list" id="user-Auditors">
 
-    <button type="button" class="user-production-operator"></button>
-    <div class="collapse-table"></div>
+    <button type="button" class="collapse"></button>
+    <div class="user-list" id="user-Auditors">
 
-    <!--PHP code for machines-->
+    <!--PHP code for machine list-->
     <?php
         require_once "../inc/dbconn.inc.php";
 
@@ -87,7 +88,8 @@
     ?>
 
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="script.js" defer></script>
+    <script src="Machine-List.js" defer></script>
+    <script src="Collapse-List.js" defer></script>
 
 </body>
 
