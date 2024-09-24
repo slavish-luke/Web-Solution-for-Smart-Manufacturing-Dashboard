@@ -16,39 +16,73 @@
         <a href="notes.php" class="last" >Notes</a>
     </div>
 
+
     <div id="stats">
         <h1>Statistics</h1>
 
         <div id="stats-container">
             <div class="machine-statistics">
-                <div id="power-consumption-display" class="display"></div>
-                <h3 id="power-consumption"></h3>
-
                 <h2>Power consumption</h2>
+
+                <div class="chart-container">
+                    <svg class="chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
+
+                <div class="display-stats">
+                    <h3 id="power-consumption"></h3>
+                </div>
+
             </div>
 
             <div class="machine-statistics">
-                <div id="power-consumption-display" class="display"></div>
-                <h3 id="production-count"></h3>
-
-
                 <h2>Production count</h2>
+
+                <div class="chart-container">
+                    <svg class="chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="production-count-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
+
+                <div class="display-stats">
+                    <h3 id="production-count"></h3>
+                </div>
+
             </div>
 
             <div class="machine-statistics">
-                <div id="power-consumption-display" class="display"></div>
-                <h3 id="average_temperature"></h3>
-
-
                 <h2>Average temperature</h2>
+
+                <div class="chart-container">
+                    <svg class="chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="average-temperature-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
+                
+                <div class="display-stats">
+                    <h3 id="average-temperature"></h3>
+                </div>
+
             </div>
 
             <div class="machine-statistics">
-                <div id="power-consumption-display" class="display"></div>
-                <h3 id="average-speed"></h3>
-
-                
                 <h2>Average speed</h2>
+
+                <div class="chart-container">
+                    <svg class="chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="average-speed-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="18.55 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
+
+                <div class="display-stats">
+                    <h3 id="average-speed"></h3>
+                </div>
+                
             </div>
 
         </div>
