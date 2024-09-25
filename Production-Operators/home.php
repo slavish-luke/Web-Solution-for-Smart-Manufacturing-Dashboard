@@ -90,8 +90,47 @@
 
 
     <div id=info>
-        <div id="user"></div>
-        <div id="overview"></div>
+        <div id="user">
+            <img src="../Style/Images/user-solid.svg" alt="" class="icons" id="user-icon">
+            <h4>John Doe</h4>
+
+            <input type="submit" id="signOutButton" value="Sign Out">
+        </div>
+        <div id="overview">
+            <h1 id="overview-header">Overview</h1>
+
+            <div id="overview-container">
+                <div>
+                    <p><b>Machines</b></p>
+                </div>
+
+                <div class="new-row">
+                    <p>Assigned</p>
+                    <p>6</p>
+                </div>
+
+                <div class="new-row">
+                    <p>Operational</p>
+                    <p>4</p>
+                </div>
+
+                <div class="new-row">
+                    <p>Needs attention</p>
+                    <p>1</p>
+                </div>
+
+                <div class="new-row">
+                    <p>Out of order</p>
+                    <p>1</p>
+                </div>
+                
+                <div class="new-row" id="last">
+                    <p>Assigned Jobs</p>
+                    <p>2</p>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 
@@ -107,12 +146,10 @@
 
             if(mysqli_num_rows($result) >= 1){
                 
-                echo "<ul>";
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     $factory_data[] = $row;
                 }
-                echo "</ul>";
                 mysqli_free_result($result);
             }
         }
