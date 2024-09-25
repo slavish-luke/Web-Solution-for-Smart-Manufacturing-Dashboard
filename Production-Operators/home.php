@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"]){
+    header("location: ../login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +103,8 @@
             <img src="../Style/Images/user-solid.svg" alt="" class="icons" id="user-icon">
             <h4>John Doe</h4>
 
-            <input type="submit" id="signOutButton" value="Sign Out">
+            <!-- Haven't actually been able to test if this button works since my screen refuses to render it ;-; -->
+            <a href="../logout.php"><input type="submit" id="signOutButton" value="Sign Out"></a>
         </div>
         <div id="overview">
             <h1 id="overview-header">Overview</h1>
