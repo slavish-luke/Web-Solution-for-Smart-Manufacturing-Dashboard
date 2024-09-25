@@ -12,6 +12,9 @@ getMachineNames();
 randomiseData();
 displayRandomisedData();
 
+
+setInterval(newRandomData, 6000)
+
 function newRandomData(){
     randomiseData();
     displayRandomisedData();
@@ -39,6 +42,13 @@ function displayMachines(){
 
 
 function randomiseData(){
+    randomisedData = [];
+    powerConsumption = 0;
+    productionCount = 0;
+    averageTemperature = 0;
+    averageSpeed = 0;
+
+
     let machineNum = Math.floor((Math.random() * (rawFactoryData.length/machineNames.length)) + 1);
     for(let i=0; i<machineNames.length; i++){
         randomisedData.push(rawFactoryData[machineNum + "" + i])
