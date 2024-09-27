@@ -56,17 +56,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Dashboard Login</title>
+    <title>Smart Manufacturing Dashboard Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="stylesheet" href="Style/Main.css">
 </head>
-<body>
-    <?php echo $loginErr;?><br>
-    <form method="POST" action="login.php">
-        <input type="text" name="username" value="<?php echo $username;?>" placeholder="Username"><br>
-        <input type="text" name="password" value="<?php echo $password;?>" placeholder="Password"><br>
-        <input type="submit" value="Login">
-    </form>
+<body class="loginbody">
+    <div id="login">
+        <h1>Sign In</h1>
+
+        <div class="iconContainer">
+            <img src="Style/Images/user-solid.svg" alt="" class="icons">
+        </div>
+        
+        <?php echo $loginErr;?><br>
+        <form method="POST" action="login.php">
+            <input type="text" id="username" name="username" value="<?php echo $username;?>" placeholder="Username"><br>
+            <input type="password" id="username" name="password" value="<?php echo $password;?>" placeholder="Password"><br>
+            <input type="submit" id="loginButton" value="Login">
+        </form>
 </body>
 </html>
