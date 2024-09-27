@@ -1,12 +1,25 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"]){
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"]) {
     header("location: login.php");
     exit;
 }
 
-// Currently only goes to the production operator homepage
-// Will redirect to the correct page for each role once the db is implemented
-header("location: Production-Operators/home.php");
+switch($_SESSION["userrole"]) {
+    case 1:
+        header("location: Auditor/home.php");
+        break;
+    case 2:
+        header("location: Administrator/home.php");
+        break;
+    case 3:
+        header("location: Factory-Managers/home.php");
+        break;
+    case 4:
+        header("location: Production-Operators/home.php");
+        break;
+    default:
+        header("location: logout.php");
+}
 ?>

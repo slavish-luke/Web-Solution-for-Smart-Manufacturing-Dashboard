@@ -11,5 +11,5 @@ CREATE TABLE account (
 
 INSERT INTO account (username, password, role_id) VALUES ('JohnDoe', 'password1', 1);
 INSERT INTO account (username, password, role_id) VALUES ('JaneDoe', 'password2', 3);
-INSERT INTO account (username, password, role_id) VALUES ('EthanCollins', 'password3', 4);
-INSERT INTO account (username, password, role_id) VALUES ('WallaceHunter', 'password4', 2);
+INSERT INTO account (username, password, role_id) VALUES ('EthanCollins', 'password3', 2);
+INSERT INTO account (username, password, role_id) VALUES ('WallaceHunter', 'password4', 4);

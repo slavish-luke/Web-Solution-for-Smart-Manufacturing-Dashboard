@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"]){
-    header("location: ../login.php");
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrole"] != 4){
+    header("location: ../index.php");
     exit;
 }
 ?>
