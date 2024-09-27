@@ -6,7 +6,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
     exit;
 }
 
-require_once "config.php";
+require_once "inc/dbconn.inc.php";
 
 $username = $password = "";
 $usernameErr = $passwordErr = $loginErr = "";
@@ -31,10 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Prepare sql statement
         $sql = "SELECT username, password FROM account WHERE username = ?";
-        $statement = mysqli_stmt_init($db);
+        $statement = mysqli_stmt_init($conn);
         mysqli_stmt_prepare($statement, $sql);
         mysqli_stmt_bind_param($statement, 's', $username);
 
+        // Execute sql statement, retrieve user from database, check password
         if (mysqli_stmt_execute($statement)) {
             $account = mysqli_fetch_assoc(mysqli_stmt_get_result($statement));
             if ($account && $password == $account["password"]) {
