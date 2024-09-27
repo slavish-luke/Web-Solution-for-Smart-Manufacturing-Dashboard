@@ -12,31 +12,25 @@
 
 <header>
     <!--Home Button-->
-    <div class="home-button">
-        <a href="../Factory-Managers/home-Screen.html">
-            <img src="../Style/Images/home-button.svg" alt="home button image" id="homeicon">
+    <div>
+        <a href="../Factory-Managers/Home-Screen.php">
+            <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
     </div>
 
-    <!--Settings cog-->
-    <div class="settings-button">
-        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="settingsicon">
+    <!--Welcome Message-->
+    <div id="Welcome-message">
+        <p>Welcome John Doe</p>
     </div>
 
-    <!--Settings options-->
-    <div class="settings-menu">
-        <ul>
-            <li><a href="a">Machines</a></li>
-            <li><a href="a">Users</a></li>
-            <li><a href="a">Statistics</a></li>
-            <li><a href="../Main/settings.html">Options</a></li>
-            <li><a href="../Main/login.html">Log Out</a></li>
-        </ul>
+    <!--Settings Button-->
+    <div>
+        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
     </div>
 </header>
 
 <body>
-    <section id="content">
+    <div id="Main-content">
         <aside>
             <!--Search Bar-->
             <div class="search-bar">
@@ -62,7 +56,7 @@
 
         <button type="button" class="collapse"></button>
         <div class="user-list" id="user-Auditors">
-    </section>
+    </div>
 
     <!--PHP code for machine list-->
     <?php
@@ -74,12 +68,11 @@
 
             if(mysqli_num_rows($result) >= 1){
                 
-                echo "<ul>";
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     $factory_data[] = $row;
                 }
-                echo "</ul>";
+
                 mysqli_free_result($result);
             }
         }

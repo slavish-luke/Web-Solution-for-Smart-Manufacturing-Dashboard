@@ -12,9 +12,9 @@
 
 <header>
     <!--Home Button-->
-    <div class="home-button">
-        <a href="../Factory-Managers/home-Screen.html">
-            <img src="../Style/Images/home-button.svg" alt="home button image" id="homeicon">
+    <div>
+        <a href="../Factory-Managers/Home-Screen.php">
+            <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
     </div>
 
@@ -23,27 +23,16 @@
     </div>
 
     <!--Settings cog-->
-    <div class="settings-button">
-        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="settingsicon">
-    </div>
-
-    <!--Settings options-->
-    <div class="settings-menu">
-        <ul>
-            <li><a href="a">Machines</a></li>
-            <li><a href="a">Users</a></li>
-            <li><a href="a">Statistics</a></li>
-            <li><a href="../Main/settings.html">Options</a></li>
-            <li><a href="../Main/login.html">Log Out</a></li>
-        </ul>
+    <div>
+        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
     </div>
 </header>
 
 <body>
-    <div id="main-content">
+    <div id="Main-content">
         <aside>
             <!--Search Bar-->
-            <div class="search-bar">
+            <div>
                 <p id="search-bar-name">Edit Machines</p>
                 <input type="text" id="search-box" placeholder="Search Machines">
             </div>
@@ -62,23 +51,23 @@
 
         <div id="edit-machines">
             <div id="Machine-notes">
-                <p>Machine Notes</p>
+                <h1>Machine Notes</h1>
                 <textarea id="notes-textarea"></textarea>
             </div>
 
             <div id="Machine-status">
-                <p>Machine Status</p>
+                <h1>Machine Status</h1>
                 <button type="button" class="status-button">On</button>
                 <button type="button" class="status-button">Off</button>
             </div>
 
             <div id="Machine-image">
-                <p>Machine Image</p>
+                <h1>Machine Image</h1>
                 <input type="file" id="image-input"><input>
             </div>
 
             <div id="Machine-confirm">
-                <p>Confirm</p>
+                <h1>Confirm</h1>
                 <button type="button" class="confirm-button">Save</button>
                 <button type="button" class="confirm-button">Exit</button>
                 <button type="button" class="confirm-button">Clear</button>
@@ -96,12 +85,10 @@
 
             if(mysqli_num_rows($result) >= 1){
                 
-                echo "<ul>";
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     $factory_data[] = $row;
                 }
-                echo "</ul>";
                 mysqli_free_result($result);
             }
         }

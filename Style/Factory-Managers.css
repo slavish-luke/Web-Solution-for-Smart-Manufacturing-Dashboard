@@ -21,7 +21,7 @@ li:hover {
     font-size: 20px;
     border-radius: 8px;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     background-color: #89CFF0;
     text-align: center;
     width: 105px;
@@ -37,46 +37,43 @@ li:hover {
     float: left;
     margin-right: 20px;
     font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
 }
 
 #remove-button {
     float: right;
     margin-left: 20px;
     font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
 }
 
 #machine-name {
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-}
-
-#main-content{
-    float: left;
 }
 
 #edit-machines {
     float: left;
     width: 500px;
-    display: block;
+    display: flex;
     text-align: center;
     float: left;
-    display: grid;
     width: 50vh;
-    
 }
 
 .status-button {
     font-size: 20px;
     border-radius: 8px;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     background-color: #89CFF0;
     text-align: center;
     width: 105px;
     height: 50px;
     font-weight: bold;
+    margin: 0px 10px 0px 10px;
 }
 
 .status-button:hover {
@@ -92,15 +89,59 @@ li:hover {
     font-size: 20px;
     border-radius: 8px;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     background-color: #89CFF0;
     text-align: center;
     width: 105px;
     height: 50px;
     font-weight: bold;
+    margin: 0px 10px 0px 10px;
 }
 
 .confirm-button:hover {
     cursor: pointer;
     background-color: whitesmoke;
+}
+
+#edit-machines *{
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+#edit-machines {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 85vh;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+#Machine-notes {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-left: 10px;
+}
+
+#Machine-status {
+    grid-column: 2/2;
+    grid-row: 1/2;
+}
+
+#Machine-image {
+    grid-column: 1/2;
+    grid-row: 2/2;
+    margin-left: 5%;
+}
+
+#notes-textarea {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    box-sizing: border-box;
 }
