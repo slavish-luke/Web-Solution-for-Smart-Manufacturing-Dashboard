@@ -14,7 +14,7 @@
     <?php
         require_once "../inc/dbconn.inc.php";
 
-        $sql = "SELECT id, machine_name, timestamp, temperature, pressure, vibration, power_consumption, operational_status, error_code, production_count, maintenance_log, speed FROM factory_logs;";
+        $sql = "SELECT id, machine_name, timestamp, temperature, pressure, vibration, power_consumption, operational_status, error_code, production_count, maintenance_log, speed FROM factory_log;";
 
         if($result = mysqli_query($conn, $sql)){
 
