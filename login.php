@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="Style/Main.css">
 </head>
-<body class="loginbody">
+<body id="loginbody">
     <div id="login">
         <h1>Sign In</h1>
 

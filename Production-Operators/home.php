@@ -150,9 +150,28 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"]){
     <?php
         require_once "../inc/dbconn.inc.php";
 
-        $sql = "SELECT id, machine_name, timestamp, temperature, pressure, vibration, power_consumption, operational_status, error_code, production_count, maintenance_log, speed FROM factory_log;";
+        $sql = "SELECT 
+                machine.id AS machine_id,
+                machine.name AS machine_name,
+                factory_log.timestamp,
+                factory_log.temperature,
+                factory_log.pressure,
+                factory_log.vibration,
+                factory_log.humidity,
+                factory_log.power_consumption,
+                factory_log.operational_status,
+                factory_log.error_code,
+                factory_log.production_count,
+                factory_log.maintenance_log,
+                factory_log.speed
+            FROM 
+                machine
+            JOIN 
+                factory_log ON machine.id = factory_log.machine_id
+            ORDER BY 
+                factory_log.timestamp, machine.name;";
 
-        if($result = mysqli_query($conn, $sql)){
+            if($result = mysqli_query($conn, $sql)){
 
             if(mysqli_num_rows($result) >= 1){
                 

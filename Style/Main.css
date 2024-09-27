@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-.loginbody{
+#loginbody{
     background-color: #89CFF0;
 }
 
 .icons{
     display: block;
-    height: 150px;
-    margin-top: -20px;
+    height: 13vh;
+    margin-top: -1.5vh;
 }
 
 #login{
@@ -26,7 +26,7 @@ h1{
     text-align: center;
     text-transform: uppercase;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 70px;
+    font-size: 4vw;
 }
 
 input{
@@ -34,63 +34,58 @@ input{
 }
 
 #loginButton{
-    margin-top: 30px;
+    margin-top: 5vh;
 }
 
 .iconContainer{
-    width: 230px;
-    height: 230px;
+    width: 10vw;
+    height: 10vw;
     display: flex;
     align-items: center;
     background-color: #c9e7f5;
     border-radius: 50%;
-    margin-bottom: 90px;
+    margin-bottom: 5vh;
 }
 
 input[type="text"], input[type="password"]{
-    font-size: 30px;
-    border-radius: 15px;
+    font-size: 1.2vw;
+    border-radius: 0.5vw;
     background-color: #c9e7f5;
+    border: 0.1vw solid black;
 }
 
 #username{
     background-image: url(../Style/Images/username-icon.png);
     background-repeat: no-repeat;
-    background-position: 10px 10px;
-    padding: 10px 0px 10px 60px;
-    background-size: 34px;
+    background-position: 0.3vw 0.3vw;
+    padding: 0.4vw 0 0.4vw 2.4vw;
+    background-size: 1.5vw;
 }
 
 #password{
     background-image: url(../Style/Images/lock-solid.svg);
     background-repeat: no-repeat;
-    background-position: 10px 10px;
-    padding: 10px 0px 10px 60px;
-    background-size: 30px;
+    background-position: 0.3vw 0.3vw;
+    padding: 0.4vw 0 0.4vw 2.4vw;
+    background-size: 1.5vw;
 }
 
 #loginButton{
-    border-radius: 20px;
-    font-size: 30px;
-    padding: 10px 30px 10px 30px;
-    margin-top: 50px;
+    border-radius: 0.8vw;
+    font-size: 1.3vw;
+    padding: 0.4vw 1.2vw 0.4vw 1.2vw;
+    margin-top: 5vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #c9e7f5;
-
-
-    /* animation from: https://codepen.io/twhite96/embed/NVJzQW */
-	text-decoration: none;
-	transition: all 0.2s;
-    animation: moveInBottom 5s ease-out;
-	animation-fill-mode: backwards;
+    border: 0.1vw solid black;
 }
 
 #loginButton:hover{
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2);
 }
 
 #loginButton:active{
     transform: translateY(-1px);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
 }
