@@ -108,24 +108,27 @@ li:hover {
     align-items: center;
     display: flex;
     text-align: center;
+    gap: 20px;
 }
 
 #edit-machines {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
     height: 85vh;
 }
 
 h1 {
     font-size: 30px;
+    text-align: center;
 }
 
 #Machine-notes {
     grid-column: 1/2;
     grid-row: 1/2;
-    margin-left: 10px;
+    display: block;
+    margin-left: 5%;
+    align-items: center;
 }
 
 #Machine-status {
@@ -140,7 +143,7 @@ h1 {
 }
 
 #notes-textarea {
-    width: 100%;
+    width: 75%;
     font-size: 14px;
     padding: 10px;
     box-sizing: border-box;
