@@ -63,7 +63,7 @@ function displayRandomisedData(){
         productionCount += parseFloat(randomisedData[i]['production_count']);
         averageTemperature += parseFloat(randomisedData[i]['temperature']);
         
-        if(randomisedData[i]['speed'] == ""){
+        if(randomisedData[i]['speed'] == null){
             averageSpeed += 0;
         }else{
             averageSpeed += (parseFloat(randomisedData[i]['speed']));
