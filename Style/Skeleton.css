@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: whitesmoke;
     margin: 0;
     padding: 0;
 }
@@ -78,6 +78,10 @@ aside {
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: 10px 10px;
+}
+
+input #search-box {
+    height: 0px;
 }
 
 #search-box:hover {
