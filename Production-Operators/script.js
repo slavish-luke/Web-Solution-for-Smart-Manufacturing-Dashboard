@@ -1,4 +1,4 @@
-let allMachineNames = [];
+let uniqueMachineNames = [];
 let machineNames = [];
 let randomisedData = [];
 let powerConsumption = 0;
@@ -8,12 +8,13 @@ let averageSpeed = 0;
 
 
 console.log(rawFactoryData);
+let numMachines = Object.keys(rawFactoryData).length
 getMachineNames();
 randomiseData();
 displayRandomisedData();
 
 
-setInterval(newRandomData, 6000)
+// setInterval(newRandomData, 6000)
 
 function newRandomData(){
     randomiseData();
@@ -21,11 +22,13 @@ function newRandomData(){
 }
 
 function getMachineNames(){
-    for(let i=0; i<rawFactoryData.length; i++){
-        allMachineNames.push(rawFactoryData[i]['machine_name']);
+    
+    for(let i=1; i<=numMachines; i++){
+        machineNames.push(rawFactoryData[i].machine_name);
     }
-    machineNames = [...new Set(allMachineNames)];
-        
+    // console.log(machineNames);
+    // uniqueMachineNames = [...new Set(machineNames)];
+    // console.log(uniqueMachineNames);
 }
 
 function displayMachines(){
@@ -43,21 +46,19 @@ function displayMachines(){
 
 function randomiseData(){
     randomisedData = [];
-    powerConsumption = 0;
-    productionCount = 0;
-    averageTemperature = 0;
-    averageSpeed = 0;
 
-
-    let machineNum = Math.floor((Math.random() * (rawFactoryData.length/machineNames.length)) + 1);
-    for(let i=0; i<machineNames.length; i++){
-        randomisedData.push(rawFactoryData[machineNum + "" + i])
-
+    for(let i=1; i<=numMachines; i++){
+        randomisedData.push(rawFactoryData[i]['logs'][Math.floor(Math.random() * rawFactoryData[i]['logs'].length)])
     }
     console.log(randomisedData)
 }
 
 function displayRandomisedData(){
+    powerConsumption = 0;
+    productionCount = 0;
+    averageTemperature = 0;
+    averageSpeed = 0;
+
     for(let i=0; i<randomisedData.length; i++){
         powerConsumption += parseFloat(randomisedData[i]['power_consumption']);
         productionCount += parseFloat(randomisedData[i]['production_count']);
@@ -68,7 +69,6 @@ function displayRandomisedData(){
         }else{
             averageSpeed += (parseFloat(randomisedData[i]['speed']));
         }
-        console.log(parseFloat(randomisedData[i]['speed']));
     }
     powerConsumption = Math.ceil(powerConsumption);
     productionCount = Math.ceil(productionCount);
