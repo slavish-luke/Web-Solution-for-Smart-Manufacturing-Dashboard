@@ -265,7 +265,7 @@ select{
 
 #checklist-container{
     width: 50%;
-
+    float: left;
 }
 
 #checklist-container label{
@@ -278,5 +278,24 @@ select{
     height: 1vh;
     width: 2vw;
     font-size: 4px;
-    
+
+}
+
+#user-container label{
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5vw;
+}
+
+#user-container input{
+    height: 1vh;
+    width: 2vw;
+    font-size: 4px;
+
+}
+
+
+#user-container{
+    width: 50%;
+    float: left;
 }

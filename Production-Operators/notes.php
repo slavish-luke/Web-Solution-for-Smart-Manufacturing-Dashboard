@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
 </head>
 <body>
-    
+
     <div id="header">
         <a href="home.php">Home</a>
         <a href="machines.php">Machines</a>
@@ -24,7 +24,9 @@
             <select name="machines" id="machineDropDown" selected="choose" required></select> -->
 
             <div id="checklist-container"></div>
-            
+            <div id="user-container"></div>
+            <br>
+
 
             <input type="text" name="taskName" placeholder="Enter the task name" required/>
             <input type="submit" value="Add Task"/>
@@ -68,11 +70,33 @@
                     }
                     mysqli_free_result($result);
                 }
-        }
+            }
+
+            $sql = 
+            "SELECT username, id 
+            FROM account 
+            WHERE role_id = 3";
+
+            if($result = mysqli_query($conn, $sql)){
+
+                if(mysqli_num_rows($result) >= 1){
+                    $production_operator = [];
+                    
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        $production_operator[] = $row;
+                    };
+                    mysqli_free_result($result);
+                }
+            }
         mysqli_close($conn);
 
-        
+
     ?>
-    <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
+    <script type="text/javascript">
+        let rawFactoryData = <?php echo json_encode($factory_data); ?>;
+        let productionOperators = <?php echo json_encode($production_operator); ?>;
+    </script>
     <script src="script.js" defer></script></body>
+</body>
 </html>
