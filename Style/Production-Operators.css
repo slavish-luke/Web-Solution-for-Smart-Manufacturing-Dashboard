@@ -181,10 +181,14 @@ h4{
    display: flex;
    justify-content: center;
    align-items: center;
- }
+}
+
+#user a{
+    margin-right: 2vw;
+}
 
 #signOutButton{
-    border-radius: 20px;
+    border-radius: 1vw;
     font-size: 2vw;
     background-color: #c9e7f5;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -192,21 +196,21 @@ h4{
     background-repeat: no-repeat;
     background-position: .7vw .7vw;
     background-size: 3vw;
-    padding: 0 1vw 1vw 5vw;
+    border: 0.1vw solid black;
     height: 8vh;
     line-height: 8vh;
     float: right;
-    margin-right: 2vw;
+    padding: 0 1vw 1vw 5vw;
 }
 
-#signOutButton:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+#user a:hover{
+    transform: translateY(0.2vh);
+    box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2);
+    border-radius: 1vw;}
 
-#signOutButton:active{
+#user a:active{
     transform: translateY(-1px);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
 }
 
 #overview-header{
@@ -235,4 +239,44 @@ p{
 #last{
     margin-top: 2vh;
     border-top: 0.1vw solid lightgrey
+}
+
+
+.main{
+    height: 60vh;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgray;
+    margin-top: 3vh;
+}
+
+select{
+    width: 20vw;
+    height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.main h1{
+    border: 0;
+}
+
+#checklist-container{
+    width: 50%;
+
+}
+
+#checklist-container label{
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5vw;
+}
+
+#checklist-container input{
+    height: 1vh;
+    width: 2vw;
+    font-size: 4px;
+    
 }

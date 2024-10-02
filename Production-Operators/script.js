@@ -5,16 +5,29 @@ let powerConsumption = 0;
 let productionCount = 0;
 let averageTemperature = 0;
 let averageSpeed = 0;
+let options = "";
 
 
 console.log(rawFactoryData);
-let numMachines = Object.keys(rawFactoryData).length
+let numMachines = Object.keys(rawFactoryData).length;
 getMachineNames();
-randomiseData();
-displayRandomisedData();
+
+if(document.getElementById("stats")){
+    randomiseData();
+    displayRandomisedData();
+
+    setInterval(newRandomData, 6000);
+}
+
+if(document.getElementById("notes")){
+    console.log(machineNames);
+    machineNames.forEach(displayChecklist);
+    console.log(options)
+
+    document.getElementById("checklist-container").innerHTML = options;
+}
 
 
-// setInterval(newRandomData, 6000)
 
 function newRandomData(){
     randomiseData();
@@ -92,4 +105,15 @@ function displayRandomisedData(){
     document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`);
     document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
+}
+
+function displayChecklist(i, id){
+    //options += `<option value="${id}">${i}</option>`
+    id += 1;
+    options += 
+    `
+        <label class="checkboxes">
+            <input type="checkbox">
+            <span class="${id}"></span>${i}</label>
+    `
 }
