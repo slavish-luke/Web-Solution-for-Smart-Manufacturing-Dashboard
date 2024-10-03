@@ -17,6 +17,42 @@ li:hover {
     background-color: whitesmoke;
 }
 
+#users {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10%;
+    width: 25%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.collapse {
+    background-color: #89CFF0;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.collapse:hover {
+    background-color: whitesmoke;
+}
+
+.user-list {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
 #add-remove-button *{
     font-size: 20px;
     border-radius: 8px;
@@ -147,4 +183,8 @@ h1 {
     font-size: 14px;
     padding: 10px;
     box-sizing: border-box;
+}
+
+summary::marker {
+content: "";
 }
