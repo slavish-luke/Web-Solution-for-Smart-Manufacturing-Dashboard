@@ -115,10 +115,17 @@ function displayRandomisedData(){
 function displayMachineChecklist(i, id){
     id += 1;
     options += 
+    // `
+    //     <label class="checkboxes">
+    //         <input type="checkbox">
+    //         <span class="${id}">${i}</span></label>
+    // `
+    
     `
         <label class="checkboxes">
-            <input type="checkbox">
-            <span class="${id}"></span>${i}</label>
+            <input type="checkbox" name="machines[]" value="${id}">
+            <span class="${id}">${i}</span>
+        </label>
     `
 }
 
@@ -126,7 +133,8 @@ function displayUserChecklist(i){
     options += 
     `
         <label class="checkboxes">
-            <input type="checkbox">
-            <span class="${i.id}"></span>${i.username}</label>
+            <input type="checkbox" name="users[]" value="${i.id}">
+            <span class="${i.id}">${i.username}</span>
+        </label>
     `
 }
