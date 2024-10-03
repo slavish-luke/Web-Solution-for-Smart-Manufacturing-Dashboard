@@ -21,10 +21,15 @@ if(document.getElementById("stats")){
 
 if(document.getElementById("notes")){
     console.log(machineNames);
-    machineNames.forEach(displayChecklist);
-    console.log(options)
-
+    options = "<h1>Machines</h1>"
+    machineNames.forEach(displayMachineChecklist);
     document.getElementById("checklist-container").innerHTML = options;
+
+
+    options = "<h1>Users</h1>"
+    console.log(productionOperators)
+    productionOperators.forEach(displayUserChecklist);
+    document.getElementById("user-container").innerHTML = options;
 }
 
 
@@ -107,13 +112,21 @@ function displayRandomisedData(){
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
 }
 
-function displayChecklist(i, id){
-    //options += `<option value="${id}">${i}</option>`
+function displayMachineChecklist(i, id){
     id += 1;
     options += 
     `
         <label class="checkboxes">
             <input type="checkbox">
             <span class="${id}"></span>${i}</label>
+    `
+}
+
+function displayUserChecklist(i){
+    options += 
+    `
+        <label class="checkboxes">
+            <input type="checkbox">
+            <span class="${i.id}"></span>${i.username}</label>
     `
 }
