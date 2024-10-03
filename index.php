@@ -16,7 +16,7 @@ switch($_SESSION["userrole"]) {
         // header("location: Administrator/home.php");          Replace line above once implemented
         break;
     case 3:
-        header("location: logout.php");
+        header("location: Factory-Managers/Home-screen.php");
         // header("location: Factory-Managers/home.php");       Replace line above once implemented
         break;
     case 4:
