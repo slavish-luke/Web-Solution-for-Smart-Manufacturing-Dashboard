@@ -21,12 +21,12 @@ if(document.getElementById("stats")){
 
 if(document.getElementById("notes")){
     console.log(machineNames);
+    options = "<h1>Machines</h1>"
     machineNames.forEach(displayMachineChecklist);
-    console.log(options)
     document.getElementById("checklist-container").innerHTML = options;
 
-    options = "";
 
+    options = "<h1>Users</h1>"
     console.log(productionOperators)
     productionOperators.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;
@@ -113,7 +113,6 @@ function displayRandomisedData(){
 }
 
 function displayMachineChecklist(i, id){
-    //options += `<option value="${id}">${i}</option>`
     id += 1;
     options += 
     `
@@ -124,7 +123,6 @@ function displayMachineChecklist(i, id){
 }
 
 function displayUserChecklist(i){
-    //options += `<option value="${id}">${i}</option>`
     options += 
     `
         <label class="checkboxes">

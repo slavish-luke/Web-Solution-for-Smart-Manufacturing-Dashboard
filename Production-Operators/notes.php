@@ -7,7 +7,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
 </head>
-<body>
+<body class="background">
 
     <div id="header">
         <a href="home.php">Home</a>
@@ -18,18 +18,18 @@
 
 
     <div class="main" id="notes">
-        <h1>Task Notes</h1>
         <form action="" method="post">
             <!-- <label for="machines">Pick machine</label>
             <select name="machines" id="machineDropDown" selected="choose" required></select> -->
 
             <div id="checklist-container"></div>
             <div id="user-container"></div>
-            <br>
 
-
-            <input type="text" name="taskName" placeholder="Enter the task name" required/>
-            <input type="submit" value="Add Task"/>
+            <div id="message-container">
+                <h1>Task Notes</h1>
+                <textarea name="machine-note" id="machine-note"></textarea>
+                <input type="button" id="submit-notes" value="Send notes">
+            </div>
         </form>
     </div>
 
