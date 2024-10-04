@@ -271,19 +271,23 @@ select{
 #checklist-container{
     width: 25%;
     float: left;
+    display: flex;
+    flex-direction: column;
 }
 
-#checklist-container label{
-    display: block;
+#checklist-container span{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5vw;
 }
 
-#checklist-container input{
-    height: 1vh;
+
+input[type=checkbox]{
+    height: 2vh;
     width: 2vw;
     font-size: 4px;
-
+    float: left;
+    margin-top: 0.7vh;
+    margin-bottom: 0.7vh;
 }
 
 #user-container label{
@@ -292,17 +296,14 @@ select{
     font-size: 1.5vw;
 }
 
-#user-container input{
-    height: 1vh;
-    width: 2vw;
-    font-size: 4px;
-
+.checkboxes{
+    border-bottom: solid 0.1vw black;
 }
-
 
 #user-container{
     width: 25%;
     float: left;
+    margin-left: 0.5%;
 }
 
 form{
@@ -310,8 +311,8 @@ form{
 }
 
 #message-container{
-    width: 50%;
-    float: left;
+    width: 49%;
+    float: right;
     display: flex;
     flex-direction: column;
 }
@@ -325,6 +326,7 @@ form{
     font-size: 2vw;
     resize: none;
     border-radius: 0.8vw;
+    padding: 0.75vw;
 }
 
 #submit-notes{
@@ -332,7 +334,7 @@ form{
     margin-left: auto;
     margin-right: auto;
     margin-top: 3vh;
-    background-color: #c9e7f5;
+    background-color: #a0d8f3;
     border-radius: 1vw;
     height: 8vh;
     font-size: 2vw;
@@ -344,16 +346,14 @@ form{
     padding: 0 0 0 3vw;
 }
 
-#signOutButton{
-    
-    
-    border: 0.1vw solid black;
-    line-height: 8vh;
-    float: right;
-}
-
 #submit-notes:hover{
     transform: translateY(0.2vh);
     box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2);
     border-radius: 1vw;
+    background-color: #c9e7f5;
+}
+
+#submit-notes:active{
+    transform: translateY(-1px);
+	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
 }

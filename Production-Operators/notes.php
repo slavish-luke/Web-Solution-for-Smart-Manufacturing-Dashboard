@@ -13,14 +13,12 @@
         <a href="home.php">Home</a>
         <a href="machines.php">Machines</a>
         <a href="jobs.php">Jobs</a>
-        <a href="notes.php" class="last selected">Notes</a>
+        <a href="notes.php" class="selected last">Notes</a>
     </div>
 
 
     <div class="main" id="notes">
-        <form action="" method="post">
-            <!-- <label for="machines">Pick machine</label>
-            <select name="machines" id="machineDropDown" selected="choose" required></select> -->
+        <form action="add-note.php" method="post">
 
             <div id="checklist-container"></div>
             <div id="user-container"></div>
@@ -28,7 +26,7 @@
             <div id="message-container">
                 <h1>Task Notes</h1>
                 <textarea name="machine-note" id="machine-note"></textarea>
-                <input type="button" id="submit-notes" value="Send notes">
+                <input type="submit" id="submit-notes" value="Send notes">
             </div>
         </form>
     </div>
