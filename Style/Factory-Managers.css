@@ -42,6 +42,10 @@ details {
     background-color: #89CFF0;
 }
 
+summary::marker {
+    content: "";
+    }
+
 details:hover {
     background-color: whitesmoke;
     transform: scale(1.02,1.02);
@@ -64,8 +68,6 @@ details[open] summary {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
-
-
 
 #add-remove-button *{
     font-size: 20px;
@@ -155,50 +157,21 @@ details[open] summary {
 
 #edit-machines *{
     font-family: 'Courier New', Courier, monospace;
-    align-items: center;
-    display: flex;
     text-align: center;
     gap: 20px;
-}
-
-#edit-machines {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 85vh;
-}
-
-h1 {
-    font-size: 30px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #Machine-notes {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    display: block;
-    margin-left: 5%;
-    align-items: center;
-}
+    right: 10%;
+    
 
-#Machine-status {
-    grid-column: 2/2;
-    grid-row: 1/2;
-}
-
-#Machine-image {
-    grid-column: 1/2;
-    grid-row: 2/2;
-    margin-left: 5%;
 }
 
 #notes-textarea {
     width: 75%;
     font-size: 14px;
     padding: 10px;
-    box-sizing: border-box;
 }
 
-summary::marker {
-content: "";
-}
