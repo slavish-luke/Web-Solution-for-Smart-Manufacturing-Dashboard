@@ -46,7 +46,10 @@
         </aside>
 
         <!--Statistics side-->
-        <div class="stats"></div>
+        <div id="stats">
+            <h1>Statistics</h1>
+
+        </div>
 
         <!--Users-->
         <div id="users">
