@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: whitesmoke;
     margin: 0;
     padding: 0;
 }
@@ -15,6 +15,21 @@ header {
     position: sticky;
     top: 0px;
     z-index: 1000;
+}
+
+#Welcome-message *{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    color: black;
+    margin: 0px;
+}
+
+#Welcome-message:hover {
+    transform: scale(1.02,1.02);
+    cursor: pointer;
 }
 
 /*Home button*/
@@ -68,16 +83,23 @@ aside {
 }
 
 #search-box {
-    padding-left: 50px;
-    padding-bottom: 10px;
+    padding: 10px 1px 10px 45px;
     border-radius: 25px;
     border: none;
     width: 80%;
+    height: 30px;
     box-shadow: 0px 4px 10px #333;
     background-image: url(../Style/Images/magnifying-glass.svg);
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: 10px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input #search-box {
+    height: 0px;
 }
 
 #search-box:hover {
@@ -99,11 +121,4 @@ aside {
     width: 100%;
     float: left;
     justify-content: space-between;
-}
-
-#Welcome-message {
-    text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }

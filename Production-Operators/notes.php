@@ -7,17 +7,29 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
 </head>
-<body>
-    
+<body class="background">
+
     <div id="header">
         <a href="home.php">Home</a>
         <a href="machines.php">Machines</a>
         <a href="jobs.php">Jobs</a>
-        <a href="notes.php" class="last selected">Notes</a>
+        <a href="notes.php" class="selected last">Notes</a>
     </div>
 
 
+    <div class="main" id="notes">
+        <form action="add-note.php" method="post">
 
+            <div id="checklist-container"></div>
+            <div id="user-container"></div>
+
+            <div id="message-container">
+                <h1>Task Notes</h1>
+                <textarea name="machine-note" id="machine-note"></textarea>
+                <input type="submit" id="submit-notes" value="Send notes">
+            </div>
+        </form>
+    </div>
 
 
 
@@ -26,26 +38,63 @@
     <?php
         require_once "../inc/dbconn.inc.php";
 
-        $sql = "SELECT id, machine_name, timestamp, temperature, pressure, vibration, power_consumption, operational_status, error_code, production_count, maintenance_log, speed FROM factory_log;";
+        $sql = 
+            "SELECT machine.id AS machine_id, machine.name AS machine_name, factory_log.*
+            FROM machine 
+            JOIN factory_log ON machine.id = factory_log.machine_id
+            ORDER BY factory_log.timestamp DESC, machine.name;";
 
-        if($result = mysqli_query($conn, $sql)){
+            if($result = mysqli_query($conn, $sql)){
 
-            if(mysqli_num_rows($result) >= 1){
-                
-                echo "<ul>";
-                while ($row = mysqli_fetch_assoc($result)) {
+                if(mysqli_num_rows($result) >= 1){
+                    $factory_data = [];
+                    
+                    while ($row = mysqli_fetch_assoc($result)) {
 
-                    $factory_data[] = $row;
+                        $factory_data[$row['machine_id']]['machine_name'] = $row['machine_name'];
+                        $factory_data[$row['machine_id']]['logs'][] = [
+                            'timestamp' => $row['timestamp'],
+                            'operational_status' => $row['operational_status'],
+                            'error_code' => $row['error_code'],
+                            'maintenance_log' => $row['maintenance_log'],
+                            'power_consumption' => $row['power_consumption'],
+                            'temperature' => $row['temperature'],
+                            'production_count' => $row['production_count'],
+                            'speed' => $row['speed'],
+                            'pressure' => $row['pressure'],
+                            'vibration' => $row['vibration'],
+                            'humidity' => $row['humidity']
+                        ];
+                    }
+                    mysqli_free_result($result);
                 }
-                echo "</ul>";
-                mysqli_free_result($result);
             }
-        }
+
+            $sql = 
+            "SELECT username, id 
+            FROM account 
+            WHERE role_id = 3";
+
+            if($result = mysqli_query($conn, $sql)){
+
+                if(mysqli_num_rows($result) >= 1){
+                    $production_operator = [];
+                    
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        $production_operator[] = $row;
+                    };
+                    mysqli_free_result($result);
+                }
+            }
         mysqli_close($conn);
 
-        
+
     ?>
-    <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="script.js" defer></script>
+    <script type="text/javascript">
+        let rawFactoryData = <?php echo json_encode($factory_data); ?>;
+        let productionOperators = <?php echo json_encode($production_operator); ?>;
+    </script>
+    <script src="script.js" defer></script></body>
 </body>
 </html>

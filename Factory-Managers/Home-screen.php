@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-control" content="no-cache">
-    <link rel="stylesheet" href="../Style/Main.css">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
     <title>Dashboard</title>
@@ -20,7 +19,9 @@
 
     <!--Welcome Message-->
     <div id="Welcome-message">
-        <p>Welcome John Doe</p>
+        <a href="../logout.php">
+            <p>Welcome John Doe</p>
+        </a>
     </div>
 
     <!--Settings Button-->
@@ -39,50 +40,39 @@
             </div>
 
             <!--List of machines-->
-            <div id="machine-list"></div>
+            <div id="machine-list">
+                <div id="machines"></div>
+            </div>
         </aside>
+
         <!--Statistics side-->
-        <div class="stats"></div>
+        <div id="stats">
+            <h1>Statistics</h1>
+
+        </div>
 
         <!--Users-->
-        <button type="button" class="collapse"></button>
-        <div class="user-list" id="user-auditors">
+        <div id="users">
+            <h1>User Management System</h1>
 
-        <button type="button" class="collapse"></button>
-        <div class="user-list" id="user-Auditors">
+            <details class="user-list" id="user-administrators">
+                <summary>Administrators</summary>
+                Test
+            </details>
 
-        <button type="button" class="collapse"></button>
-        <div class="user-list" id="user-Auditors">
+            <details class="user-list" id="user-managers">
+                <summary>Managers</summary>
+                Test
+            </details>
 
-        <button type="button" class="collapse"></button>
-        <div class="user-list" id="user-Auditors">
+            <details class="user-list" id="user-operators">
+                <summary>Operators</summary>
+                Test
+            </details>
+        </div>
     </div>
 
-    <!--PHP code for machine list-->
-    <?php
-        require_once "../inc/dbconn.inc.php";
-
-        $sql = "SELECT id, machine_name, timestamp, temperature, pressure, vibration, power_consumption, operational_status, error_code, production_count, maintenance_log, speed FROM factory_log;";
-
-        if($result = mysqli_query($conn, $sql)){
-
-            if(mysqli_num_rows($result) >= 1){
-                
-                while ($row = mysqli_fetch_assoc($result)) {
-
-                    $factory_data[] = $row;
-                }
-
-                mysqli_free_result($result);
-            }
-        }
-        mysqli_close($conn); 
-    ?>
-
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="Machine-List.js" defer></script>
-    <script src="Collapse-List.js" defer></script>
-
+    <script src="script.js" defer></script>
 </body>
-
 </html> 

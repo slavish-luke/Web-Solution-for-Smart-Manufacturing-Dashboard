@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php echo $loginErr;?><br>
         <form method="POST" action="login.php">
             <input type="text" id="username" name="username" value="<?php echo $username;?>" placeholder="Username"><br>
-            <input type="password" id="username" name="password" value="<?php echo $password;?>" placeholder="Password"><br>
+            <input type="password" id="password" name="password" value="<?php echo $password;?>" placeholder="Password"><br>
             <input type="submit" id="loginButton" value="Login">
         </form>
 </body>

@@ -1,19 +1,38 @@
-let allMachineNames = [];
+let uniqueMachineNames = [];
 let machineNames = [];
 let randomisedData = [];
 let powerConsumption = 0;
 let productionCount = 0;
 let averageTemperature = 0;
 let averageSpeed = 0;
+let options = "";
 
 
 console.log(rawFactoryData);
+let numMachines = Object.keys(rawFactoryData).length;
 getMachineNames();
-randomiseData();
-displayRandomisedData();
+
+if(document.getElementById("stats")){
+    randomiseData();
+    displayRandomisedData();
+
+    setInterval(newRandomData, 6000);
+}
+
+if(document.getElementById("notes")){
+    console.log(machineNames);
+    options = "<h1>Machines</h1>"
+    machineNames.forEach(displayMachineChecklist);
+    document.getElementById("checklist-container").innerHTML = options;
 
 
-setInterval(newRandomData, 6000)
+    options = "<h1>Users</h1>"
+    console.log(productionOperators)
+    productionOperators.forEach(displayUserChecklist);
+    document.getElementById("user-container").innerHTML = options;
+}
+
+
 
 function newRandomData(){
     randomiseData();
@@ -21,11 +40,13 @@ function newRandomData(){
 }
 
 function getMachineNames(){
-    for(let i=0; i<rawFactoryData.length; i++){
-        allMachineNames.push(rawFactoryData[i]['machine_name']);
+    
+    for(let i=1; i<=numMachines; i++){
+        machineNames.push(rawFactoryData[i].machine_name);
     }
-    machineNames = [...new Set(allMachineNames)];
-        
+    // console.log(machineNames);
+    // uniqueMachineNames = [...new Set(machineNames)];
+    // console.log(uniqueMachineNames);
 }
 
 function displayMachines(){
@@ -43,32 +64,29 @@ function displayMachines(){
 
 function randomiseData(){
     randomisedData = [];
-    powerConsumption = 0;
-    productionCount = 0;
-    averageTemperature = 0;
-    averageSpeed = 0;
 
-
-    let machineNum = Math.floor((Math.random() * (rawFactoryData.length/machineNames.length)) + 1);
-    for(let i=0; i<machineNames.length; i++){
-        randomisedData.push(rawFactoryData[machineNum + "" + i])
-
+    for(let i=1; i<=numMachines; i++){
+        randomisedData.push(rawFactoryData[i]['logs'][Math.floor(Math.random() * rawFactoryData[i]['logs'].length)])
     }
     console.log(randomisedData)
 }
 
 function displayRandomisedData(){
+    powerConsumption = 0;
+    productionCount = 0;
+    averageTemperature = 0;
+    averageSpeed = 0;
+
     for(let i=0; i<randomisedData.length; i++){
         powerConsumption += parseFloat(randomisedData[i]['power_consumption']);
         productionCount += parseFloat(randomisedData[i]['production_count']);
         averageTemperature += parseFloat(randomisedData[i]['temperature']);
         
-        if(randomisedData[i]['speed'] == ""){
+        if(randomisedData[i]['speed'] == null){
             averageSpeed += 0;
         }else{
             averageSpeed += (parseFloat(randomisedData[i]['speed']));
         }
-        console.log(parseFloat(randomisedData[i]['speed']));
     }
     powerConsumption = Math.ceil(powerConsumption);
     productionCount = Math.ceil(productionCount);
@@ -92,4 +110,31 @@ function displayRandomisedData(){
     document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`);
     document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
+}
+
+function displayMachineChecklist(i, id){
+    id += 1;
+    options += 
+    // `
+    //     <label class="checkboxes">
+    //         <input type="checkbox">
+    //         <span class="${id}">${i}</span></label>
+    // `
+    
+    `
+        <label class="checkboxes">
+            <input type="checkbox" name="machines[]" value="${id}">
+            <span class="${id}">${i}</span>
+        </label>
+    `
+}
+
+function displayUserChecklist(i){
+    options += 
+    `
+        <label class="checkboxes">
+            <input type="checkbox" name="users[]" value="${i.id}">
+            <span class="${i.id}">${i.username}</span>
+        </label>
+    `
 }

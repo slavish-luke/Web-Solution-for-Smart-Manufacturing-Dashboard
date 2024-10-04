@@ -17,6 +17,56 @@ li:hover {
     background-color: whitesmoke;
 }
 
+#users {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10%;
+    width: 25%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    right: 10%;
+    margin: 10px 0px 10px 0px;
+}
+
+details {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    background-color: #89CFF0;
+}
+
+details:hover {
+    background-color: whitesmoke;
+    transform: scale(1.02,1.02);
+    cursor: pointer;
+    border: 1px solid gray ;
+}
+
+details[open] summary {
+    border-bottom: 2px solid black;
+    margin: 5px 0px 5px 0px;
+}
+
+#stats {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30%;
+    width: 25%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+
 #add-remove-button *{
     font-size: 20px;
     border-radius: 8px;
@@ -108,24 +158,27 @@ li:hover {
     align-items: center;
     display: flex;
     text-align: center;
+    gap: 20px;
 }
 
 #edit-machines {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
     height: 85vh;
 }
 
 h1 {
     font-size: 30px;
+    text-align: center;
 }
 
 #Machine-notes {
     grid-column: 1/2;
     grid-row: 1/2;
-    margin-left: 10px;
+    display: block;
+    margin-left: 5%;
+    align-items: center;
 }
 
 #Machine-status {
@@ -140,8 +193,12 @@ h1 {
 }
 
 #notes-textarea {
-    width: 100%;
+    width: 75%;
     font-size: 14px;
     padding: 10px;
     box-sizing: border-box;
+}
+
+summary::marker {
+content: "";
 }
