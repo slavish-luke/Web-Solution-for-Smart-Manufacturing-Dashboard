@@ -29,29 +29,43 @@ li:hover {
 }
 
 .user-list {
+    display: flex;
+    flex-direction: column;
+    right: 10%;
+    margin: 10px 0px 10px 0px;
+}
+
+details {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
     background-color: #89CFF0;
-    color: white;
+}
+
+details:hover {
+    background-color: whitesmoke;
+    transform: scale(1.02,1.02);
     cursor: pointer;
-    padding: 18px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    color: black;
+    border: 1px solid gray ;
+}
+
+details[open] summary {
+    border-bottom: 2px solid black;
+    margin: 5px 0px 5px 0px;
+}
+
+#stats {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30%;
+    width: 25%;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
 
-.collapse:hover {
-    background-color: whitesmoke;
-}
 
-.user-list {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-}
 
 #add-remove-button *{
     font-size: 20px;

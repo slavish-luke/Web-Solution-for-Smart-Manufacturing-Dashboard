@@ -68,22 +68,28 @@
         </aside>
 
         <!--Statistics side-->
-        <div class="stats"></div>
+        <div id="stats">
+            <h1>Statistics</h1>
+
+        </div>
 
         <!--Users-->
         <div id="users">
             <h1>User Management System</h1>
 
             <details class="user-list" id="user-administrators">
-                <summary></summary>
+                <summary>Administrators</summary>
+                Test
             </details>
 
             <details class="user-list" id="user-managers">
-                <summary></summary>
+                <summary>Managers</summary>
+                Test
             </details>
 
             <details class="user-list" id="user-operators">
-                <summary></summary>
+                <summary>Operators</summary>
+                Test
             </details>
         </div>
     </div>
