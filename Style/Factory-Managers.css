@@ -29,28 +29,29 @@ li:hover {
 }
 
 .user-list {
+    display: flex;
+    flex-direction: column;
+    right: 10%;
+    margin: 10px 0px 10px 0px;
+}
+
+details {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
     background-color: #89CFF0;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }
 
-.collapse:hover {
+details:hover {
     background-color: whitesmoke;
+    transform: scale(1.02,1.02);
+    cursor: pointer;
+    border: 1px solid gray ;
 }
 
-.user-list {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
+details[open] summary {
+    border-bottom: 2px solid black;
+    margin: 5px 0px 5px 0px;
 }
 
 #add-remove-button *{
