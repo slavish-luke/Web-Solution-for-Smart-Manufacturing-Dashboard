@@ -29,6 +29,23 @@
             echo "<h1>MACHINE NOTE</h1><p>";
             echo $note;
             echo "</p>";
+
+            echo "<h1>All users</h1>";
+            
+            foreach($users as $user){
+                if(!$machines){
+                    echo "<p>User: ", $user, " no machines were selected Note: ", $note, "</p>";
+
+
+                }else{
+                    foreach($machines as $machine){
+                        echo "<p>Machine: ", $machine, " User: ", $user, " Note: ", $note, "</p>";
+    
+                    }
+
+                }
+                
+            };
         
         }else{
             echo mysqli_error($conn);
