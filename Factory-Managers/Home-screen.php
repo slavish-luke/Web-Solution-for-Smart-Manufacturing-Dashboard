@@ -92,6 +92,10 @@
                 Test
             </details>
         </div>
+
+        <div id="inbox">
+            <h1>Inbox</h1>
+        </div>
     </div>
 
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>

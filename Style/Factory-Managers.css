@@ -69,6 +69,17 @@ details[open] summary {
     font-family: 'Courier New', Courier, monospace;
 }
 
+#inbox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    left: 10%;
+    bottom: 30%;
+}
+
 #add-remove-button *{
     font-size: 20px;
     border-radius: 8px;
@@ -165,8 +176,6 @@ details[open] summary {
 
 #Machine-notes {
     right: 10%;
-    
-
 }
 
 #notes-textarea {
