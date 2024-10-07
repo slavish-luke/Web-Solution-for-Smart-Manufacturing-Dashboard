@@ -26,8 +26,20 @@
 
     <!--Settings Button-->
     <div>
-        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+        <details id="settings-dropdown">
+            <summary>
+            <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+            </summary>
+            <a href="../Factory-Managers/Home-Screen.php">Options</a>
+            <br>
+            <a href="../Factory-Managers/Edit-Machine.php">Machines</a>
+            <br>
+            <a href="../Factory-Managers/Home-Screen.php">Statistics</a>
+            <br>
+            <a href="../logout.php">Logout</a>
+        </details>
     </div>
+    
 </header>
 
 <body>
