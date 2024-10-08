@@ -15,7 +15,7 @@
 <header>
     <!--Home Button-->
     <div>
-        <a href="../Factory-Managers/Home-Screen.php">
+        <a href="../Factory-Managers/Home-Screen.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
     </div>
