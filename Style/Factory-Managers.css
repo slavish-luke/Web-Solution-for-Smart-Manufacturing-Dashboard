@@ -119,63 +119,6 @@ details[open] summary {
     font-family: 'Courier New', Courier, monospace;
 }
 
-#edit-machines {
-    float: left;
-    width: 500px;
-    display: flex;
-    text-align: center;
-    float: left;
-    width: 50vh;
-}
-
-.status-button {
-    font-size: 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: flex;
-    background-color: #89CFF0;
-    text-align: center;
-    width: 105px;
-    height: 50px;
-    font-weight: bold;
-    margin: 0px 10px 0px 10px;
-}
-
-.status-button:hover {
-    cursor: pointer;
-    background-color: whitesmoke;
-}
-
-#image-input {
-    align-items: center;
-}
-
-.confirm-button {
-    font-size: 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: flex;
-    background-color: #89CFF0;
-    text-align: center;
-    width: 105px;
-    height: 50px;
-    font-weight: bold;
-    margin: 0px 10px 0px 10px;
-}
-
-.confirm-button:hover {
-    cursor: pointer;
-    background-color: whitesmoke;
-}
-
-#edit-machines *{
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
 #Machine-notes {
     display: flex;
     flex-direction: column;
@@ -202,17 +145,33 @@ details[open] summary {
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 70%;
+    left: 60%;
     width: 25%;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
 
-.status-button {
+#status-button-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
+}
+
+.status-button {
+    font-size: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 105px;
+    height: 50px;
+    font-weight: bold;
+}
+
+.status-button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
 }
 
 #Machine-image {
@@ -233,11 +192,36 @@ details[open] summary {
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 70%;
+    left: 60%;
     top: 60%;
     width: 25%;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
+}
+
+#confirm-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.confirm-button {
+    font-size: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 105px;
+    height: 50px;
+    font-weight: bold;
+    margin: 0px 10px 0px 10px;
+}
+
+.confirm-button:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
 }
 
