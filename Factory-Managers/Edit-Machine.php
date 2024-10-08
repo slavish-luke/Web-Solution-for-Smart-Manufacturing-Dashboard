@@ -13,7 +13,7 @@
 <header>
     <!--Home Button-->
     <div>
-        <a href="../Factory-Managers/Home-Screen.php">
+        <a href="../Factory-Managers/Home-Screen.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
     </div>
@@ -39,11 +39,35 @@
             <!--Search Bar-->
             <div>
                 <p id="search-bar-name">Edit Machines</p>
-                <input type="text" id="search-box" placeholder="Search Machines">
+                <form action="" method="GET">
+                <input type="text" id="search-box" placeholder="Search Machines" name="search-box">
+                </form>
             </div>
 
             <!--List of machines-->
             <div id="machine-list"></div>
+            <form action="Edit-Machine.php" method="get" id="to-machine">
+                <?php
+                    require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT name FROM machine WHERE name LIKE ?";
+                    $name = "%" . htmlspecialchars($_GET["search-box"]) . "%";
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql); 
+                    mysqli_stmt_bind_param($statement, 's', $name); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            echo("<ul>");
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo("<li><a href='Edit-Machine.php?machine=$row[name]&search-box='>$row[name]</a></li>");
+                            }
+                            echo("</ul>");
+                            mysqli_free_result($result);
+                        }
+                    }
+                
+                ?>
+                </form>
 
             <div id="add-remove-button">
                 <!--Buttons to add-->
