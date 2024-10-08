@@ -44,7 +44,7 @@ details {
 
 summary::marker {
     content: "";
-    }
+}
 
 details:hover {
     background-color: whitesmoke;
@@ -54,7 +54,7 @@ details:hover {
 }
 
 details[open] summary {
-    border-bottom: 2px solid black;
+    border-bottom: 2px;
     margin: 5px 0px 5px 0px;
 }
 
@@ -63,6 +63,18 @@ details[open] summary {
     flex-direction: column;
     position: absolute;
     left: 30%;
+    width: 25%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#inbox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 20%;
+    margin-top: 20%;
     width: 25%;
     font-size: 20px;
     font-weight: bold;
@@ -165,8 +177,6 @@ details[open] summary {
 
 #Machine-notes {
     right: 10%;
-    
-
 }
 
 #notes-textarea {

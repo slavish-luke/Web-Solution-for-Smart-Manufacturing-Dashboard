@@ -25,7 +25,8 @@
 
             <div id="message-container">
                 <h1>Task Notes</h1>
-                <textarea name="machine-note" id="machine-note"></textarea>
+                <textarea name="note-subject" id="note-subject" placeholder="Subject" maxlength="38"></textarea>
+                <textarea name="note-content" id="note-content" placeholder="Type message here"></textarea>
                 <input type="submit" id="submit-notes" value="Send notes">
             </div>
         </form>

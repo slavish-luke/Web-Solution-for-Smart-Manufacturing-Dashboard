@@ -52,6 +52,7 @@ a:hover{
 #header a.selected{
     background-color: whitesmoke;
     border-bottom: 0px;
+    padding-bottom: 0.04vh;
 }
 
 #stats{
@@ -194,7 +195,7 @@ h4{
 #signOutButton{
     border-radius: 1vw;
     font-size: 2vw;
-    background-color: #c9e7f5;
+    background-color: #89CFF0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-image: url(../Style/Images/door-open-solid.svg);
     background-repeat: no-repeat;
@@ -205,6 +206,10 @@ h4{
     line-height: 8vh;
     float: right;
     padding: 0 1vw 1vw 5vw;
+}
+
+#signOutButton:hover{
+    background-color: #c9e7f5;
 }
 
 #user a:hover{
@@ -275,7 +280,7 @@ select{
     flex-direction: column;
 }
 
-#checklist-container span{
+span{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5vw;
 }
@@ -287,13 +292,8 @@ input[type=checkbox]{
     font-size: 4px;
     float: left;
     margin-top: 0.7vh;
-    margin-bottom: 0.7vh;
-}
-
-#user-container label{
-    display: block;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.5vw;
+    margin-bottom: 0.8vh;
+    margin-left: 0;
 }
 
 .checkboxes{
@@ -304,6 +304,8 @@ input[type=checkbox]{
     width: 25%;
     float: left;
     margin-left: 0.5%;
+    display: flex;
+    flex-direction: column;
 }
 
 form{
@@ -317,11 +319,27 @@ form{
     flex-direction: column;
 }
 
-#machine-note{
+#note-subject{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
+    height: 6vh;
+    box-sizing: border-box;
+    font-size: 2vw;
+    font-weight: bold;
+    resize: none;
+    border-radius: 0.8vw;
+    padding: 0.75vw;
+    overflow: hidden;
+    line-height: 3vh;
+}
+
+#note-content{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    height: 45vh;
     box-sizing: border-box;
     font-size: 2vw;
     resize: none;
