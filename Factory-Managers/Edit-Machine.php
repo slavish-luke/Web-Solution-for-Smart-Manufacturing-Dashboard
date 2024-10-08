@@ -128,10 +128,6 @@
         }
         mysqli_close($conn); 
     ?>
-
-    <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="Machine-List.js" defer></script>
-     
 </body>
 
 </html> 

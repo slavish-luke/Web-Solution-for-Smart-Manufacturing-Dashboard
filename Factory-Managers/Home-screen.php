@@ -73,18 +73,39 @@
                                 mysqli_free_result($result);
                             }
                         }
-                   
-                
-                ?>
+                    ?>
                 </form>
-                <div id="machines"></div>
             </div>
         </aside>
 
         <!--Statistics side-->
         <div id="stats">
             <h1>Statistics</h1>
+            <div id="stats-container">
+                <div class="charts">
+                    <h2>Average Power Consumption</h2>
+                    <svg class="pie-chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="avg-power-consumption" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
 
+                <div class="charts">
+                    <h2>Average Power Consumption</h2>
+                    <svg class="pie-chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
+
+                <div class="charts">
+                    <h2>Average Power Consumption</h2>
+                    <svg class="pie-chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                </div>
+            </div>
         </div>
 
         <!--Users-->
@@ -153,7 +174,6 @@
                         mysqli_free_result($result);
                     }
                 }
-                
                 ?>
             </details>
         </div>
@@ -162,11 +182,5 @@
             <h1>Inbox</h1>
         </div>
     </div>
-
-    <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
-    <script src="script.js" defer></script>
-    <?php
-    mysqli_close($conn);
-    ?>
 </body>
 </html> 
