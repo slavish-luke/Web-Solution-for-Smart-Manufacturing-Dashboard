@@ -61,9 +61,12 @@
 
             <div id="Machine-status">
                 <h1>Machine Status</h1>
-                <button type="button" class="status-button">On</button>
-                <button type="button" class="status-button">Off</button>
+                <div id="status-button-container">
+                    <button type="button" class="status-button">On</button>
+                    <button type="button" class="status-button">Off</button>
+                </div>
             </div>
+
 
             <div id="Machine-image">
                 <h1>Machine Image</h1>
@@ -72,10 +75,11 @@
 
             <div id="Machine-confirm">
                 <h1>Confirm</h1>
-                <br>
-                <button type="button" class="confirm-button">Save</button>
-                <button type="button" class="confirm-button">Exit</button>
-                <button type="button" class="confirm-button">Clear</button>
+                <div id="confirm-button-container">
+                    <button type="button" class="confirm-button">Save</button>
+                    <button type="button" class="confirm-button">Exit</button>
+                    <button type="button" class="confirm-button">Clear</button>
+                </div>
             </div>
         </div>
     </div>
