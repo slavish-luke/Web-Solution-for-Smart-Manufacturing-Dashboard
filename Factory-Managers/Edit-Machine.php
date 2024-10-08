@@ -23,7 +23,12 @@
 
     <!--Settings cog-->
     <div>
-        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+        <details id="settings-dropdown">
+            <summary>
+            <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+            </summary>
+            <a href="../logout.php">Logout</a>
+        </details>
     </div>
 </header>
 
@@ -67,6 +72,7 @@
 
             <div id="Machine-confirm">
                 <h1>Confirm</h1>
+                <br>
                 <button type="button" class="confirm-button">Save</button>
                 <button type="button" class="confirm-button">Exit</button>
                 <button type="button" class="confirm-button">Clear</button>
