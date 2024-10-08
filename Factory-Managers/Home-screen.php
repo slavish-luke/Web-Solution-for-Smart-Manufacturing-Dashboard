@@ -6,6 +6,9 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
+    <script type="text/javascript">
+        document.getElementById("search-box").value = "";
+    </script>
     <title>Dashboard</title>
 </head>
 
@@ -73,7 +76,7 @@
                         mysqli_free_result($result);
                     }
                 }
-                mysqli_close($conn);
+                
                 ?>
                 <div id="machines"></div>
             </div>
@@ -91,17 +94,68 @@
 
             <details class="user-list" id="user-administrators">
                 <summary>Administrators</summary>
-                Test
+                <?php
+                require_once "../inc/dbconn.inc.php";
+                $sql = "SELECT username FROM account WHERE role_id = 1";
+                $statement = mysqli_stmt_init($conn);
+                mysqli_stmt_prepare($statement, $sql); 
+                if (mysqli_stmt_execute($statement)){
+                    $result = mysqli_stmt_get_result($statement);
+                    if (mysqli_num_rows($result) >= 1){
+                        echo("<ul>");
+                        while ($row = mysqli_fetch_assoc($result)){
+                            echo("<li>$row[username]</a></li>");
+                        }
+                        echo("</ul>");
+                        mysqli_free_result($result);
+                    }
+                }
+                
+                ?>
             </details>
 
             <details class="user-list" id="user-managers">
                 <summary>Managers</summary>
-                Test
+                <?php
+                require_once "../inc/dbconn.inc.php";
+                $sql = "SELECT username FROM account WHERE role_id = 3";
+                $statement = mysqli_stmt_init($conn);
+                mysqli_stmt_prepare($statement, $sql); 
+                if (mysqli_stmt_execute($statement)){
+                    $result = mysqli_stmt_get_result($statement);
+                    if (mysqli_num_rows($result) >= 1){
+                        echo("<ul>");
+                        while ($row = mysqli_fetch_assoc($result)){
+                            echo("<li>$row[username]</a></li>");
+                        }
+                        echo("</ul>");
+                        mysqli_free_result($result);
+                    }
+                }
+                
+                ?>
             </details>
 
             <details class="user-list" id="user-operators">
                 <summary>Operators</summary>
-                Test
+                <?php
+                require_once "../inc/dbconn.inc.php";
+                $sql = "SELECT username FROM account WHERE role_id = 4";
+                $statement = mysqli_stmt_init($conn);
+                mysqli_stmt_prepare($statement, $sql); 
+                if (mysqli_stmt_execute($statement)){
+                    $result = mysqli_stmt_get_result($statement);
+                    if (mysqli_num_rows($result) >= 1){
+                        echo("<ul>");
+                        while ($row = mysqli_fetch_assoc($result)){
+                            echo("<li>$row[username]</a></li>");
+                        }
+                        echo("</ul>");
+                        mysqli_free_result($result);
+                    }
+                }
+                
+                ?>
             </details>
         </div>
 
@@ -112,5 +166,8 @@
 
     <script type="text/javascript">let rawFactoryData =<?php echo json_encode($factory_data); ?>;</script>
     <script src="script.js" defer></script>
+    <?php
+    mysqli_close($conn);
+    ?>
 </body>
 </html> 
