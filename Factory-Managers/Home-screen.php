@@ -23,7 +23,9 @@
     <!--Welcome Message-->
     <div id="Welcome-message">
         <a href="../logout.php">
-            <p>Welcome John Doe</p>
+            <p>Welcome <?php session_start(); echo("$_SESSION[username]"); ?>
+
+            </p>
         </a>
     </div>
 
