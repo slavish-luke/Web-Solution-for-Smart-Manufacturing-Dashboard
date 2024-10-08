@@ -30,6 +30,18 @@ if(document.getElementById("notes")){
     console.log(productionOperators)
     productionOperators.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;
+
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    let error = urlParams.get("error")
+    console.log(error);
+
+    if(error == "empty_note"){
+        alert("Note supplied was empty");
+        location.replace(window.location.pathname);
+    }
 }
 
 

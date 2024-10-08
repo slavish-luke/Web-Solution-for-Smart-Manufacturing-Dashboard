@@ -12,6 +12,10 @@
     $sqlNoMachine = "INSERT INTO notes (user_id, notes_subject, notes_content) VALUES (?, ?, ?)";
     $sqlMachine = "INSERT INTO notes (machine_id, user_id, notes_subject, notes_content) VALUES (?, ?, ?, ?)";
 
+    if(empty($note)){
+        header("location: notes.php?error=empty_note");
+        exit();
+    }
 
     // $statement = mysqli_stmt_init($conn);
 
