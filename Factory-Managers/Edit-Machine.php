@@ -6,6 +6,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
+    <script src="scripts.js" defer></script>
     <title>Edit Machines</title>
 </head>
 
@@ -18,7 +19,7 @@
     </div>
 
     <div id="machine-name">
-        <p>Machine Name</p>
+        <p id="machine-name">Machine Name</p>
     </div>
 
     <!--Settings cog-->
