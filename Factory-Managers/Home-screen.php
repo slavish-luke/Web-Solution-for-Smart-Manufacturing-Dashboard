@@ -52,7 +52,7 @@
             <?php
                 require_once "../inc/dbconn.inc.php";
                 $sql = "SELECT name FROM machine WHERE name LIKE ?";
-                $name = htmlspecialchars($_GET["search-box"]) . "%";
+                $name = "%" . htmlspecialchars($_GET["search-box"]) . "%";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 mysqli_stmt_bind_param($statement, 's', $name); 
