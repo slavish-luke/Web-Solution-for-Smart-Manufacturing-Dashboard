@@ -79,15 +79,19 @@
             </div>
         </aside>
 
+        <!--Container for the options of each machine-->
         <div id="edit-machines">
             <form action="add-note.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                 <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                 <input type="hidden" name="search-box" value="<?php echo htmlspecialchars($_GET['search-box']);?>">
+
+                <!--Div for keeping notes about the machine-->
                 <div id="Machine-notes">
                     <h1>Machine Notes</h1>
                     <textarea id="notes-textarea" name="notes"></textarea>
                 </div>
 
+                <!--Div for keeping the status of the machine-->
                 <div id="Machine-status">
                     <h1>Machine Status</h1>
                     <div id="status-button-container">
@@ -96,13 +100,14 @@
                     </div>
                 </div>
 
-
+                <!--Div for keeping the machine image-->
                 <div id="Machine-image">
                     <h1>Machine Image</h1>
                     <input type="file" id="image-input" accept="image/*">
                     <img id="imagePreview" src="" alt="Image Preview">
                 </div>
 
+                <!--Div for assigning the operator to the machine-->
                 <div id="Assign-operator">
                     <h1>Assign Operator</h1>
                     <?php
@@ -124,6 +129,7 @@
                     ?>
                 </div>
 
+                <!--Div for confirming to keeping the changes or not-->
                 <div id="Machine-confirm">
                     <h1>Confirm</h1>
                     <div id="confirm-button-container">

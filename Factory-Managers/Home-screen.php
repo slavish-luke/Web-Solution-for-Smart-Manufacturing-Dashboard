@@ -80,7 +80,11 @@
         <!--Statistics side-->
         <div id="stats">
             <h1>Statistics</h1>
+
+            <!--Container for all the pie charts-->
             <div id="stats-container">
+
+                <!--Singluar container for a pie chart -->
                 <div class="charts">
                     <h2>Average Production Count</h2>
                     <svg class="pie-chart" viewBox="0 0 36 36">
@@ -88,30 +92,35 @@
                         <circle id="production-count" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
 
+                    <!--Contianer for the percentages -->
                     <div class="display-stats">
                         <h3 id="production-count"></h3>
                     </div>
                 </div>
 
+                <!--Singluar container for a pie chart -->
                 <div class="charts">
                     <h2>Operational <br> Status</h2>
                     <svg class="pie-chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
                         <circle id="operational-status" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                                        
+
+                    <!--Contianer for the percentages -->         
                     <div class="display-stats">
                         <h3 id="operational-status"></h3>
                     </div>
                 </div>
 
+                <!--Singluar container for a pie chart -->
                 <div class="charts">
                     <h2>Average Power Consumption</h2>
                     <svg class="pie-chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
                         <circle id="average-power-consumption" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                                        
+                    
+                    <!--Contianer for the percentages -->
                     <div class="display-stats">
                         <h3 id="power-consumption"></h3>
                     </div>
@@ -189,6 +198,7 @@
             </details>
         </div>
 
+        <!--Inbox to read messages-->
         <div id="inbox">
             <h1>Inbox</h1>
         </div>

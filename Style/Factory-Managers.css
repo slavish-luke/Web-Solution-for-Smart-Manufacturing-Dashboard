@@ -1,12 +1,25 @@
+/*Fonts for headers*/
 header *{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: uppercase;
 }
 
-body {
+/*Fonts for body*/
+body *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*Aligning all heading to the center*/
+h1 *{
+    text-align: center;
+}
+
+h2 *{
+    text-align: center;
+}
+
+/*Lists*/
+/*Used by the machine list, and user lists*/
 ul {
     list-style-type: none;
     border-style: solid;
@@ -30,10 +43,7 @@ a {
     color: black;
 }
 
-h1 {
-    text-align: center;
-}
-
+/*User list in the home page*/
 #users {
     display: flex;
     flex-direction: column;
@@ -73,6 +83,7 @@ details[open] summary {
     margin: 5px 0px 5px 0px;
 }
 
+/*Stats in the home page*/
 #stats {
     display: flex;
     flex-direction: column;
@@ -82,10 +93,6 @@ details[open] summary {
     width: 40%;
     height: 500px;
     font-size: 20px;
-}
-
-#stats h1 {
-    text-align: center;
 }
 
 #stats-container {
@@ -154,6 +161,7 @@ svg{
     font-size: .7vw;
 }
 
+/*Inbox in the homescreen*/
 #inbox {
     flex-direction: column;
     position: absolute;
@@ -164,6 +172,13 @@ svg{
     font-size: 20px;
 }
 
+/*Header name for the edit machines page*/
+#machine-name {
+    text-align: center;
+    font-size: 50px;
+}
+
+/*Buttons to add and remove machines in edit machine page*/
 #add-remove-button *{
     font-size: 20px;
     border-radius: 0.8vw;
@@ -187,11 +202,7 @@ svg{
     margin-left: 5px;
 }
 
-#machine-name {
-    text-align: center;
-    font-size: 50px;
-}
-
+/*Notes for the machine notes in edit machine page*/
 #Machine-notes {
     display: flex;
     flex-direction: column;
@@ -211,6 +222,7 @@ svg{
     font-size: 20px;
 }
 
+/*Changing machine status in edit machine page*/
 #Machine-status {
     display: flex;
     flex-direction: column;
@@ -242,6 +254,7 @@ svg{
     background-color: whitesmoke;
 }
 
+/*Adding a image to the machine in edit machine page*/
 #Machine-image {
     display: flex;
     flex-direction: column;
@@ -263,6 +276,7 @@ svg{
     display: none;
 }
 
+/*Assigning an operator to a machine in edit machine page*/
 #Assign-operator {
     display: flex;
     flex-direction: column;
@@ -276,6 +290,7 @@ svg{
     font-size: 20px;
 }
 
+/*Confirming all the changes in edit machine page*/
 #Machine-confirm {
     display: flex;
     flex-direction: column;
