@@ -83,27 +83,39 @@
             <h1>Statistics</h1>
             <div id="stats-container">
                 <div class="charts">
-                    <h2>Average Power Consumption</h2>
+                    <h2>Average Production Count</h2>
                     <svg class="pie-chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="avg-power-consumption" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        <circle id="production-count" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
+
+                    <div class="display-stats">
+                        <h3 id="production-count"></h3>
+                    </div>
+                </div>
+
+                <div class="charts">
+                    <h2>Operational Status</h2>
+                    <svg class="pie-chart" viewBox="0 0 36 36">
+                        <circle class="background" r="16" cx="18" cy="18"></circle>
+                        <circle id="operational-status" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                    </svg>
+                                        
+                    <div class="display-stats">
+                        <h3 id="operational-status"></h3>
+                    </div>
                 </div>
 
                 <div class="charts">
                     <h2>Average Power Consumption</h2>
                     <svg class="pie-chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        <circle id="average-power-consumption" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                </div>
-
-                <div class="charts">
-                    <h2>Average Power Consumption</h2>
-                    <svg class="pie-chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
+                                        
+                    <div class="display-stats">
+                        <h3 id="power-consumption"></h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,5 +194,8 @@
             <h1>Inbox</h1>
         </div>
     </div>
+
+    <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
+    <script src="../Factory-Managers/scripts.js" defer></script>
 </body>
 </html> 
