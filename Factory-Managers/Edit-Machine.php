@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
     <script src="scripts.js" defer></script>
+    <script src="add-note.js" defer></script>
     <title>Edit Machines</title>
 </head>
 
@@ -80,7 +81,7 @@
         </aside>
 
         <div id="edit-machines">
-            <form action="" method="get">
+            <form action="add-note.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                 <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                 <input type="hidden" name="search-box" value="<?php echo htmlspecialchars($_GET['search-box']);?>">
                 <div id="Machine-notes">
@@ -106,8 +107,8 @@
                     <h1>Confirm</h1>
                     <div id="confirm-button-container">
                         <input type="submit" class="confirm-button" value="Save">
-                        <button type="button" class="confirm-button">Exit</button>
-                        <button type="button" class="confirm-button">Clear</button>
+                        <button class="confirm-button"><a href="Home-screen.php?search-box=">Exit</a></button>
+                        <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
                     </div>
                 </div>
             </form>
