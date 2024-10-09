@@ -41,6 +41,7 @@
                 <p id="search-bar-name">Edit Machines</p>
                 <form action="" method="GET">
                 <input type="text" id="search-box" placeholder="Search Machines" name="search-box">
+                <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                 </form>
             </div>
 
