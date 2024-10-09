@@ -106,7 +106,7 @@
                         <circle id="operational-status" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
 
-                    <!--Contianer for the percentages -->         
+                    <!--Contianer for the percentages -->    
                     <div class="display-stats">
                         <h3 id="operational-status"></h3>
                     </div>
@@ -204,6 +204,42 @@
         </div>
     </div>
 
+    </div>
+    <?php
+        require_once "../inc/dbconn.inc.php";
+
+        $sql = 
+            "SELECT machine.id AS machine_id, machine.name AS machine_name, factory_log.*
+            FROM machine 
+            JOIN factory_log ON machine.id = factory_log.machine_id
+            ORDER BY factory_log.timestamp DESC, machine.name;";
+
+            if($result = mysqli_query($conn, $sql)){
+
+                if(mysqli_num_rows($result) >= 1){
+                    $factory_data = [];
+                
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $factory_data[$row['machine_id']]['machine_name'] = $row['machine_name'];
+                        $factory_data[$row['machine_id']]['logs'][] = [
+                            'timestamp' => $row['timestamp'],
+                            'operational_status' => $row['operational_status'],
+                            'error_code' => $row['error_code'],
+                            'maintenance_log' => $row['maintenance_log'],
+                            'power_consumption' => $row['power_consumption'],
+                            'temperature' => $row['temperature'],
+                            'production_count' => $row['production_count'],
+                            'speed' => $row['speed'],
+                            'pressure' => $row['pressure'],
+                            'vibration' => $row['vibration'],
+                            'humidity' => $row['humidity']
+                        ];
+                    }
+                    mysqli_free_result($result);
+                }
+        }
+        mysqli_close($conn);
+    ?>
     <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
     <script src="../Factory-Managers/scripts.js" defer></script>
 </body>

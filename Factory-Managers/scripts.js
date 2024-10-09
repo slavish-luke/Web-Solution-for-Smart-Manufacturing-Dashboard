@@ -1,6 +1,6 @@
-const machineName = new URLSearchParams(window.location.search).get('machine');
-const machine_name = document.getElementById('machine-name');
-machine_name.textContent = machineName;
+// const machineName = new URLSearchParams(window.location.search).get('machine');
+// const machine_name = document.getElementById('machine-name');
+// machine_name.textContent = machineName;
 
 let uniqueMachineNames = [];
 let machineNames = [];
@@ -14,6 +14,16 @@ let options = "";
 console.log(rawFactoryData);
 let numMachines = Object.keys(rawFactoryData).length;
 getMachineNames();
+
+function getMachineNames(){
+    
+    for(let i=1; i<=numMachines; i++){
+        machineNames.push(rawFactoryData[i].machine_name);
+    }
+    // console.log(machineNames);
+    // uniqueMachineNames = [...new Set(machineNames)];
+    // console.log(uniqueMachineNames);
+}
 
 if(document.getElementById("stats")){
     randomiseData();
@@ -58,13 +68,10 @@ function displayRandomisedData(){
     averageTemperature = (averageTemperature/machineNames.length).toFixed(1);
     averageSpeed = (averageSpeed/machineNames.length).toFixed(2);
     
-    
-    
     document.getElementById("power-consumption").innerHTML = powerConsumption;
-    document.getElementById("production-count").innerHTML = productionCount;
-    document.getElementById("average-temperature").innerHTML = averageTemperature;
-    document.getElementById("average-speed").innerHTML = averageSpeed;
-    
+    // document.getElementById("production-count").innerHTML = productionCount;
+    // document.getElementById("average-temperature").innerHTML = averageTemperature;
+    // document.getElementById("average-speed").innerHTML = averageSpeed;
     
     let chartPowerConsumption = Math.round(powerConsumption / (500 * machineNames.length) * 100);
     let chartProductionCount = Math.round(productionCount / (100 * machineNames.length) * 100);
@@ -72,7 +79,7 @@ function displayRandomisedData(){
     let chartAverageSpeed = Math.round(averageSpeed / (0.25 * machineNames.length) * 100);
     
     document.getElementById("average-power-consumption").setAttribute("stroke-dasharray", `${chartPowerConsumption} ${(100)}`);
-    document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`);
-    document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
-    document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
+    // document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`);
+    // document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
+    // document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
 }
