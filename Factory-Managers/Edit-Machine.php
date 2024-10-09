@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
     <script src="scripts.js" defer></script>
-    <script src="add-note.js" defer></script>
     <title>Edit Machines</title>
 </head>
 
@@ -20,7 +19,7 @@
     </div>
 
     <div id="machine-name">
-        <p id="machine-name">Machine Name</p>
+        <p id="machine-name"><?php echo htmlspecialchars($_GET['machine']);?></p>
     </div>
 
     <!--Settings cog-->
@@ -111,8 +110,38 @@
                 <div id="Machine-status">
                     <h1>Machine Status</h1>
                     <div id="status-button-container">
-                        <button type="button" class="status-button">On</button>
-                        <button type="button" class="status-button">Off</button>
+                        <!-- <button type="button" class="status-button-on">On</button>
+                        <button type="button" class="status-button-off">Off</button> -->
+                        <?php
+                            require_once "../inc/dbconn.inc.php";
+                            $sql = "SELECT ison FROM machine WHERE name = ?";
+                            $note = htmlspecialchars($_GET['machine']);
+                            $statement = mysqli_stmt_init($conn);
+                            mysqli_stmt_prepare($statement, $sql);
+                            mysqli_stmt_bind_param($statement, 's', $note); 
+                            if (mysqli_stmt_execute($statement)){
+                                $result = mysqli_stmt_get_result($statement);
+                                if (mysqli_num_rows($result) >= 1){
+                                    while ($row = mysqli_fetch_assoc($result)){
+                                        if ($row['ison'] == 1){
+                                            echo(
+                                                "<input type='radio' id='status-on' name='status-button' class='status-button' value='On' checked>
+                                                <label for='status-on' class='status-button'>On</label>
+                                                <input type='radio' id='status-off' name='status-button' class='status-button' value='Off'>
+                                                <label for='status-off' class='status-button'>Off</label>");
+                                        }
+                                        else if ($row['ison'] == 0){
+                                            echo(
+                                                "<input type='radio' id='status-on' name='status-button' class='status-button' value='On'>
+                                                <label for='status-on' class='status-button'>On</label>
+                                                <input type='radio' id='status-off' name='status-button' class='status-button' value='Off' checked>
+                                                <label for='status-off' class='status-button'>Off</label>");
+                                        }
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
 
