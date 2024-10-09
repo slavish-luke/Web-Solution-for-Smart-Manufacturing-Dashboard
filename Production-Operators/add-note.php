@@ -1,6 +1,6 @@
 <?php
 
-
+    session_start();
     require_once "../inc/dbconn.inc.php";
     
     
@@ -8,6 +8,9 @@
     $machines = isset($_POST['machines']) ? $_POST['machines'] : []; // Check if machines is set
     $subject = htmlspecialchars($_POST['note-subject']);
     $note = htmlspecialchars($_POST['note-content']);
+    
+    $_SESSION['subject'] = $subject;
+    $_SESSION['note'] = $note;
 
     $sqlNoMachine = "INSERT INTO notes (user_id, notes_subject, notes_content) VALUES (?, ?, ?)";
     $sqlMachine = "INSERT INTO notes (machine_id, user_id, notes_subject, notes_content) VALUES (?, ?, ?, ?)";
@@ -17,14 +20,12 @@
         exit();
     }
 
-    // $statement = mysqli_stmt_init($conn);
+    if(empty($users)){
+        header("location: notes.php?error=no_users");
+        exit();
+    }
 
-    // mysqli_stmt_prepare($statement, $sql); 
-    // mysqli_stmt_bind_param($statement, 's', htmlspecialchars($_POST["machine-note"])); 
-    // The 's' in mysqli_stmt_bind_param indicates a string parameter
-
-    // if(mysqli_stmt_execute($statement)){
-            
+    
         echo "<h1>MACHINES</h1><p>";
         print_r($machines);
         echo "</p>";

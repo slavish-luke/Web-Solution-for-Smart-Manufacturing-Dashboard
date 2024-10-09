@@ -6,6 +6,11 @@
     <meta name="author" content="Luke Kradolfer" />
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
+
+    <?php
+        session_start();
+        //$note = isset($_POST['note-content']) ? htmlspecialchars($_POST['note-content']) : '';
+    ?>
 </head>
 <body class="background">
 
@@ -25,11 +30,28 @@
 
             <div id="message-container">
                 <h1>Task Notes</h1>
-                <textarea name="note-subject" id="note-subject" placeholder="Subject" maxlength="38"></textarea>
-                <textarea name="note-content" id="note-content" placeholder="Type message here"></textarea>
+
+                <?php
+                    // reading from the session storage 
+                    // saves subject and note content if user forgot to pick recipients                
+                    $subject = isset($_SESSION['subject']) ? $_SESSION['subject'] : ''; 
+                    $note = isset($_SESSION['note']) ? $_SESSION['note'] : ''; 
+                ?>
+
+                <textarea name="note-subject" id="note-subject" placeholder="Subject" maxlength="38"><?php echo $subject; ?></textarea>
+                <textarea name="note-content" id="note-content" placeholder="Type message here"><?php echo $note; ?></textarea>
                 <input type="submit" id="submit-notes" value="Send notes">
             </div>
         </form>
+    </div>
+
+    <!-- modal box taken from: --> 
+    <!-- https://www.w3schools.com/howto/howto_css_modals.asp -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="error-message">Some text in the Modal..</p>
+        </div>
     </div>
 
 

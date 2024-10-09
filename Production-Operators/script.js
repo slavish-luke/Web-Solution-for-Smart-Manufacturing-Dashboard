@@ -6,6 +6,8 @@ let productionCount = 0;
 let averageTemperature = 0;
 let averageSpeed = 0;
 let options = "";
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
 
 
 console.log(rawFactoryData);
@@ -32,6 +34,7 @@ if(document.getElementById("notes")){
     document.getElementById("user-container").innerHTML = options;
 
 
+    
     const queryString = window.location.search;
     console.log(queryString);
     const urlParams = new URLSearchParams(queryString);
@@ -39,8 +42,14 @@ if(document.getElementById("notes")){
     console.log(error);
 
     if(error == "empty_note"){
-        alert("Note supplied was empty");
-        location.replace(window.location.pathname);
+        
+        modal.style.display = "block";
+        document.getElementById("error-message").innerHTML = "Message required"
+    
+    }else if(error == "no_users"){
+
+        modal.style.display = "block";
+        document.getElementById("error-message").innerHTML = "User has to be selected"
     }
 }
 
@@ -150,3 +159,16 @@ function displayUserChecklist(i){
         </label>
     `
 }
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        //location.replace(window.location.pathname);
+        history.replaceState(null, '', window.location.pathname);
+    }
+  }
+  
