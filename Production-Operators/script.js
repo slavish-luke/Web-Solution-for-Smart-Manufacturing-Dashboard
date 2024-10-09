@@ -41,7 +41,12 @@ if(document.getElementById("notes")){
     let error = urlParams.get("error")
     console.log(error);
 
-    if(error == "empty_note"){
+    if(error == "blank_form"){
+
+        modal.style.display = "block";
+        document.getElementById("error-message").innerHTML = "To send a message, fill out the form fields"
+
+    }else if(error == "empty_note"){
         
         modal.style.display = "block";
         document.getElementById("error-message").innerHTML = "Message required"
@@ -49,7 +54,7 @@ if(document.getElementById("notes")){
     }else if(error == "no_users"){
 
         modal.style.display = "block";
-        document.getElementById("error-message").innerHTML = "User has to be selected"
+        document.getElementById("error-message").innerHTML = "Select a user"
     }
 }
 
