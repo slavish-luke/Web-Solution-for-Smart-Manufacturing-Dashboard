@@ -175,5 +175,4 @@ window.onclick = function(event) {
         //location.replace(window.location.pathname);
         history.replaceState(null, '', window.location.pathname);
     }
-  }
-  
+}

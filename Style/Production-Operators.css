@@ -26,7 +26,6 @@ body{
 
 #header a{
     flex: 1;
-    width: auto;
     float: left;
     text-align: center;
     line-height: 15vh;
@@ -54,13 +53,20 @@ a:hover{
     padding-bottom: 0.04vh;
 }
 
+#home-container{
+    display: flex;
+}
+
 #stats{
-    width: 60vw;
-    height: 85vh;
+    flex: 2;
     background-color: grey;
     border-right: 0.05vw solid black;
     float: left;
     background-color: whitesmoke;
+}
+
+#info{
+    flex: 1;
 }
 
 
@@ -171,7 +177,7 @@ svg{
 
 #user-icon{
     margin-left: 2vw;
-    float: left;
+    float: right;
 }
 
 h4{
@@ -181,10 +187,10 @@ h4{
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    font-size: 2.5vw;
    margin: 0;
-   margin-left: 1.5vw;
    display: flex;
    justify-content: center;
    align-items: center;
+   text-align: center;
 }
 
 #user a{
@@ -434,4 +440,45 @@ The Modal (background) */
     0% {fill: black;}
     50% {fill: yellow;}
     100% {fill: black;}
+}
+
+summary::marker {
+    content: "";
+}
+
+details[open] {
+    height: 40vh;
+    width: 15vw;
+    margin-top: 32.2vh;
+    margin-left: -9.5vw;
+    background-color: rgba(137, 207, 240, 0.95);
+    z-index: 5;
+    position: relative;
+    border-radius: 1vw;
+}
+
+details[open] #user-icon{
+    filter: invert(87%) sepia(24%) saturate(7497%) hue-rotate(1deg) brightness(106%) contrast(106%);
+    margin: 0;
+}
+
+
+details img:hover {
+    transform: scale(1.02,1.02);
+    cursor: pointer;
+}
+
+#settings-content{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+details h4{
+    font-size: 2vw;
+    margin-left: 2.2vw;
+    line-height: 7vh;
+    z-index: 5;
 }
