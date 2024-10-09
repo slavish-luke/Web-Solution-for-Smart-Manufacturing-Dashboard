@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="charts">
-                    <h2>Operational Status</h2>
+                    <h2>Operational <br> Status</h2>
                     <svg class="pie-chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
                         <circle id="operational-status" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>

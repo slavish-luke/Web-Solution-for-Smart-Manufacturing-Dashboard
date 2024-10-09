@@ -1,7 +1,16 @@
+header *{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 ul {
     list-style-type: none;
     border-style: solid;
-    border-radius: 15px;
+    border-radius: 0.8vw;
     overflow: hidden;
     font-size: 15px;
 }
@@ -43,7 +52,7 @@ h1 {
 
 details {
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 0.8vw;
     padding: 5px 10px 5px 10px;
     background-color: #89CFF0;
 }
@@ -60,7 +69,7 @@ details:hover {
 }
 
 details[open] summary {
-    border-bottom: 2px;
+    border-bottom: 1px;
     margin: 5px 0px 5px 0px;
 }
 
@@ -138,8 +147,8 @@ svg{
     z-index: 10;
     position: relative;
     text-align: center;
-    border-radius: 0.4vw;
-    border: #89CFF0 solid;
+    border-radius: 0.8vw;
+    border: #89CFF0 solid 1px;
     margin-top: -6vh;
     line-height: 4vh;
     font-size: .7vw;
@@ -157,12 +166,11 @@ svg{
 
 #add-remove-button *{
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     text-decoration: none;
-    display: flex;
     background-color: #89CFF0;
     text-align: center;
-    width: 105px;
+    width: 115px;
     height: 50px;
     margin-top: 10px;
 }
@@ -172,15 +180,11 @@ svg{
 }
 
 #add-button {
-    float: left;
-    margin-right: 20px;
-    justify-content: center;
+    margin-right: 5px;
 }
 
 #remove-button {
-    float: right;
-    margin-left: 20px;
-    justify-content: center;
+    margin-left: 5px;
 }
 
 #machine-name {
@@ -202,7 +206,8 @@ svg{
 #notes-textarea {
     width: 75%;
     height: 300px;
-    border-width: 3px;
+    border-width: 1px;
+    border-radius: 0.8vw;
     font-size: 20px;
 }
 
@@ -224,7 +229,7 @@ svg{
 
 .status-button {
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
@@ -288,7 +293,7 @@ svg{
 
 .confirm-button {
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
