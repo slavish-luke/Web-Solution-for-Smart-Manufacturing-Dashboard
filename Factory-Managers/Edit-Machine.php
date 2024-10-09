@@ -80,33 +80,37 @@
         </aside>
 
         <div id="edit-machines">
-            <div id="Machine-notes">
-                <h1>Machine Notes</h1>
-                <textarea id="notes-textarea"></textarea>
-            </div>
-
-            <div id="Machine-status">
-                <h1>Machine Status</h1>
-                <div id="status-button-container">
-                    <button type="button" class="status-button">On</button>
-                    <button type="button" class="status-button">Off</button>
+            <form action="" method="get">
+                <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                <input type="hidden" name="search-box" value="<?php echo htmlspecialchars($_GET['search-box']);?>">
+                <div id="Machine-notes">
+                    <h1>Machine Notes</h1>
+                    <textarea id="notes-textarea" name="notes"></textarea>
                 </div>
-            </div>
 
-
-            <div id="Machine-image">
-                <h1>Machine Image</h1>
-                <input type="file" id="image-input"><input>
-            </div>
-
-            <div id="Machine-confirm">
-                <h1>Confirm</h1>
-                <div id="confirm-button-container">
-                    <button type="button" class="confirm-button">Save</button>
-                    <button type="button" class="confirm-button">Exit</button>
-                    <button type="button" class="confirm-button">Clear</button>
+                <div id="Machine-status">
+                    <h1>Machine Status</h1>
+                    <div id="status-button-container">
+                        <button type="button" class="status-button">On</button>
+                        <button type="button" class="status-button">Off</button>
+                    </div>
                 </div>
-            </div>
+
+
+                <div id="Machine-image">
+                    <h1>Machine Image</h1>
+                    <input type="file" id="image-input"><input>
+                </div>
+
+                <div id="Machine-confirm">
+                    <h1>Confirm</h1>
+                    <div id="confirm-button-container">
+                        <input type="submit" class="confirm-button" value="Save">
+                        <button type="button" class="confirm-button">Exit</button>
+                        <button type="button" class="confirm-button">Clear</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
