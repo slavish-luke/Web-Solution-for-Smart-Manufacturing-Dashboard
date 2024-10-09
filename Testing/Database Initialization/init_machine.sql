@@ -2,7 +2,8 @@ DROP TABLE IF EXISTS machine;
 
 CREATE TABLE machine (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name varchar(50) NOT NULL
+    name varchar(50) NOT NULL,
+    note varchar(200)
 );
 
 INSERT INTO machine (name) VALUES ('CNC Machine');

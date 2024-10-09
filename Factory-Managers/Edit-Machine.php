@@ -88,7 +88,23 @@
                 <!--Div for keeping notes about the machine-->
                 <div id="Machine-notes">
                     <h1>Machine Notes</h1>
-                    <textarea id="notes-textarea" name="notes"></textarea>
+                    <textarea id="notes-textarea" name="notes"><?php 
+                            require_once "../inc/dbconn.inc.php";
+                            $sql = "SELECT note FROM machine WHERE name = ?";
+                            $note = htmlspecialchars($_GET['machine']);
+                            $statement = mysqli_stmt_init($conn);
+                            mysqli_stmt_prepare($statement, $sql);
+                            mysqli_stmt_bind_param($statement, 's', $note); 
+                            if (mysqli_stmt_execute($statement)){
+                                $result = mysqli_stmt_get_result($statement);
+                                if (mysqli_num_rows($result) >= 1){
+                                    while ($row = mysqli_fetch_assoc($result)){
+                                        echo("$row[note]");
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            }
+                        ?></textarea>
                 </div>
 
                 <!--Div for keeping the status of the machine-->
