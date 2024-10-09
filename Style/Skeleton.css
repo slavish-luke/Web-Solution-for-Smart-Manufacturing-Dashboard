@@ -20,8 +20,6 @@ header {
 #Welcome-message *{
     text-align: center;
     font-size: 50px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
     color: black;
     margin: 0px;
@@ -97,8 +95,6 @@ aside {
 
 #search-bar-name {
     font-size: 30px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
     padding: 0px 0px 0px 10px;
     margin: 0px 0px 30px 0px;
 }
@@ -115,8 +111,6 @@ aside {
     background-size: 30px;
     background-position: 10px 10px;
     font-size: 20px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 input #search-box {

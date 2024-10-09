@@ -67,7 +67,6 @@
                             mysqli_free_result($result);
                         }
                     }
-                
                 ?>
                 </form>
 
@@ -100,7 +99,29 @@
 
                 <div id="Machine-image">
                     <h1>Machine Image</h1>
-                    <input type="file" id="image-input"><input>
+                    <input type="file" id="image-input" accept="image/*">
+                    <img id="imagePreview" src="" alt="Image Preview">
+                </div>
+
+                <div id="Assign-operator">
+                    <h1>Assign Operator</h1>
+                    <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT username FROM account WHERE role_id = 4";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                echo("<ul>");
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<li>$row[username]</a></li>");
+                                }
+                                echo("</ul>");
+                                mysqli_free_result($result);
+                            }
+                        }
+                    ?>
                 </div>
 
                 <div id="Machine-confirm">
