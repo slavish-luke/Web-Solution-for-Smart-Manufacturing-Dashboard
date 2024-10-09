@@ -29,44 +29,42 @@
     }
 
     
-        echo "<h1>MACHINES</h1><p>";
-        print_r($machines);
-        echo "</p>";
-        
-        echo "<h1>USERS</h1><p>";
-        print_r($users);
-        echo "</p>";
+    echo "<h1>MACHINES</h1><p>";
+    print_r($machines);
+    echo "</p>";
+    
+    echo "<h1>USERS</h1><p>";
+    print_r($users);
+    echo "</p>";
 
-        echo "<h1>MACHINE NOTE</h1><p>";
-        echo $note;
-        echo "</p>";
+    echo "<h1>MACHINE NOTE</h1><p>";
+    echo $note;
+    echo "</p>";
 
-        echo "<h1>All users</h1>";
-        
-        if ($stmtMachine = mysqli_prepare($conn, $sqlMachine)) {
-            foreach ($users as $user) {
-                if (!$machines) {
-                    if ($stmtNoMachine = mysqli_prepare($conn, $sqlNoMachine)) {
-                        mysqli_stmt_bind_param($stmtNoMachine, 'sss', $user, $subject, $note);
-                        if (!mysqli_stmt_execute($stmtNoMachine)) {
-                            echo "Error: " . mysqli_error($conn);
-                        }
+    echo "<h1>All users</h1>";
+    
+    if ($stmtMachine = mysqli_prepare($conn, $sqlMachine)) {
+        foreach ($users as $user) {
+            if (!$machines) {
+                if ($stmtNoMachine = mysqli_prepare($conn, $sqlNoMachine)) {
+                    mysqli_stmt_bind_param($stmtNoMachine, 'sss', $user, $subject, $note);
+                    if (!mysqli_stmt_execute($stmtNoMachine)) {
+                        echo "Error: " . mysqli_error($conn);
                     }
-                } else {
-                    foreach ($machines as $machine) {
-                        mysqli_stmt_bind_param($stmtMachine, 'ssss', $machine, $user, $subject, $note);
-                        if (!mysqli_stmt_execute($stmtMachine)) {
-                            echo "Error: " . mysqli_error($conn);
-                        }
+                }
+            } else {
+                foreach ($machines as $machine) {
+                    mysqli_stmt_bind_param($stmtMachine, 'ssss', $machine, $user, $subject, $note);
+                    if (!mysqli_stmt_execute($stmtMachine)) {
+                        echo "Error: " . mysqli_error($conn);
                     }
                 }
             }
-            header("location: notes.php");
         }
-    
-    // }else{
-    //     echo mysqli_error($conn);
-    // }
+        header("location: notes.php");
+    }
+
+
 mysqli_close($conn);
 
 

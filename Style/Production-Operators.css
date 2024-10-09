@@ -14,7 +14,7 @@ body{
     width: 100%;
     height: 15vh;
     background-color: #89CFF0;
-
+    display: flex;
 }
 
 .linkContainer{
@@ -25,12 +25,11 @@ body{
 }
 
 #header a{
-
-    width: 24.96vw;
+    flex: 1;
+    width: auto;
     float: left;
     text-align: center;
     line-height: 15vh;
-
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -42,7 +41,7 @@ body{
 }
 
 #header a.last{
-    border-right: 0px;
+    border-right: 0;
 }
 
 a:hover{
@@ -51,7 +50,7 @@ a:hover{
 
 #header a.selected{
     background-color: whitesmoke;
-    border-bottom: 0px;
+    border-bottom: 0;
     padding-bottom: 0.04vh;
 }
 
@@ -248,7 +247,7 @@ p{
 
 #last{
     margin-top: 2vh;
-    border-top: 0.1vw solid lightgrey
+    border-top: 0.1vw solid lightgrey;
 }
 
 
@@ -404,6 +403,7 @@ The Modal (background) */
 .close {
     color: #aaa;
     float: right;
+    margin: 0.5vw;
     font-size: 5vw;
     font-weight: bold;
     height: 5vh;
@@ -427,4 +427,11 @@ The Modal (background) */
 #warning{
     width: 20vw;
     margin-left: 15vw;
+    animation: warning-blink 1s infinite;
+}
+
+@keyframes warning-blink{
+    0% {fill: black;}
+    50% {fill: yellow;}
+    100% {fill: black;}
 }
