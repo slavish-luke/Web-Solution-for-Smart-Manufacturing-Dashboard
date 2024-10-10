@@ -102,7 +102,7 @@
                 <span class="close">&times;</span>
                 <form action="add-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                     <h1>Machine Name</h1>
-                    <input type="text" id="machine-name" name="machine-name">
+                    <input type="text" id="machine-name" name="machine-name" required>
                     <h1>Machine Image</h1>
                     <input type="file" id="image-input" accept="image/*" name="image-input">
                     <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
