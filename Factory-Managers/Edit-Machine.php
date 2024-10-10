@@ -19,7 +19,23 @@
     </div>
 
     <div id="machine-name">
-        <p id="machine-name"><?php echo htmlspecialchars($_GET['machine']);?></p>
+        <p id="machine-name"><?php 
+                            require_once "../inc/dbconn.inc.php";
+                            $sql = "SELECT name FROM machine WHERE id = ?";
+                            $note = htmlspecialchars($_GET['machine']);
+                            $statement = mysqli_stmt_init($conn);
+                            mysqli_stmt_prepare($statement, $sql);
+                            mysqli_stmt_bind_param($statement, 's', $note); 
+                            if (mysqli_stmt_execute($statement)){
+                                $result = mysqli_stmt_get_result($statement);
+                                if (mysqli_num_rows($result) >= 1){
+                                    while ($row = mysqli_fetch_assoc($result)){
+                                        echo("$row[name]");
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            }
+                        ?></p>
     </div>
 
     <!--Settings cog-->
@@ -50,7 +66,7 @@
             <form action="Edit-Machine.php" method="get" id="to-machine">
                 <?php
                     require_once "../inc/dbconn.inc.php";
-                    $sql = "SELECT name FROM machine WHERE name LIKE ?";
+                    $sql = "SELECT * FROM machine WHERE name LIKE ?";
                     $name = "%" . htmlspecialchars($_GET["search-box"]) . "%";
                     $statement = mysqli_stmt_init($conn);
                     mysqli_stmt_prepare($statement, $sql); 
@@ -60,7 +76,7 @@
                         if (mysqli_num_rows($result) >= 1){
                             echo("<ul>");
                             while ($row = mysqli_fetch_assoc($result)){
-                                echo("<li><a href='Edit-Machine.php?machine=$row[name]&search-box='>$row[name]</a></li>");
+                                echo("<li><a href='Edit-Machine.php?machine=$row[id]&search-box='>$row[name]</a></li>");
                             }
                             echo("</ul>");
                             mysqli_free_result($result);
@@ -78,6 +94,21 @@
             </div>
         </aside>
 
+        <!-- The Modal -->
+        <div id="add-machine-modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="add-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                    <h1>Machine Name</h1>
+                    <input type="text" id="machine-name" name="machine-name">
+                    <h1>Machine Image</h1>
+                    <input type="file" id="image-input" accept="image/*" name="image-input">
+                    <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
+                </form>
+            </div>
+        </div>
         <!--Container for the options of each machine-->
         <div id="edit-machines">
             <form action="add-note.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
@@ -89,7 +120,7 @@
                     <h1>Machine Notes</h1>
                     <textarea id="notes-textarea" name="notes"><?php 
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT note FROM machine WHERE name = ?";
+                            $sql = "SELECT note FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);
@@ -114,7 +145,7 @@
                         <button type="button" class="status-button-off">Off</button> -->
                         <?php
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT ison FROM machine WHERE name = ?";
+                            $sql = "SELECT ison FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);
@@ -147,9 +178,10 @@
 
                 <!--Div for keeping the machine image-->
                 <div id="Machine-image">
+                <h1>Machine Image</h1>
                 <input type="file" id="image-input" accept="image/*" name="image-input">
                 <img id="imagePreview" src="../Style/Images/Machines/<?php require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT img_address FROM machine WHERE name = ?";
+                            $sql = "SELECT img_address FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);

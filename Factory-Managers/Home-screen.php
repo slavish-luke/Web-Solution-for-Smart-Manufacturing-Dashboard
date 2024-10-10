@@ -57,7 +57,7 @@
                 <?php
                     require_once "../inc/dbconn.inc.php";
                         $name = "%" . htmlspecialchars($_GET["search-box"]) . "%";
-                        $sql = "SELECT name FROM machine WHERE name LIKE ?";
+                        $sql = "SELECT * FROM machine WHERE name LIKE ?";
                         $statement = mysqli_stmt_init($conn);
                         mysqli_stmt_prepare($statement, $sql); 
                         mysqli_stmt_bind_param($statement, 's', $name); 
@@ -66,7 +66,7 @@
                             if (mysqli_num_rows($result) >= 1){
                                 echo("<ul>");
                                 while ($row = mysqli_fetch_assoc($result)){
-                                    echo("<li><a href='Edit-Machine.php?machine=$row[name]&search-box='>$row[name]</a></li>");
+                                    echo("<li><a href='Edit-Machine.php?machine=$row[id]&search-box='>$row[name]</a></li>");
                                 }
                                 echo("</ul>");
                                 mysqli_free_result($result);
