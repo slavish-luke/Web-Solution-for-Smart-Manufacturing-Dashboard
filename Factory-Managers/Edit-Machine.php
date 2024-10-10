@@ -162,7 +162,7 @@
                                     }
                                     mysqli_free_result($result);
                                 }
-                            }?>" alt="Image Preview" style="width:500px;height:500px;">
+                            }?>" alt="Image Preview">
                 </div>
 
                 <!--Div for assigning the operator to the machine-->

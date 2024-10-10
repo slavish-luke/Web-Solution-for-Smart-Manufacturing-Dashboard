@@ -276,7 +276,6 @@ svg{
 #imagePreview {
     max-width: 100%;
     margin-top: 10px;
-    display: none;
 }
 
 /*Assigning an operator to a machine in edit machine page*/
