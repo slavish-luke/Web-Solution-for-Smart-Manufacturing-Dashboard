@@ -25,123 +25,148 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
         <a href="notes.php" class="last" >Notes</a>
     </div>
 
+    <div id="home-container">
+        <div id="stats">
+            <h1>Statistics</h1>
 
-    <div id="stats">
-        <h1>Statistics</h1>
+            <div id="stats-container">
+                <div class="machine-statistics">
+                    <h2>Power consumption</h2>
 
-        <div id="stats-container">
-            <div class="machine-statistics">
-                <h2>Power consumption</h2>
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
+                    </div>
 
-                <div class="chart-container">
-                    <svg class="chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
+                    <div class="display-stats">
+                        <h3 id="power-consumption"></h3>
+                    </div>
+
                 </div>
 
-                <div class="display-stats">
-                    <h3 id="power-consumption"></h3>
+                <div class="machine-statistics">
+                    <h2>Production count</h2>
+
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="production-count-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
+                    </div>
+
+                    <div class="display-stats">
+                        <h3 id="production-count"></h3>
+                    </div>
+
+                </div>
+
+                <div class="machine-statistics">
+                    <h2>Average temperature</h2>
+
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="average-temperature-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
+                    </div>
+                    
+                    <div class="display-stats">
+                        <h3 id="average-temperature"></h3>
+                    </div>
+
+                </div>
+
+                <div class="machine-statistics">
+                    <h2>Average speed</h2>
+
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="average-speed-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="18.55 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
+                    </div>
+
+                    <div class="display-stats">
+                        <h3 id="average-speed"></h3>
+                    </div>
+                    
                 </div>
 
             </div>
-
-            <div class="machine-statistics">
-                <h2>Production count</h2>
-
-                <div class="chart-container">
-                    <svg class="chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="production-count-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
-                </div>
-
-                <div class="display-stats">
-                    <h3 id="production-count"></h3>
-                </div>
-
-            </div>
-
-            <div class="machine-statistics">
-                <h2>Average temperature</h2>
-
-                <div class="chart-container">
-                    <svg class="chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="average-temperature-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
-                </div>
-                
-                <div class="display-stats">
-                    <h3 id="average-temperature"></h3>
-                </div>
-
-            </div>
-
-            <div class="machine-statistics">
-                <h2>Average speed</h2>
-
-                <div class="chart-container">
-                    <svg class="chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="average-speed-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="18.55 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
-                </div>
-
-                <div class="display-stats">
-                    <h3 id="average-speed"></h3>
-                </div>
-                
-            </div>
-
         </div>
-    </div>
 
 
-    <div id=info>
-        <div id="user">
-            <img src="../Style/Images/user-solid.svg" alt="" class="icons" id="user-icon">
-            <h4>John Doe</h4>
-
-            <!-- Haven't actually been able to test if this button works since my screen refuses to render it ;-; -->
-            <a href="../logout.php"><input type="submit" id="signOutButton" value="Sign Out"></a>
-        </div>
-        <div id="overview">
-            <h1 id="overview-header">Overview</h1>
-
-            <div id="overview-container">
+        <div id=info>
+            <div id="user">
+                <!--Settings Button-->
                 <div>
-                    <p><b>Machines</b></p>
-                </div>
+                    <details id="settings-dropdown">
+                        <summary>
+                            <img src="../Style/Images/user-solid.svg" alt="" class="icons" id="user-icon">
+                        </summary>
 
-                <div class="new-row">
-                    <p>Assigned</p>
-                    <p>6</p>
-                </div>
+                        <h4>Settings</h4>
 
-                <div class="new-row">
-                    <p>Operational</p>
-                    <p>4</p>
-                </div>
+                        <div id="settings-content">
 
-                <div class="new-row">
-                    <p>Needs attention</p>
-                    <p>1</p>
+                            <!-- switch button from https://www.w3schools.com/howto/howto_css_switch.asp -->
+                            <h5>Temperature</h5>
+                            <label class="switch">
+                                <span class="option-text left">&deg;C</span>
+                                <input type="checkbox" id="temperature-slider">
+                                <span class="slider"></span>
+                                <span class="option-text right">&deg;F</span>
+                            </label>
+                                
+                        </div>
+                        
+                    </details>
                 </div>
+                <h4>John Doe</h4>
 
-                <div class="new-row">
-                    <p>Out of order</p>
-                    <p>1</p>
-                </div>
-                
-                <div class="new-row" id="last">
-                    <p>Assigned Jobs</p>
-                    <p>2</p>
-                </div>
+                <!-- Haven't actually been able to test if this button works since my screen refuses to render it ;-; -->
+                <a href="../logout.php"><input type="submit" id="signOutButton" value="Sign Out"></a>
+            </div>
+            <div id="overview">
+                <h1 id="overview-header">Overview</h1>
 
+                <div id="overview-container">
+                    <div>
+                        <p><b>Machines</b></p>
+                    </div>
+
+                    <div class="new-row">
+                        <p>Assigned</p>
+                        <p>6</p>
+                    </div>
+
+                    <div class="new-row">
+                        <p>Operational</p>
+                        <p>4</p>
+                    </div>
+
+                    <div class="new-row">
+                        <p>Needs attention</p>
+                        <p>1</p>
+                    </div>
+
+                    <div class="new-row">
+                        <p>Out of order</p>
+                        <p>1</p>
+                    </div>
+                    
+                    <div class="new-row" id="last">
+                        <p>Assigned Jobs</p>
+                        <p>2</p>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
+    
 
 
 

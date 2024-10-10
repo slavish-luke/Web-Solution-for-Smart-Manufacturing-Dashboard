@@ -6,6 +6,8 @@ let productionCount = 0;
 let averageTemperature = 0;
 let averageSpeed = 0;
 let options = "";
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
 
 
 console.log(rawFactoryData);
@@ -13,6 +15,28 @@ let numMachines = Object.keys(rawFactoryData).length;
 getMachineNames();
 
 if(document.getElementById("stats")){
+    console.log(document.getElementById("temperature-slider").checked)
+    console.log("local storage: " + localStorage.getItem("temperature"))
+
+    if(localStorage.getItem("temperature") == "F"){
+        document.getElementById("temperature-slider").checked = true;
+
+    }else{
+        document.getElementById("temperature-slider").checked = false;
+    }
+
+    document.getElementById("temperature-slider").addEventListener('change', function() {
+        if (document.getElementById("temperature-slider").checked){
+            console.log('Slider is ON');
+            localStorage.setItem("temperature", "F")
+            displayRandomisedData();
+        }else {
+            console.log('Slider is OFF');
+            localStorage.setItem("temperature", "C")
+            displayRandomisedData();
+        }
+    });
+
     randomiseData();
     displayRandomisedData();
 
@@ -30,6 +54,44 @@ if(document.getElementById("notes")){
     console.log(productionOperators)
     productionOperators.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;
+
+
+    
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    let error = urlParams.get("error")
+    console.log(error);
+
+    if(error == "blank_form"){
+
+        modal.style.display = "block";
+        document.getElementById("error-message").innerHTML = "To send a message, fill out the form fields"
+
+    }else if(error == "empty_note"){
+        
+        modal.style.display = "block";
+        document.getElementById("error-message").innerHTML = "Message required"
+    
+    }else if(error == "no_users"){
+
+        modal.style.display = "block";
+        document.getElementById("error-message").innerHTML = "Select a user"
+    }
+
+
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            //location.replace(window.location.pathname);
+            history.replaceState(null, '', window.location.pathname);
+        }
+    }
 }
 
 
@@ -97,29 +159,35 @@ function displayRandomisedData(){
     
     document.getElementById("power-consumption").innerHTML = powerConsumption;
     document.getElementById("production-count").innerHTML = productionCount;
-    document.getElementById("average-temperature").innerHTML = averageTemperature;
     document.getElementById("average-speed").innerHTML = averageSpeed;
     
     
     let chartPowerConsumption = Math.round(powerConsumption / (500 * machineNames.length) * 100);
     let chartProductionCount = Math.round(productionCount / (100 * machineNames.length) * 100);
-    let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100);
     let chartAverageSpeed = Math.round(averageSpeed / (0.25 * machineNames.length) * 100);
+
+    if(document.getElementById("temperature-slider").checked){
+        document.getElementById("average-temperature").innerHTML = Math.round(averageTemperature * (9/5) + 32) +"&deg;F";
+        let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100);
+        chartAverageTemperature = chartAverageTemperature;
+        console.log(chartAverageTemperature);
+        document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
+    
+    }else{
+        document.getElementById("average-temperature").innerHTML = averageTemperature + "&deg;C";
+        let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100);
+        document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
+    }
+    
     
     document.getElementById("power-consumption-chart").setAttribute("stroke-dasharray", `${chartPowerConsumption} ${(100)}`);
     document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`);
-    document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
 }
 
 function displayMachineChecklist(i, id){
     id += 1;
     options += 
-    // `
-    //     <label class="checkboxes">
-    //         <input type="checkbox">
-    //         <span class="${id}">${i}</span></label>
-    // `
     
     `
         <label class="checkboxes">
@@ -138,3 +206,4 @@ function displayUserChecklist(i){
         </label>
     `
 }
+

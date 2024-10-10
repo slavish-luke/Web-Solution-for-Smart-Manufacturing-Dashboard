@@ -61,6 +61,14 @@ input[type="text"], input[type="password"]{
     border: 0.1vw solid black;
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #c9e7f5 inset;
+}
+
+input:autofill {
+    box-shadow: 0 0 0 1000px #c9e7f5 inset;
+}
+
 #username{
     background-image: url(../Style/Images/username-icon.png);
     background-repeat: no-repeat;
