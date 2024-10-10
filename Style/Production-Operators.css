@@ -387,12 +387,11 @@ form{
     height: auto;
 }
 
-#machine-details{
-    display: none;
-}
-
 .machine-content{
     height: 73vh;
+}
+
+#machine-list .machine-content{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
 }
@@ -403,15 +402,16 @@ form{
     border-radius: 0;
     background-color: whitesmoke;
     border: 0.05vw solid lightgray;
-}
-
-.machine-container * {
-    text-align: left;
+    visibility: hidden;
 }
 
 .machine-container:hover{
     background-color:white;
     border: 0.05vw solid gray;
+}
+
+.machine-container * {
+    text-align: left;
 }
 
 .machine-image {
@@ -454,13 +454,17 @@ form{
     border-right: none;
 }
 
-#return {
+#machine-details{
+    display: none;
+}
+
+#return-button {
     border-radius: 0;
     width: 100%;
     background-color: #89CFF0;
 }
 
-#return:hover {
+#return-button:hover {
     background-color: #c9e7f5;
 }
 

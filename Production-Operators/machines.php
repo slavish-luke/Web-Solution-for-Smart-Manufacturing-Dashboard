@@ -32,70 +32,70 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
             </div>
             <div class="machine-navigation">
-                <button id="return">◀ Return</button>
+                <button id="return-button">◀ Return</button>
             </div>
         </div>
         <div id="machine-list">
             <div class="machine-content">
                 <button class="machine-container" id="machine0">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine1">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine2">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine3">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine4">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine5">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine6">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine7">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine8">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine9">
-                    <h2 class="machine-name">CNC Machine</h2>
-                    <img src="../Style/Images/placeholder.png" class="machine-image">
-                    <div class="machine-status">Operational</div>
-                    <div class="machine-operator">Wallace Hunter</div>
+                    <h2 class="machine-name"></h2>
+                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
+                    <div class="machine-status"></div>
+                    <div class="machine-operator"></div>
                 </button>
             </div>
             <div class="machine-navigation">
@@ -110,61 +110,44 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
         require_once "../inc/dbconn.inc.php";
 
         $sql = 
-            "SELECT machine.id AS machine_id, machine.name AS machine_name, factory_log.*
-            FROM machine 
-            JOIN factory_log ON machine.id = factory_log.machine_id
-            ORDER BY factory_log.timestamp DESC, machine.name;";
+            "SELECT
+            	m.id,
+                m.name,
+                m.operator_id,
+                m.img_address,
+                a.name AS operator_name,
+                l.temperature,
+                l.pressure,
+                l.vibration,
+                l.humidity,
+                l.power_consumption,
+                l.operational_status,
+                l.error_code,
+                l.production_count,
+                l.maintenance_log,
+                l.speed
+            FROM machine m
+            LEFT JOIN account a
+            ON a.id = m.operator_id
+            INNER JOIN factory_log l
+            ON m.id = l.machine_id
+            WHERE l.timestamp = (SELECT MAX(timestamp) FROM factory_log);";
 
             if($result = mysqli_query($conn, $sql)){
 
                 if(mysqli_num_rows($result) >= 1){
-                    $factory_data = [];
+                    $machines = [];
                     
                     while ($row = mysqli_fetch_assoc($result)) {
-
-                        $factory_data[$row['machine_id']]['machine_name'] = $row['machine_name'];
-                        $factory_data[$row['machine_id']]['logs'][] = [
-                            'timestamp' => $row['timestamp'],
-                            'operational_status' => $row['operational_status'],
-                            'error_code' => $row['error_code'],
-                            'maintenance_log' => $row['maintenance_log'],
-                            'power_consumption' => $row['power_consumption'],
-                            'temperature' => $row['temperature'],
-                            'production_count' => $row['production_count'],
-                            'speed' => $row['speed'],
-                            'pressure' => $row['pressure'],
-                            'vibration' => $row['vibration'],
-                            'humidity' => $row['humidity']
-                        ];
+                        array_push($machines, $row);
                     }
                     mysqli_free_result($result);
                 }
             }
-
-            $sql = 
-            "SELECT username, id 
-            FROM account 
-            WHERE role_id = 3";
-
-            if($result = mysqli_query($conn, $sql)){
-
-                if(mysqli_num_rows($result) >= 1){
-                    $production_operator = [];
-                    
-                    while ($row = mysqli_fetch_assoc($result)) {
-
-                        $production_operator[] = $row;
-                    };
-                    mysqli_free_result($result);
-                }
-            }
         mysqli_close($conn);
-
-
     ?>
     <script type="text/javascript">
-        let rawFactoryData = <?php echo json_encode($factory_data); ?>;
-        let productionOperators = <?php echo json_encode($production_operator); ?>;
+        let machines = <?php echo json_encode($machines); ?>;
     </script>
     <script src="script.js" defer></script></body>
 </body>

@@ -10,9 +10,11 @@ let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
 
 
-console.log(rawFactoryData);
-let numMachines = Object.keys(rawFactoryData).length;
-getMachineNames();
+if(!document.getElementById("machines")) {
+    console.log(rawFactoryData);
+    var numMachines = Object.keys(rawFactoryData).length;
+    getMachineNames();
+}
 
 if(document.getElementById("stats")){
     console.log(document.getElementById("temperature-slider").checked)
@@ -43,9 +45,81 @@ if(document.getElementById("stats")){
     setInterval(newRandomData, 6000);
 }
 
+
+
+
 if(document.getElementById("machines")){
-    
+
+    let machineList = document.getElementById("machine-list");
+    let machineContainers = document.getElementsByClassName("machine-container");
+    let currentPage = document.getElementById("current-page");
+    let prevPage = document.getElementById("prev-page");
+    let nextPage = document.getElementById("next-page");
+
+    let machineDetails = document.getElementById("machine-details");
+    let returnButton = document.getElementById("return-button");
+
+    let pageId = 0;
+    let maxPageId = Math.max(0, Math.floor((machines.length - 1) / 10));
+
+
+    function updateList() {
+        console.log(machines);
+        for (var i = 0; i < machineContainers.length; i++) {
+            let machineContainer = machineContainers[i];
+            let machineName = machineContainer.querySelector(".machine-name");
+            let machineImage = machineContainer.querySelector(".machine-image");
+            let machineStatus = machineContainer.querySelector(".machine-status");
+            let machineOperator = machineContainer.querySelector(".machine-operator");
+            
+            let machine = machines[pageId * 10 + i];
+            if (machine) {
+                console.log(machine["name"]);
+                machineName.textContent = machine["name"];
+                machineImage.src = "../Style/Images/Machines/" + machine["img_address"];
+                machineStatus.textContent = "Status: " + machine["operational_status"];
+                machineOperator.textContent = machine["operator_name"] ? "Operator: " + machine["operator_name"] : "";
+                machineContainer.style.visibility = "visible";
+            } else {
+                machineContainer.style.visibility = "hidden";
+            }
+        }
+    }
+
+    function displayMachineInfo(index) {
+        let machine = machines[pageId * 10 + index];
+        console.log(machine["name"]);
+        machineDetails.querySelector(".machine-content").textContent = machine["name"];
+        machineList.style.display = "none";
+        machineDetails.style.display = "block";
+    }
+
+    for (var i = 0; i < machineContainers.length; i++) {
+        let buttonId = i;
+        machineContainers[i].addEventListener("click", () => displayMachineInfo(buttonId));
+    }
+
+    prevPage.addEventListener("click", () => {
+        if (pageId > 0) pageId--;
+        currentPage.textContent = pageId + 1;
+        updateList();
+    });
+
+    nextPage.addEventListener("click", () => {
+        if (pageId < maxPageId) pageId++;
+        currentPage.textContent = pageId + 1;
+        updateList();
+    });
+
+
+    returnButton.addEventListener("click", () => {
+        machineDetails.style.display = "none";
+        machineList.style.display = "block";
+    });
+
+    updateList();
 }
+
 
 if(document.getElementById("notes")){
     console.log(machineNames);

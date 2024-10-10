@@ -15,11 +15,6 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <meta name="author" content="Luke Kradolfer" />
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
-
-    <?php
-        session_start();
-        //$note = isset($_POST['note-content']) ? htmlspecialchars($_POST['note-content']) : '';
-    ?>
 </head>
 <body class="background">
 
