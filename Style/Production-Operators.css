@@ -14,6 +14,7 @@ body{
     width: 100%;
     height: 15vh;
     background-color: #89CFF0;
+    display: flex;
 }
 
 .linkContainer{
@@ -24,12 +25,10 @@ body{
 }
 
 #header a{
-
-    width: 24.96vw;
+    flex: 1;
     float: left;
     text-align: center;
     line-height: 15vh;
-
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -41,7 +40,7 @@ body{
 }
 
 #header a.last{
-    border-right: 0px;
+    border-right: 0;
 }
 
 a:hover{
@@ -50,16 +49,24 @@ a:hover{
 
 #header a.selected{
     background-color: whitesmoke;
-    border-bottom: 0px;
+    border-bottom: 0;
+    padding-bottom: 0.04vh;
+}
+
+#home-container{
+    display: flex;
 }
 
 #stats{
-    width: 60vw;
-    height: 85vh;
+    flex: 2;
     background-color: grey;
     border-right: 0.05vw solid black;
     float: left;
     background-color: whitesmoke;
+}
+
+#info{
+    flex: 1;
 }
 
 
@@ -170,7 +177,7 @@ svg{
 
 #user-icon{
     margin-left: 2vw;
-    float: left;
+    float: right;
 }
 
 h4{
@@ -180,10 +187,10 @@ h4{
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    font-size: 2.5vw;
    margin: 0;
-   margin-left: 1.5vw;
    display: flex;
    justify-content: center;
    align-items: center;
+   text-align: center;
 }
 
 #user a{
@@ -193,7 +200,7 @@ h4{
 #signOutButton{
     border-radius: 1vw;
     font-size: 2vw;
-    background-color: #c9e7f5;
+    background-color: #89CFF0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-image: url(../Style/Images/door-open-solid.svg);
     background-repeat: no-repeat;
@@ -204,6 +211,10 @@ h4{
     line-height: 8vh;
     float: right;
     padding: 0 1vw 1vw 5vw;
+}
+
+#signOutButton:hover{
+    background-color: #c9e7f5;
 }
 
 #user a:hover{
@@ -242,7 +253,7 @@ p{
 
 #last{
     margin-top: 2vh;
-    border-top: 0.1vw solid lightgrey
+    border-top: 0.1vw solid lightgrey;
 }
 
 
@@ -274,7 +285,7 @@ select{
     flex-direction: column;
 }
 
-#checklist-container span{
+span{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5vw;
 }
@@ -286,13 +297,8 @@ input[type=checkbox]{
     font-size: 4px;
     float: left;
     margin-top: 0.7vh;
-    margin-bottom: 0.7vh;
-}
-
-#user-container label{
-    display: block;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.5vw;
+    margin-bottom: 0.8vh;
+    margin-left: 0;
 }
 
 .checkboxes{
@@ -303,6 +309,8 @@ input[type=checkbox]{
     width: 25%;
     float: left;
     margin-left: 0.5%;
+    display: flex;
+    flex-direction: column;
 }
 
 form{
@@ -316,11 +324,27 @@ form{
     flex-direction: column;
 }
 
-#machine-note{
+#note-subject{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 50vh;
+    height: 6vh;
+    box-sizing: border-box;
+    font-size: 2vw;
+    font-weight: bold;
+    resize: none;
+    border-radius: 0.8vw;
+    padding: 0.75vw;
+    overflow: hidden;
+    line-height: 3vh;
+}
+
+#note-content{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    height: 45vh;
     box-sizing: border-box;
     font-size: 2vw;
     resize: none;
@@ -329,7 +353,7 @@ form{
 }
 
 #submit-notes{
-    width: 40%;
+    width: 40vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3vh;
@@ -438,4 +462,184 @@ form{
 
 #return:hover {
     background-color: #c9e7f5;
+}
+
+/* modal box taken from: https://www.w3schools.com/howto/howto_css_modals.asp
+The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15.1vh auto;
+    border: 1px solid #888;
+    width: 50vw;
+}
+  
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    margin: 0.5vw;
+    font-size: 5vw;
+    font-weight: bold;
+    height: 5vh;
+    line-height: 2.5vw;
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#error-message{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3vw;
+}
+
+#warning{
+    width: 20vw;
+    margin-left: 15vw;
+    animation: warning-blink 1s infinite;
+}
+
+@keyframes warning-blink{
+    0% {fill: black;}
+    50% {fill: yellow;}
+    100% {fill: black;}
+}
+
+summary::marker {
+    content: "";
+}
+
+details[open] {
+    height: 40vh;
+    width: 15vw;
+    margin-top: 31.9vh;
+    margin-left: -9.66vw;
+    background-color: whitesmoke;
+    z-index: 5;
+    position: relative;
+    border-radius: 1vw;
+    border: 0.1vw solid #89CFF0;
+}
+
+details[open] #user-icon{
+    filter: invert(87%) sepia(24%) saturate(7497%) hue-rotate(1deg) brightness(106%) contrast(106%);
+    margin: 0;
+}
+
+
+details img:hover {
+    transform: scale(1.02,1.02);
+    cursor: pointer;
+}
+
+#settings-content{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1vh;
+}
+
+details h4{
+    font-size: 2vw;
+    margin-left: 2.2vw;
+    line-height: 7vh;
+    z-index: 5;
+}
+
+/* switch button taken from https://www.w3schools.com/howto/howto_css_switch.asp */
+.switch {
+    position: relative;
+    width: 5vw;
+    height: 3.5vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5vh;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    float: left;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 3vh;
+    width: 1.5vw;
+    left: 0.12vw;
+    bottom: 0.12vw;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #89CFF0;
+
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 2px purple;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(1vw);
+    -ms-transform: translateX(1vw);
+    transform: translateX(3.26vw);
+}
+
+h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.option-text{
+    font-size: 1.5vw;
+}
+
+.left{
+    position: relative;
+    right: 2.5vw;
+}
+
+.right{
+    position: relative;
+    left: 3.4vw;
 }

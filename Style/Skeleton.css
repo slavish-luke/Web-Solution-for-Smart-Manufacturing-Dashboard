@@ -17,11 +17,10 @@ header {
     z-index: 1000;
 }
 
+/*Message welcoming the user*/
 #Welcome-message *{
     text-align: center;
     font-size: 50px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
     color: black;
     margin: 0px;
@@ -49,13 +48,40 @@ header {
     width: auto;
     height: 80px;
     float: right;
-    margin: 10px 20px 10px 10px;
 }
 
 #Settings-icon:hover {
-    transition: transform 0.7s ease-in-out;
-    transform: rotate(360deg);
+    transform: scale(1.02,1.02);
     cursor: pointer;
+    background-color: #89CFF0;
+}
+
+#settings-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 10px;
+    top: 6%;
+    border: 0px;
+    border-radius: 0.8vw;
+    background-color: #89CFF0;
+}
+
+#settings-dropdown a {
+    background-color: #89CFF0;
+    text-decoration: none;
+    text-align: right;
+    color: black;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: auto;
+}
+
+#settings-dropdown summary {
+    display: block;
+    margin: 0;
+    padding: 10px;
 }
 
 /*side bar*/
@@ -74,18 +100,17 @@ aside {
     float: left;
 }
 
+/*Search bar*/
 #search-bar-name {
     font-size: 30px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
     padding: 0px 0px 0px 10px;
     margin: 0px 0px 30px 0px;
 }
 
 #search-box {
     padding: 10px 1px 10px 45px;
-    border-radius: 25px;
-    border: none;
+    border-radius: 0.8vw;
+    border: 1px;
     width: 80%;
     height: 30px;
     box-shadow: 0px 4px 10px #333;
@@ -94,8 +119,6 @@ aside {
     background-size: 30px;
     background-position: 10px 10px;
     font-size: 20px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 input #search-box {
@@ -117,6 +140,7 @@ input #search-box {
     font-size: 20px;
 }
 
+/*Where everything else will be placed*/
 #Main-content {
     width: 100%;
     float: left;

@@ -1,22 +1,53 @@
+/*Fonts for headers*/
+header *{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+/*Fonts for body*/
+body *{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Aligning all heading to the center*/
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+/*Lists*/
+/*Used by the machine list, and user lists*/
 ul {
     list-style-type: none;
     border-style: solid;
-    border-radius: 15px;
+    border-radius: 0.8vw;
     overflow: hidden;
     font-size: 15px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 li{
     padding: 10px 30px 10px 30px;
     margin-left: -40px;
+    text-decoration: none;
 }
 
 li:hover {
     background-color: whitesmoke;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*User list in the home page*/
 #users {
     display: flex;
     flex-direction: column;
@@ -24,8 +55,6 @@ li:hover {
     right: 10%;
     width: 25%;
     font-size: 20px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }
 
 .user-list {
@@ -37,9 +66,13 @@ li:hover {
 
 details {
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 0.8vw;
     padding: 5px 10px 5px 10px;
     background-color: #89CFF0;
+}
+
+summary::marker {
+    content: "";
 }
 
 details:hover {
@@ -50,33 +83,114 @@ details:hover {
 }
 
 details[open] summary {
-    border-bottom: 2px solid black;
+    border-bottom: 1px;
     margin: 5px 0px 5px 0px;
 }
 
+/*Stats in the home page*/
 #stats {
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 30%;
-    width: 25%;
+    justify-content: center;
+    left: 20%;
+    width: 40%;
+    max-height: 800px;
     font-size: 20px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
 }
 
+#stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
+.charts h2 {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    max-width: 30%;
+    top: 100%;
+    margin: 0% 1.5% 10% 1.5%;
+}
 
+.charts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    z-index: 1;
+}
+
+.charts circle {
+    fill: none;
+    stroke-width: 32;
+}
+
+.pie-chart {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 250%;
+}
+
+.background {
+    stroke: #ff471a;
+}
+
+.foreground {
+    stroke: #5cd65c;
+}
+
+svg{
+    overflow: visible;
+}
+
+.display-stats{
+    margin-left: auto;
+    margin-right: auto;
+    width: 6vw;
+    height: 6vh;
+    background-color: whitesmoke;
+    z-index: 10;
+    text-align: center;
+    border-radius: 0.8vw;
+    border: #89CFF0 solid 1px;
+    margin-top: 0px;
+    font-size: 20px;
+    position: absolute;
+    top: 380%;
+}
+
+/*Inbox in the homescreen*/
+#inbox {
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    left: 20%;
+    top: 50%;
+    width: 40%;
+    font-size: 20px;
+}
+
+/*Header name for the edit machines page*/
+#machine-name {
+    text-align: center;
+    font-size: 50px;
+}
+
+/*Buttons to add and remove machines in edit machine page*/
 #add-remove-button *{
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     text-decoration: none;
-    display: flex;
     background-color: #89CFF0;
     text-align: center;
-    width: 105px;
+    width: 115px;
     height: 50px;
-    font-weight: bold;
+    margin-top: 10px;
 }
 
 #add-remove-button:hover *{
@@ -84,46 +198,58 @@ details[open] summary {
 }
 
 #add-button {
-    float: left;
-    margin-right: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    justify-content: center;
+    margin-right: 5px;
 }
 
 #remove-button {
-    float: right;
-    margin-left: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    justify-content: center;
+    margin-left: 5px;
 }
 
-#machine-name {
-    text-align: center;
-    font-size: 50px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-#edit-machines {
-    float: left;
-    width: 500px;
+/*Notes for the machine notes in edit machine page*/
+#Machine-notes {
     display: flex;
-    text-align: center;
-    float: left;
-    width: 50vh;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    margin: 0px 0px 0px 0px;
+    left: 20%;
+    width: 25%;
+    font-size: 20px;
+}
+
+#notes-textarea {
+    width: 75%;
+    height: 300px;
+    border-width: 1px;
+    border-radius: 0.8vw;
+    font-size: 20px;
+}
+
+/*Changing machine status in edit machine page*/
+#Machine-status {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    left: 60%;
+    width: 25%;
+    font-size: 20px;
+}
+
+#status-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .status-button {
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     text-decoration: none;
-    display: flex;
     background-color: #89CFF0;
     text-align: center;
     width: 105px;
     height: 50px;
-    font-weight: bold;
-    margin: 0px 10px 0px 10px;
 }
 
 .status-button:hover {
@@ -131,21 +257,66 @@ details[open] summary {
     background-color: whitesmoke;
 }
 
+/*Adding a image to the machine in edit machine page*/
+#Machine-image {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    left: 20%;
+    top: 45%;
+    width: 25%;
+    font-size: 20px;
+}
+
 #image-input {
     align-items: center;
 }
 
+#imagePreview {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+/*Assigning an operator to a machine in edit machine page*/
+#Assign-operator {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    left: 60%;
+    top: 30%;
+    width: 25%;
+    max-height: 600px;
+    overflow: auto;
+    font-size: 20px;
+}
+
+/*Confirming all the changes in edit machine page*/
+#Machine-confirm {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    left: 60%;
+    top: 80%;
+    width: 25%;
+}
+
+#confirm-button-container {
+    display: flex;
+    justify-content: center;
+}
+
 .confirm-button {
     font-size: 20px;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     text-decoration: none;
-    display: flex;
     background-color: #89CFF0;
     text-align: center;
     width: 105px;
     height: 50px;
-    font-weight: bold;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 5px 0px 5px;
 }
 
 .confirm-button:hover {
@@ -153,52 +324,40 @@ details[open] summary {
     background-color: whitesmoke;
 }
 
-#edit-machines *{
-    font-family: 'Courier New', Courier, monospace;
-    align-items: center;
-    display: flex;
-    text-align: center;
-    gap: 20px;
-}
-
-#edit-machines {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 85vh;
-}
-
-h1 {
-    font-size: 30px;
-    text-align: center;
-}
-
-#Machine-notes {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    display: block;
-    margin-left: 5%;
-    align-items: center;
-}
-
-#Machine-status {
-    grid-column: 2/2;
-    grid-row: 1/2;
-}
-
-#Machine-image {
-    grid-column: 1/2;
-    grid-row: 2/2;
-    margin-left: 5%;
-}
-
-#notes-textarea {
-    width: 75%;
-    font-size: 14px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-summary::marker {
-content: "";
-}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
