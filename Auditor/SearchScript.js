@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Ensure the DOM is fully loaded before running the script
-    document.getElementById('search').addEventListener('input', function () {
-        const searchTerm = this.value.trim(); // Get the input value
-        const listItems = document.querySelectorAll('#dateList li'); // Get all list items
+    const dayButton = document.getElementById('dayButton');
+    const weekButton = document.getElementById('weekButton');
+    const monthButton = document.getElementById('monthButton');
 
-        for (let i = 0; i < listItems.length; i++) {
-            const date = listItems[i].textContent.trim();
+    // Add event listeners to each button for toggling the active class
+    dayButton.addEventListener('click', () => setActiveButton(dayButton));
+    weekButton.addEventListener('click', () => setActiveButton(weekButton));
+    monthButton.addEventListener('click', () => setActiveButton(monthButton));
 
-            if (date.startsWith(searchTerm)) {
-                // Scroll to the matching date if the input matches the start of the date
-                listItems[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                break; // Stop after finding the first match
-            }
-        }
-    });
+    function setActiveButton(selectedButton) {
+        // Remove active class from all buttons
+        dayButton.classList.remove('active');
+        weekButton.classList.remove('active');
+        monthButton.classList.remove('active');
+
+        // Add active class to the selected button
+        selectedButton.classList.add('active');
+    }
 });

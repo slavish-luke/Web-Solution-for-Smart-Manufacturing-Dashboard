@@ -126,11 +126,13 @@ header {
     text-align: left;
 }
 
-/* Search Bar Styling */
-#SearchBar {
-    width: 100%;
-    text-align: center;
+/* Styling for the search bar */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 #search {
@@ -139,17 +141,35 @@ header {
     border: 2px solid black;
     border-radius: 10px;
     font-size: 18px;
+    margin-top: 10px; /* Add margin to push it below the buttons */
 }
 
-/* Add-Remove Button Styling */
-#add-remove-button * {
-    font-size: 20px;
-    border-radius: 8px;
-    text-decoration: none;
+.select-container {
     display: flex;
-    background-color: #89CFF0;
-    text-align: center;
-    width: 105px;
-    height: 50px;
-    font-weight: bold;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px; /* Add some space between buttons and the search bar */
 }
+
+.select-option {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #89CFF0; /* Baby blue for non-selected buttons */
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    transition: background-color 0.3s ease;
+}
+
+.select-option.active {
+    background-color: white; /* White for the selected button */
+    color: black; /* Ensure the text is readable */
+}
+
+.select-option:not(.active) {
+    background-color: #89CFF0; /* Baby blue for non-selected buttons */
+}
+
+

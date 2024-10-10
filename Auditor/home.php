@@ -38,11 +38,27 @@
         <h1>Summary Reports</h1>
 
         <div id="SearchBar">
-            <input type="text" id="search" placeholder="Search">
+            <div class="search-container">
+                <div class="select-container">
+                    <button class="select-option active" id="dayButton">Day</button>
+                    <button class="select-option" id="weekButton">Week</button>
+                    <button class="select-option" id="monthButton">Month</button>
+                </div>
+                <input type="text" id="search" placeholder="Search">
+            </div>
         </div>
 
         <div id="ReportList">
             <ul id="dateList">
+            <li><a href="SummaryReport.php?date=2024-04-1">2024-04-1</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-2">2024-04-2</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-3">2024-04-3</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-4">2024-04-4</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-5">2024-04-5</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-6">2024-04-6</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-7">2024-04-7</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-8">2024-04-8</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-9">2024-04-9</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-10">2024-04-10</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-11">2024-04-11</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-12">2024-04-12</a></li>
@@ -64,6 +80,15 @@
                 <li><a href="SummaryReport.php?date=2024-04-28">2024-04-28</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-29">2024-04-29</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-30">2024-04-30</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-1">2024-05-1</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-2">2024-05-2</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-3">2024-05-3</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-4">2024-05-4</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-5">2024-05-5</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-6">2024-05-6</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-7">2024-05-7</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-8">2024-05-8</a></li>
+                <li><a href="SummaryReport.php?date=2024-05-9">2024-05-9</a></li>
                 <li><a href="SummaryReport.php?date=2024-05-10">2024-05-10</a></li>
                 <li><a href="SummaryReport.php?date=2024-05-11">2024-05-11</a></li>
                 <li><a href="SummaryReport.php?date=2024-05-12">2024-05-12</a></li>
@@ -86,6 +111,15 @@
                 <li><a href="SummaryReport.php?date=2024-05-29">2024-05-29</a></li>
                 <li><a href="SummaryReport.php?date=2024-05-30">2024-05-30</a></li>
                 <li><a href="SummaryReport.php?date=2024-05-31">2024-05-31</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-1">2024-06-1</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-2">2024-06-2</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-3">2024-06-3</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-4">2024-06-4</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-5">2024-06-5</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-6">2024-06-6</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-7">2024-06-7</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-8">2024-06-8</a></li>
+                <li><a href="SummaryReport.php?date=2024-06-9">2024-06-9</a></li>
                 <li><a href="SummaryReport.php?date=2024-06-10">2024-06-10</a></li>
                 <li><a href="SummaryReport.php?date=2024-06-11">2024-06-11</a></li>
                 <li><a href="SummaryReport.php?date=2024-06-12">2024-06-12</a></li>
