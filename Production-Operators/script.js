@@ -15,6 +15,28 @@ let numMachines = Object.keys(rawFactoryData).length;
 getMachineNames();
 
 if(document.getElementById("stats")){
+    console.log(document.getElementById("temperature-slider").checked)
+    console.log("local storage: " + localStorage.getItem("temperature"))
+
+    if(localStorage.getItem("temperature") == "F"){
+        document.getElementById("temperature-slider").checked = true;
+
+    }else{
+        document.getElementById("temperature-slider").checked = false;
+    }
+
+    document.getElementById("temperature-slider").addEventListener('change', function() {
+        if (document.getElementById("temperature-slider").checked){
+            console.log('Slider is ON');
+            localStorage.setItem("temperature", "F")
+            displayRandomisedData();
+        }else {
+            console.log('Slider is OFF');
+            localStorage.setItem("temperature", "C")
+            displayRandomisedData();
+        }
+    });
+
     randomiseData();
     displayRandomisedData();
 
@@ -55,6 +77,20 @@ if(document.getElementById("notes")){
 
         modal.style.display = "block";
         document.getElementById("error-message").innerHTML = "Select a user"
+    }
+
+
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            //location.replace(window.location.pathname);
+            history.replaceState(null, '', window.location.pathname);
+        }
     }
 }
 
@@ -123,29 +159,35 @@ function displayRandomisedData(){
     
     document.getElementById("power-consumption").innerHTML = powerConsumption;
     document.getElementById("production-count").innerHTML = productionCount;
-    document.getElementById("average-temperature").innerHTML = averageTemperature;
     document.getElementById("average-speed").innerHTML = averageSpeed;
     
     
     let chartPowerConsumption = Math.round(powerConsumption / (500 * machineNames.length) * 100);
     let chartProductionCount = Math.round(productionCount / (100 * machineNames.length) * 100);
-    let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100);
     let chartAverageSpeed = Math.round(averageSpeed / (0.25 * machineNames.length) * 100);
+
+    if(document.getElementById("temperature-slider").checked){
+        document.getElementById("average-temperature").innerHTML = Math.round(averageTemperature * (9/5) + 32) +"&deg;F";
+        let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100);
+        chartAverageTemperature = chartAverageTemperature;
+        console.log(chartAverageTemperature);
+        document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
+    
+    }else{
+        document.getElementById("average-temperature").innerHTML = averageTemperature + "&deg;C";
+        let chartAverageTemperature = Math.round(averageTemperature / (10 * machineNames.length) * 100);
+        document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
+    }
+    
     
     document.getElementById("power-consumption-chart").setAttribute("stroke-dasharray", `${chartPowerConsumption} ${(100)}`);
     document.getElementById("production-count-chart").setAttribute("stroke-dasharray", `${chartProductionCount} ${(100)}`);
-    document.getElementById("average-temperature-chart").setAttribute("stroke-dasharray", `${chartAverageTemperature} ${(100)}`);
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
 }
 
 function displayMachineChecklist(i, id){
     id += 1;
     options += 
-    // `
-    //     <label class="checkboxes">
-    //         <input type="checkbox">
-    //         <span class="${id}">${i}</span></label>
-    // `
     
     `
         <label class="checkboxes">
@@ -165,14 +207,3 @@ function displayUserChecklist(i){
     `
 }
 
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        //location.replace(window.location.pathname);
-        history.replaceState(null, '', window.location.pathname);
-    }
-}
