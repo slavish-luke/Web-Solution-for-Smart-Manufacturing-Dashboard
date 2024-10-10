@@ -2,6 +2,7 @@
 header *{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 /*Fonts for body*/
@@ -30,11 +31,11 @@ ul {
     border-radius: 0.8vw;
     overflow: hidden;
     font-size: 15px;
+    padding: 0;
 }
 
 li{
-    padding: 10px 30px 10px 30px;
-    margin-left: -40px;
+    padding: 1vh 1vw 1vh 1vw;
     text-decoration: none;
 }
 
@@ -43,8 +44,10 @@ li:hover {
 }
 
 a {
+    width: 100%;
     text-decoration: none;
     color: black;
+    display: block;
 }
 
 /*User list in the home page*/
@@ -219,7 +222,7 @@ svg{
 
 #notes-textarea {
     width: 75%;
-    height: 300px;
+    height: 20vh;
     border-width: 1px;
     border-radius: 0.8vw;
     font-size: 20px;
