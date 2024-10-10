@@ -14,7 +14,6 @@ body{
     width: 100%;
     height: 15vh;
     background-color: #89CFF0;
-
 }
 
 .linkContainer{
@@ -356,4 +355,87 @@ form{
 #submit-notes:active{
     transform: translateY(-1px);
 	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
+}
+
+#machines{
+    margin: 1px;
+    width: 100%;
+    height: auto;
+}
+
+#machine-details{
+    display: none;
+}
+
+.machine-content{
+    height: 73vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.machine-container{
+    margin: 1px;
+    padding: 20px;
+    border-radius: 0;
+    background-color: whitesmoke;
+    border: 0.05vw solid lightgray;
+}
+
+.machine-container * {
+    text-align: left;
+}
+
+.machine-container:hover{
+    background-color:white;
+    border: 0.05vw solid gray;
+}
+
+.machine-image {
+    max-width: 50%;
+}
+
+.machine-navigation{
+    height: 12vh;
+}
+
+.machine-navigation *{
+    height: 100%;
+    line-height: 12vh;
+    float: left;
+    width: auto;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 2.5vw;
+    border: none;
+    border-top: 0.05vw solid black;
+    border-right: 0.05vw solid black;
+}
+
+.machine-navbutton{
+    border-radius: 0;
+    width: 24.9%;
+    background-color: #89CFF0;
+}
+
+.machine-navbutton:hover {
+    background-color: #c9e7f5;
+}
+
+#current-page{
+    width: 50%;
+}
+
+#next-page{
+    border-right: none;
+}
+
+#return {
+    border-radius: 0;
+    width: 100%;
+    background-color: #89CFF0;
+}
+
+#return:hover {
+    background-color: #c9e7f5;
 }

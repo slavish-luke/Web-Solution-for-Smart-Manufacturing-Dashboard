@@ -19,6 +19,10 @@ if(document.getElementById("stats")){
     setInterval(newRandomData, 6000);
 }
 
+if(document.getElementById("machines")){
+    
+}
+
 if(document.getElementById("notes")){
     console.log(machineNames);
     options = "<h1>Machines</h1>"
