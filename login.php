@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($usernameErr) && empty($passwordErr)) {
 
         // Prepare sql statement
-        $sql = "SELECT username, password, role_id FROM account WHERE username = ?";
+        $sql = "SELECT id, name, password, role_id FROM account WHERE username = ?";
         $statement = mysqli_stmt_init($conn);
         mysqli_stmt_prepare($statement, $sql);
         mysqli_stmt_bind_param($statement, 's', $username);
@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $account = mysqli_fetch_assoc(mysqli_stmt_get_result($statement));
             if ($account && $password == $account["password"]) {
                 $_SESSION["loggedin"] = true;
-                $_SESSION["username"] = $account["username"];
+                $_SESSION["userid"] = $account["id"];
+                $_SESSION["username"] = $account["name"];
                 $_SESSION["userrole"] = $account["role_id"];
 
                 header("location: index.php");
