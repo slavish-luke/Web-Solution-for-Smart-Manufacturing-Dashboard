@@ -147,9 +147,22 @@
 
                 <!--Div for keeping the machine image-->
                 <div id="Machine-image">
-                    <h1>Machine Image</h1>
-                    <input type="file" id="image-input" accept="image/*">
-                    <img id="imagePreview" src="" alt="Image Preview">
+                <input type="file" id="image-input" accept="image/*" name="image-input">
+                <img id="imagePreview" src="../Style/Images/Machines/<?php require_once "../inc/dbconn.inc.php";
+                            $sql = "SELECT img_address FROM machine WHERE name = ?";
+                            $note = htmlspecialchars($_GET['machine']);
+                            $statement = mysqli_stmt_init($conn);
+                            mysqli_stmt_prepare($statement, $sql);
+                            mysqli_stmt_bind_param($statement, 's', $note); 
+                            if (mysqli_stmt_execute($statement)){
+                                $result = mysqli_stmt_get_result($statement);
+                                if (mysqli_num_rows($result) >= 1){
+                                    while ($row = mysqli_fetch_assoc($result)){
+                                        echo("$row[img_address]");
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            }?>" alt="Image Preview" style="width:500px;height:500px;">
                 </div>
 
                 <!--Div for assigning the operator to the machine-->
