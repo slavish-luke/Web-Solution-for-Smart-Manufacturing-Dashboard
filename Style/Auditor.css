@@ -1,4 +1,4 @@
-/* Global font style for list items */
+/* Global font style for body */
 body {
     background-color: whitesmoke;
     margin: 0;
@@ -12,9 +12,9 @@ header {
     background-color: #89CFF0; /* Light blue background */
     display: flex;
     justify-content: space-between;
-    align-items: center;     /* Centers content vertically */
+    align-items: center; /* Centers content vertically */
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 1000;
 }
 
@@ -34,8 +34,7 @@ header {
 #Settings-icon {
     width: auto;
     height: 80px;
-    float: right;
-    margin: 10px 20px 10px 10px;
+    margin-right: 20px;
 }
 
 #Settings-icon:hover {
@@ -44,21 +43,41 @@ header {
     cursor: pointer;
 }
 
-/* Title section */
+/* Title Section */
 #TitlePage {
     text-align: center; /* Centers the text horizontally */
-    font-size: 50px;    /* Larger font size to match your design */
-    font-weight: bold;  /* Bold text */
+    font-size: 50px; /* Larger font size for the title */
+    font-weight: bold; /* Bold text */
     font-family: 'Courier New', Courier, monospace; /* Monospaced font */
     text-decoration: none;
-    color: black;       /* Black text color */
-    margin: 0;          /* Remove any default margins */
+    color: black; /* Black text color */
+    margin: 0; /* Remove any default margins */
+    padding: 10px 0;
 }
 
-/* Hover effect on title */
-#TitlePage:hover {
-    transform: scale(1.02, 1.02); /* Slight zoom on hover */
-    cursor: pointer;
+.content {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    flex-direction: column;
+    padding-top: 40px; 
+    font-size: 28px;
+    text-align: center; 
+    font-family: 'Courier New', Courier, monospace; 
+    width: fit-content; 
+    margin: 0 auto;
+}
+
+.metrics p {
+    margin: 15px 0; 
+    font-size: 32px;
+    font-weight: bold; 
+}
+/* Ensure full-width layout */
+#Main-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Dashboard and Summary Reports Styling */
@@ -83,7 +102,7 @@ header {
 /* Report List Styling */
 #ReportList {
     overflow-y: scroll;
-    height: 50vh; 
+    height: 50vh;
     width: 100%;
     border: 5px solid black;
     padding: 10px;
@@ -92,7 +111,7 @@ header {
 }
 
 #ReportList ul {
-    list-style-type: none; 
+    list-style-type: none;
     padding: 0;
     margin: 0;
 }
@@ -103,15 +122,17 @@ header {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     text-decoration: underline;
-    padding-left: 30px; 
+    padding-left: 30px;
     text-align: left;
 }
 
-/* Search Bar Styling */
-#SearchBar {
-    width: 100%;
-    text-align: center;
+/* Styling for the search bar */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 #search {
@@ -120,26 +141,35 @@ header {
     border: 2px solid black;
     border-radius: 10px;
     font-size: 18px;
+    margin-top: 10px; /* Add margin to push it below the buttons */
 }
 
-/* Add-Remove Button Styling */
-#add-remove-button * {
-    font-size: 20px;
-    border-radius: 8px;
-    text-decoration: none;
+.select-container {
     display: flex;
-    background-color: #89CFF0;
-    text-align: center;
-    width: 105px;
-    height: 50px;
-    font-weight: bold;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px; /* Add some space between buttons and the search bar */
 }
 
-/* Main Content Styling */
-#Main-content {
-    width: 100%;
-    float: left;
-    justify-content: space-between;
+.select-option {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #89CFF0; /* Baby blue for non-selected buttons */
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    transition: background-color 0.3s ease;
+}
+
+.select-option.active {
+    background-color: white; /* White for the selected button */
+    color: black; /* Ensure the text is readable */
+}
+
+.select-option:not(.active) {
+    background-color: #89CFF0; /* Baby blue for non-selected buttons */
 }
 
 
