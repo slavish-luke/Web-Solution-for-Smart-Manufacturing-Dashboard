@@ -110,18 +110,21 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                         <h4>Settings</h4>
 
                         <div id="settings-content">
-                            <label>
-                                <input type="radio" name="payment" checked>Celsius
-                            </label>
 
-                            <label>
-                                <input type="radio" name="payment">Fahrenheit
+                            <!-- switch button from https://www.w3schools.com/howto/howto_css_switch.asp -->
+                            <h5>Temperature</h5>
+                            <label class="switch">
+                                <span class="option-text left">&deg;C</span>
+                                <input type="checkbox" id="temperature-slider">
+                                <span class="slider"></span>
+                                <span class="option-text right">&deg;F</span>
                             </label>
+                                
                         </div>
                         
                     </details>
                 </div>
-                <h4>John Doe</h4>
+                <h4><?php echo $_SESSION["username"] ?></h4>
 
                 <!-- Haven't actually been able to test if this button works since my screen refuses to render it ;-; -->
                 <a href="../logout.php"><input type="submit" id="signOutButton" value="Sign Out"></a>

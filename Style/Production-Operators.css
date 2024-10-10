@@ -381,6 +381,92 @@ form{
 	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
 }
 
+#machines{
+    margin: 1px;
+    width: 100%;
+    height: auto;
+}
+
+.machine-content{
+    height: 73vh;
+}
+
+#machine-list .machine-content{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.machine-container{
+    margin: 1px;
+    padding: 20px;
+    border-radius: 0;
+    background-color: whitesmoke;
+    border: 0.05vw solid lightgray;
+    visibility: hidden;
+}
+
+.machine-container:hover{
+    background-color:white;
+    border: 0.05vw solid gray;
+}
+
+.machine-container * {
+    text-align: left;
+}
+
+.machine-image {
+    max-width: 50%;
+}
+
+.machine-navigation{
+    height: 12vh;
+}
+
+.machine-navigation *{
+    height: 100%;
+    line-height: 12vh;
+    float: left;
+    width: auto;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 2.5vw;
+    border: none;
+    border-top: 0.05vw solid black;
+    border-right: 0.05vw solid black;
+}
+
+.machine-navbutton{
+    border-radius: 0;
+    width: 24.9%;
+    background-color: #89CFF0;
+}
+
+.machine-navbutton:hover {
+    background-color: #c9e7f5;
+}
+
+#current-page{
+    width: 50%;
+}
+
+#next-page{
+    border-right: none;
+}
+
+#machine-details{
+    display: none;
+}
+
+#return-button {
+    border-radius: 0;
+    width: 100%;
+    background-color: #89CFF0;
+}
+
+#return-button:hover {
+    background-color: #c9e7f5;
+}
 
 /* modal box taken from: https://www.w3schools.com/howto/howto_css_modals.asp
 The Modal (background) */
@@ -449,12 +535,13 @@ summary::marker {
 details[open] {
     height: 40vh;
     width: 15vw;
-    margin-top: 32.2vh;
-    margin-left: -9.5vw;
-    background-color: rgba(137, 207, 240, 0.95);
+    margin-top: 31.9vh;
+    margin-left: -9.66vw;
+    background-color: whitesmoke;
     z-index: 5;
     position: relative;
     border-radius: 1vw;
+    border: 0.1vw solid #89CFF0;
 }
 
 details[open] #user-icon{
@@ -474,6 +561,8 @@ details img:hover {
     margin-right: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding-top: 1vh;
 }
 
 details h4{
@@ -481,4 +570,80 @@ details h4{
     margin-left: 2.2vw;
     line-height: 7vh;
     z-index: 5;
+}
+
+/* switch button taken from https://www.w3schools.com/howto/howto_css_switch.asp */
+.switch {
+    position: relative;
+    width: 5vw;
+    height: 3.5vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5vh;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    float: left;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 3vh;
+    width: 1.5vw;
+    left: 0.12vw;
+    bottom: 0.12vw;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #89CFF0;
+
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 2px purple;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(1vw);
+    -ms-transform: translateX(1vw);
+    transform: translateX(3.26vw);
+}
+
+h5{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.option-text{
+    font-size: 1.5vw;
+}
+
+.left{
+    position: relative;
+    right: 2.5vw;
+}
+
+.right{
+    position: relative;
+    left: 3.4vw;
 }
