@@ -94,13 +94,14 @@
             </div>
         </aside>
 
-        <!-- The Modal -->
+        <!-- The Add Modal -->
         <div id="add-machine-modal" class="modal">
 
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form action="add-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                     <h1>Machine Name</h1>
                     <input type="text" id="machine-name" name="machine-name" required>
                     <h1>Machine Image</h1>
@@ -109,6 +110,38 @@
                 </form>
             </div>
         </div>
+
+        <!-- The Remove Modal -->
+        <div id="remove-machine-modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                    <select name="removal" id="removal">
+                    <?php
+                    require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT * FROM machine";
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo("<option value=$row[id]>$row[name]</option>");
+                            }
+                            mysqli_free_result($result);
+                        }
+                    }
+                ?>
+                    </select>
+                    <input type='submit' id='create-machine' name='create-machine' value='Remove Machine'>
+                    
+                </form>
+            </div>
+        </div>
+
         <!--Container for the options of each machine-->
         <div id="edit-machines">
             <form action="add-note.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
