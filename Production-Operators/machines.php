@@ -103,9 +103,9 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 </button>
             </div>
             <div class="machine-navigation">
-                <button class="machine-navbutton" id="prev-page" style="width:24.9%">◀</button>
+                <button class="machine-navbutton" id="prev-page">◀</button>
                 <div id="current-page">1</div>
-                <button class="machine-navbutton" id="next-page" style="width:24.9%">▶</button>
+                <button class="machine-navbutton" id="next-page">▶</button>
             </div>
         </div>
     </div>
