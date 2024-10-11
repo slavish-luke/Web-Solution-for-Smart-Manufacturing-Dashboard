@@ -55,16 +55,16 @@ a {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 10%;
-    width: 25%;
+    right: 5vw;
+    width: 30vw;
     font-size: 20px;
 }
 
 .user-list {
     display: flex;
     flex-direction: column;
-    right: 10%;
-    margin: 10px 0px 10px 0px;
+    right: 5vw;
+    margin: 1vh 0 1vh 0;
 }
 
 details {
@@ -72,6 +72,11 @@ details {
     border-radius: 0.8vw;
     padding: 5px 10px 5px 10px;
     background-color: #89CFF0;
+}
+
+summary {
+    text-align: center;
+    font-weight: bold;
 }
 
 summary::marker {
@@ -87,7 +92,7 @@ details:hover {
 
 details[open] summary {
     border-bottom: 1px;
-    margin: 5px 0px 5px 0px;
+    margin: 0.5vh 0 0.5vh 0;
 }
 
 /*Stats in the home page*/
@@ -96,9 +101,9 @@ details[open] summary {
     flex-direction: column;
     position: absolute;
     justify-content: center;
-    left: 20%;
-    width: 40%;
-    max-height: 800px;
+    left: 20vw;
+    width: 40vw;
+    max-height: 88vh;
     font-size: 20px;
 }
 
@@ -106,16 +111,14 @@ details[open] summary {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
 .charts h2 {
     display: flex;
     justify-content: center;
     position: absolute;
+    font-size: 20px;
     max-width: 30%;
-    top: 100%;
     margin: 0% 1.5% 10% 1.5%;
 }
 
@@ -133,10 +136,10 @@ details[open] summary {
 }
 
 .pie-chart {
-    height: 100%;
+    height: 10vh;
     width: auto;
     position: absolute;
-    top: 250%;
+    top: 25vh;
 }
 
 .background {
@@ -164,7 +167,7 @@ svg{
     margin-top: 0px;
     font-size: 20px;
     position: absolute;
-    top: 380%;
+    top: 35vh;
 }
 
 /*Inbox in the homescreen*/
@@ -172,9 +175,9 @@ svg{
     flex-direction: column;
     position: absolute;
     justify-content: center;
-    left: 20%;
-    top: 50%;
-    width: 40%;
+    left: 20vw;
+    top: 55vh;
+    width: 40vw;
     font-size: 20px;
 }
 
@@ -214,9 +217,9 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    margin: 0px 0px 0px 0px;
-    left: 20%;
-    width: 25%;
+    margin: 0;
+    left: 20vw;
+    width: 25vw;
     font-size: 20px;
 }
 
@@ -234,15 +237,14 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60%;
-    width: 25%;
+    left: 60vw;
+    width: 25vw;
     font-size: 20px;
 }
 
 #status-button-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
 }
 
 .status-button {
@@ -251,8 +253,8 @@ svg{
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
-    width: 105px;
-    height: 50px;
+    width: 5vw;
+    height: 5vh;
 }
 
 .status-button:hover {
@@ -266,9 +268,9 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 20%;
-    top: 45%;
-    width: 25%;
+    left: 20vw;
+    top: 45vh;
+    width: 25vw;
     font-size: 20px;
 }
 
@@ -278,7 +280,10 @@ svg{
 
 #imagePreview {
     max-width: 100%;
-    margin-top: 10px;
+    margin-top: 2vh;
+    align-items: center;
+    max-width: 35vw;
+    max-height: 35vh;
 }
 
 /*Assigning an operator to a machine in edit machine page*/
@@ -287,10 +292,10 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60%;
-    top: 30%;
-    width: 25%;
-    max-height: 600px;
+    left: 60vw;
+    top: 30vh;
+    width: 25vw;
+    max-height: 60vh;
     overflow: auto;
     font-size: 20px;
 }
@@ -301,9 +306,9 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60%;
-    top: 80%;
-    width: 25%;
+    left: 60vw;
+    top: 80vh;
+    width: 25vw;
 }
 
 #confirm-button-container {
@@ -317,9 +322,9 @@ svg{
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
-    width: 105px;
-    height: 50px;
-    margin: 0px 5px 0px 5px;
+    width: 5vw;
+    height: 5vh;
+    margin: 0 0.5vw 0 0.5vw;
 }
 
 .confirm-button:hover {
