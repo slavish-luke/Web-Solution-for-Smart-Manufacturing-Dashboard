@@ -101,18 +101,6 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
-                <button class="machine-container" id="machine8">
-                    <h3 class="machine-name"></h3>
-                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
-                </button>
-                <button class="machine-container" id="machine9">
-                    <h3 class="machine-name"></h3>
-                    <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
-                </button>
             </div>
             <div class="machine-navigation">
                 <button class="machine-navbutton" id="prev-page" style="width:24.9%">◀</button>

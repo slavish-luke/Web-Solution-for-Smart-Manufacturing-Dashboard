@@ -60,7 +60,7 @@ if(document.getElementById("machines")){
     let returnButton = document.getElementById("return-button");
 
     let pageId = 0;
-    let maxPageId = Math.max(0, Math.floor((machines.length - 1) / 10));
+    let maxPageId = Math.max(0, Math.floor((machines.length - 1) / 8));
 
 
     function updateList() {
@@ -72,7 +72,7 @@ if(document.getElementById("machines")){
             let machineStatus = machineContainer.querySelector(".machine-status");
             let machineOperator = machineContainer.querySelector(".machine-operator");
             
-            let machine = machines[pageId * 10 + i];
+            let machine = machines[pageId * 8 + i];
             if (machine) {
                 console.log(machine["name"]);
                 machineName.textContent = machine["name"];
@@ -87,7 +87,7 @@ if(document.getElementById("machines")){
     }
 
     function displayMachineInfo(index) {
-        let machine = machines[pageId * 10 + index];
+        let machine = machines[pageId * 8 + index];
         console.log(machine["name"]);
         machineDetails.querySelector(".machine-content").textContent = machine["name"];
         machineList.style.display = "none";
