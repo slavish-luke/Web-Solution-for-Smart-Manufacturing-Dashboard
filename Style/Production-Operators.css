@@ -95,6 +95,10 @@ h1{
     border-bottom: 0.05vw solid grey;
 }
 
+.checkbox-header{
+    text-align: left;
+}
+
 h2{
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -142,11 +146,11 @@ h2{
 }
 
 .background {
-    stroke: #ff471a;
+    stroke: #c9e7f5;
 }
 
 .foreground {
-    stroke: #5cd65c;
+    stroke: #89CFF0;
 }
 
 svg{
@@ -302,7 +306,7 @@ input[type=checkbox]{
 }
 
 .checkboxes{
-    border-bottom: solid 0.1vw black;
+    padding-bottom: 1.5vh;
 }
 
 #user-container{
@@ -382,7 +386,7 @@ form{
 }
 
 #machines{
-    margin: 1px;
+    margin: 0;
     width: 100%;
     height: auto;
 }
@@ -393,16 +397,17 @@ form{
 
 #machine-list .machine-content{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 
 .machine-container{
     margin: 1px;
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 0;
     background-color: whitesmoke;
     border: 0.05vw solid lightgray;
     visibility: hidden;
+    height: 36.3vh;
 }
 
 .machine-container:hover{
@@ -414,12 +419,21 @@ form{
     text-align: left;
 }
 
+.machine-container h3 {
+    margin: 0;
+    font-size: 1.5vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .machine-image {
-    max-width: 50%;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
 }
 
 .machine-navigation{
     height: 12vh;
+    display: flex;
 }
 
 .machine-navigation *{
@@ -436,9 +450,9 @@ form{
     border-right: 0.05vw solid black;
 }
 
-.machine-navbutton{
+.machine-navbutton {
+    flex: 1;
     border-radius: 0;
-    width: 24.9%;
     background-color: #89CFF0;
 }
 
@@ -447,7 +461,7 @@ form{
 }
 
 #current-page{
-    width: 50%;
+    flex: 2.05;
 }
 
 #next-page{
@@ -647,3 +661,4 @@ h5{
     position: relative;
     left: 3.4vw;
 }
+

@@ -60,7 +60,7 @@ if(document.getElementById("machines")){
     let returnButton = document.getElementById("return-button");
 
     let pageId = 0;
-    let maxPageId = Math.max(0, Math.floor((machines.length - 1) / 10));
+    let maxPageId = Math.max(0, Math.floor((machines.length - 1) / 8));
 
 
     function updateList() {
@@ -72,11 +72,11 @@ if(document.getElementById("machines")){
             let machineStatus = machineContainer.querySelector(".machine-status");
             let machineOperator = machineContainer.querySelector(".machine-operator");
             
-            let machine = machines[pageId * 10 + i];
+            let machine = machines[pageId * 8 + i];
             if (machine) {
                 console.log(machine["name"]);
                 machineName.textContent = machine["name"];
-                machineImage.src = "../Style/Images/Machines/" + machine["img_address"];
+                machineImage.src = machine["img_address"];
                 machineStatus.textContent = "Status: " + machine["operational_status"];
                 machineOperator.textContent = machine["operator_name"] ? "Operator: " + machine["operator_name"] : "";
                 machineContainer.style.visibility = "visible";
@@ -87,7 +87,7 @@ if(document.getElementById("machines")){
     }
 
     function displayMachineInfo(index) {
-        let machine = machines[pageId * 10 + index];
+        let machine = machines[pageId * 8 + index];
         console.log(machine["name"]);
         machineDetails.querySelector(".machine-content").textContent = machine["name"];
         machineList.style.display = "none";
@@ -123,12 +123,12 @@ if(document.getElementById("machines")){
 
 if(document.getElementById("notes")){
     console.log(machineNames);
-    options = "<h1>Machines</h1>"
+    options = "<h1 class='checkbox-header'>Machines</h1>"
     machineNames.forEach(displayMachineChecklist);
     document.getElementById("checklist-container").innerHTML = options;
 
 
-    options = "<h1>Users</h1>"
+    options = "<h1 class='checkbox-header'>Users</h1>"
     console.log(productionOperators)
     productionOperators.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;

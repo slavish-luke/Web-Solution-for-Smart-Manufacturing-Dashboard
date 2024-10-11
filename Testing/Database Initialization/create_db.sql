@@ -21,8 +21,24 @@ CREATE TABLE account (
 );
 
 CREATE TABLE machine (
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name varchar(50) NOT NULL
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(50) NOT NULL,
+    img_address varchar(200),
+    operator_id int,
+    note varchar(200),
+    ison bool,
+    temperature decimal(4, 2),
+    pressure decimal(4, 2),
+    vibration decimal(3, 2),
+    humidity decimal(4, 2),
+    power_consumption decimal(5, 2),
+    operational_status varchar(20),
+    error_code char(4),
+    production_count int(3),
+    maintenance_log varchar(20),
+    speed decimal(3, 2),
+    PRIMARY KEY (id),
+    FOREIGN KEY (operator_id) REFERENCES account(id)
 );
 
 CREATE TABLE factory_log (
