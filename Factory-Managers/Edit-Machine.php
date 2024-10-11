@@ -231,9 +231,22 @@
                             }?>" alt="Image Preview">
                 </div>
 
-                <!--Div for assigning the operator to the machine-->
-                <div id="Assign-operator">
-                    <h1>Assign Operator</h1>
+                
+
+                <!--Div for confirming to keeping the changes or not-->
+                <div id="Machine-confirm">
+                    <h1>Confirm</h1>
+                    <div id="confirm-button-container">
+                        <input type="submit" class="confirm-button" value="Save">
+                        <button class="confirm-button"><a href="Home-screen.php?search-box=">Exit</a></button>
+                        <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
+                    </div>
+                </div>
+            </form>
+            <!--Div for assigning the operator to the machine-->
+            <div id="Assign-operator">
+                <h1>Assign Operator</h1>
+                <div>
                     <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT username FROM account WHERE role_id = 4";
@@ -253,16 +266,30 @@
                     ?>
                 </div>
 
-                <!--Div for confirming to keeping the changes or not-->
-                <div id="Machine-confirm">
-                    <h1>Confirm</h1>
-                    <div id="confirm-button-container">
-                        <input type="submit" class="confirm-button" value="Save">
-                        <button class="confirm-button"><a href="Home-screen.php?search-box=">Exit</a></button>
-                        <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
-                    </div>
+                <div>
+                    <form action="add-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                        <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                        <textarea id="job-desc-textarea" name="job-desc"></textarea>
+                        <select name="assigned-operator" id="assigned-operator">
+                        <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT * FROM account where role_id = 4";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<option value=$row[id]>$row[name]</option>");
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }?>
+                        <input type="submit" value="Add Task">
+                    </form>
+
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 
