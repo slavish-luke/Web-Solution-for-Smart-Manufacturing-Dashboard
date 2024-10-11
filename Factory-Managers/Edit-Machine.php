@@ -212,8 +212,9 @@
                 <!--Div for keeping the machine image-->
                 <div id="Machine-image">
                 <h1>Machine Image</h1>
-                <input type="file" id="image-input" accept="image/*" name="image-input">
-                <img id="imagePreview" src="../Style/Images/Machines/<?php require_once "../inc/dbconn.inc.php";
+                <input type="text" id="image-input" name="image-input">
+                <label for="image-input">Image address</label>
+                <img id="imagePreview" src="<?php require_once "../inc/dbconn.inc.php";
                             $sql = "SELECT img_address FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
@@ -266,24 +267,7 @@
     </div>
 
     <!--PHP code for machine list-->
-    <?php
-        require_once "../inc/dbconn.inc.php";
 
-        $sql = "SELECT id, machine_name, timestamp, temperature, pressure, vibration, power_consumption, operational_status, error_code, production_count, maintenance_log, speed FROM factory_log;";
-
-        if($result = mysqli_query($conn, $sql)){
-
-            if(mysqli_num_rows($result) >= 1){
-                
-                while ($row = mysqli_fetch_assoc($result)) {
-
-                    $factory_data[] = $row;
-                }
-                mysqli_free_result($result);
-            }
-        }
-        mysqli_close($conn); 
-    ?>
 </body>
 
 </html> 
