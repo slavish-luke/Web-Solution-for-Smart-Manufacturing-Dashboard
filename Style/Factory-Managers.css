@@ -30,7 +30,7 @@ ul {
     border-style: solid;
     border-radius: 0.8vw;
     overflow: hidden;
-    font-size: 15px;
+    font-size: 1vw;
     padding: 0;
 }
 
@@ -57,7 +57,7 @@ a {
     position: absolute;
     right: 5vw;
     width: 30vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 .user-list {
@@ -68,9 +68,9 @@ a {
 }
 
 details {
-    border: 1px solid black;
+    border: 0.1vw solid black;
     border-radius: 0.8vw;
-    padding: 5px 10px 5px 10px;
+    padding: 0.65vh 0.2vw 0.65vh 0.2vw;
     background-color: #89CFF0;
 }
 
@@ -87,11 +87,11 @@ details:hover {
     background-color: whitesmoke;
     transform: scale(1.02,1.02);
     cursor: pointer;
-    border: 1px solid gray ;
+    border: 0.1vw solid gray ;
 }
 
 details[open] summary {
-    border-bottom: 1px;
+    border-bottom: 0.1vh;
     margin: 0.5vh 0 0.5vh 0;
 }
 
@@ -104,7 +104,7 @@ details[open] summary {
     left: 20vw;
     width: 40vw;
     max-height: 88vh;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 #stats-container {
@@ -117,7 +117,7 @@ details[open] summary {
     display: flex;
     justify-content: center;
     position: absolute;
-    font-size: 20px;
+    font-size: 1vw;
     max-width: 30%;
     margin: 0% 1.5% 10% 1.5%;
 }
@@ -163,9 +163,9 @@ svg{
     z-index: 10;
     text-align: center;
     border-radius: 0.8vw;
-    border: #89CFF0 solid 1px;
-    margin-top: 0px;
-    font-size: 20px;
+    border: #89CFF0 solid 0.1vw;
+    margin-top: 0;
+    font-size: 1vw;
     position: absolute;
     top: 35vh;
 }
@@ -178,25 +178,24 @@ svg{
     left: 20vw;
     top: 55vh;
     width: 40vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 /*Header name for the edit machines page*/
 #machine-name {
     text-align: center;
-    font-size: 50px;
+    font-size: 4vw;
 }
 
 /*Buttons to add and remove machines in edit machine page*/
 #add-remove-button *{
-    font-size: 20px;
+    font-size: 1vw;
     border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
-    width: 115px;
-    height: 50px;
-    margin-top: 10px;
+    width: 7vw;
+    height: 5vh;
 }
 
 #add-remove-button:hover *{
@@ -204,11 +203,10 @@ svg{
 }
 
 #add-button {
-    margin-right: 5px;
+    margin: 0 0.67vw 0 0;
 }
 
 #remove-button {
-    margin-left: 5px;
 }
 
 /*Notes for the machine notes in edit machine page*/
@@ -220,15 +218,15 @@ svg{
     margin: 0;
     left: 20vw;
     width: 25vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 #notes-textarea {
     width: 75%;
     height: 20vh;
-    border-width: 1px;
+    border-width: 0.1vw;
     border-radius: 0.8vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 /*Changing machine status in edit machine page*/
@@ -239,7 +237,7 @@ svg{
     align-items: center;
     left: 60vw;
     width: 25vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 #status-button-container {
@@ -248,7 +246,7 @@ svg{
 }
 
 .status-button {
-    font-size: 20px;
+    font-size: 1.5vw;
     border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
@@ -271,7 +269,7 @@ svg{
     left: 20vw;
     top: 45vh;
     width: 25vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 #image-input {
@@ -297,7 +295,7 @@ svg{
     width: 25vw;
     max-height: 60vh;
     overflow: auto;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 /*Confirming all the changes in edit machine page*/
@@ -306,6 +304,7 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
+    font-size: 1vw;
     left: 60vw;
     top: 80vh;
     width: 25vw;
@@ -317,7 +316,7 @@ svg{
 }
 
 .confirm-button {
-    font-size: 20px;
+    font-size: 1.5vw;
     border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
