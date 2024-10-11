@@ -29,79 +29,95 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <div class="main" id="machines">
         <div id="machine-details">
             <div class="machine-content">
-
+                <div>
+                    <h1>Name</h1>
+                    <img>
+                </div>
+                <div>
+                    <span>Operator</span>
+                    <span>Status</span>
+                    <span>Error Code</span>
+                    <span>Log</span>
+                    <span>Temp</span>
+                    <span>Pressure</span>
+                    <span>Vibration</span>
+                    <span>Humidity</span>
+                    <span>Power</span>
+                    <span>Count</span>
+                    <span>Speed</span>
+                </div>
             </div>
             <div class="machine-navigation">
-                <button id="return-button">◀ Return</button>
+                <button class="machine-navbutton" id="return-button">◀ Return</button>
             </div>
         </div>
         <div id="machine-list">
             <div class="machine-content">
                 <button class="machine-container" id="machine0">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine1">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine2">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine3">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine4">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine5">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine6">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine7">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine8">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
                 <button class="machine-container" id="machine9">
-                    <h2 class="machine-name"></h2>
+                    <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-status"></div>
                     <div class="machine-operator"></div>
                 </button>
             </div>
             <div class="machine-navigation">
-                <button class="machine-navbutton" id="prev-page">◀</button>
+                <button class="machine-navbutton" id="prev-page" style="width:24.9%">◀</button>
                 <div id="current-page">1</div>
-                <button class="machine-navbutton" id="next-page">▶</button>
+                <button class="machine-navbutton" id="next-page" style="width:24.9%">▶</button>
             </div>
         </div>
     </div>
@@ -109,41 +125,19 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <?php
         require_once "../inc/dbconn.inc.php";
 
-        $sql = 
-            "SELECT
-            	m.id,
-                m.name,
-                m.operator_id,
-                m.img_address,
-                a.name AS operator_name,
-                l.temperature,
-                l.pressure,
-                l.vibration,
-                l.humidity,
-                l.power_consumption,
-                l.operational_status,
-                l.error_code,
-                l.production_count,
-                l.maintenance_log,
-                l.speed
-            FROM machine m
-            LEFT JOIN account a
-            ON a.id = m.operator_id
-            INNER JOIN factory_log l
-            ON m.id = l.machine_id
-            WHERE l.timestamp = (SELECT MAX(timestamp) FROM factory_log);";
+        $sql = "SELECT m.*, a.name AS operator_name FROM machine m LEFT JOIN account a ON a.id = m.operator_id";
 
-            if($result = mysqli_query($conn, $sql)){
-
-                if(mysqli_num_rows($result) >= 1){
-                    $machines = [];
-                    
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        array_push($machines, $row);
-                    }
-                    mysqli_free_result($result);
+        if($result = mysqli_query($conn, $sql)){
+            if(mysqli_num_rows($result) >= 1){
+                $machines = [];
+                
+                while ($row = mysqli_fetch_assoc($result)) {
+                    array_push($machines, $row);
                 }
+                mysqli_free_result($result);
             }
+        }
+        
         mysqli_close($conn);
     ?>
     <script type="text/javascript">

@@ -2,6 +2,7 @@
 header *{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 /*Fonts for body*/
@@ -29,12 +30,12 @@ ul {
     border-style: solid;
     border-radius: 0.8vw;
     overflow: hidden;
-    font-size: 15px;
+    font-size: 1vw;
+    padding: 0;
 }
 
 li{
-    padding: 10px 30px 10px 30px;
-    margin-left: -40px;
+    padding: 1vh 1vw 1vh 1vw;
     text-decoration: none;
 }
 
@@ -43,8 +44,10 @@ li:hover {
 }
 
 a {
+    width: 100%;
     text-decoration: none;
     color: black;
+    display: block;
 }
 
 /*User list in the home page*/
@@ -52,23 +55,28 @@ a {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 10%;
-    width: 25%;
-    font-size: 20px;
+    right: 5vw;
+    width: 30vw;
+    font-size: 1vw;
 }
 
 .user-list {
     display: flex;
     flex-direction: column;
-    right: 10%;
-    margin: 10px 0px 10px 0px;
+    right: 5vw;
+    margin: 1vh 0 1vh 0;
 }
 
 details {
-    border: 1px solid black;
+    border: 0.1vw solid black;
     border-radius: 0.8vw;
-    padding: 5px 10px 5px 10px;
+    padding: 0.65vh 0.2vw 0.65vh 0.2vw;
     background-color: #89CFF0;
+}
+
+summary {
+    text-align: center;
+    font-weight: bold;
 }
 
 summary::marker {
@@ -79,12 +87,12 @@ details:hover {
     background-color: whitesmoke;
     transform: scale(1.02,1.02);
     cursor: pointer;
-    border: 1px solid gray ;
+    border: 0.1vw solid gray ;
 }
 
 details[open] summary {
-    border-bottom: 1px;
-    margin: 5px 0px 5px 0px;
+    border-bottom: 0.1vh;
+    margin: 0.5vh 0 0.5vh 0;
 }
 
 /*Stats in the home page*/
@@ -93,26 +101,24 @@ details[open] summary {
     flex-direction: column;
     position: absolute;
     justify-content: center;
-    left: 20%;
-    width: 40%;
-    max-height: 800px;
-    font-size: 20px;
+    left: 20vw;
+    width: 40vw;
+    max-height: 88vh;
+    font-size: 1vw;
 }
 
 #stats-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
 .charts h2 {
     display: flex;
     justify-content: center;
     position: absolute;
+    font-size: 1vw;
     max-width: 30%;
-    top: 100%;
     margin: 0% 1.5% 10% 1.5%;
 }
 
@@ -130,10 +136,10 @@ details[open] summary {
 }
 
 .pie-chart {
-    height: 100%;
+    height: 10vh;
     width: auto;
     position: absolute;
-    top: 250%;
+    top: 25vh;
 }
 
 .background {
@@ -157,11 +163,11 @@ svg{
     z-index: 10;
     text-align: center;
     border-radius: 0.8vw;
-    border: #89CFF0 solid 1px;
-    margin-top: 0px;
-    font-size: 20px;
+    border: #89CFF0 solid 0.1vw;
+    margin-top: 0;
+    font-size: 1vw;
     position: absolute;
-    top: 380%;
+    top: 35vh;
 }
 
 /*Inbox in the homescreen*/
@@ -169,28 +175,23 @@ svg{
     flex-direction: column;
     position: absolute;
     justify-content: center;
-    left: 20%;
-    top: 50%;
-    width: 40%;
-    font-size: 20px;
+    left: 20vw;
+    top: 55vh;
+    width: 40vw;
+    font-size: 1vw;
 }
 
 /*Header name for the edit machines page*/
 #machine-name {
     text-align: center;
-    font-size: 50px;
+    font-size: 4vw;
 }
 
 /*Buttons to add and remove machines in edit machine page*/
-#add-remove-button *{
-    font-size: 20px;
-    border-radius: 0.8vw;
-    text-decoration: none;
-    background-color: #89CFF0;
+#add-remove-button {
     text-align: center;
-    width: 115px;
-    height: 50px;
-    margin-top: 10px;
+    width: 15vw;
+    height: 5vh;
 }
 
 #add-remove-button:hover *{
@@ -198,11 +199,22 @@ svg{
 }
 
 #add-button {
-    margin-right: 5px;
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    width: 40%;
+    height: 5vh;
+    margin: 0 10% 0 0;
 }
 
 #remove-button {
-    margin-left: 5px;
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    height: 5vh;
+    width: 40%;
 }
 
 /*Notes for the machine notes in edit machine page*/
@@ -211,18 +223,18 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    margin: 0px 0px 0px 0px;
-    left: 20%;
-    width: 25%;
-    font-size: 20px;
+    margin: 0;
+    left: 20vw;
+    width: 25vw;
+    font-size: 1vw;
 }
 
 #notes-textarea {
     width: 75%;
-    height: 300px;
-    border-width: 1px;
+    height: 20vh;
+    border-width: 0.1vw;
     border-radius: 0.8vw;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 /*Changing machine status in edit machine page*/
@@ -231,25 +243,24 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60%;
-    width: 25%;
-    font-size: 20px;
+    left: 60vw;
+    width: 25vw;
+    font-size: 1vw;
 }
 
 #status-button-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
 }
 
 .status-button {
-    font-size: 20px;
+    font-size: 1.5vw;
     border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
-    width: 105px;
-    height: 50px;
+    width: 5vw;
+    height: 5vh;
 }
 
 .status-button:hover {
@@ -263,10 +274,10 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 20%;
-    top: 45%;
-    width: 25%;
-    font-size: 20px;
+    left: 20vw;
+    top: 45vh;
+    width: 25vw;
+    font-size: 1vw;
 }
 
 #image-input {
@@ -275,7 +286,10 @@ svg{
 
 #imagePreview {
     max-width: 100%;
-    margin-top: 10px;
+    margin-top: 2vh;
+    align-items: center;
+    max-width: 35vw;
+    max-height: 35vh;
 }
 
 /*Assigning an operator to a machine in edit machine page*/
@@ -284,12 +298,12 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60%;
-    top: 30%;
-    width: 25%;
-    max-height: 600px;
+    left: 60vw;
+    top: 30vh;
+    width: 25vw;
+    max-height: 60vh;
     overflow: auto;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 /*Confirming all the changes in edit machine page*/
@@ -298,9 +312,10 @@ svg{
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60%;
-    top: 80%;
-    width: 25%;
+    font-size: 1vw;
+    left: 60vw;
+    top: 80vh;
+    width: 25vw;
 }
 
 #confirm-button-container {
@@ -309,14 +324,14 @@ svg{
 }
 
 .confirm-button {
-    font-size: 20px;
+    font-size: 1.5vw;
     border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
-    width: 105px;
-    height: 50px;
-    margin: 0px 5px 0px 5px;
+    width: 5vw;
+    height: 5vh;
+    margin: 0 0.5vw 0 0.5vw;
 }
 
 .confirm-button:hover {

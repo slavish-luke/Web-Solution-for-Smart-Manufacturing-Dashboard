@@ -146,11 +146,11 @@ h2{
 }
 
 .background {
-    stroke: #ff471a;
+    stroke: #c9e7f5;
 }
 
 .foreground {
-    stroke: #5cd65c;
+    stroke: #89CFF0;
 }
 
 svg{
@@ -402,7 +402,7 @@ form{
 
 .machine-container{
     margin: 1px;
-    padding: 20px;
+    padding: 0 20px;
     border-radius: 0;
     background-color: whitesmoke;
     border: 0.05vw solid lightgray;
@@ -418,8 +418,14 @@ form{
     text-align: left;
 }
 
+.machine-container h3 {
+    margin-top: 0;
+}
+
 .machine-image {
-    max-width: 50%;
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
 }
 
 .machine-navigation{
@@ -440,9 +446,9 @@ form{
     border-right: 0.05vw solid black;
 }
 
-.machine-navbutton{
+.machine-navbutton {
     border-radius: 0;
-    width: 24.9%;
+    width: 100%;
     background-color: #89CFF0;
 }
 

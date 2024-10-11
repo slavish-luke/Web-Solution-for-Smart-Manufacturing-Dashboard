@@ -76,7 +76,7 @@ if(document.getElementById("machines")){
             if (machine) {
                 console.log(machine["name"]);
                 machineName.textContent = machine["name"];
-                machineImage.src = "../Style/Images/Machines/" + machine["img_address"];
+                machineImage.src = machine["img_address"];
                 machineStatus.textContent = "Status: " + machine["operational_status"];
                 machineOperator.textContent = machine["operator_name"] ? "Operator: " + machine["operator_name"] : "";
                 machineContainer.style.visibility = "visible";
