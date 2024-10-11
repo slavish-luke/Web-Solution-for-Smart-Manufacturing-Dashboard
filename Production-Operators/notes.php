@@ -10,11 +10,12 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Notes</title>
     <meta charset="UTF-8" />
     <meta name="author" content="Luke Kradolfer" />
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
+    <link type="image/png" sizes="16x16" rel="icon" href="../Style/Images/notes-favicon.png">
 </head>
 <body class="background">
 

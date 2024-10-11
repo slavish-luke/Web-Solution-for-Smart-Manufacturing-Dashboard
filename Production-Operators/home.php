@@ -15,6 +15,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <meta name="author" content="Luke Kradolfer" />
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" type="text/css" href="../Style/Production-Operators.css">
+    <link type="image/png" sizes="16x16" rel="icon" href="../Style/Images/home-favicon.png">
 </head>
 <body>
     
@@ -63,7 +64,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 </div>
 
                 <div class="machine-statistics">
-                    <h2>Average temperature</h2>
+                    <h2 class="h2-bottom">Average temperature</h2>
 
                     <div class="chart-container">
                         <svg class="chart" viewBox="0 0 36 36">
@@ -79,7 +80,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 </div>
 
                 <div class="machine-statistics">
-                    <h2>Average speed</h2>
+                    <h2 class="h2-bottom">Average speed</h2>
 
                     <div class="chart-container">
                         <svg class="chart" viewBox="0 0 36 36">
