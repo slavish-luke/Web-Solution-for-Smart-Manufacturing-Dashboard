@@ -100,7 +100,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <form action="add-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                <form class="add-remove-machine-modal" action="add-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                     <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                     <h1>Machine Name</h1>
                     <input type="text" id="machine-name" name="machine-name" required>
@@ -117,7 +117,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <form action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                <form class="add-remove-machine-modal" action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                     <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                     <select name="removal" id="removal">
                     <?php
