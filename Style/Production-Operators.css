@@ -423,9 +423,14 @@ form{
     margin-top: 0;
 }
 
+.machine-attribute img {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
 .machine-image {
-    width: 70%;
-    height: 70%;
+    width: 60%;
+    height: 60%;
     object-fit: cover;
 }
 

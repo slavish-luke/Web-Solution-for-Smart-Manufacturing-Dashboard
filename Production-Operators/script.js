@@ -77,8 +77,8 @@ if(document.getElementById("machines")){
                 console.log(machine["name"]);
                 machineName.textContent = machine["name"];
                 machineImage.src = machine["img_address"];
-                machineStatus.textContent = "Status: " + machine["operational_status"];
-                machineOperator.textContent = machine["operator_name"] ? "Operator: " + machine["operator_name"] : "";
+                // machineStatus.textContent = "Status: " + machine["operational_status"];
+                // machineOperator.textContent = machine["operator_name"] ? "Operator: " + machine["operator_name"] : "";
                 machineContainer.style.visibility = "visible";
             } else {
                 machineContainer.style.visibility = "hidden";

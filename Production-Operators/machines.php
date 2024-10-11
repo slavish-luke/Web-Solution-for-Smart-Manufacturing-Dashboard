@@ -56,50 +56,82 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 <button class="machine-container" id="machine0">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine1">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine2">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine3">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine4">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine5">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine6">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
                 <button class="machine-container" id="machine7">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
-                    <div class="machine-status"></div>
-                    <div class="machine-operator"></div>
+                    <div class="machine-attribute machine-status">
+                        <img src="../Style/Images/idle.svg">
+                    </div>
+                    <div class="machine-attribute machine-operator">
+                        <img src="../Style/Images/user-solid.svg">
+                    </div>
                 </button>
             </div>
             <div class="machine-navigation">
