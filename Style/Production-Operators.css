@@ -420,7 +420,9 @@ form{
 }
 
 .machine-container h3 {
-    margin-top: 0;
+    margin: 0;
+    font-size: 1.5vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .machine-image {
@@ -659,3 +661,4 @@ h5{
     position: relative;
     left: 3.4vw;
 }
+
