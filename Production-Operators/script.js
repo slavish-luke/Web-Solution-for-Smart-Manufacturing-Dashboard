@@ -123,12 +123,12 @@ if(document.getElementById("machines")){
 
 if(document.getElementById("notes")){
     console.log(machineNames);
-    options = "<h1>Machines</h1>"
+    options = "<h1 class='checkbox-header'>Machines</h1>"
     machineNames.forEach(displayMachineChecklist);
     document.getElementById("checklist-container").innerHTML = options;
 
 
-    options = "<h1>Users</h1>"
+    options = "<h1 class='checkbox-header'>Users</h1>"
     console.log(productionOperators)
     productionOperators.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;
