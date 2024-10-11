@@ -188,13 +188,9 @@ svg{
 }
 
 /*Buttons to add and remove machines in edit machine page*/
-#add-remove-button *{
-    font-size: 1vw;
-    border-radius: 0.8vw;
-    text-decoration: none;
-    background-color: #89CFF0;
+#add-remove-button {
     text-align: center;
-    width: 7vw;
+    width: 15vw;
     height: 5vh;
 }
 
@@ -203,10 +199,22 @@ svg{
 }
 
 #add-button {
-    margin: 0 0.67vw 0 0;
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    width: 40%;
+    height: 5vh;
+    margin: 0 10% 0 0;
 }
 
 #remove-button {
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    height: 5vh;
+    width: 40%;
 }
 
 /*Notes for the machine notes in edit machine page*/
