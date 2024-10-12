@@ -34,8 +34,9 @@ header {
 /*Home button*/
 #Home-icon {
     width: auto;
+    position: relative;
     height: 8vh;
-    margin-left: 6.5vw;
+    left: 5.5vw;
 }
 
 #Home-icon:hover {
@@ -105,6 +106,13 @@ aside {
     font-size: 2vw;
     padding: 0;
     margin: 0 0 1vw 0;
+}
+
+#search-bar-name-edit-machines {
+    font-size: 2vw;
+    padding: 0;
+    margin: 0 0 1vw 0;
+    text-align: center;
 }
 
 #search-box {

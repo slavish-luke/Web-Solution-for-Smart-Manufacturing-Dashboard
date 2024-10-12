@@ -113,16 +113,14 @@ details[open] summary {
     align-items: center;
 }
 
-.charts h2 {
+.machine-statistics h2 {
     display: flex;
     justify-content: center;
-    position: absolute;
     font-size: 1vw;
-    max-width: 30%;
-    margin: 0% 1.5% 10% 1.5%;
+    margin-bottom: 1.5vw;
 }
 
-.charts {
+.machine-statistics {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,16 +128,20 @@ details[open] summary {
     z-index: 1;
 }
 
-.charts circle {
-    fill: none;
-    stroke-width: 32;
+.chart-container {
+    position: relative;
+    width: 6vw;
+    height: 6vw;
 }
 
-.pie-chart {
+.chart {
     height: 10vh;
     width: auto;
-    position: absolute;
-    top: 25vh;
+}
+
+.chart circle {
+    fill: none;
+    stroke-width: 32;
 }
 
 .background {
@@ -150,13 +152,11 @@ details[open] summary {
     stroke: #5cd65c;
 }
 
-svg{
+svg {
     overflow: visible;
 }
 
-.display-stats{
-    margin-left: auto;
-    margin-right: auto;
+.display-stats {
     width: 6vw;
     height: 6vh;
     background-color: whitesmoke;
@@ -164,10 +164,8 @@ svg{
     text-align: center;
     border-radius: 0.8vw;
     border: #89CFF0 solid 0.1vw;
-    margin-top: 0;
+    margin-top: 0.5vw;
     font-size: 1vw;
-    position: absolute;
-    top: 35vh;
 }
 
 /*Inbox in the homescreen*/
