@@ -226,7 +226,8 @@ svg{
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
+    font-size: 1vw;
 }
 
 .modal-content {
@@ -244,26 +245,63 @@ svg{
     align-items: center;
 }
 
-.add-remove-machine-modal button{
+#new-machine-name {
+    width: 75%;
+    height: 10vh;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 3vw;
+    text-align: center;
+}
 
+#image-input {
+    margin: 2vh 0 6vh 0;
+}
+
+#create-machine {
+    font-size: 1.5vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+}
+
+#delete-machine {
+    font-size: 1.5vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 15vw;
+    height: 5vh;
+}
+
+#machine-dropdown {
+    background-color: whitesmoke;
+    padding: 2.5vh 4vw 2.5vh 4vw;
+    margin: 0 0 5vh 0;
+    font-size: 1.5vw;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .close {
     color: black;
-    position: relative;
-    display: block;
-    top: 0%;
-    right: 50%;
-    font-size: 5vh;
+    float: right;
+    margin: 0.5vw;
+    font-size: 5vw;
     font-weight: bold;
-    height: 6vh;
-    text-align: center;
+    height: 5vh;
+    line-height: 2.5vw;
 }
 
 .close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
+    transform: scale(1.02,1.02);
 }
 
 /*Notes for the machine notes in edit machine page*/
@@ -337,8 +375,8 @@ svg{
     max-width: 100%;
     margin-top: 2vh;
     align-items: center;
-    max-width: 35vw;
-    max-height: 35vh;
+    max-width: 25vw;
+    max-height: 25vh;
 }
 
 /*Assigning an operator to a machine in edit machine page*/

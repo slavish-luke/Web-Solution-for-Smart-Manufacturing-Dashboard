@@ -103,7 +103,7 @@
                 <form class="add-remove-machine-modal" action="add-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                     <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                     <h1>Machine Name</h1>
-                    <input type="text" id="machine-name" name="machine-name" required>
+                    <input type="text" id="new-machine-name" name="machine-name" required>
                     <h1>Machine Image</h1>
                     <input type="file" id="image-input" accept="image/*" name="image-input">
                     <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
@@ -118,8 +118,9 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form class="add-remove-machine-modal" action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-                    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
-                    <select name="removal" id="removal">
+                <h1>Select Machine</h1>    
+                <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                    <select name="removal" id="machine-dropdown">
                     <?php
                     require_once "../inc/dbconn.inc.php";
                     $sql = "SELECT * FROM machine";
@@ -136,7 +137,7 @@
                     }
                 ?>
                     </select>
-                    <input type='submit' id='create-machine' name='create-machine' value='Remove Machine'>
+                    <input type='submit' id='delete-machine' name='delete-machine' value='Remove Machine'>
                     
                 </form>
             </div>
