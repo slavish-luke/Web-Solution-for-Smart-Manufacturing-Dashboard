@@ -93,7 +93,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     <tbody>
                         <?php
                         $sql = "SELECT a.id, a.username, a.name, a.email, r.name AS role_name 
-                                FROM accounttest a 
+                                FROM account a 
                                 JOIN role r ON a.role_id = r.id";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
