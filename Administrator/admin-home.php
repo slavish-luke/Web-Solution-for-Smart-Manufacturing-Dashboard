@@ -92,52 +92,58 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     </thead>
                     <tbody>
                         <?php
-                            $sql = "SELECT a.id, a.username, a.name, a.email, r.name AS role_name 
-                                    FROM account a 
-                                    JOIN role r ON a.role_id = r.id";
-                            $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr onclick=\"window.location='admin-management.php?id=" . $row["id"] . "'\" style='cursor: pointer;'>";
-                                    echo "<td>" . $row["username"] . "</td>";
-                                    echo "<td>" . $row["name"] . "</td>";
-                                    echo "<td>" . $row["email"] . "</td>";
-                                    echo "<td>" . $row["role_name"] . "</td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='4'>No users found</td></tr>";
+                        $sql = "SELECT a.id, a.username, a.name, a.email, r.name AS role_name 
+                                FROM accounttest a 
+                                JOIN role r ON a.role_id = r.id";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr onclick=\"openEditDialog(" . $row["id"] . ", '" . htmlspecialchars($row["username"]) . "', '" . htmlspecialchars($row["name"]) . "', '" . htmlspecialchars($row["email"]) . "', '" . htmlspecialchars($row["role_name"]) . "')\" style='cursor: pointer;'>";
+                                echo "<td>" . $row["username"] . "</td>";
+                                echo "<td>" . $row["name"] . "</td>";
+                                echo "<td>" . $row["email"] . "</td>";
+                                echo "<td>" . $row["role_name"] . "</td>";
+                                echo "</tr>";
                             }
+                        } else {
+                            echo "<tr><td colspan='4'>No users found</td></tr>";
+                        }
                         ?>
                     </tbody>
                 </table>
             </div>
     </div>
 
-    <div id="editUserDialog" class="modal">
+<div id="editUserDialog" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeEditDialog()">&times;</span>
         <h2>Edit User</h2>
-        <form id="editUserForm" method="POST" action="update_user.php">
+        <form id="editUserForm" method="POST" action="admin-user-update.php">
             <input type="hidden" name="id" id="userId">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required>
-            <br>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" required>
-            <br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
-            <br>
-            <label for="role">Role:</label>
-            <select name="role" id="role" required>
-                <option value="1">Administrator</option>
-                <option value="2">Auditor</option>
-                <option value="3">Factory Manager</option>
-                <option value="4">Production Operator</option>
-            </select>
-            <br>
-            <input type="submit" value="Update User">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <select name="role" id="role" required>
+                    <option value="1">Administrator</option>
+                    <option value="2">Auditor</option>
+                    <option value="3">Factory Manager</option>
+                    <option value="4">Production Operator</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update User" class="btn-submit">
+            </div>
         </form>
     </div>
 </div>
