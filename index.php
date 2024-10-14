@@ -8,12 +8,10 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"]) {
 
 switch($_SESSION["userrole"]) {
     case 1:
-        header("location: logout.php");
-        // header("location: Auditor/home.php");                Replace line above once implemented
+        header("location: Administrator/admin-home.php");
         break;
     case 2:
         header("location: Auditor/home.php");
-        // header("location: Administrator/home.php");          Replace line above once implemented
         break;
     case 3:
         header("location: Factory-Managers/Home-screen.php?search-box=");

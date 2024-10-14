@@ -83,46 +83,48 @@
 
             <!--Container for all the pie charts-->
             <div id="stats-container">
+                <div class="machine-statistics">
+                    <h2>Power consumption</h2>
 
-                <!--Singluar container for a pie chart -->
-                <div class="charts">
-                    <h2>Average Production Count</h2>
-                    <svg class="pie-chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="production-count" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
+                    </div>
 
-                    <!--Contianer for the percentages -->
+                    <div class="display-stats">
+                        <h3 id="power-consumption"></h3>
+                    </div>
+                </div>
+
+                <div class="machine-statistics">
+                <h2>Production count</h2>
+
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="production-count-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
+                    </div>
+
                     <div class="display-stats">
                         <h3 id="production-count"></h3>
                     </div>
                 </div>
 
-                <!--Singluar container for a pie chart -->
-                <div class="charts">
-                    <h2>Operational <br> Status</h2>
-                    <svg class="pie-chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="operational-status" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
+                    <div class="machine-statistics">
+                    <h2 class="h2-bottom">Average speed</h2>
 
-                    <!--Contianer for the percentages -->    
-                    <div class="display-stats">
-                        <h3 id="operational-status"></h3>
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 36 36">
+                            <circle class="background" r="16" cx="18" cy="18"></circle>
+                            <circle id="average-speed-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="18.55 100" transform="rotate(-90 18 18)"></circle>
+                        </svg>
                     </div>
-                </div>
 
-                <!--Singluar container for a pie chart -->
-                <div class="charts">
-                    <h2>Average Power Consumption</h2>
-                    <svg class="pie-chart" viewBox="0 0 36 36">
-                        <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="average-power-consumption" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
-                    </svg>
-                    
-                    <!--Contianer for the percentages -->
                     <div class="display-stats">
-                        <h3 id="power-consumption"></h3>
+                        <h3 id="average-speed"></h3>
                     </div>
                 </div>
             </div>

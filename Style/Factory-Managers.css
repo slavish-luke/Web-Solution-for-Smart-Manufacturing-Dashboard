@@ -113,16 +113,14 @@ details[open] summary {
     align-items: center;
 }
 
-.charts h2 {
+.machine-statistics h2 {
     display: flex;
     justify-content: center;
-    position: absolute;
     font-size: 1vw;
-    max-width: 30%;
-    margin: 0% 1.5% 10% 1.5%;
+    margin-bottom: 1.5vw;
 }
 
-.charts {
+.machine-statistics {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,16 +128,20 @@ details[open] summary {
     z-index: 1;
 }
 
-.charts circle {
-    fill: none;
-    stroke-width: 32;
+.chart-container {
+    position: relative;
+    width: 6vw;
+    height: 6vw;
 }
 
-.pie-chart {
+.chart {
     height: 10vh;
     width: auto;
-    position: absolute;
-    top: 25vh;
+}
+
+.chart circle {
+    fill: none;
+    stroke-width: 32;
 }
 
 .background {
@@ -150,13 +152,11 @@ details[open] summary {
     stroke: #5cd65c;
 }
 
-svg{
+svg {
     overflow: visible;
 }
 
-.display-stats{
-    margin-left: auto;
-    margin-right: auto;
+.display-stats {
     width: 6vw;
     height: 6vh;
     background-color: whitesmoke;
@@ -164,10 +164,8 @@ svg{
     text-align: center;
     border-radius: 0.8vw;
     border: #89CFF0 solid 0.1vw;
-    margin-top: 0;
+    margin-top: 0.5vw;
     font-size: 1vw;
-    position: absolute;
-    top: 35vh;
 }
 
 /*Inbox in the homescreen*/
@@ -215,6 +213,93 @@ svg{
     background-color: #89CFF0;
     height: 5vh;
     width: 40%;
+}
+
+/*Popup for machine creation*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 1vw;
+}
+
+.modal-content {
+    background-color: #89CFF0;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 0.1vw solid black;
+    border-radius: 0.8vw;
+    width: 75vw;
+}
+
+.add-remove-machine-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#new-machine-name {
+    width: 75%;
+    height: 10vh;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 3vw;
+    text-align: center;
+}
+
+#image-input {
+    margin: 2vh 0 6vh 0;
+}
+
+#create-machine {
+    font-size: 1.5vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 5vw;
+    height: 5vh;
+}
+
+#delete-machine {
+    font-size: 1.5vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 15vw;
+    height: 5vh;
+}
+
+#machine-dropdown {
+    background-color: whitesmoke;
+    padding: 2.5vh 4vw 2.5vh 4vw;
+    margin: 0 0 5vh 0;
+    font-size: 1.5vw;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.close {
+    color: black;
+    float: right;
+    margin: 0.5vw;
+    font-size: 5vw;
+    font-weight: bold;
+    height: 5vh;
+    line-height: 2.5vw;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1.02,1.02);
 }
 
 /*Notes for the machine notes in edit machine page*/
@@ -288,8 +373,8 @@ svg{
     max-width: 100%;
     margin-top: 2vh;
     align-items: center;
-    max-width: 35vw;
-    max-height: 35vh;
+    max-width: 25vw;
+    max-height: 25vh;
 }
 
 /*Assigning an operator to a machine in edit machine page*/
@@ -339,40 +424,3 @@ svg{
     background-color: whitesmoke;
 }
 
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
