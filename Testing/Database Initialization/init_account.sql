@@ -5,7 +5,7 @@ CREATE TABLE account (
     username varchar(100) NOT NULL,
     password varchar(60) NOT NULL,
     name varchar(100) NOT NULL,
-    email varchar(100), NULL
+    email varchar(100),
     notes varchar(10000),
     role_id int NOT NULL,
     PRIMARY KEY (id),
