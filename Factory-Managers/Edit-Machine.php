@@ -287,6 +287,25 @@
                             }
                         }?>
                         <input type="submit" value="Add Task">
+                        </br>
+                        <!--Show which tasks this machine has-->
+                        <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ?;";
+                        $statement = mysqli_stmt_init($conn);
+                        $note = htmlspecialchars($_GET['machine']);
+                        mysqli_stmt_prepare($statement, $sql);
+                        mysqli_stmt_bind_param($statement, 's', $note);  
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<p>Job Description: $row[job_desc]</p> <p>Assigned Operator: $row[user_name]</p>");
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }?>
+
                     </form>
 
                 </div>
