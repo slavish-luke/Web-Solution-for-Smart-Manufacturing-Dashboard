@@ -105,7 +105,8 @@
                     <h1>Machine Name</h1>
                     <input type="text" id="new-machine-name" name="machine-name" required>
                     <h1>Machine Image</h1>
-                    <input type="file" id="image-input" accept="image/*" name="image-input">
+                    <label for="image-input">Copy and Paste Image url Below</label>
+                    <input type="text" id="image-input" name="image-input">
                     <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
                 </form>
             </div>
@@ -213,8 +214,8 @@
                 <!--Div for keeping the machine image-->
                 <div id="Machine-image">
                 <h1>Machine Image</h1>
+                <label for="image-input">Copy and Paste Image url Below</label>
                 <input type="text" id="image-input" name="image-input">
-                <label for="image-input">Image address</label>
                 <img id="imagePreview" src="<?php require_once "../inc/dbconn.inc.php";
                             $sql = "SELECT img_address FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
@@ -287,6 +288,25 @@
                             }
                         }?>
                         <input type="submit" value="Add Task">
+                        </br>
+                        <!--Show which tasks this machine has-->
+                        <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ?;";
+                        $statement = mysqli_stmt_init($conn);
+                        $note = htmlspecialchars($_GET['machine']);
+                        mysqli_stmt_prepare($statement, $sql);
+                        mysqli_stmt_bind_param($statement, 's', $note);  
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<p>Job Description: $row[job_desc]</p> <p>Assigned Operator: $row[user_name]</p> </br>");
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }?>
+
                     </form>
 
                 </div>

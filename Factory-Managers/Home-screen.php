@@ -138,7 +138,7 @@
                 <summary>Administrators</summary>
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT username FROM account WHERE role_id = 1";
+                $sql = "SELECT name FROM account WHERE role_id = 1";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -146,7 +146,7 @@
                     if (mysqli_num_rows($result) >= 1){
                         echo("<ul>");
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[username]</a></li>");
+                            echo("<li>$row[name]</a></li>");
                         }
                         echo("</ul>");
                         mysqli_free_result($result);
@@ -160,7 +160,7 @@
                 <summary>Managers</summary>
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT username FROM account WHERE role_id = 3";
+                $sql = "SELECT name FROM account WHERE role_id = 3";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -168,7 +168,7 @@
                     if (mysqli_num_rows($result) >= 1){
                         echo("<ul>");
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[username]</a></li>");
+                            echo("<li>$row[name]</a></li>");
                         }
                         echo("</ul>");
                         mysqli_free_result($result);
@@ -182,7 +182,7 @@
                 <summary>Operators</summary>
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT username FROM account WHERE role_id = 4";
+                $sql = "SELECT name FROM account WHERE role_id = 4";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -190,7 +190,7 @@
                     if (mysqli_num_rows($result) >= 1){
                         echo("<ul>");
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[username]</a></li>");
+                            echo("<li>$row[name]</a></li>");
                         }
                         echo("</ul>");
                         mysqli_free_result($result);
@@ -203,6 +203,20 @@
         <!--Inbox to read messages-->
         <div id="inbox">
             <h1>Inbox</h1>
+            <?php
+            require_once "../inc/dbconn.inc.php";
+            $sql = "SELECT n.*, m.name AS machine_name  FROM notes n JOIN machine m ON n.machine_id = m.id WHERE user_id = $_SESSION[userid]";
+            $statement = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($statement, $sql); 
+            if (mysqli_stmt_execute($statement)){
+                $result = mysqli_stmt_get_result($statement);
+                if (mysqli_num_rows($result) >= 1){
+                    while ($row = mysqli_fetch_assoc($result)){
+                        echo("<p>Machine: $row[machine_name]</p> <p>Job Subject: $row[notes_subject]</p> <p>Content: $row[notes_content]</p> </br>");
+                    }
+                    mysqli_free_result($result);
+                }
+            }?>
         </div>
     </div>
 
@@ -242,6 +256,7 @@
         }
         mysqli_close($conn);
     ?>
+    
     <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
     <script src="../Factory-Managers/scripts.js" defer></script>
 </body>
