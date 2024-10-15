@@ -242,6 +242,7 @@
         }
         mysqli_close($conn);
     ?>
+    
     <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
     <script src="../Factory-Managers/scripts.js" defer></script>
 </body>
