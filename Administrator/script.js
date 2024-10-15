@@ -3,7 +3,14 @@ function openEditDialog(id, username, name, email, role, notes) {
     document.getElementById('username').value = username;
     document.getElementById('name').value = name;
     document.getElementById('email').value = email;
-    document.getElementById('role').value = role;
+    const roles = {
+        "Administrator": 1,
+        "Auditor": 2,
+        "Factory Manager": 3,
+        "Production Operator": 4
+    };
+    const roleId = roles[role] || null;
+    document.getElementById('role').value = roleId;
     document.getElementById('notes').value = notes;
     document.getElementById("editUserForm").action = "admin-user-update.php";
     document.getElementById("dialogTitle").innerText = "Edit User";
