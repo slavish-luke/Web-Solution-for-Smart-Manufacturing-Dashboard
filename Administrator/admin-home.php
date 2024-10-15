@@ -111,15 +111,17 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                         ?>
                     </tbody>
                 </table>
+                <button class="btn-add-new-user" onclick="openAddUserDialog()">Add New User</button>
             </div>
     </div>
 
 <div id="editUserDialog" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeEditDialog()">&times;</span>
-        <h2>Edit User</h2>
+        <h2 id="dialogTitle">Edit User</h2>
         <form id="editUserForm" method="POST" action="admin-user-update.php">
             <input type="hidden" name="id" id="userId">
+            <input type="hidden" name="action" id="formAction">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" required>
@@ -142,7 +144,12 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Update User" class="btn-submit">
+                <label for="notes">Notes:</label>
+                <textarea name="notes" id="notes"></textarea>
+            </div>
+            <div class="action-buttons">
+                <input type="submit" value="Update User" class="btn-submit" id="submitButton" onclick="setAction('Update User')">
+                <input type="button" value="Delete User" class="btn-delete" onclick="deleteUser()" style="display: none;" id="deleteButton">
             </div>
         </form>
     </div>
