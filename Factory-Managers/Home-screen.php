@@ -203,6 +203,20 @@
         <!--Inbox to read messages-->
         <div id="inbox">
             <h1>Inbox</h1>
+            <?php
+            require_once "../inc/dbconn.inc.php";
+            $sql = "SELECT n.*, m.name AS machine_name  FROM notes n JOIN machine m ON n.machine_id = m.id WHERE user_id = $_SESSION[userid]";
+            $statement = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($statement, $sql); 
+            if (mysqli_stmt_execute($statement)){
+                $result = mysqli_stmt_get_result($statement);
+                if (mysqli_num_rows($result) >= 1){
+                    while ($row = mysqli_fetch_assoc($result)){
+                        echo("<p>Machine: $row[machine_name]</p> <p>Job Subject: $row[notes_subject]</p> <p>Content: $row[notes_content]</p> </br>");
+                    }
+                    mysqli_free_result($result);
+                }
+            }?>
         </div>
     </div>
 
