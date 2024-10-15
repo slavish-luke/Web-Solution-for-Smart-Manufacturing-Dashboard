@@ -138,7 +138,7 @@
                 <summary>Administrators</summary>
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT username FROM account WHERE role_id = 1";
+                $sql = "SELECT name FROM account WHERE role_id = 1";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -146,7 +146,7 @@
                     if (mysqli_num_rows($result) >= 1){
                         echo("<ul>");
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[username]</a></li>");
+                            echo("<li>$row[name]</a></li>");
                         }
                         echo("</ul>");
                         mysqli_free_result($result);
@@ -160,7 +160,7 @@
                 <summary>Managers</summary>
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT username FROM account WHERE role_id = 3";
+                $sql = "SELECT name FROM account WHERE role_id = 3";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -168,7 +168,7 @@
                     if (mysqli_num_rows($result) >= 1){
                         echo("<ul>");
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[username]</a></li>");
+                            echo("<li>$row[name]</a></li>");
                         }
                         echo("</ul>");
                         mysqli_free_result($result);
@@ -182,7 +182,7 @@
                 <summary>Operators</summary>
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT username FROM account WHERE role_id = 4";
+                $sql = "SELECT name FROM account WHERE role_id = 4";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -190,7 +190,7 @@
                     if (mysqli_num_rows($result) >= 1){
                         echo("<ul>");
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[username]</a></li>");
+                            echo("<li>$row[name]</a></li>");
                         }
                         echo("</ul>");
                         mysqli_free_result($result);
