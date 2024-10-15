@@ -105,7 +105,8 @@
                     <h1>Machine Name</h1>
                     <input type="text" id="new-machine-name" name="machine-name" required>
                     <h1>Machine Image</h1>
-                    <input type="file" id="image-input" accept="image/*" name="image-input">
+                    <label for="image-input">Copy and Paste Image url Below</label>
+                    <input type="text" id="image-input" name="image-input">
                     <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
                 </form>
             </div>
@@ -213,8 +214,8 @@
                 <!--Div for keeping the machine image-->
                 <div id="Machine-image">
                 <h1>Machine Image</h1>
+                <label for="image-input">Copy and Paste Image url Below</label>
                 <input type="text" id="image-input" name="image-input">
-                <label for="image-input">Image address</label>
                 <img id="imagePreview" src="<?php require_once "../inc/dbconn.inc.php";
                             $sql = "SELECT img_address FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
@@ -300,7 +301,7 @@
                             $result = mysqli_stmt_get_result($statement);
                             if (mysqli_num_rows($result) >= 1){
                                 while ($row = mysqli_fetch_assoc($result)){
-                                    echo("<p>Job Description: $row[job_desc]</p> <p>Assigned Operator: $row[user_name]</p>");
+                                    echo("<p>Job Description: $row[job_desc]</p> <p>Assigned Operator: $row[user_name]</p> </br>");
                                 }
                                 mysqli_free_result($result);
                             }
