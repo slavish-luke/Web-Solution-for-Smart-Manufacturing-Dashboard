@@ -292,7 +292,7 @@
                         while ($row = mysqli_fetch_assoc($result)){
                             echo("
                                 <details>
-                                    <summary>$row[machine_name], $row[notes_subject]</summary>
+                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
                                     $row[notes_content]
                                 </details>
                             ");

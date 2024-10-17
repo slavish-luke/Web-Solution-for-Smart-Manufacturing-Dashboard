@@ -344,7 +344,7 @@
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo("
                                             <details>
-                                                <summary>Assgined Operator: $row[user_name]</summary>
+                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>Delete</a></summary>
                                                 $row[job_desc]
                                             </details>
                                         ");
