@@ -390,17 +390,51 @@ form{
 	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
 }
 
+
+.content-pane{
+    height: 73vh;
+}
+
+.navigation-pane{
+    height: 12vh;
+    display: flex;
+}
+
+.navigation-pane *{
+    height: 100%;
+    line-height: 12vh;
+    float: left;
+    width: auto;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 2.5vw;
+    border: none;
+    border-top: 0.05vw solid black;
+    border-right: 0.05vw solid black;
+}
+
+#next-page{
+    border-right: none;
+}
+
+#return-button {
+    border-radius: 0;
+    width: 100%;
+    background-color: #89CFF0;
+}
+
+#return-button:hover {
+    background-color: #c9e7f5;
+}
+
 #machines{
     margin: 0;
     width: 100%;
     height: auto;
 }
 
-.machine-content{
-    height: 73vh;
-}
-
-#machine-list .machine-content{
+#machine-list .content-pane{
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }
@@ -430,9 +464,17 @@ form{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.machine-attribute {
+    text-transform: capitalize;
+}
+
 .machine-attribute img {
     width: 1.5vw;
     height: 1.5vw;
+}
+
+.machine-attribute span {
+    margin-left: 10px;
 }
 
 .machine-image {
@@ -441,32 +483,27 @@ form{
     object-fit: cover;
 }
 
-.machine-navigation{
-    height: 12vh;
-    display: flex;
+#jobs{
+    margin: 0;
+    width: 100%;
+    height: auto;
 }
 
-.machine-navigation *{
-    height: 100%;
-    line-height: 12vh;
-    float: left;
-    width: auto;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 600;
-    font-size: 2.5vw;
-    border: none;
-    border-top: 0.05vw solid black;
-    border-right: 0.05vw solid black;
+.job-container{
+    border-radius: 0;
+    background-color: whitesmoke;
+    border-bottom: 0.05vw solid lightgray;
+    visibility: hidden;
+    height: 9vh;
 }
 
-.machine-navbutton {
+.navbutton {
     flex: 1;
     border-radius: 0;
     background-color: #89CFF0;
 }
 
-.machine-navbutton:hover {
+.navbutton:hover {
     background-color: #c9e7f5;
 }
 
@@ -474,22 +511,12 @@ form{
     flex: 2.05;
 }
 
-#next-page{
-    border-right: none;
-}
-
 #machine-details{
     display: none;
 }
 
-#return-button {
-    border-radius: 0;
-    width: 100%;
-    background-color: #89CFF0;
-}
-
-#return-button:hover {
-    background-color: #c9e7f5;
+#job-details{
+    display: none;
 }
 
 /* modal box taken from: https://www.w3schools.com/howto/howto_css_modals.asp
