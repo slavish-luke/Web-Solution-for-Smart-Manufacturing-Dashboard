@@ -107,6 +107,22 @@
                     <h1>Machine Image</h1>
                     <label for="image-input">Copy and Paste Image url Below</label>
                     <input type="text" id="image-input" name="image-input">
+                    <h1>Assigned Operator</h1>
+                    <select name="creation-operator" id="assigned-operator">
+                        <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT * FROM account where role_id = 4";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<option value=$row[id]>$row[name]</option>");
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }?>
                     <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
                 </form>
             </div>
@@ -244,34 +260,56 @@
                         <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
                     </div>
                 </div>
-            </form>
+            
 
             <!--Div for assigning the operator to the machine-->
             <div id="Assign-operator">
                 <h1>Assign Operator</h1>
                 <div id="show-operators">
-                    <?php
+                <select name="machine-operator" id="assigned-operator">
+                        <?php
                         require_once "../inc/dbconn.inc.php";
-                        $sql = "SELECT username FROM account WHERE role_id = 4";
+                        $sql = "SELECT * FROM machine where id = ?";
+                        $statement = mysqli_stmt_init($conn);
+                        $note = htmlspecialchars($_GET['machine']);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        mysqli_stmt_bind_param($statement, 's', $note); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    $op = $row['operator_id'];
+                                    
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }
+                        $sql = "SELECT * FROM account where role_id = 4";
                         $statement = mysqli_stmt_init($conn);
                         mysqli_stmt_prepare($statement, $sql); 
                         if (mysqli_stmt_execute($statement)){
                             $result = mysqli_stmt_get_result($statement);
                             if (mysqli_num_rows($result) >= 1){
-                                echo("<ul>");
                                 while ($row = mysqli_fetch_assoc($result)){
-                                    echo("<li>$row[username]</a></li>");
+                                    if ($row['id'] == $op){
+                                        echo("<option value=$row[id] selected='selected'>$row[name]</option>");
+                                    }
+                                    else{
+                                        echo("<option value=$row[id]>$row[name]</option>");
+                                    }
+                                    
                                 }
-                                echo("</ul>");
                                 mysqli_free_result($result);
                             }
-                        }
-                    ?>
+                        }?>
+                        </select>
                 </div>
-
+                    </form>
+                <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
+                    <h1>Assign Job</h1>
                     <form id="add-job" action="add-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-                        <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>"> 
+                    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                         <select name="assigned-operator" id="assigned-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
@@ -287,6 +325,7 @@
                                 mysqli_free_result($result);
                             }
                         }?>
+                        </select>
                         <input id="job-submit" type="submit" value="Add Task">
                         <textarea id="job-desc-textarea" name="job-desc"></textarea>
 
