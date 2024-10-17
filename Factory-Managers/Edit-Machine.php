@@ -315,7 +315,7 @@
                         </select>
                     </div>
                     </form>
-                    
+
                 <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
                     <h1>Assign Job</h1>
@@ -355,7 +355,7 @@
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo("
                                             <details>
-                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>Delete</a></summary>
+                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>&times;</a></summary>
                                                 $row[job_desc]
                                             </details>
                                         ");

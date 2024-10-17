@@ -191,9 +191,19 @@ svg {
     width: 40vw;
     font-size: 1vw;
 }
+
 #inbox-content {
     max-height: 30vh;
     overflow: auto;
+}
+
+#inbox-content a{
+    position: relative;
+    width: auto;
+    height: auto;
+    float: right;
+    font-size: 1vw;
+    font-weight: bold;
 }
 
 #inbox details {
@@ -484,6 +494,15 @@ svg {
     align-items: center;
     width: 80%;
     margin: 0 10% 1vh 10%;
+}
+
+#job-list a {
+    position: relative;
+    width: auto;
+    height: auto;
+    float: right;
+    font-size: 1vw;
+    font-weight: bold;
 }
 
 /*Confirming all the changes in edit machine page*/

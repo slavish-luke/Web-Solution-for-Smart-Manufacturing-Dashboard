@@ -290,7 +290,7 @@
                             if (isset($row['machine_name'])){
                                 echo("
                                 <details>
-                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
+                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>&times;</a></summary>
                                     From: $row[account_name]</br>$row[notes_content]
                                 </details>
                             ");
