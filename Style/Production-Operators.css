@@ -240,6 +240,11 @@ h4{
     flex-direction: column;
 }
 
+#overview-container b{
+    font-weight: bolder;
+    font-size: 1.6vw;
+}
+
 .new-row{
     display: flex;
     justify-content: space-between;
@@ -479,6 +484,79 @@ form{
     object-fit: cover;
 }
 
+#machine-view * {
+    text-align: center;
+}
+
+#machine-name {
+    font-size: 2.5vw;
+    padding-bottom: 2vh;
+    border-bottom: 0.1vw solid lightgrey;
+}
+
+#machine-image {
+    width: 60%;
+    height: 25vw;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+}
+
+.machine-stat {
+    margin: 0.8vw 2vw;
+    font-size: 1.8vw;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.machine-stat span {
+    font-size: inherit;
+    font-family: monospace;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+#change-status {
+    height: 4vw;
+    width: 10vw;
+    float: right;
+    background-color: #89CFF0;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+#change-status:hover {
+    background-color: #c9e7f5;
+}
+
+#status-modal .modal-content {
+    width: 30vw;
+    height: 20vw;
+}
+
+#status-modal .modal-content form {
+    margin-top: 6vh;
+}
+
+.status-option {
+    margin: 0vw 5vw;
+    height: 4vw;
+    width: 20vw;
+    background-color: #89CFF0;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    font-weight: bold;
+    display: block;
+}
+
+.status-option:hover {
+    background-color: #c9e7f5;
+}
+
 #jobs{
     margin: 0;
     width: 100%;
@@ -497,6 +575,8 @@ form{
 }
 
 .job-container *{
+    float: left;
+    width: 20%;
     margin-left: 3vw;
 }
 
@@ -515,11 +595,11 @@ form{
     background-color: #c9e7f5;
 }
 
-#current-page{
+#current-page {
     flex: 2.05;
 }
 
-#machine-details{
+#machine-details {
     display: none;
 }
 
@@ -578,7 +658,7 @@ The Modal (background) */
 #warning{
     width: 20vw;
     margin-left: 15vw;
-    animation: warning-blink 1s infinite;
+    fill: yellow;
 }
 
 @keyframes warning-blink{
@@ -635,7 +715,7 @@ details img:hover {
 }
 
 #settings-content{
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -649,6 +729,7 @@ details h4{
     margin-left: 2.2vw;
     line-height: 7vh;
     z-index: 5;
+    margin-top: -2vh;
 }
 
 /* switch button taken from https://www.w3schools.com/howto/howto_css_switch.asp */
@@ -656,15 +737,40 @@ details h4{
     position: relative;
     width: 5vw;
     height: 3.45vh;
+    margin-top: 4vh;
     display: flex;
-    flex-direction: row;
-    margin-top: 0.5vh;
+    align-items: center;
 }
 
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
+}
+
+.following-switch{
+    margin-top: 7vh;
+}
+
+.switch h5{
+    position: relative;
+    bottom: 4vh;
+    white-space: nowrap;
+}
+
+#temperature-tag{
+    position: relative;
+    right: 5.8vw;
+}
+
+#flashing-warning-tag{
+    position: relative;
+    right: 7.4vw;
+}
+
+#dark-mode-tag{
+    position: relative;
+    right: 5vw;
 }
 
 .slider {

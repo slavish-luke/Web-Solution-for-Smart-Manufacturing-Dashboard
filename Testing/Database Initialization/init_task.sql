@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS task;
 
 CREATE TABLE task (
     id int NOT NULL AUTO_INCREMENT,
+    complete bool NOT NULL DEFAULT false,
     job_desc varchar(1000) NOT NULL,
     operator_id int,
     machine_id int,

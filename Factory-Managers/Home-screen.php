@@ -6,9 +6,9 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         document.getElementById("search-box").value = "";
-    </script> -->
+    </script>
     <title>Dashboard</title>
 </head>
 
@@ -50,8 +50,6 @@
                 <input type="text" id="search-box" placeholder="Search Machines" name="search-box">
                 </form>
             </div>
-
-            
 
             <!--List of machines-->
             <div id="machine-list">
@@ -100,7 +98,7 @@
                     <label for="image-input">Copy and Paste Image url Below</label>
                     <input type="text" id="image-input" name="image-input">
                     <h1>Assigned Operator</h1>
-                    <select name="creation-operator" id="assigned-operator">
+                    <select name="creation-operator" id="modal-set-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM account where role_id = 4";
@@ -151,7 +149,6 @@
                 </form>
             </div>
         </div>
-
         </aside>
 
         <!--Statistics side-->
@@ -293,7 +290,7 @@
                             if (isset($row['machine_name'])){
                                 echo("
                                 <details>
-                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
+                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>&times;</a></summary>
                                     From: $row[account_name]</br>$row[notes_content]
                                 </details>
                             ");

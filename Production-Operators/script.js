@@ -6,8 +6,6 @@ let productionCount = 0;
 let averageTemperature = 0;
 let averageSpeed = 0;
 let options = "";
-let modal = document.getElementById("myModal");
-let span = document.getElementsByClassName("close")[0];
 
 
 if(document.getElementById("home-container")){
@@ -27,6 +25,17 @@ if(document.getElementById("stats")){
         document.getElementById("temperature-slider").checked = false;
     }
 
+    if(localStorage.getItem("flashing-warning") == "true"){
+        document.getElementById("flashing-warning").checked = true;
+
+    }else if(localStorage.getItem("flashing-warning") == "false"){
+        document.getElementById("flashing-warning").checked = false;
+    
+    }else{
+        document.getElementById("flashing-warning").checked = true;
+    }
+
+
     document.getElementById("temperature-slider").addEventListener('change', function() {
         if (document.getElementById("temperature-slider").checked){
             console.log('Slider is ON');
@@ -38,6 +47,17 @@ if(document.getElementById("stats")){
             displayRandomisedData();
         }
     });
+
+    document.getElementById("flashing-warning").addEventListener('change', function() {
+        if (document.getElementById("flashing-warning").checked){
+            console.log('Slider is ON');
+            localStorage.setItem("flashing-warning", "true");
+        }else {
+            console.log('Slider is OFF');
+            localStorage.setItem("flashing-warning", "false");
+        }
+    });
+
 
     randomiseData();
     displayRandomisedData();
@@ -100,8 +120,10 @@ if(document.getElementById("machines")){
     let prevPage = document.getElementById("prev-page");
     let nextPage = document.getElementById("next-page");
 
-    let machineDetails = document.getElementById("machine-details");
-    let returnButton = document.getElementById("return-button");
+    let modal = document.getElementById("status-modal");
+    let openModal = document.getElementById("change-status");
+    let closeModal = document.getElementById("close-status");
+    let updateMachineId = document.getElementById("update-machine-id");
 
     let pageId = 0;
     let machinesPerPage = machineContainers.length;
@@ -140,18 +162,54 @@ if(document.getElementById("machines")){
         }
     }
 
+    let machineDetails = document.getElementById("machine-details");
+    // let machineDisplay = machineDetails.getElementById("machine-display");
+    // let machineStats = machineDetails.getElementById("machine-stats");
+    let returnButton = document.getElementById("return-button");
+
+    function displayStat(id, value) {
+        document.getElementById(id).textContent = value ? value : "N/A";
+    }
+
     function displayMachineInfo(index) {
         let machine = machines[pageId * 8 + index];
         console.log(machine["name"]);
-        // machineDetails.querySelector(".content-pane").textContent = machine["name"];
+        document.getElementById("machine-name").textContent = machine["name"];
+        document.getElementById("machine-image").src = machine["img_address"];
+
+        displayStat("machine-status", machine["operational_status"]);
+        displayStat("machine-error-code", machine["error_code"]);
+        displayStat("machine-log", machine["maintenance_log"]);
+        displayStat("machine-operator", machine["operator_name"]);
+        displayStat("machine-temp", machine["temperature"]);
+        displayStat("machine-pressure", machine["pressure"]);
+        displayStat("machine-vibration", machine["vibration"]);
+        displayStat("machine-humidity", machine["humidity"]);
+        displayStat("machine-power", machine["power"]);
+        displayStat("machine-count", machine["production_count"]);
+        displayStat("machine-speed", machine["speed"]);
+        
+        if (userId == machine["operator_id"]) {
+            openModal.style.visibility = "visible";
+            updateMachineId.value = machine["id"];
+        }
+        
         machineList.style.display = "none";
         machineDetails.style.display = "block";
     }
 
-    for (var i = 0; i < machineContainers.length; i++) {
+    for (var i = 0; i < machinesPerPage; i++) {
         let buttonId = i;
         machineContainers[i].addEventListener("click", () => displayMachineInfo(buttonId));
     }
+
+    openModal.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
 
     prevPage.addEventListener("click", () => {
         if (pageId > 0) pageId--;
@@ -165,8 +223,10 @@ if(document.getElementById("machines")){
         updateList();
     });
 
-
     returnButton.addEventListener("click", () => {
+        updateMachineId.value = 0;
+
+        openModal.style.visibility = "hidden";
         machineDetails.style.display = "none";
         machineList.style.display = "block";
     });
@@ -206,6 +266,16 @@ if(document.getElementById("jobs")) {
         }
     }
 
+    // function completeJob(index) {
+    //     let machine = machines[pageId * 8 + index];
+    //     
+    // }
+
+    // for (var i = 0; i < machinesPerPage; i++) {
+    //     let buttonId = i;
+    //     jobContainers[i].addEventListener("click", () => completeJob(buttonId));
+    // }
+
     prevPage.addEventListener("click", () => {
         if (pageId > 0) pageId--;
         currentPage.textContent = pageId + 1;
@@ -222,6 +292,9 @@ if(document.getElementById("jobs")) {
 }
 
 if(document.getElementById("notes")){
+    let modal = document.getElementById("myModal");
+    let span = document.getElementsByClassName("close")[0];
+
     console.log(machines);
     options = "<h1 class='checkbox-header'>Machines</h1>"
     machines.forEach(displayMachineChecklist);
@@ -229,8 +302,8 @@ if(document.getElementById("notes")){
 
 
     options = "<h1 class='checkbox-header'>Users</h1>"
-    console.log(productionOperators)
-    productionOperators.forEach(displayUserChecklist);
+    console.log(factoryManagers)
+    factoryManagers.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;
 
 
@@ -269,6 +342,15 @@ if(document.getElementById("notes")){
             //location.replace(window.location.pathname);
             history.replaceState(null, '', window.location.pathname);
         }
+    }
+
+    console.log(localStorage.getItem("flashing-warning"))
+    console.log(localStorage.getItem("flashing-warning") == "true")
+    if(localStorage.getItem("flashing-warning") == "true"){
+        document.getElementById("warning").style.animation = "warning-blink 1s infinite";
+    
+    }else{
+        document.getElementById("warning").style.animation = "none";
     }
 }
 
@@ -365,13 +447,12 @@ function displayRandomisedData(){
 
 function displayMachineChecklist(i){
     options += 
-    
     `
         <label class="checkboxes">
             <input type="checkbox" name="machines[]" value="${i.id}">
             <span class="${i.id}">${i.name}</span>
         </label>
-    `
+    `;
 }
 
 function displayUserChecklist(i){
@@ -381,6 +462,5 @@ function displayUserChecklist(i){
             <input type="checkbox" name="users[]" value="${i.id}">
             <span class="${i.id}">${i.username}</span>
         </label>
-    `
+    `;
 }
-

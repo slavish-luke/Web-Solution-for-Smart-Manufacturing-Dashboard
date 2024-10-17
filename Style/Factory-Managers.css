@@ -157,11 +157,11 @@ details[open] summary {
 }
 
 .background {
-    stroke: #ff471a;
+    stroke: #c9e7f5;
 }
 
 .foreground {
-    stroke: #5cd65c;
+    stroke: #89CFF0;
 }
 
 svg {
@@ -169,8 +169,8 @@ svg {
 }
 
 .display-stats {
-    width: 5vw;
-    height: 6vh;
+    width: 4vw;
+    height: 5vh;
     background-color: whitesmoke;
     z-index: 100;
     text-align: center;
@@ -178,6 +178,7 @@ svg {
     border: #89CFF0 solid 0.1vw;
     margin-top: 0.5vw;
     font-size: 1vw;
+    line-height: 0.5vh;
 }
 
 /*Inbox in the homescreen*/
@@ -190,9 +191,19 @@ svg {
     width: 40vw;
     font-size: 1vw;
 }
+
 #inbox-content {
     max-height: 30vh;
     overflow: auto;
+}
+
+#inbox-content a{
+    position: relative;
+    width: auto;
+    height: auto;
+    float: right;
+    font-size: 1vw;
+    font-weight: bold;
 }
 
 #inbox details {
@@ -245,7 +256,7 @@ svg {
     position: fixed;
     z-index: 1000;
     left: 0;
-    top: 0;
+    top: -10vh;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -300,13 +311,14 @@ svg {
     height: 5vh;
 }
 
-#machine-dropdown {
+#modal-set-operator {
     background-color: whitesmoke;
     padding: 2.5vh 4vw 2.5vh 4vw;
-    margin: 0 0 5vh 0;
+    margin: 0 0 2vh 0;
     font-size: 1.5vw;
     text-align: center;
-    border-radius: 4px;
+    border: 0.1vw solid black;
+    border-radius: 0.8vw
 }
 
 .close {
@@ -326,8 +338,8 @@ svg {
     transform: scale(1.02,1.02);
 }
 
-/*Notes for the machine notes in edit machine page*/
-#Machine-notes {
+/* Editing the machine name */
+#Machine-name {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -338,9 +350,31 @@ svg {
     font-size: 1vw;
 }
 
+#Machine-name input {
+    width: 75%;
+    height: 10vh;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 1vw;
+    text-align: center;
+}
+
+/*Notes for the machine notes in edit machine page*/
+#Machine-notes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    margin: 0;
+    top: 35vh;
+    left: 20vw;
+    width: 25vw;
+    font-size: 1vw;
+}
+
 #notes-textarea {
     width: 75%;
-    height: 20vh;
+    height: 10vh;
     border-width: 0.1vw;
     border-radius: 0.8vw;
     font-size: 1vw;
@@ -352,7 +386,7 @@ svg {
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60vw;
+    left: 55vw;
     width: 25vw;
     font-size: 1vw;
 }
@@ -374,6 +408,11 @@ svg {
     height: 5vh;
 }
 
+#status-maintenance-button {
+    width: auto;
+    padding: 0 1vw 0 1vw;
+}
+
 .status-button:hover {
     cursor: pointer;
     background-color: whitesmoke;
@@ -386,7 +425,7 @@ svg {
     position: absolute;
     align-items: center;
     left: 20vw;
-    top: 50vh;
+    top: 55vh;
     width: 25vw;
     font-size: 1vw;
 }
@@ -409,74 +448,43 @@ svg {
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60vw;
+    left: 55vw;
     top: 30vh;
     width: 25vw;
-    max-height: 50vh;
+    height: 20vh;
     font-size: 1vw;
 }
 
-#Assign-operator ul {
-    background-color: #89CFF0;
-    max-height: 45vh;
-    overflow: auto;
+#machine-operator {
+    background-color: whitesmoke;
+    padding: 1.25vh 2vw 1.25vh 2vw;
+    margin: 0;
+    font-size: 1vw;
+    text-align: center;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
 }
 
-#show-operators {
-    position: relative;
-    overflow: auto;
-    max-height: 30vh;
-    left: 20vw;
+#add-job-div {
+    width: 25vw;
+    height: auto;
 }
 
 #assigned-operator {
-    margin-left: 5vw;
-}
-
-#add-job {
-    position: absolute;
-    display: block;
-    align-items: center;
-    width: 25vw;
-    top: 10vh;
-    right: 0;
-}
-
-#add-job select {
+    position: relative;
     background-color: whitesmoke;
-    padding: 2.5vh 2vw 2.5vh 2vw;
-    margin: 0 0 2vh 0;
-    font-size: 1vw;
+    width: 60%;
+    height: 5vh;
+    font-size: 1.1vw;
     text-align: center;
-    border-radius: 4px;
-    width: 65%;
-}
-
-select{
-    background-color: whitesmoke;
-    padding: 2.5vh 2vw 2.5vh 2vw;
-    margin: 0 0 2vh 0;
-    font-size: 1vw;
-    text-align: center;
-    border-radius: 4px;
-    width: 65%;
-}
-
-#add-job textarea {
-    width: 98.7%;
-    align-items: center;
-    height: 10vh;
+    width: 60%;
     border-width: 0.1vw;
     border-radius: 0.8vw;
-    font-size: 1vw;
-}
-
-#job-list {
-    overflow: auto;
-    max-height: 20vh;
 }
 
 #job-submit {
+    position: relative;
+    float: right;
     font-size: 1.5vw;
     border-radius: 0.8vw;
     text-decoration: none;
@@ -484,15 +492,39 @@ select{
     text-align: center;
     width: 30%;
     height: 5vh;
-    margin: 0 0 0 5%;
+    padding: 0;
 }
 
-#job-list details {
+#job-desc-textarea {
+    align-items: center;
+    width: 75%;
+    height: 10vh;
+    margin: 2vh 12.5% 0 12.5%;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 1vw;
+}
+
+#job-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 22vh;
+}
+
+#job-list details{
     display: flex;
-    margin: 0 0 1vh 0;
-    max-width: 75%;
+    align-items: center;
+    width: 80%;
+    margin: 0 10% 1vh 10%;
+}
+
+#job-list a {
     position: relative;
-    left: 10%;
+    width: auto;
+    height: auto;
+    float: right;
+    font-size: 1vw;
+    font-weight: bold;
 }
 
 /*Confirming all the changes in edit machine page*/
@@ -502,9 +534,9 @@ select{
     position: absolute;
     align-items: center;
     font-size: 1vw;
-    left: 60vw;
-    top: 80vh;
-    width: 25vw;
+    left: 82vw;
+    top: 82vh;
+    width: 18vw;
 }
 
 #confirm-button-container {

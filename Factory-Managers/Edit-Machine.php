@@ -12,7 +12,7 @@
 
 <header>
     <!--Home Button-->
-    <div>
+    <div id="home-icon-div">
         <a href="../Factory-Managers/Home-Screen.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
@@ -107,8 +107,8 @@
                     <h1>Machine Image</h1>
                     <label for="image-input">Copy and Paste Image url Below</label>
                     <input type="text" id="image-input" name="image-input">
-                    <h1>Assigned Operator</h1>
-                    <select name="creation-operator" id="assigned-operator">
+                    <h1>Assign Operator</h1>
+                    <select name="creation-operator" id="modal-set-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM account where role_id = 4";
@@ -165,6 +165,29 @@
             <form action="add-note.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                 <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                 <input type="hidden" name="search-box" value="<?php echo htmlspecialchars($_GET['search-box']);?>">
+                
+                <!-- Div for editing the machine name -->
+                <div id="Machine-name">
+                    <h1>Machine Name</h1>
+                    <input type="text" name="machine-name" value="<?php
+                    require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT * FROM machine WHERE id = ?";
+                    $note = htmlspecialchars($_GET['machine']);
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql);
+                    mysqli_stmt_bind_param($statement, 's', $note); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo("$row[name]");
+                            }
+                            mysqli_free_result($result);
+                        }
+                    }
+                    
+                    ?>">
+                </div>
 
                 <!--Div for keeping notes about the machine-->
                 <div id="Machine-notes">
@@ -212,7 +235,7 @@
                                                 <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
                                                 <label for='status-idle' class='status-button'>Idle</label>
                                                 <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
-                                                <label for='status-maintenance' class='status-button'>Maintenance</label>");
+                                                <label for='status-maintenance' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                         else if ($row['operational_status'] == "idle"){
                                             echo(
@@ -221,7 +244,7 @@
                                                 <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle' checked>
                                                 <label for='status-off' class='status-button'>Idle</label>
                                                 <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
-                                                <label for='status-off' class='status-button'>Maintenance</label>");
+                                                <label for='status-off' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                         else if ($row['operational_status'] == "maintenance"){
                                             echo(
@@ -230,7 +253,7 @@
                                                 <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
                                                 <label for='status-off' class='status-button'>Idle</label>
                                                 <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance' checked>
-                                                <label for='status-off' class='status-button'>Maintenance</label>");
+                                                <label for='status-off' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                     }
                                     mysqli_free_result($result);
@@ -262,8 +285,6 @@
                             }?>" alt="Image Preview">
                 </div>
 
-                
-
                 <!--Div for confirming to keeping the changes or not-->
                 <div id="Machine-confirm">
                     <h1>Confirm</h1>
@@ -273,13 +294,12 @@
                         <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
                     </div>
                 </div>
-            
 
             <!--Div for assigning the operator to the machine-->
             <div id="Assign-operator">
                 <h1>Assign Operator</h1>
                 <div id="show-operators">
-                <select name="machine-operator" id="assigned-operator">
+                    <select name="machine-operator" id="machine-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM machine where id = ?";
@@ -316,8 +336,9 @@
                             }
                         }?>
                         </select>
-                </div>
+                    </div>
                     </form>
+
                 <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
                     <h1>Assign Job</h1>
@@ -341,6 +362,43 @@
                         </select>
                         <input id="job-submit" type="submit" value="Add Task">
                         <textarea id="job-desc-textarea" name="job-desc"></textarea>
+                        </form>
+
+                        <!-- The Edit Task Modal -->
+                        <button type="button" id="edit-task-button">Edit Task</button>
+        <div id="edit-task-modal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <form class="add-remove-machine-modal" action="edit-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+    <h1>Select Machine</h1>    
+    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+        <select name="edited" id="machine-dropdown">
+        <?php
+        require_once "../inc/dbconn.inc.php";
+        $sql = "SELECT * FROM task where machine_id = ?";
+        $statement = mysqli_stmt_init($conn);
+        $note = htmlspecialchars($_GET['machine']);
+        mysqli_stmt_prepare($statement, $sql); 
+        mysqli_stmt_bind_param($statement, 's', $note); 
+        if (mysqli_stmt_execute($statement)){
+            $result = mysqli_stmt_get_result($statement);
+            if (mysqli_num_rows($result) >= 1){
+                while ($row = mysqli_fetch_assoc($result)){
+                    echo("<option value=$row[id]>$row[job_desc]</option>");
+                }
+                mysqli_free_result($result);
+            }
+        }
+    ?>
+        </select>
+        <textarea id='new-task' name='new-task'></textarea>
+        <input type='submit' id='delete-machine' name='delete-machine' value='Edit Task'>
+        
+    </form>
+</div>
+</div>
 
                         <!--Show which tasks this machine has-->
                         <div id="job-list">
@@ -357,7 +415,7 @@
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo("
                                             <details>
-                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>Delete</a></summary>
+                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>&times;</a></summary>
                                                 $row[job_desc]
                                             </details>
                                         ");
@@ -367,7 +425,7 @@
                             }?>
                         </div>
 
-                    </form>
+                    
 
                 </div>
             </div>
