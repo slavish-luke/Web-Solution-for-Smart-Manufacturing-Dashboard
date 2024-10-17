@@ -229,8 +229,8 @@ if(document.getElementById("notes")){
 
 
     options = "<h1 class='checkbox-header'>Users</h1>"
-    console.log(productionOperators)
-    productionOperators.forEach(displayUserChecklist);
+    console.log(factoryManagers)
+    factoryManagers.forEach(displayUserChecklist);
     document.getElementById("user-container").innerHTML = options;
 
 

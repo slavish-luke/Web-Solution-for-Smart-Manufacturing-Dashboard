@@ -84,7 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="Style/Images/user-solid.svg" alt="" class="icons">
         </div>
         
-        <?php echo $loginErr;?><br>
+        <?php 
+        if (!empty($loginErr)) {
+            echo '<script>alert("' . $loginErr . '");</script>';
+        }
+        ?>
         <form method="POST" action="login.php">
             <input type="text" id="username" name="username" value="<?php echo $username;?>" placeholder="Username"><br>
             <input type="password" id="password" name="password" value="<?php echo $password;?>" placeholder="Password"><br>

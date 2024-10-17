@@ -106,7 +106,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     ?>
     <script type="text/javascript">
         let machines = <?php echo json_encode($machines); ?>;
-        let productionOperators = <?php echo json_encode($production_operator); ?>;
+        let factoryManagers = <?php echo json_encode($production_operator); ?>;
     </script>
     <script src="script.js" defer></script></body>
 </body>
