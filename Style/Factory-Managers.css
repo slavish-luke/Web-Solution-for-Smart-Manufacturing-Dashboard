@@ -23,6 +23,10 @@ h3 {
     text-align: center;
 }
 
+h4 {
+    text-align: center;
+}
+
 /*Lists*/
 /*Used by the machine list, and user lists*/
 ul {
@@ -48,6 +52,12 @@ a {
     text-decoration: none;
     color: black;
     display: block;
+}
+
+/*Machine list overflow*/
+#to-machine ul{
+    max-height: 60vh;
+    overflow: auto;
 }
 
 /*User list in the home page*/
@@ -179,6 +189,18 @@ svg {
     top: 55vh;
     width: 40vw;
     font-size: 1vw;
+}
+#inbox-content {
+    max-height: 30vh;
+    overflow: auto;
+}
+
+#inbox details {
+    display: flex;
+    margin: 0 0 1vh 0;
+    max-width: 75%;
+    position: relative;
+    left: 10%;
 }
 
 /*Header name for the edit machines page*/
@@ -412,10 +434,12 @@ svg {
 }
 
 #add-job {
-    position: relative;
+    position: absolute;
     display: block;
-    margin-top: -15vh;
     align-items: center;
+    width: 25vw;
+    top: 10vh;
+    right: 0;
 }
 
 #add-job select {
@@ -429,7 +453,7 @@ svg {
 }
 
 #add-job textarea {
-    width: 90%;
+    width: 98.7%;
     align-items: center;
     height: 10vh;
     border-width: 0.1vw;
@@ -437,8 +461,9 @@ svg {
     font-size: 1vw;
 }
 
-#add-job input {
-
+#job-list {
+    overflow: auto;
+    max-height: 20vh;
 }
 
 #job-submit {
@@ -450,6 +475,14 @@ svg {
     width: 30%;
     height: 5vh;
     margin: 0 0 0 5%;
+}
+
+#job-list details {
+    display: flex;
+    margin: 0 0 1vh 0;
+    max-width: 75%;
+    position: relative;
+    left: 10%;
 }
 
 /*Confirming all the changes in edit machine page*/
