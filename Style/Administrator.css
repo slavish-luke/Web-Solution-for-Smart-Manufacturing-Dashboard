@@ -15,7 +15,7 @@ body {
 #quick-view {
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 20px;
     
 }
@@ -62,21 +62,22 @@ tr:nth-child(odd) {
     background-color: #c9e7f5;
 }
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #1616160a;
 }
 tbody{
     display: block;
+    overflow-x: hidden;
     overflow-y: auto;
     height: 500px;
 }
 tbody tr {
     display: table;
-    width: 99%;
+    width: 100%;
     table-layout: fixed;
 }
 thead, tbody tr {
     display: table;
-    width: 99%;
+    width: 100%;
     table-layout: fixed;
 }
 
