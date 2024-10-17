@@ -2,6 +2,12 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     z-index: 0.5;
 }
+/* 
+Home button */
+#home-icon-div-admin{
+    left: 25;
+    position: relative;
+}
 
 h1 {
     text-align: center;
