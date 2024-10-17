@@ -240,6 +240,11 @@ h4{
     flex-direction: column;
 }
 
+#overview-container b{
+    font-weight: bolder;
+    font-size: 1.6vw;
+}
+
 .new-row{
     display: flex;
     justify-content: space-between;
@@ -479,6 +484,38 @@ form{
     object-fit: cover;
 }
 
+#machine-view * {
+    text-align: center;
+}
+
+#machine-name {
+    font-size: 2.5vw;
+    padding-bottom: 2vh;
+    border-bottom: 0.1vw solid lightgrey;
+}
+
+#machine-image {
+    width: 80%;
+    height: 25vw;
+    object-fit: cover;
+    margin: auto;
+    display: block;
+}
+
+.machine-stat {
+    margin: 1vw 2vw;
+    font-size: 1.6vw;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.machine-stat span {
+    font-size: inherit;
+    font-family: monospace;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
 #jobs{
     margin: 0;
     width: 100%;
@@ -497,6 +534,8 @@ form{
 }
 
 .job-container *{
+    float: left;
+    width: 20%;
     margin-left: 3vw;
 }
 

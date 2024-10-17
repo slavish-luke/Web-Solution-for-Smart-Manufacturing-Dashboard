@@ -100,9 +100,6 @@ if(document.getElementById("machines")){
     let prevPage = document.getElementById("prev-page");
     let nextPage = document.getElementById("next-page");
 
-    let machineDetails = document.getElementById("machine-details");
-    let returnButton = document.getElementById("return-button");
-
     let pageId = 0;
     let machinesPerPage = machineContainers.length;
     let maxPageId = Math.max(0, Math.floor((machines.length - 1) / machinesPerPage));
@@ -140,15 +137,38 @@ if(document.getElementById("machines")){
         }
     }
 
+    let machineDetails = document.getElementById("machine-details");
+    // let machineDisplay = machineDetails.getElementById("machine-display");
+    // let machineStats = machineDetails.getElementById("machine-stats");
+    let returnButton = document.getElementById("return-button");
+
+    function displayStat(id, value) {
+        document.getElementById(id).textContent = value ? value : "N/A";
+    }
+
     function displayMachineInfo(index) {
         let machine = machines[pageId * 8 + index];
         console.log(machine["name"]);
-        // machineDetails.querySelector(".content-pane").textContent = machine["name"];
+        document.getElementById("machine-name").textContent = machine["name"];
+        document.getElementById("machine-image").src = machine["img_address"];
+
+        displayStat("machine-status", machine["operational_status"]);
+        displayStat("machine-error-code", machine["error_code"]);
+        displayStat("machine-log", machine["maintenance_log"]);
+        displayStat("machine-operator", machine["operator_name"]);
+        displayStat("machine-temp", machine["temperature"]);
+        displayStat("machine-pressure", machine["pressure"]);
+        displayStat("machine-vibration", machine["vibration"]);
+        displayStat("machine-humidity", machine["humidity"]);
+        displayStat("machine-power", machine["power"]);
+        displayStat("machine-count", machine["production_count"]);
+        displayStat("machine-speed", machine["speed"]);
+
         machineList.style.display = "none";
         machineDetails.style.display = "block";
     }
 
-    for (var i = 0; i < machineContainers.length; i++) {
+    for (var i = 0; i < machinesPerPage; i++) {
         let buttonId = i;
         machineContainers[i].addEventListener("click", () => displayMachineInfo(buttonId));
     }
@@ -205,6 +225,16 @@ if(document.getElementById("jobs")) {
             } else jobContainer.style.visibility = "hidden";
         }
     }
+
+    // function completeJob(index) {
+    //     let machine = machines[pageId * 8 + index];
+    //     
+    // }
+
+    // for (var i = 0; i < machinesPerPage; i++) {
+    //     let buttonId = i;
+    //     jobContainers[i].addEventListener("click", () => completeJob(buttonId));
+    // }
 
     prevPage.addEventListener("click", () => {
         if (pageId > 0) pageId--;
