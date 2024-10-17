@@ -27,6 +27,17 @@ if(document.getElementById("stats")){
         document.getElementById("temperature-slider").checked = false;
     }
 
+    if(localStorage.getItem("flashing-warning") == "true"){
+        document.getElementById("flashing-warning").checked = true;
+
+    }else if(localStorage.getItem("flashing-warning") == "false"){
+        document.getElementById("flashing-warning").checked = false;
+    
+    }else{
+        document.getElementById("flashing-warning").checked = true;
+    }
+
+
     document.getElementById("temperature-slider").addEventListener('change', function() {
         if (document.getElementById("temperature-slider").checked){
             console.log('Slider is ON');
@@ -38,6 +49,17 @@ if(document.getElementById("stats")){
             displayRandomisedData();
         }
     });
+
+    document.getElementById("flashing-warning").addEventListener('change', function() {
+        if (document.getElementById("flashing-warning").checked){
+            console.log('Slider is ON');
+            localStorage.setItem("flashing-warning", "true");
+        }else {
+            console.log('Slider is OFF');
+            localStorage.setItem("flashing-warning", "false");
+        }
+    });
+
 
     randomiseData();
     displayRandomisedData();
@@ -300,6 +322,15 @@ if(document.getElementById("notes")){
             history.replaceState(null, '', window.location.pathname);
         }
     }
+
+    console.log(localStorage.getItem("flashing-warning"))
+    console.log(localStorage.getItem("flashing-warning") == "true")
+    if(localStorage.getItem("flashing-warning") == "true"){
+        document.getElementById("warning").style.animation = "warning-blink 1s infinite";
+    
+    }else{
+        document.getElementById("warning").style.animation = "none";
+    }
 }
 
 
@@ -395,13 +426,12 @@ function displayRandomisedData(){
 
 function displayMachineChecklist(i){
     options += 
-    
     `
         <label class="checkboxes">
             <input type="checkbox" name="machines[]" value="${i.id}">
             <span class="${i.id}">${i.name}</span>
         </label>
-    `
+    `;
 }
 
 function displayUserChecklist(i){
@@ -411,6 +441,5 @@ function displayUserChecklist(i){
             <input type="checkbox" name="users[]" value="${i.id}">
             <span class="${i.id}">${i.username}</span>
         </label>
-    `
+    `;
 }
-

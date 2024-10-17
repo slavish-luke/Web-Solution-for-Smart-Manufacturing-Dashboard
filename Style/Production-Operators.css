@@ -617,7 +617,7 @@ The Modal (background) */
 #warning{
     width: 20vw;
     margin-left: 15vw;
-    animation: warning-blink 1s infinite;
+    fill: yellow;
 }
 
 @keyframes warning-blink{
@@ -674,7 +674,7 @@ details img:hover {
 }
 
 #settings-content{
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -688,6 +688,7 @@ details h4{
     margin-left: 2.2vw;
     line-height: 7vh;
     z-index: 5;
+    margin-top: -2vh;
 }
 
 /* switch button taken from https://www.w3schools.com/howto/howto_css_switch.asp */
@@ -695,15 +696,40 @@ details h4{
     position: relative;
     width: 5vw;
     height: 3.45vh;
+    margin-top: 4vh;
     display: flex;
-    flex-direction: row;
-    margin-top: 0.5vh;
+    align-items: center;
 }
 
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
+}
+
+.following-switch{
+    margin-top: 7vh;
+}
+
+.switch h5{
+    position: relative;
+    bottom: 4vh;
+    white-space: nowrap;
+}
+
+#temperature-tag{
+    position: relative;
+    right: 5.8vw;
+}
+
+#flashing-warning-tag{
+    position: relative;
+    right: 7.4vw;
+}
+
+#dark-mode-tag{
+    position: relative;
+    right: 5vw;
 }
 
 .slider {
