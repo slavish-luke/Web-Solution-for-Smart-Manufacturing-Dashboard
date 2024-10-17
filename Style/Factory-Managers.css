@@ -157,11 +157,11 @@ details[open] summary {
 }
 
 .background {
-    stroke: #ff471a;
+    stroke: #c9e7f5;
 }
 
 .foreground {
-    stroke: #5cd65c;
+    stroke: #89CFF0;
 }
 
 svg {
@@ -169,8 +169,8 @@ svg {
 }
 
 .display-stats {
-    width: 5vw;
-    height: 6vh;
+    width: 4vw;
+    height: 5vh;
     background-color: whitesmoke;
     z-index: 100;
     text-align: center;
@@ -178,6 +178,7 @@ svg {
     border: #89CFF0 solid 0.1vw;
     margin-top: 0.5vw;
     font-size: 1vw;
+    line-height: 0.5vh;
 }
 
 /*Inbox in the homescreen*/

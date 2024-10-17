@@ -55,10 +55,17 @@ let randomisedData = [];
 let powerConsumption = 0;
 let productionCount = 0;
 let averageSpeed = 0;
-
 console.log(rawFactoryData);
 let numMachines = Object.keys(rawFactoryData).length;
-getMachineNames();
+
+
+if(document.getElementById("stats-container")){
+
+    getMachineNames();
+    newRandomData();
+    setInterval(newRandomData, 6000);
+}
+
 
 function newRandomData() {
     randomiseData();
