@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <!--Welcome Message-->
     <div id="Welcome-message">
         <a href="../logout.php">
-            <p>Welcome <?php session_start(); echo("$_SESSION[username]"); ?>
+            <p>Welcome <?php echo("$_SESSION[username]"); ?>
             </p>
         </a>
     </div>
@@ -54,7 +54,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 <table>
                     <thead class="access-list-table">
                         <tr>
-                            <th class="access-list-header">Name</th>
+                            <th class="access-list-header">Username</th>
                             <th class="access-list-header">Date</th>
                             <th class="access-list-header">Role</th>
                         </tr>
@@ -62,7 +62,12 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     <tbody>
                         <?php
                         require_once "../inc/dbconn.inc.php";
-                        $sql = "SELECT username, timestamp, role FROM access_log";
+                        $sql = "
+                        SELECT a.username, al.timestamp, r.name AS role 
+                        FROM access_log al
+                        JOIN account a ON al.user_id = a.id
+                        JOIN role r ON al.role = r.id
+                        ";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
@@ -134,7 +139,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 <input type="text" name="username" id="username" required>
             </div>
             <div class="form-group">
-                <label for="username">Password:</label>
+                <label for="password">Password:</label>
                 <input type="text" name="password" id="password" required>
             </div>
             <div class="form-group">

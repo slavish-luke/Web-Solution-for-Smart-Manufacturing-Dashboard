@@ -2,10 +2,12 @@ DROP TABLE IF EXISTS access_log;
 
 CREATE TABLE access_log (
     id int NOT NULL AUTO_INCREMENT,
-    timestamp datetime NOT NULL,
-    username varchar(20),
+    timestamp datetime,
+    user_id INT,
     role int(5),
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES account(id),
+    FOREIGN KEY (role) REFERENCES role(id)
 );
 
 INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 'user1' ,1); 
