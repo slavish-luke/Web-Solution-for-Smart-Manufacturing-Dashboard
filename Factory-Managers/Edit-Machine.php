@@ -165,6 +165,29 @@
             <form action="add-note.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
                 <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                 <input type="hidden" name="search-box" value="<?php echo htmlspecialchars($_GET['search-box']);?>">
+                
+                <!-- Div for editing the machine name -->
+                <div id="Machine-name">
+                    <h1>Machine Name</h1>
+                    <input type="text" name="machine-name" value="<?php
+                    require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT * FROM machine WHERE id = ?";
+                    $note = htmlspecialchars($_GET['machine']);
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql);
+                    mysqli_stmt_bind_param($statement, 's', $note); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo("$row[name]");
+                            }
+                            mysqli_free_result($result);
+                        }
+                    }
+                    
+                    ?>">
+                </div>
 
                 <!--Div for keeping notes about the machine-->
                 <div id="Machine-notes">
