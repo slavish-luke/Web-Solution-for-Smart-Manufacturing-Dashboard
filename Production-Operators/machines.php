@@ -28,116 +28,118 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
     <div class="main" id="machines">
         <div id="machine-details">
-            <div class="machine-content">
-                <div>
-                    <h1>Name</h1>
-                    <img>
+            <div class="content-pane">
+                <div style="float: left; width: 40%;">
+                    <img id="machine-image">
                 </div>
-                <div>
-                    <span>Operator</span>
-                    <span>Status</span>
-                    <span>Error Code</span>
-                    <span>Log</span>
-                    <span>Temp</span>
-                    <span>Pressure</span>
-                    <span>Vibration</span>
-                    <span>Humidity</span>
-                    <span>Power</span>
-                    <span>Count</span>
-                    <span>Speed</span>
+                <div style="float: right; width: 60%;">
+                    <h1 id="machine-name">Name</h1>
+                    <p>
+                        Status: <span id="machine-status"></span><br>
+                        Error Code: <span id="machine-error-code"></span><br>
+                        Log: <span id="machine-log"></span><br>
+                        Operator: <span id="machine-operator"></span><br>
+                        Temp: <span id="machine-temp"></span><br>
+                        Pressure: <span id="machine-pressure"></span><br>
+                        Vibration: <span id="machine-vibration"></span><br>
+                        Humidity: <span id="machine-humidity"></span><br>
+                        Power: <span id="machine-power"></span><br>
+                        Count: <span id="machine-count"></span><br>
+                        Speed: <span id="machine-speed"></span><br>
+                    </p>
                 </div>
             </div>
-            <div class="machine-navigation">
-                <button class="machine-navbutton" id="return-button">◀ Return</button>
+            <div class="navigation-pane">
+                <button class="navbutton" id="return-button">◀ Return</button>
             </div>
         </div>
         <div id="machine-list">
-            <div class="machine-content">
+            <div class="content-pane">
                 <button class="machine-container" id="machine0">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine1">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine2">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine3">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine4">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine5">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine6">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
                 <button class="machine-container" id="machine7">
                     <h3 class="machine-name"></h3>
                     <img class="machine-image" src="../Style/Images/Machines/placeholder.png">
                     <div class="machine-attribute machine-status">
-                        <img src="../Style/Images/idle.svg">
+                        <img src="../Style/Images/idle.svg"><span></span>
                     </div>
                     <div class="machine-attribute machine-operator">
-                        <img src="../Style/Images/user-solid.svg">
+                        <img src="../Style/Images/user-solid.svg"><span></span>
                     </div>
                 </button>
             </div>
-            <div class="machine-navigation">
-                <button class="machine-navbutton" id="prev-page">◀</button>
+            <div class="navigation-pane">
+                <button class="navbutton" id="prev-page">◀</button>
                 <div id="current-page">1</div>
-                <button class="machine-navbutton" id="next-page">▶</button>
+                <button class="navbutton" id="next-page">▶</button>
             </div>
         </div>
     </div>
