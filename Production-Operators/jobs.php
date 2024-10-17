@@ -30,35 +30,35 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
         <div id="job-list">
             <div class="content-pane">
                 <div class="job-container" id="job0">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job1">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job2">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job3">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job4">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job5">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job6">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
                 <div class="job-container" id="job7">
-                    <span class="job-machine"></span><br>
+                    <span class="job-machine"></span>
                     <span class="job-description"></span>
                 </div>
             </div>
