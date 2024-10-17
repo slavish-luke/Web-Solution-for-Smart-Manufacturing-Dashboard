@@ -452,6 +452,16 @@ svg {
     width: 65%;
 }
 
+select{
+    background-color: whitesmoke;
+    padding: 2.5vh 2vw 2.5vh 2vw;
+    margin: 0 0 2vh 0;
+    font-size: 1vw;
+    text-align: center;
+    border-radius: 4px;
+    width: 65%;
+}
+
 #add-job textarea {
     width: 98.7%;
     align-items: center;

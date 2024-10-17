@@ -51,6 +51,8 @@
                 </form>
             </div>
 
+            
+
             <!--List of machines-->
             <div id="machine-list">
                 <form action="Edit-Machine.php" method="get" id="to-machine">
@@ -75,6 +77,81 @@
                     ?>
                 </form>
             </div>
+
+            <div id="add-remove-button">
+                <!--Buttons to add-->
+                <button type="button" id="add-button">Add</button>
+
+                <!--Buttons to remove-->
+                <button type="button" id="remove-button">Remove</button>
+            </div>
+        </aside>
+
+        <!-- The Add Modal -->
+        <div id="add-machine-modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form class="add-remove-machine-modal" action="add-machine.php?search-box=" method="post">
+                    <h1>Machine Name</h1>
+                    <input type="text" id="new-machine-name" name="machine-name" required>
+                    <h1>Machine Image</h1>
+                    <label for="image-input">Copy and Paste Image url Below</label>
+                    <input type="text" id="image-input" name="image-input">
+                    <h1>Assigned Operator</h1>
+                    <select name="creation-operator" id="assigned-operator">
+                        <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT * FROM account where role_id = 4";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<option value=$row[id]>$row[name]</option>");
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }?>
+                    <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
+                </form>
+            </div>
+        </div>
+
+        <!-- The Remove Modal -->
+        <div id="remove-machine-modal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form class="add-remove-machine-modal" action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                <h1>Select Machine</h1>    
+                <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                    <select name="removal" id="machine-dropdown">
+                    <?php
+                    require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT * FROM machine";
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo("<option value=$row[id]>$row[name]</option>");
+                            }
+                            mysqli_free_result($result);
+                        }
+                    }
+                ?>
+                    </select>
+                    <input type='submit' id='delete-machine' name='delete-machine' value='Remove Machine'>
+                    
+                </form>
+            </div>
+        </div>
+
         </aside>
 
         <!--Statistics side-->
