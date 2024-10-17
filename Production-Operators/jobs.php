@@ -73,7 +73,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <?php
         require_once "../inc/dbconn.inc.php";
 
-        $sql = "SELECT t.job_desc, m.name AS machine_name FROM task t LEFT JOIN machine m ON t.machine_id = m.id WHERE t.operator_id = " . $_SESSION["userid"];
+        $sql = "SELECT t.id, t.job_desc, m.name AS machine_name FROM task t LEFT JOIN machine m ON t.machine_id = m.id WHERE t.complete = false AND t.operator_id = " . $_SESSION["userid"];
         echo($sql);
 
         if($result = mysqli_query($conn, $sql)) {
