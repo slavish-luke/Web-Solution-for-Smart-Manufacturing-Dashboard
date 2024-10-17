@@ -196,7 +196,7 @@
                         <button type="button" class="status-button-off">Off</button> -->
                         <?php
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT ison FROM machine WHERE id = ?";
+                            $sql = "SELECT * FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);
@@ -205,19 +205,32 @@
                                 $result = mysqli_stmt_get_result($statement);
                                 if (mysqli_num_rows($result) >= 1){
                                     while ($row = mysqli_fetch_assoc($result)){
-                                        if ($row['ison'] == 1){
+                                        if ($row['operational_status'] == "active"){
                                             echo(
-                                                "<input type='radio' id='status-on' name='status-button' class='status-button' value='On' checked>
-                                                <label for='status-on' class='status-button'>On</label>
-                                                <input type='radio' id='status-off' name='status-button' class='status-button' value='Off'>
-                                                <label for='status-off' class='status-button'>Off</label>");
+                                                "<input type='radio' id='status-active' name='status-button' class='status-button' value='active' checked>
+                                                <label for='status-active' class='status-button'>Active</label>
+                                                <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
+                                                <label for='status-idle' class='status-button'>Idle</label>
+                                                <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
+                                                <label for='status-maintenance' class='status-button'>Maintenance</label>");
                                         }
-                                        else if ($row['ison'] == 0){
+                                        else if ($row['operational_status'] == "idle"){
                                             echo(
-                                                "<input type='radio' id='status-on' name='status-button' class='status-button' value='On'>
-                                                <label for='status-on' class='status-button'>On</label>
-                                                <input type='radio' id='status-off' name='status-button' class='status-button' value='Off' checked>
-                                                <label for='status-off' class='status-button'>Off</label>");
+                                                "<input type='radio' id='status-active' name='status-button' class='status-button' value='active'>
+                                                <label for='status-on' class='status-button'>Active</label>
+                                                <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle' checked>
+                                                <label for='status-off' class='status-button'>Idle</label>
+                                                <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
+                                                <label for='status-off' class='status-button'>Maintenance</label>");
+                                        }
+                                        else if ($row['operational_status'] == "maintenance"){
+                                            echo(
+                                                "<input type='radio' id='status-active' name='status-button' class='status-button' value='active'>
+                                                <label for='status-on' class='status-button'>Active</label>
+                                                <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
+                                                <label for='status-off' class='status-button'>Idle</label>
+                                                <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance' checked>
+                                                <label for='status-off' class='status-button'>Maintenance</label>");
                                         }
                                     }
                                     mysqli_free_result($result);
