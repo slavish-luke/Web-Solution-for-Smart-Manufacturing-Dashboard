@@ -32,11 +32,14 @@ header {
 }
 
 /*Home button*/
+#home-icon-div {
+    position: relative;
+    left: 5.5vw;
+}
+
 #Home-icon {
     width: auto;
-    position: relative;
     height: 8vh;
-    left: 5.5vw;
 }
 
 #Home-icon:hover {
