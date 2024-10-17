@@ -19,23 +19,25 @@
     </div>
 
     <div id="machine-name">
-        <p id="machine-name"><?php 
-                            require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT name FROM machine WHERE id = ?";
-                            $note = htmlspecialchars($_GET['machine']);
-                            $statement = mysqli_stmt_init($conn);
-                            mysqli_stmt_prepare($statement, $sql);
-                            mysqli_stmt_bind_param($statement, 's', $note); 
-                            if (mysqli_stmt_execute($statement)){
-                                $result = mysqli_stmt_get_result($statement);
-                                if (mysqli_num_rows($result) >= 1){
-                                    while ($row = mysqli_fetch_assoc($result)){
-                                        echo("$row[name]");
-                                    }
-                                    mysqli_free_result($result);
-                                }
-                            }
-                        ?></p>
+        <p id="machine-name">
+            <?php 
+            require_once "../inc/dbconn.inc.php";
+            $sql = "SELECT name FROM machine WHERE id = ?";
+            $note = htmlspecialchars($_GET['machine']);
+            $statement = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($statement, $sql);
+            mysqli_stmt_bind_param($statement, 's', $note); 
+            if (mysqli_stmt_execute($statement)){
+                $result = mysqli_stmt_get_result($statement);
+                if (mysqli_num_rows($result) >= 1){
+                    while ($row = mysqli_fetch_assoc($result)){
+                        echo("$row[name]");
+                    }
+                    mysqli_free_result($result);
+                }
+            }
+            ?>
+        </p>
     </div>
 
     <!--Settings cog-->
