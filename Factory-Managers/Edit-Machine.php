@@ -362,6 +362,43 @@
                         </select>
                         <input id="job-submit" type="submit" value="Add Task">
                         <textarea id="job-desc-textarea" name="job-desc"></textarea>
+                        </form>
+
+                        <!-- The Edit Task Modal -->
+                        <button type="button" id="edit-task-button">Edit Task</button>
+        <div id="edit-task-modal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <form class="add-remove-machine-modal" action="edit-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+    <h1>Select Machine</h1>    
+    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+        <select name="edited" id="machine-dropdown">
+        <?php
+        require_once "../inc/dbconn.inc.php";
+        $sql = "SELECT * FROM task where machine_id = ?";
+        $statement = mysqli_stmt_init($conn);
+        $note = htmlspecialchars($_GET['machine']);
+        mysqli_stmt_prepare($statement, $sql); 
+        mysqli_stmt_bind_param($statement, 's', $note); 
+        if (mysqli_stmt_execute($statement)){
+            $result = mysqli_stmt_get_result($statement);
+            if (mysqli_num_rows($result) >= 1){
+                while ($row = mysqli_fetch_assoc($result)){
+                    echo("<option value=$row[id]>$row[job_desc]</option>");
+                }
+                mysqli_free_result($result);
+            }
+        }
+    ?>
+        </select>
+        <textarea id='new-task' name='new-task'></textarea>
+        <input type='submit' id='delete-machine' name='delete-machine' value='Edit Task'>
+        
+    </form>
+</div>
+</div>
 
                         <!--Show which tasks this machine has-->
                         <div id="job-list">
@@ -388,7 +425,7 @@
                             }?>
                         </div>
 
-                    </form>
+                    
 
                 </div>
             </div>
