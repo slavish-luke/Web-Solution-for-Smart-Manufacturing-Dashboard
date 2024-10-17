@@ -108,6 +108,7 @@ details[open] summary {
 }
 
 #stats-container {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -129,6 +130,7 @@ details[open] summary {
 }
 
 .chart-container {
+    top: 1.5vh;
     position: relative;
     width: 6vw;
     height: 6vw;
@@ -157,10 +159,10 @@ svg {
 }
 
 .display-stats {
-    width: 6vw;
+    width: 5vw;
     height: 6vh;
     background-color: whitesmoke;
-    z-index: 10;
+    z-index: 100;
     text-align: center;
     border-radius: 0.8vw;
     border: #89CFF0 solid 0.1vw;
@@ -340,10 +342,12 @@ svg {
 
 .status-button {
     font-size: 1.5vw;
+    border: solid;
     border-radius: 0.8vw;
     text-decoration: none;
     background-color: #89CFF0;
     text-align: center;
+    line-height: 5vh;
     width: 5vw;
     height: 5vh;
 }
@@ -360,18 +364,18 @@ svg {
     position: absolute;
     align-items: center;
     left: 20vw;
-    top: 45vh;
+    top: 50vh;
     width: 25vw;
     font-size: 1vw;
 }
 
 #image-input {
     align-items: center;
+    margin-bottom: 1vh;
 }
 
 #imagePreview {
     max-width: 100%;
-    margin-top: 2vh;
     align-items: center;
     max-width: 25vw;
     max-height: 25vh;
@@ -386,9 +390,66 @@ svg {
     left: 60vw;
     top: 30vh;
     width: 25vw;
-    max-height: 60vh;
-    overflow: auto;
+    max-height: 50vh;
     font-size: 1vw;
+}
+
+#Assign-operator ul {
+    background-color: #89CFF0;
+    max-height: 45vh;
+    overflow: auto;
+}
+
+#show-operators {
+    position: relative;
+    overflow: auto;
+    max-height: 30vh;
+    left: 20vw;
+}
+
+#assigned-operator {
+    margin-left: 5vw;
+}
+
+#add-job {
+    position: relative;
+    display: block;
+    margin-top: -15vh;
+    align-items: center;
+}
+
+#add-job select {
+    background-color: whitesmoke;
+    padding: 2.5vh 2vw 2.5vh 2vw;
+    margin: 0 0 2vh 0;
+    font-size: 1vw;
+    text-align: center;
+    border-radius: 4px;
+    width: 65%;
+}
+
+#add-job textarea {
+    width: 90%;
+    align-items: center;
+    height: 10vh;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 1vw;
+}
+
+#add-job input {
+
+}
+
+#job-submit {
+    font-size: 1.5vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    text-align: center;
+    width: 30%;
+    height: 5vh;
+    margin: 0 0 0 5%;
 }
 
 /*Confirming all the changes in edit machine page*/
