@@ -2,7 +2,7 @@
 
 
 require_once "../inc/dbconn.inc.php"; 
-$sql = "INSERT INTO machine (name, ison, img_address, operator_id) VALUES (?, 0, ?, ?);" ;
+$sql = "INSERT INTO machine (name, operational_status, img_address, operator_id) VALUES (?, 'active', ?, ?);" ;
 $statement = mysqli_stmt_init($conn);
 $machine = htmlspecialchars($_POST['machine']);
 mysqli_stmt_prepare($statement, $sql); 

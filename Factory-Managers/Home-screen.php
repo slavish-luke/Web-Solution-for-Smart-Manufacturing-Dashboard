@@ -6,15 +6,15 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         document.getElementById("search-box").value = "";
-    </script> -->
+    </script>
     <title>Dashboard</title>
 </head>
 
 <header>
     <!--Home Button-->
-    <div>
+    <div id="home-icon-div">
         <a href="../Factory-Managers/Home-Screen.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
@@ -50,8 +50,6 @@
                 <input type="text" id="search-box" placeholder="Search Machines" name="search-box">
                 </form>
             </div>
-
-            
 
             <!--List of machines-->
             <div id="machine-list">
@@ -151,7 +149,6 @@
                 </form>
             </div>
         </div>
-
         </aside>
 
         <!--Statistics side-->
@@ -283,19 +280,30 @@
             <div id="inbox-content">
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT n.*, m.name AS machine_name  FROM notes n JOIN machine m ON n.machine_id = m.id WHERE user_id = $_SESSION[userid]";
+                $sql = "SELECT n.*, m.name AS machine_name, a.name AS account_name FROM notes n LEFT JOIN machine m ON n.machine_id = m.id JOIN account a ON n.user_id_from = a.id WHERE user_id_to = $_SESSION[userid] ORDER BY note_id DESC;";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
                     $result = mysqli_stmt_get_result($statement);
                     if (mysqli_num_rows($result) >= 1){
                         while ($row = mysqli_fetch_assoc($result)){
-                            echo("
+                            if (isset($row['machine_name'])){
+                                echo("
                                 <details>
-                                    <summary>$row[machine_name], $row[notes_subject]</summary>
-                                    $row[notes_content]
+                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
+                                    From: $row[account_name]</br>$row[notes_content]
                                 </details>
                             ");
+                            }
+                            else{
+                                echo("
+                                <details>
+                                    <summary>$row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
+                                    From: $row[account_name]</br>$row[notes_content]
+                                </details>
+                            ");
+                            }
+                            
                         }
                         mysqli_free_result($result);
                     }

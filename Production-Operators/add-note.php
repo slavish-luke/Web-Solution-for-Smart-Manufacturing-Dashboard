@@ -11,9 +11,10 @@
     
     $_SESSION['subject'] = $subject;
     $_SESSION['note'] = $note;
+    $userFrom = $_SESSION['userid'];
 
-    $sqlNoMachine = "INSERT INTO notes (user_id, notes_subject, notes_content) VALUES (?, ?, ?)";
-    $sqlMachine = "INSERT INTO notes (machine_id, user_id, notes_subject, notes_content) VALUES (?, ?, ?, ?)";
+    $sqlNoMachine = "INSERT INTO notes (user_id_to, user_id_from, notes_subject, notes_content) VALUES (?, ?, ?, ?)";
+    $sqlMachine = "INSERT INTO notes (machine_id, user_id_to, user_id_from, notes_subject, notes_content) VALUES (?, ?, ?, ?, ?)";
 
     if(empty($note) && empty($users)){
         header("location: notes.php?error=blank_form");
@@ -47,14 +48,14 @@
         foreach ($users as $user) {
             if (!$machines) {
                 if ($stmtNoMachine = mysqli_prepare($conn, $sqlNoMachine)) {
-                    mysqli_stmt_bind_param($stmtNoMachine, 'sss', $user, $subject, $note);
+                    mysqli_stmt_bind_param($stmtNoMachine, 'ssss', $user, $userFrom, $subject, $note);
                     if (!mysqli_stmt_execute($stmtNoMachine)) {
                         echo "Error: " . mysqli_error($conn);
                     }
                 }
             } else {
                 foreach ($machines as $machine) {
-                    mysqli_stmt_bind_param($stmtMachine, 'ssss', $machine, $user, $subject, $note);
+                    mysqli_stmt_bind_param($stmtMachine, 'sssss', $machine, $user, $userFrom, $subject, $note);
                     if (!mysqli_stmt_execute($stmtMachine)) {
                         echo "Error: " . mysqli_error($conn);
                     }
@@ -62,6 +63,8 @@
             }
         }
         header("location: notes.php");
+        $_SESSION['subject'] = "";
+        $_SESSION['note'] = "";
     }
 
 

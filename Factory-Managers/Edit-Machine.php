@@ -12,7 +12,7 @@
 
 <header>
     <!--Home Button-->
-    <div>
+    <div id="home-icon-div">
         <a href="../Factory-Managers/Home-Screen.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
@@ -196,7 +196,7 @@
                         <button type="button" class="status-button-off">Off</button> -->
                         <?php
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT ison FROM machine WHERE id = ?";
+                            $sql = "SELECT * FROM machine WHERE id = ?";
                             $note = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);
@@ -205,19 +205,32 @@
                                 $result = mysqli_stmt_get_result($statement);
                                 if (mysqli_num_rows($result) >= 1){
                                     while ($row = mysqli_fetch_assoc($result)){
-                                        if ($row['ison'] == 1){
+                                        if ($row['operational_status'] == "active"){
                                             echo(
-                                                "<input type='radio' id='status-on' name='status-button' class='status-button' value='On' checked>
-                                                <label for='status-on' class='status-button'>On</label>
-                                                <input type='radio' id='status-off' name='status-button' class='status-button' value='Off'>
-                                                <label for='status-off' class='status-button'>Off</label>");
+                                                "<input type='radio' id='status-active' name='status-button' class='status-button' value='active' checked>
+                                                <label for='status-active' class='status-button'>Active</label>
+                                                <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
+                                                <label for='status-idle' class='status-button'>Idle</label>
+                                                <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
+                                                <label for='status-maintenance' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
-                                        else if ($row['ison'] == 0){
+                                        else if ($row['operational_status'] == "idle"){
                                             echo(
-                                                "<input type='radio' id='status-on' name='status-button' class='status-button' value='On'>
-                                                <label for='status-on' class='status-button'>On</label>
-                                                <input type='radio' id='status-off' name='status-button' class='status-button' value='Off' checked>
-                                                <label for='status-off' class='status-button'>Off</label>");
+                                                "<input type='radio' id='status-active' name='status-button' class='status-button' value='active'>
+                                                <label for='status-on' class='status-button'>Active</label>
+                                                <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle' checked>
+                                                <label for='status-off' class='status-button'>Idle</label>
+                                                <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
+                                                <label for='status-off' id='status-maintenance-button' class='status-button'>Maintenance</label>");
+                                        }
+                                        else if ($row['operational_status'] == "maintenance"){
+                                            echo(
+                                                "<input type='radio' id='status-active' name='status-button' class='status-button' value='active'>
+                                                <label for='status-on' class='status-button'>Active</label>
+                                                <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
+                                                <label for='status-off' class='status-button'>Idle</label>
+                                                <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance' checked>
+                                                <label for='status-off' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                     }
                                     mysqli_free_result($result);
@@ -249,8 +262,6 @@
                             }?>" alt="Image Preview">
                 </div>
 
-                
-
                 <!--Div for confirming to keeping the changes or not-->
                 <div id="Machine-confirm">
                     <h1>Confirm</h1>
@@ -260,13 +271,12 @@
                         <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
                     </div>
                 </div>
-            
 
             <!--Div for assigning the operator to the machine-->
             <div id="Assign-operator">
                 <h1>Assign Operator</h1>
                 <div id="show-operators">
-                <select name="machine-operator" id="assigned-operator">
+                    <select name="machine-operator" id="assigned-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM machine where id = ?";
@@ -303,7 +313,7 @@
                             }
                         }?>
                         </select>
-                </div>
+                    </div>
                     </form>
                 <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
@@ -333,7 +343,7 @@
                         <div id="job-list">
                             <?php
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ?;";
+                            $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ? ORDER BY id DESC;";
                             $statement = mysqli_stmt_init($conn);
                             $note = htmlspecialchars($_GET['machine']);
                             mysqli_stmt_prepare($statement, $sql);
@@ -344,7 +354,7 @@
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo("
                                             <details>
-                                                <summary>Assgined Operator: $row[user_name]</summary>
+                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>Delete</a></summary>
                                                 $row[job_desc]
                                             </details>
                                         ");
