@@ -10,11 +10,11 @@ let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
 
 
-// if(!document.getElementById("machines")) {
-//     console.log(rawFactoryData);
-//     var numMachines = Object.keys(rawFactoryData).length;
-//     getMachineNames();
-// }
+if(document.getElementById("home-container")){
+    console.log(rawFactoryData);
+    var numMachines = Object.keys(rawFactoryData).length;
+    getMachineNames();
+}
 
 if(document.getElementById("stats")){
     console.log(document.getElementById("temperature-slider").checked)
@@ -30,11 +30,11 @@ if(document.getElementById("stats")){
     document.getElementById("temperature-slider").addEventListener('change', function() {
         if (document.getElementById("temperature-slider").checked){
             console.log('Slider is ON');
-            localStorage.setItem("temperature", "F")
+            localStorage.setItem("temperature", "F");
             displayRandomisedData();
         }else {
             console.log('Slider is OFF');
-            localStorage.setItem("temperature", "C")
+            localStorage.setItem("temperature", "C");
             displayRandomisedData();
         }
     });
@@ -43,6 +43,51 @@ if(document.getElementById("stats")){
     displayRandomisedData();
 
     setInterval(newRandomData, 6000);
+
+    document.getElementById("settings-dropdown").addEventListener('toggle', function(){
+        console.log(document.getElementById("settings-dropdown").open)
+        if(document.getElementById("settings-dropdown").open){
+            console.log(document.getElementById("user-icon"))
+            console.log(document.getElementById("user-icon").src)
+            document.getElementById("user-icon").src = "../Style/Images/settings-cog.svg"
+            document.getElementById("settings-icon").style.visibility = "hidden";
+        
+        }else{
+            document.getElementById("user-icon").src = "../Style/Images/user-solid.svg"
+            document.getElementById("settings-icon").style.visibility = "visible";
+        }
+    });
+
+
+    console.log(tasks)
+    console.log(machines)
+    let machinesAssigned = [];
+    let machinesOperational = 0;
+    let machinesMaintenance = 0;
+    let machinesOutOfOrder = 0;
+
+    for(let i=0; i<tasks.length; i++){
+        machinesAssigned.push(tasks[i]['machine_id'])
+    }
+    machinesAssigned = [...new Set(machinesAssigned)];
+    
+    for(let i=0; i<machines.length; i++){
+        if(machines[i]['operational_status'] == "active"){
+            machinesOperational++;
+        
+        }else if(machines[i]['operational_status'] == "maintenance"){
+            machinesMaintenance++;
+
+        }else{
+            machinesOutOfOrder++;
+        }
+    }
+    
+    document.getElementById("assigned").innerHTML = machinesAssigned.length;
+    document.getElementById("operational").innerHTML = machinesOperational;
+    document.getElementById("maintenance").innerHTML = machinesMaintenance;
+    document.getElementById("out-of-order").innerHTML = machinesOutOfOrder;
+    document.getElementById("num-jobs").innerHTML = tasks.length;
 }
 
 
@@ -177,9 +222,9 @@ if(document.getElementById("jobs")) {
 }
 
 if(document.getElementById("notes")){
-    console.log(machineNames);
+    console.log(machines);
     options = "<h1 class='checkbox-header'>Machines</h1>"
-    machineNames.forEach(displayMachineChecklist);
+    machines.forEach(displayMachineChecklist);
     document.getElementById("checklist-container").innerHTML = options;
 
 
@@ -318,14 +363,13 @@ function displayRandomisedData(){
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
 }
 
-function displayMachineChecklist(i, id){
-    id += 1;
+function displayMachineChecklist(i){
     options += 
     
     `
         <label class="checkboxes">
-            <input type="checkbox" name="machines[]" value="${id}">
-            <span class="${id}">${i}</span>
+            <input type="checkbox" name="machines[]" value="${i.id}">
+            <span class="${i.id}">${i.name}</span>
         </label>
     `
 }
