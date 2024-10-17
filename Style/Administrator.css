@@ -1,3 +1,13 @@
+header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    z-index: 0.5;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 0.75;
+}
+
 #quick-view {
     text-align: center;
     display: flex;
