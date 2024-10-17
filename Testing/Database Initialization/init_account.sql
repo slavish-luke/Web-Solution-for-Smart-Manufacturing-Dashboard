@@ -12,15 +12,15 @@ CREATE TABLE account (
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
 
-INSERT INTO account (username, password, name, email, role_id) VALUES ('JohnDoe', 'password1', 'John Doe', 'johndoe@email.com', 1);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('JaneDoe', 'password2', 'Jane Doe', 'janedoe@email.com', 3);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('EthanCollins', 'password3', 'Ethan Collins', 'ethancollins@email.com', 2);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('WallaceHunter', 'password4', 'Wallace Hunter', 'wallacehunter@email.com', 4);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('JeremySmith', 'password5', 'Jeremy Smith', 'jeremysmith@email.com', 1);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('SamuelHayes', 'password6', 'Samuel Hayes', 'samuelhayes@email.com', 2);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('ArthurBarker', 'password7', 'Arthur Barker', 'arthurbarkere@email.com', 3);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('BillyMatthews', 'password8', 'Billy Matthews', 'billymatthews@email.com', 4);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('JayMills', 'password9', 'Jay Mills', 'jaymills@email.com', 1);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('LoganPorter', 'password10', 'Logan Porter', 'loganporter@email.com', 2);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('GaugeNielsen', 'password11', 'Gauge Nielsen', 'gaugenielsen@email.com', 3);
-INSERT INTO account (username, password, name, email, role_id) VALUES ('JaylinBarr', 'password12', 'Jaylin Barr', 'jaylinbarr@email.com', 4);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('JohnDoe', 'password1', 'John Doe', 'johndoe@email.com', 'test note', 1);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('JaneDoe', 'password2', 'Jane Doe', 'janedoe@email.com', 'test note', 3);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('EthanCollins', 'password3', 'Ethan Collins', 'ethancollins@email.com', 'test note', 2);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('WallaceHunter', 'password4', 'Wallace Hunter', 'wallacehunter@email.com', 'test note', 4);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('JeremySmith', 'password5', 'Jeremy Smith', 'jeremysmith@email.com', 'test note', 1);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('SamuelHayes', 'password6', 'Samuel Hayes', 'samuelhayes@email.com', 'test note', 2);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('ArthurBarker', 'password7', 'Arthur Barker', 'arthurbarkere@email.com', 'test note', 3);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('BillyMatthews', 'password8', 'Billy Matthews', 'billymatthews@email.com', 'test note', 4);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('JayMills', 'password9', 'Jay Mills', 'jaymills@email.com', 'test note', 1);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('LoganPorter', 'password10', 'Logan Porter', 'loganporter@email.com', 'test note', 2);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('GaugeNielsen', 'password11', 'Gauge Nielsen', 'gaugenielsen@email.com', 'test note', 3);
+INSERT INTO account (username, password, name, email, notes, role_id) VALUES ('JaylinBarr', 'password12', 'Jaylin Barr', 'jaylinbarr@email.com', 'test note', 4);
