@@ -283,7 +283,7 @@
             <div id="inbox-content">
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT n.*, m.name AS machine_name  FROM notes n JOIN machine m ON n.machine_id = m.id WHERE user_id = $_SESSION[userid]";
+                $sql = "SELECT n.*, m.name AS machine_name  FROM notes n JOIN machine m ON n.machine_id = m.id WHERE user_id = $_SESSION[userid] ORDER BY note_id DESC";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
