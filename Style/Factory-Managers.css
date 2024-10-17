@@ -352,7 +352,7 @@ svg {
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60vw;
+    left: 55vw;
     width: 25vw;
     font-size: 1vw;
 }
@@ -372,6 +372,10 @@ svg {
     line-height: 5vh;
     width: 5vw;
     height: 5vh;
+}
+
+#status-maintenance-button {
+    width: auto;
 }
 
 .status-button:hover {
@@ -409,13 +413,15 @@ svg {
     flex-direction: column;
     position: absolute;
     align-items: center;
-    left: 60vw;
+    left: 55vw;
     top: 30vh;
     width: 25vw;
     max-height: 50vh;
     font-size: 1vw;
 }
 
+
+/* 
 #Assign-operator ul {
     background-color: #89CFF0;
     max-height: 45vh;
@@ -423,14 +429,12 @@ svg {
 }
 
 #show-operators {
-    position: relative;
-    overflow: auto;
-    max-height: 30vh;
+    position: absolute;
     left: 20vw;
 }
 
 #assigned-operator {
-    margin-left: 5vw;
+    width: auto;
 }
 
 #add-job {
@@ -493,7 +497,7 @@ select{
     max-width: 75%;
     position: relative;
     left: 10%;
-}
+} */
 
 /*Confirming all the changes in edit machine page*/
 #Machine-confirm {
@@ -502,7 +506,7 @@ select{
     position: absolute;
     align-items: center;
     font-size: 1vw;
-    left: 60vw;
+    left: 55vw;
     top: 80vh;
     width: 25vw;
 }

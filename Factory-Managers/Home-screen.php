@@ -6,9 +6,9 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         document.getElementById("search-box").value = "";
-    </script> -->
+    </script>
     <title>Dashboard</title>
 </head>
 
@@ -50,8 +50,6 @@
                 <input type="text" id="search-box" placeholder="Search Machines" name="search-box">
                 </form>
             </div>
-
-            
 
             <!--List of machines-->
             <div id="machine-list">
@@ -151,7 +149,6 @@
                 </form>
             </div>
         </div>
-
         </aside>
 
         <!--Statistics side-->

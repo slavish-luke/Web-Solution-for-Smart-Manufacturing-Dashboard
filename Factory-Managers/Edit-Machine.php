@@ -12,7 +12,7 @@
 
 <header>
     <!--Home Button-->
-    <div>
+    <div id="home-icon-div">
         <a href="../Factory-Managers/Home-Screen.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
@@ -212,7 +212,7 @@
                                                 <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
                                                 <label for='status-idle' class='status-button'>Idle</label>
                                                 <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
-                                                <label for='status-maintenance' class='status-button'>Maintenance</label>");
+                                                <label for='status-maintenance' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                         else if ($row['operational_status'] == "idle"){
                                             echo(
@@ -221,7 +221,7 @@
                                                 <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle' checked>
                                                 <label for='status-off' class='status-button'>Idle</label>
                                                 <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance'>
-                                                <label for='status-off' class='status-button'>Maintenance</label>");
+                                                <label for='status-off' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                         else if ($row['operational_status'] == "maintenance"){
                                             echo(
@@ -230,7 +230,7 @@
                                                 <input type='radio' id='status-idle' name='status-button' class='status-button' value='idle'>
                                                 <label for='status-off' class='status-button'>Idle</label>
                                                 <input type='radio' id='status-maintenance' name='status-button' class='status-button' value='maintenance' checked>
-                                                <label for='status-off' class='status-button'>Maintenance</label>");
+                                                <label for='status-off' id='status-maintenance-button' class='status-button'>Maintenance</label>");
                                         }
                                     }
                                     mysqli_free_result($result);
@@ -279,7 +279,7 @@
             <div id="Assign-operator">
                 <h1>Assign Operator</h1>
                 <div id="show-operators">
-                <select name="machine-operator" id="assigned-operator">
+                    <select name="machine-operator" id="assigned-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM machine where id = ?";
@@ -316,7 +316,7 @@
                             }
                         }?>
                         </select>
-                </div>
+                    </div>
                     </form>
                 <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
