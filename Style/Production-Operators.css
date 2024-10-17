@@ -240,6 +240,11 @@ h4{
     flex-direction: column;
 }
 
+#overview-container b{
+    font-weight: bolder;
+    font-size: 1.6vw;
+}
+
 .new-row{
     display: flex;
     justify-content: space-between;
