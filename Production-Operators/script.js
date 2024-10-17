@@ -57,6 +57,37 @@ if(document.getElementById("stats")){
             document.getElementById("settings-icon").style.visibility = "visible";
         }
     });
+
+
+    console.log(tasks)
+    console.log(machines)
+    let machinesAssigned = [];
+    let machinesOperational = 0;
+    let machinesMaintenance = 0;
+    let machinesOutOfOrder = 0;
+
+    for(let i=0; i<tasks.length; i++){
+        machinesAssigned.push(tasks[i]['machine_id'])
+    }
+    machinesAssigned = [...new Set(machinesAssigned)];
+    
+    for(let i=0; i<machines.length; i++){
+        if(machines[i]['operational_status'] == "active"){
+            machinesOperational++;
+        
+        }else if(machines[i]['operational_status'] == "maintenance"){
+            machinesMaintenance++;
+
+        }else{
+            machinesOutOfOrder++;
+        }
+    }
+    
+    document.getElementById("assigned").innerHTML = machinesAssigned.length;
+    document.getElementById("operational").innerHTML = machinesOperational;
+    document.getElementById("maintenance").innerHTML = machinesMaintenance;
+    document.getElementById("out-of-order").innerHTML = machinesOutOfOrder;
+    document.getElementById("num-jobs").innerHTML = tasks.length;
 }
 
 
@@ -191,9 +222,9 @@ if(document.getElementById("jobs")) {
 }
 
 if(document.getElementById("notes")){
-    console.log(machinesToDisplay);
+    console.log(machines);
     options = "<h1 class='checkbox-header'>Machines</h1>"
-    machinesToDisplay.forEach(displayMachineChecklist);
+    machines.forEach(displayMachineChecklist);
     document.getElementById("checklist-container").innerHTML = options;
 
 
@@ -333,9 +364,6 @@ function displayRandomisedData(){
 }
 
 function displayMachineChecklist(i){
-    console.log(i)
-    console.log(i.id)
-    console.log(i.name)
     options += 
     
     `

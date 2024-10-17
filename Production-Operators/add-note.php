@@ -63,6 +63,8 @@
             }
         }
         header("location: notes.php");
+        $_SESSION['subject'] = "";
+        $_SESSION['note'] = "";
     }
 
 

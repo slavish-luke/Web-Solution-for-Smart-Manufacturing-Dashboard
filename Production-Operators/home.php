@@ -140,27 +140,27 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
                     <div class="new-row">
                         <p>Assigned</p>
-                        <p>6</p>
+                        <p id="assigned">6</p>
                     </div>
 
                     <div class="new-row">
                         <p>Operational</p>
-                        <p>4</p>
+                        <p id="operational">4</p>
                     </div>
 
                     <div class="new-row">
-                        <p>Needs attention</p>
-                        <p>1</p>
+                        <p>Maintenance</p>
+                        <p id="maintenance">1</p>
                     </div>
 
                     <div class="new-row">
                         <p>Out of order</p>
-                        <p>1</p>
+                        <p id="out-of-order">1</p>
                     </div>
                     
                     <div class="new-row" id="last">
                         <p>Assigned Jobs</p>
-                        <p>2</p>
+                        <p id="num-jobs">2</p>
                     </div>
 
                 </div>
@@ -206,12 +206,42 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     }
                     mysqli_free_result($result);
                 }
-        }
-        mysqli_close($conn);
+            }
+        
+        $sql = "SELECT t.id, t.machine_id FROM task t LEFT JOIN machine m ON t.machine_id = m.id WHERE t.operator_id = " . $_SESSION["userid"];
 
+        if($result = mysqli_query($conn, $sql)) {
+            if(mysqli_num_rows($result) >= 1) {
+                $tasks = [];
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    array_push($tasks, $row);
+                }
+                mysqli_free_result($result);
+            }
+        }
+
+        $sql = "SELECT m.*, a.name AS operator_name FROM machine m LEFT JOIN account a ON a.id = m.operator_id";
+
+        if($result = mysqli_query($conn, $sql)){
+            if(mysqli_num_rows($result) >= 1){
+                $machines = [];
+                
+                while ($row = mysqli_fetch_assoc($result)) {
+                    array_push($machines, $row);
+                }
+                mysqli_free_result($result);
+            }
+        }
+
+        mysqli_close($conn);
         
     ?>
-    <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
+    <script type="text/javascript">
+        let rawFactoryData = <?php echo json_encode($factory_data); ?>;
+        let tasks = <?php echo json_encode($tasks); ?>;
+        let machines = <?php echo json_encode($machines); ?>;
+    </script>
     <script src="script.js" defer></script>
 </body>
 </html>
