@@ -56,6 +56,7 @@ table {
 }
 th {
     background-color: #f2f2f2;
+    border: 1px solid #aaa;
 }
 tr:nth-child(odd) {
     background-color: #c9e7f5;
@@ -70,12 +71,12 @@ tbody{
 }
 tbody tr {
     display: table;
-    width: 100%;
+    width: 99%;
     table-layout: fixed;
 }
 thead, tbody tr {
     display: table;
-    width: 100%;
+    width: 99%;
     table-layout: fixed;
 }
 
