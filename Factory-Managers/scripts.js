@@ -24,7 +24,6 @@ window.onclick = function(event) {
     }
 }
 
-
 // Get the second modal
 var modal2 = document.getElementById('remove-machine-modal');
 

@@ -6,9 +6,9 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Factory-Managers.css">
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         document.getElementById("search-box").value = "";
-    </script>
+    </script> -->
     <title>Dashboard</title>
 </head>
 

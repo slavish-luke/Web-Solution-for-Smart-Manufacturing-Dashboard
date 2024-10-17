@@ -245,10 +245,11 @@
                     </div>
                 </div>
             </form>
+
             <!--Div for assigning the operator to the machine-->
             <div id="Assign-operator">
                 <h1>Assign Operator</h1>
-                <div>
+                <div id="show-operators">
                     <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT username FROM account WHERE role_id = 4";
@@ -268,10 +269,9 @@
                     ?>
                 </div>
 
-                <div>
-                    <form action="add-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-                        <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
-                        <textarea id="job-desc-textarea" name="job-desc"></textarea>
+                <div id="add-job-div">
+                    <form id="add-job" action="add-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                        <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>"> 
                         <select name="assigned-operator" id="assigned-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
@@ -287,7 +287,8 @@
                                 mysqli_free_result($result);
                             }
                         }?>
-                        <input type="submit" value="Add Task">
+                        <input id="job-submit" type="submit" value="Add Task">
+                        <textarea id="job-desc-textarea" name="job-desc"></textarea>
                         </br>
                         <!--Show which tasks this machine has-->
                         <?php
