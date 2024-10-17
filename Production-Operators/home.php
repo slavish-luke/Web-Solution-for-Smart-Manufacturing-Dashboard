@@ -114,12 +114,21 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                         <div id="settings-content">
 
                             <!-- switch button from https://www.w3schools.com/howto/howto_css_switch.asp -->
-                            <h5>Temperature</h5>
+                            
                             <label class="switch">
                                 <span class="option-text left">&deg;C</span>
                                 <input type="checkbox" id="temperature-slider">
                                 <span class="slider"></span>
                                 <span class="option-text right">&deg;F</span>
+                                <h5 id="temperature-tag">Temperature</h5>
+                            </label>
+
+                            <label class="switch following-switch">
+                                <span class="option-text left">Off</span>
+                                <input type="checkbox" id="flashing-warning">
+                                <span class="slider"></span>
+                                <span class="option-text right">On</span>
+                                <h5 id="flashing-warning-tag">Flashing Warning</h5>
                             </label>
                                 
                         </div>
