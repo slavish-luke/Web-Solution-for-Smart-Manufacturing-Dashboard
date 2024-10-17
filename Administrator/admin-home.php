@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <!--Welcome Message-->
     <div id="Welcome-message">
         <a href="../logout.php">
-            <p>Welcome <?php session_start(); echo("$_SESSION[username]"); ?>
+            <p>Welcome <?php echo("$_SESSION[username]"); ?>
             </p>
         </a>
     </div>
@@ -134,7 +134,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 <input type="text" name="username" id="username" required>
             </div>
             <div class="form-group">
-                <label for="username">Password:</label>
+                <label for="password">Password:</label>
                 <input type="text" name="password" id="password" required>
             </div>
             <div class="form-group">
