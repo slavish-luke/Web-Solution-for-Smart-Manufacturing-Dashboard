@@ -495,7 +495,7 @@ form{
 }
 
 #machine-image {
-    width: 80%;
+    width: 60%;
     height: 25vw;
     object-fit: cover;
     margin: auto;
@@ -503,8 +503,8 @@ form{
 }
 
 .machine-stat {
-    margin: 1vw 2vw;
-    font-size: 1.6vw;
+    margin: 0.8vw 2vw;
+    font-size: 1.8vw;
     font-family: monospace;
     font-weight: bold;
 }
@@ -514,6 +514,47 @@ form{
     font-family: monospace;
     font-weight: normal;
     text-transform: capitalize;
+}
+
+#change-status {
+    height: 4vw;
+    width: 10vw;
+    float: right;
+    background-color: #89CFF0;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+#change-status:hover {
+    background-color: #c9e7f5;
+}
+
+#status-modal .modal-content {
+    width: 30vw;
+    height: 20vw;
+}
+
+#status-modal .modal-content form {
+    margin-top: 6vh;
+}
+
+.status-option {
+    margin: 0vw 5vw;
+    height: 4vw;
+    width: 20vw;
+    background-color: #89CFF0;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    font-weight: bold;
+    display: block;
+}
+
+.status-option:hover {
+    background-color: #c9e7f5;
 }
 
 #jobs{
@@ -554,11 +595,11 @@ form{
     background-color: #c9e7f5;
 }
 
-#current-page{
+#current-page {
     flex: 2.05;
 }
 
-#machine-details{
+#machine-details {
     display: none;
 }
 

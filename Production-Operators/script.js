@@ -6,8 +6,6 @@ let productionCount = 0;
 let averageTemperature = 0;
 let averageSpeed = 0;
 let options = "";
-let modal = document.getElementById("myModal");
-let span = document.getElementsByClassName("close")[0];
 
 
 if(document.getElementById("home-container")){
@@ -100,6 +98,11 @@ if(document.getElementById("machines")){
     let prevPage = document.getElementById("prev-page");
     let nextPage = document.getElementById("next-page");
 
+    let modal = document.getElementById("status-modal");
+    let openModal = document.getElementById("change-status");
+    let closeModal = document.getElementById("close-status");
+    let updateMachineId = document.getElementById("update-machine-id");
+
     let pageId = 0;
     let machinesPerPage = machineContainers.length;
     let maxPageId = Math.max(0, Math.floor((machines.length - 1) / machinesPerPage));
@@ -163,7 +166,12 @@ if(document.getElementById("machines")){
         displayStat("machine-power", machine["power"]);
         displayStat("machine-count", machine["production_count"]);
         displayStat("machine-speed", machine["speed"]);
-
+        
+        if (userId == machine["operator_id"]) {
+            openModal.style.visibility = "visible";
+            updateMachineId.value = machine["id"];
+        }
+        
         machineList.style.display = "none";
         machineDetails.style.display = "block";
     }
@@ -172,6 +180,14 @@ if(document.getElementById("machines")){
         let buttonId = i;
         machineContainers[i].addEventListener("click", () => displayMachineInfo(buttonId));
     }
+
+    openModal.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
 
     prevPage.addEventListener("click", () => {
         if (pageId > 0) pageId--;
@@ -185,8 +201,10 @@ if(document.getElementById("machines")){
         updateList();
     });
 
-
     returnButton.addEventListener("click", () => {
+        updateMachineId.value = 0;
+
+        openModal.style.visibility = "hidden";
         machineDetails.style.display = "none";
         machineList.style.display = "block";
     });
@@ -252,6 +270,9 @@ if(document.getElementById("jobs")) {
 }
 
 if(document.getElementById("notes")){
+    let modal = document.getElementById("myModal");
+    let span = document.getElementsByClassName("close")[0];
+
     console.log(machines);
     options = "<h1 class='checkbox-header'>Machines</h1>"
     machines.forEach(displayMachineChecklist);
