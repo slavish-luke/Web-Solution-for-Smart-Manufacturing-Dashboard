@@ -12,8 +12,8 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Oliver Volk">
-    <link rel="stylesheet" type="text/css" href="../Style/Skeleton.css">
     <link rel="stylesheet" type="text/css" href="../Style/Administrator.css">
+    <link rel="stylesheet" type="text/css" href="../Style/Skeleton.css">
     <meta http-equiv="Cache-control" content="no-cache">
     <title>Administrator</title>
 </head>
