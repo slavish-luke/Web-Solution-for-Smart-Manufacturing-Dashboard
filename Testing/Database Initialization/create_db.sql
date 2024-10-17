@@ -17,6 +17,7 @@ CREATE TABLE account (
     password varchar(60) NOT NULL,
     name varchar(100) NOT NULL,
     email varchar(100),
+    notes varchar(10000) DEFAULT '',
     role_id int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (role_id) REFERENCES role(id)
@@ -41,6 +42,36 @@ CREATE TABLE machine (
     speed decimal(3, 2),
     PRIMARY KEY (id),
     FOREIGN KEY (operator_id) REFERENCES account(id)
+);
+
+CREATE TABLE notes (
+    note_id INT AUTO_INCREMENT PRIMARY KEY,
+    machine_id int,
+    user_id_to int NOT NULL,
+    user_id_from int NOT NULL,
+    notes_subject TEXT,
+    notes_content TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE task (
+    id int NOT NULL AUTO_INCREMENT,
+    job_desc varchar(1000) NOT NULL,
+    operator_id int,
+    machine_id int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (operator_id) REFERENCES account(id),
+    FOREIGN KEY (machine_id) REFERENCES machine(id)
+);
+
+CREATE TABLE access_log (
+    id int NOT NULL AUTO_INCREMENT,
+    timestamp datetime,
+    user_id INT,
+    role int(5),
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES account(id),
+    FOREIGN KEY (role) REFERENCES role(id)
 );
 
 CREATE TABLE factory_log (

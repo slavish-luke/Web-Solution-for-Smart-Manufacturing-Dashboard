@@ -28,13 +28,28 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
     <div class="main" id="machines">
         <div id="machine-details">
+            <div id="status-modal" class="modal">
+                <div class="modal-content">
+                    <span id="close-status" class="close">&times;</span>
+                    <form method="POST" action="update-machine.php">
+                        <input type="hidden" name="id" value="0" id="update-machine-id">
+                        <input type="submit" name="status" value="active" class="status-option"><br>
+                        <input type="submit" name="status" value="idle" class="status-option"><br>
+                        <input type="submit" name="status" value="maintenance" class="status-option"><br>
+                    </form>
+                </div>
+            </div>
             <div class="content-pane">
-                <div id="machine-display" style="float: left; width: 40%;">
+                <div id="machine-display" style="float: left; width: 50%;">
                     <h1 id="machine-name">Name</h1>
                     <img id="machine-image">
                 </div>
-                <div id="machine-stats" style="float: right; width: 60%;">
-                    <div class="machine-stat">Status: <span id="machine-status"></span></div>
+                <div id="machine-stats" style="float: right; width: 50%;">
+                    <div class="machine-stat">
+                        Status:
+                        <span id="machine-status"></span>
+                        <button id="change-status">Update</button>
+                    </div>
                     <div class="machine-stat">Error Code: <span id="machine-error-code"></span></div>
                     <div class="machine-stat">Log: <span id="machine-log"></span></div>
                     <div class="machine-stat">Operator: <span id="machine-operator"></span></div>
@@ -161,6 +176,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
         mysqli_close($conn);
     ?>
     <script type="text/javascript">
+        let userId = <?php echo ($_SESSION["userid"]); ?>;
         let machines = <?php echo json_encode($machines); ?>;
     </script>
     <script src="script.js" defer></script></body>
