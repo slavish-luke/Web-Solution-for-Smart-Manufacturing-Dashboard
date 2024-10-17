@@ -92,13 +92,20 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT a.id, a.username, a.name, a.email, a.notes, r.name AS role_name 
+                        $sql = "SELECT a.id, a.username, a.password, a.name, a.email, a.notes, r.name AS role_name 
                                 FROM account a 
                                 JOIN role r ON a.role_id = r.id";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                                echo "<tr onclick=\"openEditDialog(" . $row["id"] . ", '" . htmlspecialchars($row["username"]) . "', '" . htmlspecialchars($row["name"]) . "', '" . htmlspecialchars($row["email"]) . "', '" . htmlspecialchars($row["role_name"]) . "', '" . htmlspecialchars($row["notes"]) . "')\" style='cursor: pointer;'>";
+                                echo "<tr onclick=\"openEditDialog(" . 
+                                $row["id"] . ", '" . 
+                                htmlspecialchars($row["username"]) . "', '" . 
+                                htmlspecialchars($row["password"]) . "', '" . 
+                                htmlspecialchars($row["name"]) . "', '" . 
+                                htmlspecialchars($row["email"]) . "', '" . 
+                                htmlspecialchars($row["role_name"]) . "', '" . 
+                                htmlspecialchars($row["notes"]) . "')\" style='cursor: pointer;'>";
                                 echo "<td>" . $row["username"] . "</td>";
                                 echo "<td>" . $row["name"] . "</td>";
                                 echo "<td>" . $row["email"] . "</td>";
@@ -125,6 +132,10 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Password:</label>
+                <input type="text" name="password" id="password" required>
             </div>
             <div class="form-group">
                 <label for="name">Name:</label>
