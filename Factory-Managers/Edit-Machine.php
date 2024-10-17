@@ -107,8 +107,8 @@
                     <h1>Machine Image</h1>
                     <label for="image-input">Copy and Paste Image url Below</label>
                     <input type="text" id="image-input" name="image-input">
-                    <h1>Assigned Operator</h1>
-                    <select name="creation-operator" id="assigned-operator">
+                    <h1>Assign Operator</h1>
+                    <select name="creation-operator" id="modal-set-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM account where role_id = 4";
@@ -276,7 +276,7 @@
             <div id="Assign-operator">
                 <h1>Assign Operator</h1>
                 <div id="show-operators">
-                    <select name="machine-operator" id="assigned-operator">
+                    <select name="machine-operator" id="machine-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM machine where id = ?";
@@ -315,6 +315,7 @@
                         </select>
                     </div>
                     </form>
+                    
                 <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
                     <h1>Assign Job</h1>

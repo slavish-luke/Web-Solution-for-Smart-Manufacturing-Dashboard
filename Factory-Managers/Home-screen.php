@@ -98,7 +98,7 @@
                     <label for="image-input">Copy and Paste Image url Below</label>
                     <input type="text" id="image-input" name="image-input">
                     <h1>Assigned Operator</h1>
-                    <select name="creation-operator" id="assigned-operator">
+                    <select name="creation-operator" id="modal-set-operator">
                         <?php
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM account where role_id = 4";
