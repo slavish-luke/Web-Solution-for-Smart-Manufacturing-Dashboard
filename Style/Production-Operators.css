@@ -181,17 +181,6 @@ svg{
     font-size: .7vw;
 }
 
-
-.icons{
-    height: 4vw;
-    
-}
-
-#user-icon{
-    margin-left: 2vw;
-    float: right;
-}
-
 h4{
    float: left;
    width: auto;
@@ -602,11 +591,32 @@ summary::marker {
     content: "";
 }
 
+.icons{
+    height: 4vw;
+    
+}
+
+#user-icon{
+    margin-left: 1vw;
+    float: right;
+    z-index: 5;
+    position: relative;
+}
+
+#settings-icon{
+    height: 1.3vw;
+    z-index: 2;
+    float: right;
+    position: relative;
+    left: 2vw;
+    bottom: 2.4vh;
+}
+
 details[open] {
     height: 40vh;
     width: 15vw;
     margin-top: 31.9vh;
-    margin-left: -9.66vw;
+    margin-left: -9.36vw;
     background-color: whitesmoke;
     z-index: 5;
     position: relative;
@@ -614,11 +624,10 @@ details[open] {
     border: 0.1vw solid #89CFF0;
 }
 
-details[open] #user-icon{
+details[open] .icons{
     filter: invert(87%) sepia(24%) saturate(7497%) hue-rotate(1deg) brightness(106%) contrast(106%);
     margin: 0;
 }
-
 
 details img:hover {
     transform: scale(1.02,1.02);

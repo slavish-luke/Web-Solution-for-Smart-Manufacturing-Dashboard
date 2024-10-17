@@ -106,6 +106,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     <details id="settings-dropdown">
                         <summary>
                             <img src="../Style/Images/user-solid.svg" alt="" class="icons" id="user-icon">
+                            <img src="../Style/Images/settings-cog.svg" alt="" class="icons" id="settings-icon">
                         </summary>
 
                         <h4>Settings</h4>
@@ -127,7 +128,6 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                 </div>
                 <h4><?php echo $_SESSION["username"] ?></h4>
 
-                <!-- Haven't actually been able to test if this button works since my screen refuses to render it ;-; -->
                 <a href="../logout.php"><input type="submit" id="signOutButton" value="Sign Out"></a>
             </div>
             <div id="overview">

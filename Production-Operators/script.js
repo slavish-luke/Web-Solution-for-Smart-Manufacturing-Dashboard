@@ -30,11 +30,11 @@ if(document.getElementById("stats")){
     document.getElementById("temperature-slider").addEventListener('change', function() {
         if (document.getElementById("temperature-slider").checked){
             console.log('Slider is ON');
-            localStorage.setItem("temperature", "F")
+            localStorage.setItem("temperature", "F");
             displayRandomisedData();
         }else {
             console.log('Slider is OFF');
-            localStorage.setItem("temperature", "C")
+            localStorage.setItem("temperature", "C");
             displayRandomisedData();
         }
     });
@@ -43,6 +43,20 @@ if(document.getElementById("stats")){
     displayRandomisedData();
 
     setInterval(newRandomData, 6000);
+
+    document.getElementById("settings-dropdown").addEventListener('toggle', function(){
+        console.log(document.getElementById("settings-dropdown").open)
+        if(document.getElementById("settings-dropdown").open){
+            console.log(document.getElementById("user-icon"))
+            console.log(document.getElementById("user-icon").src)
+            document.getElementById("user-icon").src = "../Style/Images/settings-cog.svg"
+            document.getElementById("settings-icon").style.visibility = "hidden";
+        
+        }else{
+            document.getElementById("user-icon").src = "../Style/Images/user-solid.svg"
+            document.getElementById("settings-icon").style.visibility = "visible";
+        }
+    });
 }
 
 
