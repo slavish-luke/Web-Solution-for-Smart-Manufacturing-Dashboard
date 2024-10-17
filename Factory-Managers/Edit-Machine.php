@@ -262,8 +262,6 @@
                             }?>" alt="Image Preview">
                 </div>
 
-                
-
                 <!--Div for confirming to keeping the changes or not-->
                 <div id="Machine-confirm">
                     <h1>Confirm</h1>
@@ -273,7 +271,6 @@
                         <button type="button" class="confirm-button"><a href="Edit-Machine.php?machine=<?php echo(htmlspecialchars($_GET['machine']));?>&search-box=">Clear</a></button>
                     </div>
                 </div>
-            
 
             <!--Div for assigning the operator to the machine-->
             <div id="Assign-operator">
