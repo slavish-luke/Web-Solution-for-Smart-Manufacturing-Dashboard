@@ -333,7 +333,7 @@
                         <div id="job-list">
                             <?php
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ?;";
+                            $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ? ORDER BY id DESC;";
                             $statement = mysqli_stmt_init($conn);
                             $note = htmlspecialchars($_GET['machine']);
                             mysqli_stmt_prepare($statement, $sql);
@@ -344,7 +344,7 @@
                                     while ($row = mysqli_fetch_assoc($result)){
                                         echo("
                                             <details>
-                                                <summary>Assgined Operator: $row[user_name]</summary>
+                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>Delete</a></summary>
                                                 $row[job_desc]
                                             </details>
                                         ");
