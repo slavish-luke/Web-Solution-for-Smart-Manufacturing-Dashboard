@@ -10,11 +10,11 @@ let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
 
 
-// if(!document.getElementById("machines")) {
-//     console.log(rawFactoryData);
-//     var numMachines = Object.keys(rawFactoryData).length;
-//     getMachineNames();
-// }
+if(document.getElementById("home-container")){
+    console.log(rawFactoryData);
+    var numMachines = Object.keys(rawFactoryData).length;
+    getMachineNames();
+}
 
 if(document.getElementById("stats")){
     console.log(document.getElementById("temperature-slider").checked)
@@ -177,9 +177,9 @@ if(document.getElementById("jobs")) {
 }
 
 if(document.getElementById("notes")){
-    console.log(machineNames);
+    console.log(machinesToDisplay);
     options = "<h1 class='checkbox-header'>Machines</h1>"
-    machineNames.forEach(displayMachineChecklist);
+    machinesToDisplay.forEach(displayMachineChecklist);
     document.getElementById("checklist-container").innerHTML = options;
 
 
@@ -318,14 +318,16 @@ function displayRandomisedData(){
     document.getElementById("average-speed-chart").setAttribute("stroke-dasharray", `${chartAverageSpeed} ${(100)}`);
 }
 
-function displayMachineChecklist(i, id){
-    id += 1;
+function displayMachineChecklist(i){
+    console.log(i)
+    console.log(i.id)
+    console.log(i.name)
     options += 
     
     `
         <label class="checkboxes">
-            <input type="checkbox" name="machines[]" value="${id}">
-            <span class="${id}">${i}</span>
+            <input type="checkbox" name="machines[]" value="${i.id}">
+            <span class="${i.id}">${i.name}</span>
         </label>
     `
 }
