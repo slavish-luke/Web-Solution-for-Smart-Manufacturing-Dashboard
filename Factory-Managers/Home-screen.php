@@ -283,7 +283,7 @@
             <div id="inbox-content">
                 <?php
                 require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT n.*, m.name AS machine_name  FROM notes n JOIN machine m ON n.machine_id = m.id WHERE user_id = $_SESSION[userid] ORDER BY note_id DESC";
+                $sql = "SELECT n.*, m.name AS machine_name, a.name AS account_name  FROM notes n JOIN machine m ON n.machine_id = m.id JOIN account a ON n.user_id_from = a.id WHERE user_id_to = $_SESSION[userid] ORDER BY note_id DESC";
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql); 
                 if (mysqli_stmt_execute($statement)){
@@ -293,7 +293,7 @@
                             echo("
                                 <details>
                                     <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
-                                    $row[notes_content]
+                                    From: $row[account_name]</br>$row[notes_content]
                                 </details>
                             ");
                         }
