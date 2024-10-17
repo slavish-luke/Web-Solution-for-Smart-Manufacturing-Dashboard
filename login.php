@@ -44,6 +44,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["username"] = $account["name"];
                 $_SESSION["userrole"] = $account["role_id"];
 
+
+                $session_id = session_id();
+                $user_id = $account['id'];
+                $role_id = $account['role_id'];
+                $timestamp = date("Y-m-d H:i:s");
+
+                $sql_insert_session = "INSERT INTO access_log (user_id, role, timestamp) VALUES (?, ?, ?)";
+                $stmt_insert = $conn->prepare($sql_insert_session);
+                $stmt_insert->bind_param('iis', $user_id, $role_id, $timestamp);
+                $stmt_insert->execute();
+                $stmt_insert->close();
+
                 header("location: index.php");
             } else {
                 $loginErr = "Invalid username or password.";
