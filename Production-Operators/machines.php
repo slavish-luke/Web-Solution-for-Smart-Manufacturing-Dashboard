@@ -29,24 +29,22 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
     <div class="main" id="machines">
         <div id="machine-details">
             <div class="content-pane">
-                <div style="float: left; width: 40%;">
+                <div id="machine-display" style="float: left; width: 40%;">
+                    <h1 id="machine-name">Name</h1>
                     <img id="machine-image">
                 </div>
-                <div style="float: right; width: 60%;">
-                    <h1 id="machine-name">Name</h1>
-                    <p>
-                        Status: <span id="machine-status"></span><br>
-                        Error Code: <span id="machine-error-code"></span><br>
-                        Log: <span id="machine-log"></span><br>
-                        Operator: <span id="machine-operator"></span><br>
-                        Temp: <span id="machine-temp"></span><br>
-                        Pressure: <span id="machine-pressure"></span><br>
-                        Vibration: <span id="machine-vibration"></span><br>
-                        Humidity: <span id="machine-humidity"></span><br>
-                        Power: <span id="machine-power"></span><br>
-                        Count: <span id="machine-count"></span><br>
-                        Speed: <span id="machine-speed"></span><br>
-                    </p>
+                <div id="machine-stats" style="float: right; width: 60%;">
+                    <div class="machine-stat">Status: <span id="machine-status"></span></div>
+                    <div class="machine-stat">Error Code: <span id="machine-error-code"></span></div>
+                    <div class="machine-stat">Log: <span id="machine-log"></span></div>
+                    <div class="machine-stat">Operator: <span id="machine-operator"></span></div>
+                    <div class="machine-stat">Temp: <span id="machine-temp"></span></div>
+                    <div class="machine-stat">Pressure: <span id="machine-pressure"></span></div>
+                    <div class="machine-stat">Vibration: <span id="machine-vibration"></span></div>
+                    <div class="machine-stat">Humidity: <span id="machine-humidity"></span></div>
+                    <div class="machine-stat">Power: <span id="machine-power"></span></div>
+                    <div class="machine-stat">Count: <span id="machine-count"></span></div>
+                    <div class="machine-stat">Speed: <span id="machine-speed"></span></div>
                 </div>
             </div>
             <div class="navigation-pane">
