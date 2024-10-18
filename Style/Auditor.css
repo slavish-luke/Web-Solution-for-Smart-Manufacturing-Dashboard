@@ -43,16 +43,14 @@ header {
     cursor: pointer;
 }
 
-/* Title Section */
-#TitlePage {
-    text-align: center; /* Centers the text horizontally */
-    font-size: 50px; /* Larger font size for the title */
-    font-weight: bold; /* Bold text */
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
-    text-decoration: none;
-    color: black; /* Black text color */
-    margin: 0; /* Remove any default margins */
-    padding: 10px 0;
+#Dashboard, #SummaryReports {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Reduce the margin here */
 }
 
 .content {
@@ -99,15 +97,33 @@ header {
     right: 20%;
 }
 
-/* Report List Styling */
+#SearchBar {
+    margin-bottom: 10px; 
+    text-align: center; 
+}
+
+#search {
+    width: 90%; 
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+
+#ReportContainer {
+    padding: 10px; /* Adequate padding for the content inside the box */
+    width: 100%; /* Matches the 50% width of the parent */
+}
+
+
+
 #ReportList {
     overflow-y: scroll;
-    height: 50vh;
-    width: 100%;
-    border: 5px solid black;
-    padding: 10px;
-    box-sizing: border-box;
+    height: 50vh; 
     border-radius: 15px;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 #ReportList ul {
@@ -126,50 +142,19 @@ header {
     text-align: left;
 }
 
-/* Styling for the search bar */
-.search-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 100%;
+
+#ReportList::-webkit-scrollbar {
+    width: 12px;
 }
 
-#search {
-    width: 90%;
-    padding: 10px;
-    border: 2px solid black;
+#ReportList::-webkit-scrollbar-thumb {
+    background-color: darkgray;
     border-radius: 10px;
-    font-size: 18px;
-    margin-top: 10px; /* Add margin to push it below the buttons */
 }
 
-.select-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px; /* Add some space between buttons and the search bar */
+#ReportList::-webkit-scrollbar-track {
+    background-color: whitesmoke;
 }
 
-.select-option {
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #89CFF0; /* Baby blue for non-selected buttons */
-    color: black;
-    font-family: 'Courier New', Courier, monospace;
-    transition: background-color 0.3s ease;
-}
-
-.select-option.active {
-    background-color: white; /* White for the selected button */
-    color: black; /* Ensure the text is readable */
-}
-
-.select-option:not(.active) {
-    background-color: #89CFF0; /* Baby blue for non-selected buttons */
-}
 
 
