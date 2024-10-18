@@ -1,41 +1,77 @@
 <?php
-require_once '../inc/dbconn.inc.php';
+require_once '../inc/dbconn.inc.php';  
 
-// Get the selected date from the URL parameters
-$selectedDate = isset($_GET['date']) ? $_GET['date'] : '';
+$singleDate = isset($_GET['date']) ? $_GET['date'] : null;
+$startDate = isset($_GET['start_date']) ? $_GET['start_date'] : null;
+$endDate = isset($_GET['end_date']) ? $_GET['end_date'] : null;
+$month = isset($_GET['month']) ? $_GET['month'] : null;
 
-// SQL query to retrieve the averages for each metric for the selected date
-$query = "SELECT 
-    AVG(temperature) AS avg_temperature,
-    AVG(pressure) AS avg_pressure,
-    AVG(vibration) AS avg_vibration,
-    AVG(humidity) AS avg_humidity,
-    AVG(power_consumption) AS avg_power_consumption,
-    AVG(production_count) AS avg_production_count,
-    AVG(speed) AS avg_speed
-    FROM factory_log 
-    WHERE timestamp BETWEEN '$selectedDate 00:00:00' AND '$selectedDate 23:59:59'";
+$selectedRange = '';
 
-// Execute the query
-$result = $conn->query($query);
+if ($singleDate) {
+    $selectedRange = $singleDate;
+    $query = "SELECT 
+        AVG(temperature) AS avg_temperature,
+        AVG(pressure) AS avg_pressure,
+        AVG(vibration) AS avg_vibration,
+        AVG(humidity) AS avg_humidity,
+        AVG(power_consumption) AS avg_power_consumption,
+        AVG(production_count) AS avg_production_count,
+        AVG(speed) AS avg_speed
+        FROM factory_log 
+        WHERE timestamp BETWEEN '$singleDate 00:00:00' AND '$singleDate 23:59:59'";
 
-// Initialize variables to store averages
-$avgTemperature = $avgPressure = $avgVibration = $avgHumidity = $avgPowerConsumption = $avgProductionCount = $avgSpeed = 'N/A';
+} elseif ($startDate && $endDate) {
+    $selectedRange = "$startDate to $endDate";
+    $query = "SELECT 
+        AVG(temperature) AS avg_temperature,
+        AVG(pressure) AS avg_pressure,
+        AVG(vibration) AS avg_vibration,
+        AVG(humidity) AS avg_humidity,
+        AVG(power_consumption) AS avg_power_consumption,
+        AVG(production_count) AS avg_production_count,
+        AVG(speed) AS avg_speed
+        FROM factory_log 
+        WHERE timestamp BETWEEN '$startDate 00:00:00' AND '$endDate 23:59:59'";
 
-// Check if results are returned
-if ($result && $result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $avgTemperature = number_format($row['avg_temperature'], 2);
-    $avgPressure = number_format($row['avg_pressure'], 2);
-    $avgVibration = number_format($row['avg_vibration'], 2);
-    $avgHumidity = number_format($row['avg_humidity'], 2);
-    $avgPowerConsumption = number_format($row['avg_power_consumption'], 2);
-    $avgProductionCount = number_format($row['avg_production_count'], 2);
-    $avgSpeed = number_format($row['avg_speed'], 2);
+} elseif ($month) {
+    $selectedRange = date('F Y', strtotime($month));
+    $query = "SELECT 
+        AVG(temperature) AS avg_temperature,
+        AVG(pressure) AS avg_pressure,
+        AVG(vibration) AS avg_vibration,
+        AVG(humidity) AS avg_humidity,
+        AVG(power_consumption) AS avg_power_consumption,
+        AVG(production_count) AS avg_production_count,
+        AVG(speed) AS avg_speed
+        FROM factory_log 
+        WHERE timestamp BETWEEN '$month-01 00:00:00' AND LAST_DAY('$month-01 23:59:59')";
+} else {
+    $selectedRange = 'Invalid date, week, or month';
+    $query = null;
 }
 
-// HTML structure
+if ($query) {
+    $result = $conn->query($query);
+    $avgTemperature = $avgPressure = $avgVibration = $avgHumidity = $avgPowerConsumption = $avgProductionCount = $avgSpeed = 'N/A';
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $avgTemperature = number_format($row['avg_temperature'], 2);
+        $avgPressure = number_format($row['avg_pressure'], 2);
+        $avgVibration = number_format($row['avg_vibration'], 2);
+        $avgHumidity = number_format($row['avg_humidity'], 2);
+        $avgPowerConsumption = number_format($row['avg_power_consumption'], 2);
+        $avgProductionCount = number_format($row['avg_production_count'], 2);
+        $avgSpeed = number_format($row['avg_speed'], 2);
+    }
+} else {
+    $avgTemperature = $avgPressure = $avgVibration = $avgHumidity = $avgPowerConsumption = $avgProductionCount = $avgSpeed = 'N/A';
+}
+
+$conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,46 +79,25 @@ if ($result && $result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/Skeleton.css">
     <link rel="stylesheet" href="../Style/Auditor.css">
-    <title>Summary Report</title>
-    <style>
-    .content {
-        display: flex;
-        justify-content: center; 
-        align-items: flex-start; 
-        flex-direction: column;
-        padding-top: 40px; 
-        font-size: 28px;
-        text-align: center; 
-        font-family: 'Courier New', Courier, monospace; 
-        width: fit-content; 
-        margin: 0 auto;
-    }
-
-    .metrics p {
-        margin: 15px 0; 
-        font-size: 32px;
-        font-weight: bold; 
-    }
-</style>
-
+    <title>Summary Report for <?php echo htmlspecialchars($selectedRange); ?></title>
 </head>
 <body>
+
 <header>
-    <!-- Home Icon -->
     <div>
         <a href="../Auditor/home.php">
             <img src="../Style/Images/home-button.svg" alt="home button" id="Home-icon">
         </a>
     </div>
 
-    <!-- Date as Welcome Message -->
     <div id="Welcome-message">
-        <h1><?php echo htmlspecialchars($selectedDate); ?></h1>
+        <h1><?php echo htmlspecialchars($selectedRange); ?></h1>
     </div>
 
-    <!-- Settings Button -->
-    <div>
-        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+    <div class="header-icon-right">
+        <a href="../logout.php">
+            <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+        </a>
     </div>
 </header>
 
@@ -97,11 +112,6 @@ if ($result && $result->num_rows > 0) {
         <p><b>Average Speed:</b> <?php echo $avgSpeed; ?> m/s</p>
     </div>
 </div>
-
-<?php
-// Close the database connection
-$conn->close();
-?>
 
 </body>
 </html>

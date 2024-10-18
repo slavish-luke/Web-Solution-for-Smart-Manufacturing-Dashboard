@@ -247,11 +247,11 @@ if(document.getElementById("jobs")) {
 
 
     function updateList() {
-        console.log(jobs);
         for (var i = 0; i < jobsPerPage; i++) {
             let jobContainer = jobContainers[i];
             let jobDesc = jobContainer.querySelector(".job-description");
             let machineName = jobContainer.querySelector(".job-machine");
+            let completeJobId = jobContainer.querySelector(".job-id")
             
             let task = tasks[pageId * jobsPerPage + i];
             if (task) {
@@ -260,6 +260,9 @@ if(document.getElementById("jobs")) {
 
                 // Display machine name
                 machineName.textContent = task["machine_name"];
+                
+                // Update job id for complete button
+                completeJobId.value = task["id"];
 
                 jobContainer.style.visibility = "visible";
             } else jobContainer.style.visibility = "hidden";

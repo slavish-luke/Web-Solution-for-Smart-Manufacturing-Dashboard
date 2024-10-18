@@ -30,36 +30,92 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
         <div id="job-list">
             <div class="content-pane">
                 <div class="job-container" id="job0">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job1">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job2">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job3">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job4">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job5">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job6">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
                 <div class="job-container" id="job7">
-                    <span class="job-machine"></span>
-                    <span class="job-description"></span>
+                    <div class="job-content">
+                        <span class="job-machine"></span>
+                        <span class="job-description"></span>
+                    </div>
+                    <div class="job-button">
+                        <form method="POST" action="complete-task.php">
+                            <button type="submit" name="id" value="0" class="job-id">Complete</button><br>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="navigation-pane">

@@ -373,9 +373,9 @@
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <form class="add-remove-machine-modal" action="edit-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-                            <h1>Select Machine</h1>    
+                            <h1>Select Task</h1>    
                             <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
-                                <select name="edited" id="machine-dropdown">
+                                <select name="edited" id="task-dropdown">
                                 <?php
                                 require_once "../inc/dbconn.inc.php";
                                 $sql = "SELECT * FROM task where machine_id = ?";
