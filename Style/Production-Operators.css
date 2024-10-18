@@ -692,9 +692,9 @@ summary::marker {
 }
 
 details[open] {
-    height: 40vh;
+    height: 30vh;
     width: 15vw;
-    margin-top: 31.9vh;
+    margin-top: 21.9vh;
     margin-left: -9.36vw;
     background-color: whitesmoke;
     z-index: 5;
