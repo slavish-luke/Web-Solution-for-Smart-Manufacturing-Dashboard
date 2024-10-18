@@ -264,24 +264,24 @@
 
                 <!--Div for keeping the machine image-->
                 <div id="Machine-image">
-                <h1>Machine Image</h1>
-                <label for="image-input">Copy and Paste Image url Below</label>
-                <input type="text" id="image-input" name="image-input">
-                <img id="imagePreview" src="<?php require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT img_address FROM machine WHERE id = ?";
-                            $note = htmlspecialchars($_GET['machine']);
-                            $statement = mysqli_stmt_init($conn);
-                            mysqli_stmt_prepare($statement, $sql);
-                            mysqli_stmt_bind_param($statement, 's', $note); 
-                            if (mysqli_stmt_execute($statement)){
-                                $result = mysqli_stmt_get_result($statement);
-                                if (mysqli_num_rows($result) >= 1){
-                                    while ($row = mysqli_fetch_assoc($result)){
-                                        echo("$row[img_address]");
-                                    }
-                                    mysqli_free_result($result);
-                                }
-                            }?>" alt="Image Preview">
+                    <h1>Machine Image</h1>
+                    <label for="image-input">Copy and Paste Image url Below</label>
+                    <input type="text" id="image-input" name="image-input">
+                    <img id="imagePreview" src="<?php require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT img_address FROM machine WHERE id = ?";
+                    $note = htmlspecialchars($_GET['machine']);
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql);
+                    mysqli_stmt_bind_param($statement, 's', $note); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo("$row[img_address]");
+                            }
+                            mysqli_free_result($result);
+                        }
+                    }?>" alt="Image Preview">
                 </div>
 
                 <!--Div for confirming to keeping the changes or not-->
@@ -334,95 +334,97 @@
                                 mysqli_free_result($result);
                             }
                         }?>
-                        </select>
-                    </div>
-                    </form>
+                    </select>
+                </div>
+                
+                </form>
 
                 <!-- Dive for adding a job to the machine-->
                 <div id="add-job-div">
                     <h1>Assign Job</h1>
                     <form id="add-job" action="add-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-                    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                        <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
                         <select name="assigned-operator" id="assigned-operator">
-                        <?php
-                        require_once "../inc/dbconn.inc.php";
-                        $sql = "SELECT * FROM account where role_id = 4";
-                        $statement = mysqli_stmt_init($conn);
-                        mysqli_stmt_prepare($statement, $sql); 
-                        if (mysqli_stmt_execute($statement)){
-                            $result = mysqli_stmt_get_result($statement);
-                            if (mysqli_num_rows($result) >= 1){
-                                while ($row = mysqli_fetch_assoc($result)){
-                                    echo("<option value=$row[id]>$row[name]</option>");
-                                }
-                                mysqli_free_result($result);
-                            }
-                        }?>
-                        </select>
-                        <input id="job-submit" type="submit" value="Add Task">
-                        <textarea id="job-desc-textarea" name="job-desc"></textarea>
-                        </form>
-
-                        <!-- The Edit Task Modal -->
-                        <button type="button" id="edit-task-button">Edit</button>
-        <div id="edit-task-modal" class="modal">
-
-<!-- Modal content -->
-<div class="modal-content">
-    <span class="close">&times;</span>
-    <form class="add-remove-machine-modal" action="edit-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-    <h1>Select Machine</h1>    
-    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
-        <select name="edited" id="machine-dropdown">
-        <?php
-        require_once "../inc/dbconn.inc.php";
-        $sql = "SELECT * FROM task where machine_id = ?";
-        $statement = mysqli_stmt_init($conn);
-        $note = htmlspecialchars($_GET['machine']);
-        mysqli_stmt_prepare($statement, $sql); 
-        mysqli_stmt_bind_param($statement, 's', $note); 
-        if (mysqli_stmt_execute($statement)){
-            $result = mysqli_stmt_get_result($statement);
-            if (mysqli_num_rows($result) >= 1){
-                while ($row = mysqli_fetch_assoc($result)){
-                    echo("<option value=$row[id]>$row[job_desc]</option>");
-                }
-                mysqli_free_result($result);
-            }
-        }
-    ?>
-        </select>
-        <textarea id='new-task' name='new-task'></textarea>
-        <input type='submit' id='delete-machine' name='delete-machine' value='Edit Task'>
-        
-    </form>
-</div>
-</div>
-
-                        <!--Show which tasks this machine has-->
-                        <div id="job-list">
                             <?php
                             require_once "../inc/dbconn.inc.php";
-                            $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ? ORDER BY id DESC;";
+                            $sql = "SELECT * FROM account where role_id = 4";
                             $statement = mysqli_stmt_init($conn);
-                            $note = htmlspecialchars($_GET['machine']);
-                            mysqli_stmt_prepare($statement, $sql);
-                            mysqli_stmt_bind_param($statement, 's', $note);  
+                            mysqli_stmt_prepare($statement, $sql); 
                             if (mysqli_stmt_execute($statement)){
                                 $result = mysqli_stmt_get_result($statement);
                                 if (mysqli_num_rows($result) >= 1){
                                     while ($row = mysqli_fetch_assoc($result)){
-                                        echo("
-                                            <details>
-                                                <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>&times;</a></summary>
-                                                $row[job_desc]
-                                            </details>
-                                        ");
+                                        echo("<option value=$row[id]>$row[name]</option>");
                                     }
                                     mysqli_free_result($result);
                                 }
                             }?>
+                        </select>
+                        <input id="job-submit" type="submit" value="Add Task">
+                        <textarea id="job-desc-textarea" name="job-desc"></textarea>
+                    </form>
+
+                    <!-- The Edit Task Modal -->
+                    <button type="button" id="edit-task-button">Edit Task</button>
+                    
+                    <div id="edit-task-modal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form class="add-remove-machine-modal" action="edit-task.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                            <h1>Select Machine</h1>    
+                            <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                                <select name="edited" id="machine-dropdown">
+                                <?php
+                                require_once "../inc/dbconn.inc.php";
+                                $sql = "SELECT * FROM task where machine_id = ?";
+                                $statement = mysqli_stmt_init($conn);
+                                $note = htmlspecialchars($_GET['machine']);
+                                mysqli_stmt_prepare($statement, $sql); 
+                                mysqli_stmt_bind_param($statement, 's', $note); 
+                                if (mysqli_stmt_execute($statement)){
+                                    $result = mysqli_stmt_get_result($statement);
+                                    if (mysqli_num_rows($result) >= 1){
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            echo("<option value=$row[id]>$row[job_desc]</option>");
+                                        }
+                                        mysqli_free_result($result);
+                                    }
+                                }
+                            ?>
+                                </select>
+                                <textarea id='new-task' name='new-task'></textarea>
+                                <input type='submit' id='delete-machine' name='delete-machine' value='Edit Task'>
+                                
+                            </form>
                         </div>
+                    </div>
+
+                    <!--Show which tasks this machine has-->
+                    <div id="job-list">
+                        <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ? ORDER BY id DESC;";
+                        $statement = mysqli_stmt_init($conn);
+                        $note = htmlspecialchars($_GET['machine']);
+                        mysqli_stmt_prepare($statement, $sql);
+                        mysqli_stmt_bind_param($statement, 's', $note);  
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("
+                                        <details>
+                                            <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>&times;</a></summary>
+                                            $row[job_desc]
+                                        </details>
+                                    ");
+                                }
+                                mysqli_free_result($result);
+                            }
+                        }?>
+                    </div>
 
                     
 
