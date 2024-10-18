@@ -245,7 +245,7 @@
                     ?>
             </details>
 
-            
+
             <details class="user-list" id="user-operators">
                 <summary>Operators</summary>
                     <?php
@@ -345,5 +345,6 @@
     
     <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
     <script src="../Factory-Managers/scripts.js" defer></script>
+    <script src="../Factory-Managers/piecharts.js" defer></script>
 </body>
 </html> 
