@@ -218,6 +218,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
             }
         
         $sql = "SELECT t.id, t.machine_id FROM task t LEFT JOIN machine m ON t.machine_id = m.id WHERE t.operator_id = " . $_SESSION["userid"];
+        $tasks = [];
 
         if($result = mysqli_query($conn, $sql)) {
             if(mysqli_num_rows($result) >= 1) {
@@ -231,6 +232,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
         }
 
         $sql = "SELECT m.*, a.name AS operator_name FROM machine m LEFT JOIN account a ON a.id = m.operator_id";
+        $machines = [];
 
         if($result = mysqli_query($conn, $sql)){
             if(mysqli_num_rows($result) >= 1){
