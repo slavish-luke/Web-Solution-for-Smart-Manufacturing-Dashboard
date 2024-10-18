@@ -149,27 +149,27 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
                     <div class="new-row">
                         <p>Assigned</p>
-                        <p id="assigned">6</p>
+                        <p id="assigned">0</p>
                     </div>
 
                     <div class="new-row">
                         <p>Operational</p>
-                        <p id="operational">4</p>
+                        <p id="operational">0</p>
+                    </div>
+
+                    <div class="new-row">
+                        <p>Idle</p>
+                        <p id="idle">0</p>
                     </div>
 
                     <div class="new-row">
                         <p>Maintenance</p>
-                        <p id="maintenance">1</p>
-                    </div>
-
-                    <div class="new-row">
-                        <p>Out of order</p>
-                        <p id="out-of-order">1</p>
+                        <p id="maintenance">0</p>
                     </div>
                     
                     <div class="new-row" id="last">
                         <p>Assigned Jobs</p>
-                        <p id="num-jobs">2</p>
+                        <p id="num-jobs">0</p>
                     </div>
 
                 </div>

@@ -83,8 +83,8 @@ if(document.getElementById("stats")){
     console.log(machines)
     let machinesAssigned = [];
     let machinesOperational = 0;
+    let machinesIdle = 0;
     let machinesMaintenance = 0;
-    let machinesOutOfOrder = 0;
 
     for(let i=0; i<tasks.length; i++){
         machinesAssigned.push(tasks[i]['machine_id'])
@@ -95,18 +95,18 @@ if(document.getElementById("stats")){
         if(machines[i]['operational_status'] == "active"){
             machinesOperational++;
         
-        }else if(machines[i]['operational_status'] == "maintenance"){
-            machinesMaintenance++;
+        }else if(machines[i]['operational_status'] == "idle"){
+            machinesIdle++;
 
         }else{
-            machinesOutOfOrder++;
+            machinesMaintenance++;
         }
     }
     
     document.getElementById("assigned").innerHTML = machinesAssigned.length;
     document.getElementById("operational").innerHTML = machinesOperational;
+    document.getElementById("idle").innerHTML = machinesIdle;
     document.getElementById("maintenance").innerHTML = machinesMaintenance;
-    document.getElementById("out-of-order").innerHTML = machinesOutOfOrder;
     document.getElementById("num-jobs").innerHTML = tasks.length;
 }
 
