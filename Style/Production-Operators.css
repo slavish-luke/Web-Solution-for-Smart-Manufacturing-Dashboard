@@ -1,30 +1,30 @@
 @charset "UTF-8";
 
-body{
+body {
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-.background{
+.background {
     background-color: whitesmoke;
 }
 
-#header{
+#header {
     width: 100%;
     height: 15vh;
     background-color: #89CFF0;
     display: flex;
 }
 
-.linkContainer{
+.linkContainer {
     width: 25%;
     float: left;
     text-align: center;
     line-height: 15vh;
 }
 
-#header a{
+#header a {
     flex: 1;
     float: left;
     text-align: center;
@@ -39,25 +39,25 @@ body{
     color: black;
 }
 
-#header a.last{
+#header a.last {
     border-right: 0;
 }
 
-a:hover{
+a:hover {
     background-color: #c9e7f5;
 }
 
-#header a.selected{
+#header a.selected {
     background-color: whitesmoke;
     border-bottom: 0;
     padding-bottom: 0.04vh;
 }
 
-#home-container{
+#home-container {
     display: flex;
 }
 
-#stats{
+#stats {
     flex: 2;
     background-color: grey;
     border-right: 0.05vw solid black;
@@ -65,12 +65,12 @@ a:hover{
     background-color: whitesmoke;
 }
 
-#info{
+#info {
     flex: 1;
 }
 
 
-#user{
+#user {
     width: 39.94vw;
     height: 20vh;
     float: left;
@@ -80,13 +80,13 @@ a:hover{
     border-bottom: 0.05vw solid black;
 }
 
-#overview{
+#overview {
     width: 39.94vw;
     height: 65vh;
     float: left;
 }
 
-h1{
+h1 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3vw;
@@ -95,25 +95,25 @@ h1{
     border-bottom: 0.05vw solid grey;
 }
 
-.checkbox-header{
+.checkbox-header {
     text-align: left;
     position: sticky;
     top: 0;
     background-color: whitesmoke;
 }
 
-h2{
+h2 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5vw;
     margin-bottom: 7vh;
 }
 
-.h2-bottom{
+.h2-bottom {
     margin-top: 5vh;
 }
 
-.machine-statistics{
+.machine-statistics {
     width: 21vw;
     height: auto;
     float: left;
@@ -121,7 +121,7 @@ h2{
     margin-bottom: 5vh;
 }
 
-#stats-container{
+#stats-container {
     margin-left: auto;
     margin-right: auto;
     width: 55vw;
@@ -161,11 +161,11 @@ h2{
     stroke: #89CFF0;
 }
 
-svg{
+svg {
     overflow: visible;
 }
 
-.display-stats{
+.display-stats {
     margin-left: auto;
     margin-right: auto;
     width: 4vw;
@@ -181,7 +181,7 @@ svg{
     font-size: .7vw;
 }
 
-h4{
+h4 {
    float: left;
    width: auto;
    max-width: 16vw;
@@ -194,11 +194,11 @@ h4{
    text-align: center;
 }
 
-#user a{
+#user a {
     margin-right: 2vw;
 }
 
-#signOutButton{
+#signOutButton {
     border-radius: 1vw;
     font-size: 2vw;
     background-color: #89CFF0;
@@ -214,56 +214,56 @@ h4{
     padding: 0 1vw 1vw 5vw;
 }
 
-#signOutButton:hover{
+#signOutButton:hover {
     background-color: #c9e7f5;
 }
 
-#user a:hover{
+#user a:hover {
     transform: translateY(0.2vh);
     box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2);
     border-radius: 1vw;
 }
 
-#user a:active{
+#user a:active {
     transform: translateY(-1px);
 	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
 }
 
-#overview-header{
+#overview-header {
     font-size: 2.5vw;
     padding-bottom: 2vh;
     border-bottom: 0.1vw solid lightgrey;
 }
 
-#overview-container{
+#overview-container {
     display: flex;
     flex-direction: column;
 }
 
-#overview-container b{
+#overview-container b {
     font-weight: bolder;
     font-size: 1.6vw;
 }
 
-.new-row{
+.new-row {
     display: flex;
     justify-content: space-between;
 }
 
-p{
+p {
     font-size: 1.3vw;
     font-family: monospace;
     margin-left: 2vw;
     margin-right: 2vw;
 }
 
-#last{
+#last {
     margin-top: 2vh;
     border-top: 0.1vw solid lightgrey;
 }
 
 
-.main{
+.main {
     height: 80vh;
     width: 90vw;
     margin-left: auto;
@@ -272,7 +272,7 @@ p{
     margin-top: 3vh;
 }
 
-select{
+select {
     width: 20vw;
     height: 10vh;
     margin-left: auto;
@@ -280,11 +280,11 @@ select{
     text-align: center;
 }
 
-.main h1{
+.main h1 {
     border: 0;
 }
 
-#checklist-container{
+#checklist-container {
     width: 25%;
     float: left;
     display: flex;
@@ -293,13 +293,13 @@ select{
     overflow-y: scroll;
 }
 
-span{
+span {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5vw;
 }
 
 
-input[type=checkbox]{
+input[type=checkbox] {
     height: 2vh;
     width: 2vw;
     font-size: 4px;
@@ -309,11 +309,11 @@ input[type=checkbox]{
     margin-left: 0;
 }
 
-.checkboxes{
+.checkboxes {
     padding-bottom: 1.5vh;
 }
 
-#user-container{
+#user-container {
     width: 25%;
     float: left;
     margin-left: 0.5%;
@@ -323,18 +323,18 @@ input[type=checkbox]{
     overflow-y: scroll;
 }
 
-form{
+form {
     margin-top: 5vh;
 }
 
-#message-container{
+#message-container {
     width: 49%;
     float: right;
     display: flex;
     flex-direction: column;
 }
 
-#note-subject{
+#note-subject {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -349,7 +349,7 @@ form{
     line-height: 3vh;
 }
 
-#note-content{
+#note-content {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -362,7 +362,7 @@ form{
     padding: 0.75vw;
 }
 
-#submit-notes{
+#submit-notes {
     width: 40vw;
     margin-left: auto;
     margin-right: auto;
@@ -379,29 +379,29 @@ form{
     padding: 0 0 0 3vw;
 }
 
-#submit-notes:hover{
+#submit-notes:hover {
     transform: translateY(0.2vh);
     box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.2);
     border-radius: 1vw;
     background-color: #c9e7f5;
 }
 
-#submit-notes:active{
+#submit-notes:active {
     transform: translateY(-1px);
 	box-shadow: 0 0.1vw 1vw rgba(0, 0, 0, 0.2);
 }
 
 
-.content-pane{
+.content-pane {
     height: 73vh;
 }
 
-.navigation-pane{
+.navigation-pane {
     height: 12vh;
     display: flex;
 }
 
-.navigation-pane *{
+.navigation-pane * {
     height: 100%;
     line-height: 12vh;
     float: left;
@@ -415,7 +415,7 @@ form{
     border-right: 0.05vw solid black;
 }
 
-#next-page{
+#next-page {
     border-right: none;
 }
 
@@ -429,18 +429,18 @@ form{
     background-color: #c9e7f5;
 }
 
-#machines{
+#machines {
     margin: 0;
     width: 100%;
     height: auto;
 }
 
-#machine-list .content-pane{
+#machine-list .content-pane {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 }
 
-.machine-container{
+.machine-container {
     margin: 1px;
     padding: 0 20px;
     border-radius: 0;
@@ -450,7 +450,7 @@ form{
     height: 36.3vh;
 }
 
-.machine-container:hover{
+.machine-container:hover {
     background-color:white;
     border: 0.05vw solid gray;
 }
@@ -551,33 +551,72 @@ form{
     font-size: 1.8vw;
     font-weight: bold;
     display: block;
+    text-transform: capitalize;
 }
 
 .status-option:hover {
     background-color: #c9e7f5;
 }
 
-#jobs{
+#jobs {
     margin: 0;
     width: 100%;
     height: auto;
 }
 
-.job-container{
+.job-container {
     border-radius: 0;
     background-color: whitesmoke;
     border-bottom: 0.05vw solid lightgray;
     visibility: hidden;
     height: 9vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 
-.job-container *{
+.job-content {
+    margin: 0.4vw;
+}
+
+.job-container * {
+    display: inline;
     float: left;
-    width: 20%;
     margin-left: 3vw;
+    width: 80vw;
+}
+
+.job-button {
+    display: inline;
+    width: 20vw;
+    margin: 0;
+}
+
+.job-button form {
+    margin: 0;
+}
+
+.job-button form button {
+    margin: 1.5vh;
+    width: 15vw;
+    height: 6vh;
+}
+
+.job-id {
+    margin: 0vw 5vw;
+    height: 4vw;
+    width: 20vw;
+    background-color: #89CFF0;
+    border: 0.1vw solid black;
+    border-radius: 1vw;
+    font-size: 1.8vw;
+    font-weight: bold;
+    display: block;
+    text-transform: capitalize;
+}
+
+.job-id:hover {
+    background-color: #c9e7f5;
 }
 
 .job-description {
@@ -603,7 +642,7 @@ form{
     display: none;
 }
 
-#job-details{
+#job-details {
     display: none;
 }
 
@@ -648,20 +687,20 @@ The Modal (background) */
     cursor: pointer;
 }
 
-#error-message{
+#error-message {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-transform: uppercase;
     text-align: center;
     font-size: 3vw;
 }
 
-#warning{
+#warning {
     width: 20vw;
     margin-left: 15vw;
     fill: yellow;
 }
 
-@keyframes warning-blink{
+@keyframes warning-blink {
     0% {fill: black;}
     50% {fill: yellow;}
     100% {fill: black;}
@@ -671,19 +710,19 @@ summary::marker {
     content: "";
 }
 
-.icons{
+.icons {
     height: 4vw;
     
 }
 
-#user-icon{
+#user-icon {
     margin-left: 1vw;
     float: right;
     z-index: 5;
     position: relative;
 }
 
-#settings-icon{
+#settings-icon {
     height: 1.3vw;
     z-index: 2;
     float: right;
@@ -704,7 +743,7 @@ details[open] {
     border: 0.1vw solid #89CFF0;
 }
 
-details[open] .icons{
+details[open] .icons {
     filter: invert(87%) sepia(24%) saturate(7497%) hue-rotate(1deg) brightness(106%) contrast(106%);
     margin: 0;
 }
@@ -714,7 +753,7 @@ details img:hover {
     cursor: pointer;
 }
 
-#settings-content{
+#settings-content {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -724,7 +763,7 @@ details img:hover {
     padding-top: 1vh;
 }
 
-details h4{
+details h4 {
     font-size: 2vw;
     margin-left: 2.2vw;
     line-height: 7vh;
@@ -748,27 +787,27 @@ details h4{
     height: 0;
 }
 
-.following-switch{
+.following-switch {
     margin-top: 7vh;
 }
 
-.switch h5{
+.switch h5 {
     position: relative;
     bottom: 4vh;
     white-space: nowrap;
 }
 
-#temperature-tag{
+#temperature-tag {
     position: relative;
     right: 5.8vw;
 }
 
-#flashing-warning-tag{
+#flashing-warning-tag {
     position: relative;
     right: 7.4vw;
 }
 
-#dark-mode-tag{
+#dark-mode-tag {
     position: relative;
     right: 5vw;
 }
@@ -813,22 +852,22 @@ input:checked + .slider:before {
     transform: translateX(3.23vw);
 }
 
-h5{
+h5 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5vw;
     margin: 0;
 }
 
-.option-text{
+.option-text {
     font-size: 1.5vw;
 }
 
-.left{
+.left {
     position: relative;
     right: 2.5vw;
 }
 
-.right{
+.right {
     position: relative;
     left: 3.4vw;
 }
