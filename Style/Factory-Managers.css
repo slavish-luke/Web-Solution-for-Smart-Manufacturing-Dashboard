@@ -338,8 +338,8 @@ svg {
     transform: scale(1.02,1.02);
 }
 
-/*Notes for the machine notes in edit machine page*/
-#Machine-notes {
+/* Editing the machine name */
+#Machine-name {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -350,9 +350,31 @@ svg {
     font-size: 1vw;
 }
 
+#Machine-name input {
+    width: 75%;
+    height: 10vh;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 1vw;
+    text-align: center;
+}
+
+/*Notes for the machine notes in edit machine page*/
+#Machine-notes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    margin: 0;
+    top: 35vh;
+    left: 20vw;
+    width: 25vw;
+    font-size: 1vw;
+}
+
 #notes-textarea {
     width: 75%;
-    height: 20vh;
+    height: 10vh;
     border-width: 0.1vw;
     border-radius: 0.8vw;
     font-size: 1vw;
@@ -403,7 +425,7 @@ svg {
     position: absolute;
     align-items: center;
     left: 20vw;
-    top: 50vh;
+    top: 55vh;
     width: 25vw;
     font-size: 1vw;
 }
@@ -483,10 +505,45 @@ svg {
     font-size: 1vw;
 }
 
+#edit-task-button {
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    width: auto;
+    padding: 0 10% 0 10%;
+    height: 5vh;
+    margin: 2vh 8.5vw 2vh 8.5vw;
+    font-size: 1.5vw;
+}
+
+#task-dropdown {
+    position: relative;
+    background-color: whitesmoke;
+    height: 5vh;
+    font-size: 1.1vw;
+    text-align: center;
+    width: 30%;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    margin: 0 0 1vh 0;
+}
+
+#new-task {
+    align-items: center;
+    width: 50%;
+    height: 10vh;
+    margin: 2vh 12.5% 0 12.5%;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 1vw;
+    margin-bottom: 3vh;
+}
+
 #job-list {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 22vh;
+    max-height: 18vh;
 }
 
 #job-list details{

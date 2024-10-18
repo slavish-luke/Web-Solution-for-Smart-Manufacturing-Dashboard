@@ -20,7 +20,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
 <header>
     <!--Home Button-->
-    <div id="home-icon-div">
+    <div id="home-icon-div-admin">
         <a href="../Administrator/admin-home.php?search-box=">
             <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
@@ -278,9 +278,10 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
         mysqli_close($conn);
     ?>
-    <script src="script.js" defer>
+        <script type="text/javascript">
         let rawFactoryData = <?php echo json_encode($factory_data); ?>;
     </script>
+    <script src="script.js" defer></script>
     
 </body>
 </html>

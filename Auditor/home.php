@@ -16,41 +16,48 @@
         </a>
     </div>
 
-    <!--Welcome Message-->
+    <!-- Welcome Message -->
     <div id="Welcome-message">
         <a href="../Auditor/home.php">
             <p>Welcome Ethan Collins</p>
         </a>
     </div>
 
-    <!--Settings Button-->
-    <div>
-        <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+    <!-- Settings Button -->
+    <div class="header-icon-right">
+        <a href="../logout.php">
+            <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+        </a>
     </div>
 </header>
 
 <body>
     <div id="Dashboard">
-        <h1>Dashboard</h1>
+         <a href="../Auditor/Dashboard.php">
+            <h1>Dashboard</h1>
+        </a>
+
     </div> 
 
     <div id="SummaryReports">
         <h1>Summary Reports</h1>
 
-        <div id="SearchBar">
-            <div class="search-container">
-                <div class="select-container">
-                    <button class="select-option active" id="dayButton">Day</button>
-                    <button class="select-option" id="weekButton">Week</button>
-                    <button class="select-option" id="monthButton">Month</button>
-                </div>
-                <input type="text" id="search" placeholder="Search">
-            </div>
+        <!-- Button Selection: Day, Week, Month -->
+        <div class="select-container">
+            <button class="select-option active" id="dayButton">Day</button>
+            <button class="select-option" id="weekButton">Week</button>
+            <button class="select-option" id="monthButton">Month</button>
         </div>
 
+        <!-- Search Bar -->
+        <div id="SearchBar">
+            <input type="text" id="search" placeholder="Search">
+        </div>
+
+        <!-- Report List -->
         <div id="ReportList">
             <ul id="dateList">
-            <li><a href="SummaryReport.php?date=2024-04-1">2024-04-1</a></li>
+                <li><a href="SummaryReport.php?date=2024-04-1">2024-04-1</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-2">2024-04-2</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-3">2024-04-3</a></li>
                 <li><a href="SummaryReport.php?date=2024-04-4">2024-04-4</a></li>
@@ -144,6 +151,7 @@
             </ul>
         </div>
     </div>
-    <script src="SearchScript.js"></script>
+
+    <script src="Script.js"></script>
 </body>
 </html>

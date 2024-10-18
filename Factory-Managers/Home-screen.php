@@ -54,8 +54,8 @@
             <!--List of machines-->
             <div id="machine-list">
                 <form action="Edit-Machine.php" method="get" id="to-machine">
-                <?php
-                    require_once "../inc/dbconn.inc.php";
+                    <?php
+                        require_once "../inc/dbconn.inc.php";
                         $name = "%" . htmlspecialchars($_GET["search-box"]) . "%";
                         $sql = "SELECT * FROM machine WHERE name LIKE ?";
                         $statement = mysqli_stmt_init($conn);
@@ -83,72 +83,67 @@
                 <!--Buttons to remove-->
                 <button type="button" id="remove-button">Remove</button>
             </div>
-        </aside>
 
-        <!-- The Add Modal -->
-        <div id="add-machine-modal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form class="add-remove-machine-modal" action="add-machine.php?search-box=" method="post">
-                    <h1>Machine Name</h1>
-                    <input type="text" id="new-machine-name" name="machine-name" required>
-                    <h1>Machine Image</h1>
-                    <label for="image-input">Copy and Paste Image url Below</label>
-                    <input type="text" id="image-input" name="image-input">
-                    <h1>Assigned Operator</h1>
-                    <select name="creation-operator" id="modal-set-operator">
-                        <?php
-                        require_once "../inc/dbconn.inc.php";
-                        $sql = "SELECT * FROM account where role_id = 4";
-                        $statement = mysqli_stmt_init($conn);
-                        mysqli_stmt_prepare($statement, $sql); 
-                        if (mysqli_stmt_execute($statement)){
-                            $result = mysqli_stmt_get_result($statement);
-                            if (mysqli_num_rows($result) >= 1){
-                                while ($row = mysqli_fetch_assoc($result)){
-                                    echo("<option value=$row[id]>$row[name]</option>");
+            <!--Add machine model-->
+            <div id="add-machine-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form class="add-remove-machine-modal" action="add-machine.php?search-box=" method="post">
+                        <h1>Machine Name</h1>
+                        <input type="text" id="new-machine-name" name="machine-name" required>
+                        <h1>Machine Image</h1>
+                        <label for="image-input">Copy and Paste Image url Below</label>
+                        <input type="text" id="image-input" name="image-input">
+                        <h1>Assigned Operator</h1>
+                        <select name="creation-operator" id="modal-set-operator">
+                            <?php
+                                require_once "../inc/dbconn.inc.php";
+                                $sql = "SELECT * FROM account where role_id = 4";
+                                $statement = mysqli_stmt_init($conn);
+                                mysqli_stmt_prepare($statement, $sql); 
+                                if (mysqli_stmt_execute($statement)){
+                                    $result = mysqli_stmt_get_result($statement);
+                                    if (mysqli_num_rows($result) >= 1){
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            echo("<option value=$row[id]>$row[name]</option>");
+                                        }
+                                        mysqli_free_result($result);
+                                    }
                                 }
-                                mysqli_free_result($result);
-                            }
-                        }?>
-                    <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
-                </form>
+                            ?>
+                        <input type='submit' id='create-machine' name='create-machine' value='Create Machine'>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <!-- The Remove Modal -->
-        <div id="remove-machine-modal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form class="add-remove-machine-modal" action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
-                <h1>Select Machine</h1>    
-                <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
-                    <select name="removal" id="machine-dropdown">
-                    <?php
-                    require_once "../inc/dbconn.inc.php";
-                    $sql = "SELECT * FROM machine";
-                    $statement = mysqli_stmt_init($conn);
-                    mysqli_stmt_prepare($statement, $sql); 
-                    if (mysqli_stmt_execute($statement)){
-                        $result = mysqli_stmt_get_result($statement);
-                        if (mysqli_num_rows($result) >= 1){
-                            while ($row = mysqli_fetch_assoc($result)){
-                                echo("<option value=$row[id]>$row[name]</option>");
-                            }
-                            mysqli_free_result($result);
-                        }
-                    }
-                ?>
-                    </select>
-                    <input type='submit' id='delete-machine' name='delete-machine' value='Remove Machine'>
-                    
-                </form>
+            <!--Remove machine modal-->
+            <div id="remove-machine-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form class="add-remove-machine-modal" action="remove-machine.php?machine=<?php echo htmlspecialchars($_GET['machine']);?>&search-box=" method="post">
+                    <h1>Select Machine</h1>    
+                    <input type="hidden" name="machine" value="<?php echo htmlspecialchars($_GET['machine']);?>">
+                        <select name="removal" id="machine-dropdown">
+                            <?php
+                                require_once "../inc/dbconn.inc.php";
+                                $sql = "SELECT * FROM machine";
+                                $statement = mysqli_stmt_init($conn);
+                                mysqli_stmt_prepare($statement, $sql); 
+                                if (mysqli_stmt_execute($statement)){
+                                    $result = mysqli_stmt_get_result($statement);
+                                    if (mysqli_num_rows($result) >= 1){
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            echo("<option value=$row[id]>$row[name]</option>");
+                                        }
+                                        mysqli_free_result($result);
+                                    }
+                                }
+                            ?>
+                        </select>
+                        <input type='submit' id='delete-machine' name='delete-machine' value='Remove Machine'>
+                    </form>
+                </div>
             </div>
-        </div>
         </aside>
 
         <!--Statistics side-->
@@ -210,67 +205,66 @@
 
             <details class="user-list" id="user-administrators">
                 <summary>Administrators</summary>
-                <?php
-                require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT name FROM account WHERE role_id = 1";
-                $statement = mysqli_stmt_init($conn);
-                mysqli_stmt_prepare($statement, $sql); 
-                if (mysqli_stmt_execute($statement)){
-                    $result = mysqli_stmt_get_result($statement);
-                    if (mysqli_num_rows($result) >= 1){
-                        echo("<ul>");
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[name]</a></li>");
+                    <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT name FROM account WHERE role_id = 1";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                echo("<ul>");
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<li>$row[name]</a></li>");
+                                }
+                                echo("</ul>");
+                                mysqli_free_result($result);
+                            }
                         }
-                        echo("</ul>");
-                        mysqli_free_result($result);
-                    }
-                }
-                
-                ?>
+                    ?>
             </details>
 
             <details class="user-list" id="user-managers">
                 <summary>Managers</summary>
-                <?php
-                require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT name FROM account WHERE role_id = 3";
-                $statement = mysqli_stmt_init($conn);
-                mysqli_stmt_prepare($statement, $sql); 
-                if (mysqli_stmt_execute($statement)){
-                    $result = mysqli_stmt_get_result($statement);
-                    if (mysqli_num_rows($result) >= 1){
-                        echo("<ul>");
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[name]</a></li>");
+                    <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT name FROM account WHERE role_id = 3";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                echo("<ul>");
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<li>$row[name]</a></li>");
+                                }
+                                echo("</ul>");
+                                mysqli_free_result($result);
+                            }
                         }
-                        echo("</ul>");
-                        mysqli_free_result($result);
-                    }
-                }
-                
-                ?>
+                    ?>
             </details>
+
 
             <details class="user-list" id="user-operators">
                 <summary>Operators</summary>
-                <?php
-                require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT name FROM account WHERE role_id = 4";
-                $statement = mysqli_stmt_init($conn);
-                mysqli_stmt_prepare($statement, $sql); 
-                if (mysqli_stmt_execute($statement)){
-                    $result = mysqli_stmt_get_result($statement);
-                    if (mysqli_num_rows($result) >= 1){
-                        echo("<ul>");
-                        while ($row = mysqli_fetch_assoc($result)){
-                            echo("<li>$row[name]</a></li>");
+                    <?php
+                        require_once "../inc/dbconn.inc.php";
+                        $sql = "SELECT name FROM account WHERE role_id = 4";
+                        $statement = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($statement, $sql); 
+                        if (mysqli_stmt_execute($statement)){
+                            $result = mysqli_stmt_get_result($statement);
+                            if (mysqli_num_rows($result) >= 1){
+                                echo("<ul>");
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    echo("<li>$row[name]</a></li>");
+                                }
+                                echo("</ul>");
+                                mysqli_free_result($result);
+                            }
                         }
-                        echo("</ul>");
-                        mysqli_free_result($result);
-                    }
-                }
-                ?>
+                    ?>
             </details>
         </div>
 
@@ -279,40 +273,40 @@
             <h1>Inbox</h1>
             <div id="inbox-content">
                 <?php
-                require_once "../inc/dbconn.inc.php";
-                $sql = "SELECT n.*, m.name AS machine_name, a.name AS account_name FROM notes n LEFT JOIN machine m ON n.machine_id = m.id JOIN account a ON n.user_id_from = a.id WHERE user_id_to = $_SESSION[userid] ORDER BY note_id DESC;";
-                $statement = mysqli_stmt_init($conn);
-                mysqli_stmt_prepare($statement, $sql); 
-                if (mysqli_stmt_execute($statement)){
-                    $result = mysqli_stmt_get_result($statement);
-                    if (mysqli_num_rows($result) >= 1){
-                        while ($row = mysqli_fetch_assoc($result)){
-                            if (isset($row['machine_name'])){
-                                echo("
-                                <details>
-                                    <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>&times;</a></summary>
-                                    From: $row[account_name]</br>$row[notes_content]
-                                </details>
-                            ");
+                    require_once "../inc/dbconn.inc.php";
+                    $sql = "SELECT n.*, m.name AS machine_name, a.name AS account_name FROM notes n LEFT JOIN machine m ON n.machine_id = m.id JOIN account a ON n.user_id_from = a.id WHERE user_id_to = $_SESSION[userid] ORDER BY note_id DESC;";
+                    $statement = mysqli_stmt_init($conn);
+                    mysqli_stmt_prepare($statement, $sql); 
+                    if (mysqli_stmt_execute($statement)){
+                        $result = mysqli_stmt_get_result($statement);
+                        if (mysqli_num_rows($result) >= 1){
+                            while ($row = mysqli_fetch_assoc($result)){
+                                if (isset($row['machine_name'])){
+                                    echo("
+                                    <details>
+                                        <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>&times;</a></summary>
+                                        From: $row[account_name]</br>$row[notes_content]
+                                    </details>
+                                ");
+                                }
+                                else{
+                                    echo("
+                                    <details>
+                                        <summary>$row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
+                                        From: $row[account_name]</br>$row[notes_content]
+                                    </details>
+                                ");
+                                }
+                                
                             }
-                            else{
-                                echo("
-                                <details>
-                                    <summary>$row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
-                                    From: $row[account_name]</br>$row[notes_content]
-                                </details>
-                            ");
-                            }
-                            
+                            mysqli_free_result($result);
                         }
-                        mysqli_free_result($result);
                     }
-                }?>
+                ?>
             </div>
         </div>
     </div>
 
-    </div>
     <?php
         require_once "../inc/dbconn.inc.php";
 
@@ -345,11 +339,12 @@
                     }
                     mysqli_free_result($result);
                 }
-        }
+            }
         mysqli_close($conn);
     ?>
     
     <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
     <script src="../Factory-Managers/scripts.js" defer></script>
+    <script src="../Factory-Managers/piecharts.js" defer></script>
 </body>
 </html> 
