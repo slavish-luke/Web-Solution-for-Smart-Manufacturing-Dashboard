@@ -505,6 +505,11 @@ svg {
     font-size: 1vw;
 }
 
+#edit-task-button {
+    display: flex;
+    align-items: center;
+}
+
 #job-list {
     overflow-y: auto;
     overflow-x: hidden;
