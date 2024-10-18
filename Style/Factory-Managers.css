@@ -517,6 +517,29 @@ svg {
     font-size: 1.5vw;
 }
 
+#task-dropdown {
+    position: relative;
+    background-color: whitesmoke;
+    height: 5vh;
+    font-size: 1.1vw;
+    text-align: center;
+    width: 30%;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    margin: 0 0 1vh 0;
+}
+
+#new-task {
+    align-items: center;
+    width: 50%;
+    height: 10vh;
+    margin: 2vh 12.5% 0 12.5%;
+    border-width: 0.1vw;
+    border-radius: 0.8vw;
+    font-size: 1vw;
+    margin-bottom: 3vh;
+}
+
 #job-list {
     overflow-y: auto;
     overflow-x: hidden;
