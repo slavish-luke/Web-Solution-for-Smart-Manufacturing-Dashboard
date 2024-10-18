@@ -58,11 +58,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 header("location: index.php");
             } else {
-                $loginErr = "Invalid username or password.";
+                $loginErr = "Invalid username or password. Please try again";
             }
         } else {
             $loginErr = "Unable to perform login request, please try again later.";
         }
+    }else if(!empty($usernameErr) && (!empty($passwordErr))){
+        $loginErr = "Please input a username and password";
+    
+    }else if(!empty($usernameErr)){
+        $loginErr = "Please input a username";
+    
+    }else{
+        $loginErr = "Please input a password";
     }
 }
 ?>
