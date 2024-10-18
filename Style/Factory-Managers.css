@@ -250,6 +250,16 @@ svg {
     width: 40%;
 }
 
+#edit-task-button {
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    width: 40%;
+    height: 5vh;
+    margin: 0 10% 0 0;
+}
+
 /*Popup for machine creation*/
 .modal {
     display: none;
