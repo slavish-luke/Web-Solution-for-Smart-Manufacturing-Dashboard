@@ -278,9 +278,10 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
 
         mysqli_close($conn);
     ?>
-    <script src="script.js" defer>
+        <script type="text/javascript">
         let rawFactoryData = <?php echo json_encode($factory_data); ?>;
     </script>
+    <script src="script.js" defer></script>
     
 </body>
 </html>
