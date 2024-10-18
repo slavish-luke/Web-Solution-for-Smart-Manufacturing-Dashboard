@@ -364,7 +364,7 @@
                         </form>
 
                         <!-- The Edit Task Modal -->
-                        <button type="button" id="edit-task-button">Edit Task</button>
+                        <button type="button" id="edit-task-button">Edit</button>
         <div id="edit-task-modal" class="modal">
 
 <!-- Modal content -->

@@ -250,16 +250,6 @@ svg {
     width: 40%;
 }
 
-#edit-task-button {
-    font-size: 1vw;
-    border-radius: 0.8vw;
-    text-decoration: none;
-    background-color: #89CFF0;
-    width: 40%;
-    height: 5vh;
-    margin: 0 10% 0 0;
-}
-
 /*Popup for machine creation*/
 .modal {
     display: none;
@@ -516,14 +506,20 @@ svg {
 }
 
 #edit-task-button {
-    display: flex;
-    align-items: center;
+    font-size: 1vw;
+    border-radius: 0.8vw;
+    text-decoration: none;
+    background-color: #89CFF0;
+    width: auto;
+    padding: 0 10% 0 10%;
+    height: 5vh;
+    margin: 2vh 10vw 2vh 10vw;
 }
 
 #job-list {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 22vh;
+    max-height: 18vh;
 }
 
 #job-list details{
