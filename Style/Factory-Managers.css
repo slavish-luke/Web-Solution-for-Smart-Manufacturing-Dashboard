@@ -513,7 +513,8 @@ svg {
     width: auto;
     padding: 0 10% 0 10%;
     height: 5vh;
-    margin: 2vh 10vw 2vh 10vw;
+    margin: 2vh 8.5vw 2vh 8.5vw;
+    font-size: 1.5vw;
 }
 
 #job-list {
