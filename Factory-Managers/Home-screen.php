@@ -245,6 +245,7 @@
                     ?>
             </details>
 
+            
             <details class="user-list" id="user-operators">
                 <summary>Operators</summary>
                     <?php
