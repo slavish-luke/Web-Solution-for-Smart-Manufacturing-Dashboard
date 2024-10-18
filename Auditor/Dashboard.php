@@ -19,23 +19,26 @@ session_start();
 
     <!-- Header -->
     <header>
-        <!-- Home Button -->
-        <div class="header-icon-left">
+        <!--Home Button-->
+        <div id="Home-icon-auditor">
             <a href="../Auditor/home.php">
-                <img src="../Style/Images/home-button.svg" alt="home button" id="Home-icon">
+                <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
             </a>
         </div>
 
-        <!-- Dashboard Title -->
+        <!--Welcome Message-->
         <div id="Welcome-message">
             <p>Dashboard</p>
         </div>
 
-        <!-- Settings Button -->
-        <div class="header-icon-right">
-            <a href="../logout.php">
+        <!--Settings Button-->
+        <div>
+            <details id="settings-dropdown">
+                <summary>
                 <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
-            </a>
+                </summary>
+                <a href="../logout.php">Logout</a>
+            </details>
         </div>
     </header>
 

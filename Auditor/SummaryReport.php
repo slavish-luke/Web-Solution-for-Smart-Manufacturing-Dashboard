@@ -1,12 +1,11 @@
 <?php
-require_once '../inc/dbconn.inc.php';  
+session_start();
+require_once '../inc/dbconn.inc.php';
 
 $singleDate = isset($_GET['date']) ? $_GET['date'] : null;
-$startDate = isset($_GET['start_date']) ? $_GET['start_date'] : null;
-$endDate = isset($_GET['end_date']) ? $_GET['end_date'] : null;
+$weekStart = isset($_GET['week_start']) ? $_GET['week_start'] : null;
+$weekEnd = isset($_GET['week_end']) ? $_GET['week_end'] : null;
 $month = isset($_GET['month']) ? $_GET['month'] : null;
-
-$selectedRange = '';
 
 if ($singleDate) {
     $selectedRange = $singleDate;
@@ -20,9 +19,8 @@ if ($singleDate) {
         AVG(speed) AS avg_speed
         FROM factory_log 
         WHERE timestamp BETWEEN '$singleDate 00:00:00' AND '$singleDate 23:59:59'";
-
-} elseif ($startDate && $endDate) {
-    $selectedRange = "$startDate to $endDate";
+} elseif ($weekStart && $weekEnd) {
+    $selectedRange = "$weekStart to $weekEnd";
     $query = "SELECT 
         AVG(temperature) AS avg_temperature,
         AVG(pressure) AS avg_pressure,
@@ -32,8 +30,7 @@ if ($singleDate) {
         AVG(production_count) AS avg_production_count,
         AVG(speed) AS avg_speed
         FROM factory_log 
-        WHERE timestamp BETWEEN '$startDate 00:00:00' AND '$endDate 23:59:59'";
-
+        WHERE timestamp BETWEEN '$weekStart 00:00:00' AND '$weekEnd 23:59:59'";
 } elseif ($month) {
     $selectedRange = date('F Y', strtotime($month));
     $query = "SELECT 
@@ -47,26 +44,24 @@ if ($singleDate) {
         FROM factory_log 
         WHERE timestamp BETWEEN '$month-01 00:00:00' AND LAST_DAY('$month-01 23:59:59')";
 } else {
-    $selectedRange = 'Invalid date, week, or month';
+    $selectedRange = 'Invalid date';
     $query = null;
 }
 
-if ($query) {
-    $result = $conn->query($query);
-    $avgTemperature = $avgPressure = $avgVibration = $avgHumidity = $avgPowerConsumption = $avgProductionCount = $avgSpeed = 'N/A';
+$result = $query ? $conn->query($query) : null;
 
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $avgTemperature = number_format($row['avg_temperature'], 2);
-        $avgPressure = number_format($row['avg_pressure'], 2);
-        $avgVibration = number_format($row['avg_vibration'], 2);
-        $avgHumidity = number_format($row['avg_humidity'], 2);
-        $avgPowerConsumption = number_format($row['avg_power_consumption'], 2);
-        $avgProductionCount = number_format($row['avg_production_count'], 2);
-        $avgSpeed = number_format($row['avg_speed'], 2);
-    }
-} else {
-    $avgTemperature = $avgPressure = $avgVibration = $avgHumidity = $avgPowerConsumption = $avgProductionCount = $avgSpeed = 'N/A';
+// Initialize average values
+$avgTemperature = $avgPressure = $avgVibration = $avgHumidity = $avgPowerConsumption = $avgProductionCount = $avgSpeed = 'N/A';
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $avgTemperature = number_format($row['avg_temperature'], 2);
+    $avgPressure = number_format($row['avg_pressure'], 2);
+    $avgVibration = number_format($row['avg_vibration'], 2);
+    $avgHumidity = number_format($row['avg_humidity'], 2);
+    $avgPowerConsumption = number_format($row['avg_power_consumption'], 2);
+    $avgProductionCount = number_format($row['avg_production_count'], 2);
+    $avgSpeed = number_format($row['avg_speed'], 2);
 }
 
 $conn->close();
@@ -84,9 +79,9 @@ $conn->close();
 <body>
 
 <header>
-    <div>
+    <div id="Home-icon-auditor">
         <a href="../Auditor/home.php">
-            <img src="../Style/Images/home-button.svg" alt="home button" id="Home-icon">
+            <img src="../Style/Images/home-button.svg" alt="home button image" id="Home-icon">
         </a>
     </div>
 
@@ -94,10 +89,13 @@ $conn->close();
         <h1><?php echo htmlspecialchars($selectedRange); ?></h1>
     </div>
 
-    <div class="header-icon-right">
-        <a href="../logout.php">
-            <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
-        </a>
+    <div>
+        <details id="settings-dropdown">
+            <summary>
+                <img src="../Style/Images/settings-cog.svg" alt="Settings cog" id="Settings-icon">
+            </summary>
+            <a href="../logout.php">Logout</a>
+        </details>
     </div>
 </header>
 
