@@ -43,18 +43,20 @@ CREATE TABLE machine (
     FOREIGN KEY (operator_id) REFERENCES account(id)
 );
 
-CREATE TABLE notes (
-    note_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE note (
+    note_id int NOT NULL AUTO_INCREMENT,
     machine_id int,
     user_id_to int NOT NULL,
     user_id_from int NOT NULL,
-    notes_subject TEXT,
-    notes_content TEXT NOT NULL,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    subject TEXT,
+    content TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (note_id)
 );
 
 CREATE TABLE task (
     id int NOT NULL AUTO_INCREMENT,
+    complete bool NOT NULL DEFAULT false,
     job_desc varchar(1000) NOT NULL,
     operator_id int,
     machine_id int,

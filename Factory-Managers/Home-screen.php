@@ -283,7 +283,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
             <div id="inbox-content">
                 <?php
                     require_once "../inc/dbconn.inc.php";
-                    $sql = "SELECT n.*, m.name AS machine_name, a.name AS account_name FROM notes n LEFT JOIN machine m ON n.machine_id = m.id JOIN account a ON n.user_id_from = a.id WHERE user_id_to = $_SESSION[userid] ORDER BY note_id DESC;";
+                    $sql = "SELECT n.*, m.name AS machine_name, a.name AS account_name FROM note n LEFT JOIN machine m ON n.machine_id = m.id JOIN account a ON n.user_id_from = a.id WHERE user_id_to = $_SESSION[userid] ORDER BY note_id DESC;";
                     $statement = mysqli_stmt_init($conn);
                     mysqli_stmt_prepare($statement, $sql); 
                     if (mysqli_stmt_execute($statement)){
@@ -293,16 +293,16 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                                 if (isset($row['machine_name'])){
                                     echo("
                                     <details>
-                                        <summary>$row[machine_name], $row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>&times;</a></summary>
-                                        From: $row[account_name]</br>$row[notes_content]
+                                        <summary>$row[machine_name], $row[subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>&times;</a></summary>
+                                        From: $row[account_name]</br>$row[content]
                                     </details>
                                 ");
                                 }
                                 else{
                                     echo("
                                     <details>
-                                        <summary>$row[notes_subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
-                                        From: $row[account_name]</br>$row[notes_content]
+                                        <summary>$row[subject] <a href='delete-message.php?deletion=$row[note_id]&search-box='>Delete</a></summary>
+                                        From: $row[account_name]</br>$row[content]
                                     </details>
                                 ");
                                 }
