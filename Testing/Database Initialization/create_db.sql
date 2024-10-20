@@ -29,7 +29,6 @@ CREATE TABLE machine (
     img_address varchar(200),
     operator_id int,
     note varchar(200),
-    ison bool,
     temperature decimal(4, 2),
     pressure decimal(4, 2),
     vibration decimal(3, 2),
