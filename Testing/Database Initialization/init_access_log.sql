@@ -2,40 +2,8 @@ DROP TABLE IF EXISTS access_log;
 
 CREATE TABLE access_log (
     id int NOT NULL AUTO_INCREMENT,
+    user_id int,
     timestamp datetime,
-    user_id INT,
-    role int(5),
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES account(id),
-    FOREIGN KEY (role) REFERENCES role(id)
+    FOREIGN KEY (user_id) REFERENCES account(id)
 );
-
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 1, 1); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 2, 2); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 3, 3);
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 4, 4); 
--- INSERT INTO access_log VALUES (DEFAULT, '2024-04-01 00:00:00', 5, 5); 

@@ -66,12 +66,10 @@ CREATE TABLE task (
 
 CREATE TABLE access_log (
     id int NOT NULL AUTO_INCREMENT,
+    user_id int,
     timestamp datetime,
-    user_id INT,
-    role int(5),
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES account(id),
-    FOREIGN KEY (role) REFERENCES role(id)
+    FOREIGN KEY (user_id) REFERENCES account(id)
 );
 
 CREATE TABLE factory_log (
