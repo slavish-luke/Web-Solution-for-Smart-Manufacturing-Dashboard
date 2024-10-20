@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST['action'];
     if ($action == 'Update User') {
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $name = $_POST['name'];
         $email = $_POST['email'];
         $notes = $_POST['notes'];

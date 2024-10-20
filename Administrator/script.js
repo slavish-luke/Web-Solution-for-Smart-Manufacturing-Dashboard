@@ -1,10 +1,10 @@
 console.log(rawFactoryData);
 
 
-function openEditDialog(id, username, password, name, email, role, notes) {
+function openEditDialog(id, username, name, email, role, notes) {
     document.getElementById('userId').value = id;
     document.getElementById('username').value = username;
-    document.getElementById('password').value = password;
+    document.getElementById('password').value = "";
     document.getElementById('name').value = name;
     document.getElementById('email').value = email;
     const roles = {

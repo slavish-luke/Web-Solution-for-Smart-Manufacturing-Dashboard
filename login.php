@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute sql statement, retrieve user from database, check password
         if (mysqli_stmt_execute($statement)) {
             $account = mysqli_fetch_assoc(mysqli_stmt_get_result($statement));
-            if ($account && $password == $account["password"]) {
+            if ($account && password_verify($password, $account["password"])) {
                 $_SESSION["loggedin"] = true;
                 $_SESSION["userid"] = $account["id"];
                 $_SESSION["username"] = $account["name"];
