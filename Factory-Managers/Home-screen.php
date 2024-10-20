@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrole"] != 3){
+    header("location: ../index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +32,7 @@
     <!--Welcome Message-->
     <div id="Welcome-message">
         <a href="../logout.php">
-            <p>Welcome <?php session_start(); echo("$_SESSION[username]"); ?>
+            <p>Welcome <?php echo("$_SESSION[username]"); ?>
             </p>
         </a>
     </div>
