@@ -51,18 +51,18 @@ h1 {
     align-items: center;
 }
 
-/* Dashboard Link Styling */
+
 #Dashboard a {
-    text-decoration: none; /* Remove underline */
-    color: black; /* Set text color to black */
-    font-weight: bold; /* Bold font for the link */
+    text-decoration: none; 
+    color: black; 
+    font-weight: bold; 
 }
 
 #Dashboard a:hover {
-    color: black; /* Keep text color black on hover */
+    color: black; 
 }
 
-/* Summary Reports Styling */
+
 #SummaryReports {
     font-size: 25px;
     font-weight: bold;
@@ -74,16 +74,16 @@ h1 {
     position: relative;
 }
 
-/* Report List and Search Bar Styling */
+
 #SearchBar {
-    width: 75%; /* 75% of the page width */
-    margin: 0 auto; /* Center the search bar */
+    width: 75%; 
+    margin: 0 auto; 
     margin-bottom: 10px;
     text-align: center;
 }
 
 #search {
-    width: 100%; /* Full width of the search bar container */
+    width: 100%; 
     padding: 10px;
     border: 2px solid black;
     border-radius: 25px;
@@ -94,8 +94,8 @@ h1 {
 }
 
 #ReportList {
-    width: 75%; /* 75% of the page width */
-    margin: 0 auto; /* Center the report list */
+    width: 75%; 
+    margin: 0 auto; 
     overflow-y: scroll;
     height: 50vh;
     border: 5px solid black;
@@ -103,14 +103,14 @@ h1 {
     box-sizing: border-box;
     height: 50vh;
     border-radius: 15px;
-    text-align: center; /* Center the text inside the list */
+    text-align: center; 
 }
 
 #ReportList ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    text-align: center; /* Center each item in the list */
+    text-align: center; 
 }
 
 #ReportList ul li {
@@ -118,8 +118,8 @@ h1 {
     margin: 20px 0;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    padding-left: 0; /* Remove left padding */
-    text-align: center; /* Center the text */
+    padding-left: 0;
+    text-align: center; 
 }
 
 .select-container {
@@ -152,19 +152,19 @@ h1 {
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    width: 75%; /* Width of the content area */
+    align-items: center; 
+    justify-content: center; 
+    width: 75%; 
     margin-left: auto;
     margin-right: auto;
 }
 
 .metrics {
-    text-align: center; /* Center the text */
-    font-size: 50px; /* Font size for metrics */
+    text-align: center;
+    font-size: 50px; 
 }
 
 .metrics p {
-    margin: 10px 0; /* Spacing between paragraphs */
-    font-weight: bold; /* Bold font for labels */
+    margin: 10px 0; 
+    font-weight: bold; 
 }

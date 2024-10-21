@@ -85,6 +85,29 @@ $conn->close();
                     while ($row = $result->fetch_assoc()) {
                         echo '<li><a href="SummaryReport.php?date=' . $row['date'] . '">' . $row['date'] . '</a></li>';
                     }
+
+                    /* 
+                    while ($row = $result->fetch_asoc()) {*= 
+                        echo '<li><a href="SummaryReport.php?date=' . $row['date'] . '">' . $row['date'] . '</a></li>';
+                    }
+
+                    Chat GPT -4
+                    Prompt
+                    Can you help me figure out the error in this code it's supposed to be calling information from another script and adding it to a list.
+                    while ($row = $result->fetch_asoc()) {
+                        echo '<li><a href="SummaryReport.php?date=' . $row['date'] . '">' . $row['date'] . '</a></li>';
+                    }
+
+                    Response 
+                    The error in your code is likely due to a typo in the method name fetch_asoc(). The correct method name is fetch_assoc(). Here's the corrected code:
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<li><a href="SummaryReport.php?date=' . $row['date'] . '">' . $row['date'] . '</a></li>';
+                    }
+
+                    Interpretation
+                    I need to fix a syntax error when calling it
+                    */
+
                 } else {
                     echo '<li>No reports available</li>';
                 }

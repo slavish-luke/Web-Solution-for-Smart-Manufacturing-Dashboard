@@ -2,6 +2,8 @@
 session_start();
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,6 @@ session_start();
 </head>
 
 <body>
-
     <!-- Header -->
     <header>
         <!--Home Button-->
@@ -45,59 +46,70 @@ session_start();
     <!-- Dashboard Content -->
     <div id="home-container">
         <div id="stats-container">
-
-            <!-- Power Consumption -->
             <div class="machine-statistics">
                 <h2>Power consumption</h2>
                 <div class="chart-container">
                     <svg class="chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="50 100" transform="rotate(-90 18 18)"></circle>
+                        <circle id="power-consumption-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                    <div class="display-stats" id="power-consumption">2841</div>
+                </div>
+
+                <div class="display-stats">
+                    <h3 id="power-consumption"></h3>
                 </div>
             </div>
 
-            <!-- Production Count -->
             <div class="machine-statistics">
                 <h2>Production count</h2>
-                <div class="chart-container">
+
+               <div class="chart-container">
                     <svg class="chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="production-count-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="75 100" transform="rotate(-90 18 18)"></circle>
+                        <circle id="production-count-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                    <div class="display-stats" id="production-count">573</div>
+                </div>
+
+                <div class="display-stats">
+                    <h3 id="production-count"></h3>
                 </div>
             </div>
-
-            <!-- Average Temperature with Celsius/Fahrenheit Toggle -->
+            
             <div class="machine-statistics">
-                <h2>Average temperature</h2>
+                <h2 class="h2-bottom">Average temperature</h2>
+
                 <div class="chart-container">
                     <svg class="chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="average-temperature-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="65 100" transform="rotate(-90 18 18)"></circle>
+                        <circle id="average-temperature-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="0 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                    <div class="display-stats" id="average-temperature">54.2°C</div>
                 </div>
+                    
+               <div class="display-stats">
+                    <h3 id="average-temperature"></h3>
+                </div>
+
             </div>
 
-            <!-- Average Speed -->
+
             <div class="machine-statistics">
-                <h2>Average speed</h2>
+                <h2 class="h2-bottom">Average speed</h2>
+
                 <div class="chart-container">
                     <svg class="chart" viewBox="0 0 36 36">
                         <circle class="background" r="16" cx="18" cy="18"></circle>
-                        <circle id="average-speed-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="30 100" transform="rotate(-90 18 18)"></circle>
+                        <circle id="average-speed-chart" class="foreground" r="16" cx="18" cy="18" stroke-dasharray="18.55 100" transform="rotate(-90 18 18)"></circle>
                     </svg>
-                    <div class="display-stats" id="average-speed">1.43 m/s</div>
+                </div>
+
+                <div class="display-stats">
+                    <h3 id="average-speed"></h3>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <!-- PHP and Data Handling -->
+
     <?php
         require_once "../inc/dbconn.inc.php";
 
@@ -130,41 +142,11 @@ session_start();
                 mysqli_free_result($result);
             }
         }
-
-        // Query for task data
-        $sql = "SELECT t.id, t.machine_id FROM task t LEFT JOIN machine m ON t.machine_id = m.id WHERE t.operator_id = " . $_SESSION["userid"];
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) >= 1) {
-                $tasks = [];
-                while ($row = mysqli_fetch_assoc($result)) {
-                    array_push($tasks, $row);
-                }
-                mysqli_free_result($result);
-            }
-        }
-
-        // Query for machine data
-        $sql = "SELECT m.*, a.name AS operator_name FROM machine m LEFT JOIN account a ON a.id = m.operator_id";
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) >= 1) {
-                $machines = [];
-                while ($row = mysqli_fetch_assoc($result)) {
-                    array_push($machines, $row);
-                }
-                mysqli_free_result($result);
-            }
-        }
-
         mysqli_close($conn);
     ?>
-
-    <!-- Pass Data to JS -->
-    <script type="text/javascript">
-        let rawFactoryData = <?php echo json_encode($factory_data); ?>;
-        let tasks = <?php echo json_encode($tasks); ?>;
-        let machines = <?php echo json_encode($machines); ?>;
-    </script>
-    <script src="../Production-Operators/script.js" defer></script>
+    <script type="text/javascript">let rawFactoryData = <?php echo json_encode($factory_data); ?>;</script>
+    <script src="../Factory-Managers/scripts.js" defer></script>
+    <script src="../Factory-Managers/piecharts.js" defer></script>
 
 </body>
 </html>
