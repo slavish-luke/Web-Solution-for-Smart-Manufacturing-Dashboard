@@ -2,7 +2,7 @@
 require_once "../inc/dbconn.inc.php"; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $name = $_POST['name'];
     $email = $_POST['email'];
     $notes = $_POST['notes'];

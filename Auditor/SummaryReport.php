@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrole"] != 3){
+    header("location: ../index.php");
+    exit;
+}
+
 require_once '../inc/dbconn.inc.php';
 
 $singleDate = isset($_GET['date']) ? $_GET['date'] : null;

@@ -66,7 +66,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                         SELECT a.username, al.timestamp, r.name AS role 
                         FROM access_log al
                         JOIN account a ON al.user_id = a.id
-                        JOIN role r ON al.role = r.id
+                        JOIN role r ON a.role_id = r.id
                         ";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
@@ -166,7 +166,7 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT a.id, a.username, a.password, a.name, a.email, a.notes, r.name AS role_name 
+                        $sql = "SELECT a.id, a.username, a.name, a.email, a.notes, r.name AS role_name 
                                 FROM account a 
                                 JOIN role r ON a.role_id = r.id";
                         $result = $conn->query($sql);
@@ -175,7 +175,6 @@ if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrol
                                 echo "<tr onclick=\"openEditDialog(" . 
                                 $row["id"] . ", '" . 
                                 htmlspecialchars($row["username"]) . "', '" . 
-                                htmlspecialchars($row["password"]) . "', '" . 
                                 htmlspecialchars($row["name"]) . "', '" . 
                                 htmlspecialchars($row["email"]) . "', '" . 
                                 htmlspecialchars($row["role_name"]) . "', '" . 

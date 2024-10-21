@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrole"] != 3){
+    header("location: ../index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,10 +32,10 @@
             <?php 
                 require_once "../inc/dbconn.inc.php";
                 $sql = "SELECT name FROM machine WHERE id = ?";
-                $note = htmlspecialchars($_GET['machine']);
+                $machine = htmlspecialchars($_GET['machine']);
                 $statement = mysqli_stmt_init($conn);
                 mysqli_stmt_prepare($statement, $sql);
-                mysqli_stmt_bind_param($statement, 's', $note); 
+                mysqli_stmt_bind_param($statement, 's', $machine); 
                 if (mysqli_stmt_execute($statement)){
                     $result = mysqli_stmt_get_result($statement);
                     if (mysqli_num_rows($result) >= 1){
@@ -171,10 +180,10 @@
                     <input type="text" name="machine-name" value="<?php
                     require_once "../inc/dbconn.inc.php";
                     $sql = "SELECT * FROM machine WHERE id = ?";
-                    $note = htmlspecialchars($_GET['machine']);
+                    $machine = htmlspecialchars($_GET['machine']);
                     $statement = mysqli_stmt_init($conn);
                     mysqli_stmt_prepare($statement, $sql);
-                    mysqli_stmt_bind_param($statement, 's', $note); 
+                    mysqli_stmt_bind_param($statement, 's', $machine); 
                     if (mysqli_stmt_execute($statement)){
                         $result = mysqli_stmt_get_result($statement);
                         if (mysqli_num_rows($result) >= 1){
@@ -194,10 +203,10 @@
                     <textarea id="notes-textarea" name="notes"><?php 
                             require_once "../inc/dbconn.inc.php";
                             $sql = "SELECT note FROM machine WHERE id = ?";
-                            $note = htmlspecialchars($_GET['machine']);
+                            $machine = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);
-                            mysqli_stmt_bind_param($statement, 's', $note); 
+                            mysqli_stmt_bind_param($statement, 's', $machine); 
                             if (mysqli_stmt_execute($statement)){
                                 $result = mysqli_stmt_get_result($statement);
                                 if (mysqli_num_rows($result) >= 1){
@@ -219,10 +228,10 @@
                         <?php
                             require_once "../inc/dbconn.inc.php";
                             $sql = "SELECT * FROM machine WHERE id = ?";
-                            $note = htmlspecialchars($_GET['machine']);
+                            $machine = htmlspecialchars($_GET['machine']);
                             $statement = mysqli_stmt_init($conn);
                             mysqli_stmt_prepare($statement, $sql);
-                            mysqli_stmt_bind_param($statement, 's', $note); 
+                            mysqli_stmt_bind_param($statement, 's', $machine); 
                             if (mysqli_stmt_execute($statement)){
                                 $result = mysqli_stmt_get_result($statement);
                                 if (mysqli_num_rows($result) >= 1){
@@ -269,10 +278,10 @@
                     <input type="text" id="image-input" name="image-input">
                     <img id="imagePreview" src="<?php require_once "../inc/dbconn.inc.php";
                     $sql = "SELECT img_address FROM machine WHERE id = ?";
-                    $note = htmlspecialchars($_GET['machine']);
+                    $machine = htmlspecialchars($_GET['machine']);
                     $statement = mysqli_stmt_init($conn);
                     mysqli_stmt_prepare($statement, $sql);
-                    mysqli_stmt_bind_param($statement, 's', $note); 
+                    mysqli_stmt_bind_param($statement, 's', $machine); 
                     if (mysqli_stmt_execute($statement)){
                         $result = mysqli_stmt_get_result($statement);
                         if (mysqli_num_rows($result) >= 1){
@@ -303,9 +312,9 @@
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT * FROM machine where id = ?";
                         $statement = mysqli_stmt_init($conn);
-                        $note = htmlspecialchars($_GET['machine']);
+                        $machine = htmlspecialchars($_GET['machine']);
                         mysqli_stmt_prepare($statement, $sql); 
-                        mysqli_stmt_bind_param($statement, 's', $note); 
+                        mysqli_stmt_bind_param($statement, 's', $machine); 
                         if (mysqli_stmt_execute($statement)){
                             $result = mysqli_stmt_get_result($statement);
                             if (mysqli_num_rows($result) >= 1){
@@ -380,9 +389,9 @@
                                 require_once "../inc/dbconn.inc.php";
                                 $sql = "SELECT * FROM task where machine_id = ?";
                                 $statement = mysqli_stmt_init($conn);
-                                $note = htmlspecialchars($_GET['machine']);
+                                $machine = htmlspecialchars($_GET['machine']);
                                 mysqli_stmt_prepare($statement, $sql); 
-                                mysqli_stmt_bind_param($statement, 's', $note); 
+                                mysqli_stmt_bind_param($statement, 's', $machine); 
                                 if (mysqli_stmt_execute($statement)){
                                     $result = mysqli_stmt_get_result($statement);
                                     if (mysqli_num_rows($result) >= 1){
@@ -407,16 +416,16 @@
                         require_once "../inc/dbconn.inc.php";
                         $sql = "SELECT t.*, a.name AS user_name FROM task t JOIN account a ON t.operator_id = a.id WHERE machine_id = ? ORDER BY id DESC;";
                         $statement = mysqli_stmt_init($conn);
-                        $note = htmlspecialchars($_GET['machine']);
+                        $machine = htmlspecialchars($_GET['machine']);
                         mysqli_stmt_prepare($statement, $sql);
-                        mysqli_stmt_bind_param($statement, 's', $note);  
+                        mysqli_stmt_bind_param($statement, 's', $machine);  
                         if (mysqli_stmt_execute($statement)){
                             $result = mysqli_stmt_get_result($statement);
                             if (mysqli_num_rows($result) >= 1){
                                 while ($row = mysqli_fetch_assoc($result)){
                                     echo("
                                         <details>
-                                            <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$note&deletion=$row[id]&search-box='>&times;</a></summary>
+                                            <summary>Assgined Operator: $row[user_name] <a href='delete-task.php?machine=$machine&deletion=$row[id]&search-box='>&times;</a></summary>
                                             $row[job_desc]
                                         </details>
                                     ");
@@ -425,16 +434,10 @@
                             }
                         }?>
                     </div>
-
-                    
-
                 </div>
             </div>
         </div>
     </div>
-
-    <!--PHP code for machine list-->
-
 </body>
 
 </html> 

@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute sql statement, retrieve user from database, check password
         if (mysqli_stmt_execute($statement)) {
             $account = mysqli_fetch_assoc(mysqli_stmt_get_result($statement));
-            if ($account && $password == $account["password"]) {
+            if ($account && password_verify($password, $account["password"])) {
                 $_SESSION["loggedin"] = true;
                 $_SESSION["userid"] = $account["id"];
                 $_SESSION["username"] = $account["name"];
@@ -47,12 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 $session_id = session_id();
                 $user_id = $account['id'];
-                $role_id = $account['role_id'];
                 $timestamp = date("Y-m-d H:i:s");
 
-                $sql_insert_session = "INSERT INTO access_log (user_id, role, timestamp) VALUES (?, ?, ?)";
+                $sql_insert_session = "INSERT INTO access_log VALUES (DEFAULT, ?, ?)";
                 $stmt_insert = $conn->prepare($sql_insert_session);
-                $stmt_insert->bind_param('iis', $user_id, $role_id, $timestamp);
+                $stmt_insert->bind_param('is', $user_id, $timestamp);
                 $stmt_insert->execute();
                 $stmt_insert->close();
 
