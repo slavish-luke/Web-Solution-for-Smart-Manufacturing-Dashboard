@@ -18,6 +18,34 @@ document.getElementById('search').addEventListener('input', function (e) {
     document.querySelectorAll('#dateList li').forEach(item => {
         item.style.display = item.textContent.toLowerCase().includes(filter) ? '' : 'none';
     });
+
+    /*
+    const filter = e.target.value.toLowerCase();
+    document.querySelectorAll('#dateList li').forEach(item => {
+        item.style.display = item.textCntent.toLowerCase().includes(filter) ? '' : 'none';
+    });
+
+    Chat GPT -4
+    Prompt
+    why isn't the search function written below working?
+        const filter = e.target.value.toLowerCase();
+    document.querySelectorAll('#dateList li').forEach(item => {
+        item.style.display = item.textCntent.toLowerCase().includes(filter) ? '' : 'none';
+    });
+
+    Response 
+    The issue in your search function is due to a typo in the property name textCntent. It should be textContent. This typo prevents the function from accessing the text inside the list items correctly.
+
+    Here’s the corrected code:
+
+    const filter = e.target.value.toLowerCase();
+    document.querySelectorAll('#dateList li').forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(filter) ? '' : 'none';
+    });
+
+    Interpretation
+    "context is missing a o"
+    */
 });
 
 function loadDates(dateType) {

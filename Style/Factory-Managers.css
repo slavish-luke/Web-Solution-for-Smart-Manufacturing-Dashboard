@@ -546,7 +546,7 @@ svg {
 #job-list {
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 18vh;
+    max-height: 16vh;
 }
 
 #job-list details{

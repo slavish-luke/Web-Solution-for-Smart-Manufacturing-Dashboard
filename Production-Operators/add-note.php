@@ -17,15 +17,15 @@
     $sqlMachine = "INSERT INTO note (machine_id, user_id_to, user_id_from, subject, content) VALUES (?, ?, ?, ?, ?)";
 
     if(empty($note) && empty($users)){
-        header("location: note.php?error=blank_form");
+        header("location: notes.php?error=blank_form");
         exit();
     
     }else if(empty($note)){
-        header("location: note.php?error=empty_note");
+        header("location: notes.php?error=empty_note");
         exit();
     
     }else if(empty($users)){
-        header("location: note.php?error=no_users");
+        header("location: notes.php?error=no_users");
         exit();
     }
 
