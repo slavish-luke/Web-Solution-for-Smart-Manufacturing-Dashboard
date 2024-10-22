@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrole"] != 3){
+if(!isset($_SESSION["loggedin"]) || !$_SESSION["loggedin"] || $_SESSION["userrole"] != 2){
     header("location: ../index.php");
     exit;
 }
